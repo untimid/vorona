@@ -2,10 +2,11 @@
 
 import React, { useCallback, useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import { Button } from '@nextui-org/button'
+import { Link as KitLink } from '@nextui-org/link'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { Button } from '../../../_components/Button'
 import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
@@ -68,17 +69,13 @@ const LoginForm: React.FC = () => {
         register={register}
         error={errors.password}
       />
-      <Button
-        type="submit"
-        appearance="primary"
-        label={isLoading ? 'Processing' : 'Login'}
-        disabled={isLoading}
-        className={classes.submit}
-      />
+      <Button type="submit" color="primary" disabled={isLoading} className={classes.submit}>
+        {isLoading ? 'Processing' : 'Login'}
+      </Button>
       <div>
-        <Link href={`/create-account${allParams}`}>Create an account</Link>
+        <KitLink href={`/create-account${allParams}`}>Create an account</KitLink>
         <br />
-        <Link href={`/recover-password${allParams}`}>Recover your password</Link>
+        <KitLink href={`/recover-password${allParams}`}>Recover your password</KitLink>
       </div>
     </form>
   )
