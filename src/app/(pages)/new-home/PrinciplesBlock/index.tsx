@@ -1,9 +1,15 @@
 'use client'
 import React, { useState } from 'react'
-import { BanknotesIcon, ClockIcon } from '@heroicons/react/24/outline'
+import {
+  BanknotesIcon,
+  ClockIcon,
+  RocketLaunchIcon,
+  WrenchScrewdriverIcon,
+} from '@heroicons/react/24/outline'
 import { Accordion, AccordionItem, Selection } from '@nextui-org/react'
 
 import { BlockWrapper } from '../components'
+import { Collaboration } from './Collaboration'
 import { Pricing } from './Pricing'
 import { Process } from './Process'
 
@@ -55,6 +61,25 @@ const PROCESS_STEPS = [
   },
 ]
 
+const COLLABORATION_PRINCIPLES = [
+  {
+    icon: RocketLaunchIcon,
+    title: 'Large projects',
+    description:
+      "We operate under SCRUM:  determine how many tasks can be completed each month, and you pay for the time spent on them. You have the flexibility to decide how much of the team's time you need, based on the tasks, budget, and deadlines",
+    services: ['mvp', 'startup', 'product', 'web-service', 'automation'],
+    color: 'bg-cyan-300',
+  },
+  {
+    icon: WrenchScrewdriverIcon,
+    title: 'Short projects',
+    description:
+      'These projects can be estimated upfront. In this case, SCRUM is optional, and the development time is fixed',
+    services: ['website', 'branding', 'chatbot', 'landing page'],
+    color: 'bg-amber-300',
+  },
+]
+
 export const PrinciplesBlock = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['1']))
 
@@ -94,7 +119,7 @@ export const PrinciplesBlock = () => {
           aria-label="Collaboration"
           title={<h3 className="uppercase font-bold">Collaboration</h3>}
         >
-          {defaultContent}
+          <Collaboration collaborationPrinciples={COLLABORATION_PRINCIPLES} />
         </AccordionItem>
       </Accordion>
     </BlockWrapper>
