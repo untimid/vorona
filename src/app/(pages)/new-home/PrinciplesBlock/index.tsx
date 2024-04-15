@@ -5,6 +5,7 @@ import { Accordion, AccordionItem, Selection } from '@nextui-org/react'
 
 import { BlockWrapper } from '../components'
 import { Pricing } from './Pricing'
+import { Process } from './Process'
 
 const PRICING_PRINCIPLES = [
   {
@@ -21,12 +22,45 @@ const PRICING_PRINCIPLES = [
   },
 ]
 
+const PROCESS_STEPS = [
+  {
+    percentage: '10',
+    title: 'Discuss',
+    description: 'the project and create a contract',
+  },
+  {
+    percentage: '20',
+    title: 'Choose',
+    description: 'the technology stack and methodologies',
+  },
+  {
+    percentage: '30',
+    title: 'Plan',
+    description: 'the project and commence development',
+  },
+  {
+    percentage: '60',
+    title: 'Present',
+    description: 'a results and gather feedback',
+  },
+  {
+    percentage: '80',
+    title: 'Provide',
+    description: 'docs and train your team on product usage',
+  },
+  {
+    percentage: '100',
+    title: 'Support & expand',
+    description: 'the product if you are ready to continue',
+  },
+]
+
 export const PrinciplesBlock = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['1']))
 
   const defaultContent =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-
+  //TODO: open accordion items while sroll automatically
   return (
     <BlockWrapper>
       <h2 className="text-5xl font-extrabold mb-4 ">
@@ -53,7 +87,7 @@ export const PrinciplesBlock = () => {
           aria-label="Process"
           title={<h3 className="uppercase font-bold">Process</h3>}
         >
-          {defaultContent}
+          <Process steps={PROCESS_STEPS} />
         </AccordionItem>
         <AccordionItem
           key="3"
