@@ -12,7 +12,9 @@ import elements from './elements'
 import leaves from './leaves'
 
 type RichText = (
-  overrides?: Partial<RichTextField> & { admin?: AdapterArguments['admin'] },
+  overrides?: Partial<RichTextField> & {
+    admin?: AdapterArguments['admin']
+  },
   additions?: {
     elements?: RichTextElement[]
     leaves?: RichTextLeaf[]
