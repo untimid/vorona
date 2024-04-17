@@ -5,6 +5,7 @@ import { HeroBlock } from './HeroBlock'
 import { PrinciplesBlock } from './PrinciplesBlock'
 import { PromoBlock } from './PromoBlock'
 import { ServicesBlock } from './ServicesBlock'
+import { TeamBlock } from './TeamBlock'
 import { WhoBlock } from './WhoBlock'
 
 const PROMO_SLIDE = {
@@ -33,6 +34,7 @@ export default async function NewHome() {
         image={PROMO_SLIDE.image}
         imageAlt={PROMO_SLIDE.imageAlt}
       />
+      <TeamBlock />
     </div>
   )
 }

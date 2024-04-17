@@ -879,6 +879,10 @@ video {
   margin-top: 2rem !important;
 }
 
+.mb-8 {
+  margin-bottom: 2rem !important;
+}
+
 .box-border {
   box-sizing: border-box !important;
 }
@@ -1723,6 +1727,26 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse)) !important;
 }
 
+.divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0 !important;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse))) !important;
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse)) !important;
+}
+
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0 !important;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse))) !important;
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse)) !important;
+}
+
+.divide-solid > :not([hidden]) ~ :not([hidden]) {
+  border-style: solid !important;
+}
+
+.divide-current > :not([hidden]) ~ :not([hidden]) {
+  border-color: currentColor !important;
+}
+
 .self-center {
   align-self: center !important;
 }
@@ -2356,6 +2380,12 @@ video {
 .from-purple-100 {
   --tw-gradient-from: #f3e8ff var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgb(243 232 255 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.from-red-700 {
+  --tw-gradient-from: #b91c1c var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(185 28 28 / 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
 
