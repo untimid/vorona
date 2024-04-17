@@ -169,7 +169,10 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post1Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post1, categories: [technologyCategory.id] })
+      JSON.stringify({
+        ...post1,
+        categories: [technologyCategory.id],
+      })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
     ),
@@ -247,30 +250,30 @@ export const seed = async (payload: Payload): Promise<void> => {
   const project1Doc = await payload.create({
     collection: 'projects',
     data: JSON.parse(
-      JSON.stringify({ ...project1, categories: [designCat.id] }).replace(
-        /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
+      JSON.stringify({
+        ...project1,
+        categories: [designCat.id],
+      }).replace(/"\{\{IMAGE\}\}"/g, image2ID),
     ),
   })
 
   const project2Doc = await payload.create({
     collection: 'projects',
     data: JSON.parse(
-      JSON.stringify({ ...project2, categories: [softwareCat.id] }).replace(
-        /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
+      JSON.stringify({
+        ...project2,
+        categories: [softwareCat.id],
+      }).replace(/"\{\{IMAGE\}\}"/g, image2ID),
     ),
   })
 
   const project3Doc = await payload.create({
     collection: 'projects',
     data: JSON.parse(
-      JSON.stringify({ ...project3, categories: [engineeringCat.id] }).replace(
-        /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
+      JSON.stringify({
+        ...project3,
+        categories: [engineeringCat.id],
+      }).replace(/"\{\{IMAGE\}\}"/g, image2ID),
     ),
   })
 

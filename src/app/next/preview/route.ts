@@ -22,7 +22,9 @@ export async function GET(
   }
 
   if (!token) {
-    new Response('You are not allowed to preview this page', { status: 403 })
+    new Response('You are not allowed to preview this page', {
+      status: 403,
+    })
   }
 
   // validate the Payload token
@@ -36,7 +38,9 @@ export async function GET(
 
   if (!userReq.ok || !userRes?.user) {
     draftMode().disable()
-    return new Response('You are not allowed to preview this page', { status: 403 })
+    return new Response('You are not allowed to preview this page', {
+      status: 403,
+    })
   }
 
   if (secret !== process.env.NEXT_PRIVATE_DRAFT_SECRET) {

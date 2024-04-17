@@ -34,11 +34,14 @@ export async function Header() {
               And so `@media (prefers-color-scheme: dark)` will not work
               Instead, we just use CSS to invert the color via `filter: invert(1)` based on `[data-theme="dark"]`
             */}
-            <img
+            {/* <img
               className={classes.logo}
               alt="Payload Logo"
               src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
-            />
+            /> */}
+            <span className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600">
+              {'VORONA :>'}
+            </span>
           </Link>
           <HeaderNav header={header} />
         </Gutter>

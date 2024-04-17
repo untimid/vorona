@@ -32,7 +32,9 @@ type AuthContext = {
 
 const Context = createContext({} as AuthContext)
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{
+  children: React.ReactNode
+}> = ({ children }) => {
   const [user, setUser] = useState<User | null>()
 
   // used to track the single event of logging in or logging out
