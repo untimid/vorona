@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { BenefitsBlock } from './BenefitsBlock'
+import { ContactsBlock } from './ContactsBlock'
 import { HeroBlock } from './HeroBlock'
 import { PricingBlock } from './PricingBlock'
 import { PrinciplesBlock } from './PrinciplesBlock'
@@ -37,6 +38,7 @@ export default async function NewHome() {
       />
       <TeamBlock />
       <PricingBlock />
+      <ContactsBlock />
     </div>
   )
 }
