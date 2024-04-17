@@ -2,6 +2,7 @@ import React from 'react'
 
 import { BenefitsBlock } from './BenefitsBlock'
 import { HeroBlock } from './HeroBlock'
+import { PricingBlock } from './PricingBlock'
 import { PrinciplesBlock } from './PrinciplesBlock'
 import { PromoBlock } from './PromoBlock'
 import { ServicesBlock } from './ServicesBlock'
@@ -35,6 +36,7 @@ export default async function NewHome() {
         imageAlt={PROMO_SLIDE.imageAlt}
       />
       <TeamBlock />
+      <PricingBlock />
     </div>
   )
 }
