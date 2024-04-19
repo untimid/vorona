@@ -5,18 +5,26 @@ import richText from '../../fields/richText'
 export const Archive: Block = {
   slug: 'archive',
   labels: {
-    singular: 'Archive',
-    plural: 'Archives',
+    singular: {
+      en: 'Archive',
+      ru: 'Архив',
+    },
+    plural: {
+      en: 'Archives',
+      ru: 'Архивы',
+    },
   },
   fields: [
     richText({
       name: 'introContent',
       label: 'Intro Content',
+      localized: true,
     }),
     {
       name: 'populateBy',
       type: 'select',
       defaultValue: 'collection',
+      localized: true,
       options: [
         {
           label: 'Collection',
@@ -31,7 +39,11 @@ export const Archive: Block = {
     {
       type: 'select',
       name: 'relationTo',
-      label: 'Collections To Show',
+      label: {
+        en: 'Collections To Show',
+        ru: 'Какую коллекцию показывать',
+      },
+      localized: true,
       defaultValue: 'posts',
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
@@ -50,6 +62,7 @@ export const Archive: Block = {
     {
       type: 'relationship',
       name: 'categories',
+      localized: true,
       label: 'Categories To Show',
       relationTo: 'categories',
       hasMany: true,
@@ -61,6 +74,7 @@ export const Archive: Block = {
       type: 'number',
       name: 'limit',
       label: 'Limit',
+      localized: true,
       defaultValue: 10,
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
@@ -71,6 +85,7 @@ export const Archive: Block = {
       type: 'relationship',
       name: 'selectedDocs',
       label: 'Selection',
+      localized: true,
       relationTo: ['posts', 'projects'],
       hasMany: true,
       admin: {
@@ -81,6 +96,7 @@ export const Archive: Block = {
       type: 'relationship',
       name: 'populatedDocs',
       label: 'Populated Docs',
+      localized: true,
       relationTo: ['posts', 'projects'],
       hasMany: true,
       admin: {
@@ -93,6 +109,7 @@ export const Archive: Block = {
       type: 'number',
       name: 'populatedDocsTotal',
       label: 'Populated Docs Total',
+      localized: true,
       admin: {
         step: 1,
         disabled: true,

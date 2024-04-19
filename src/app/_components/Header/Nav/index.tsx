@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 
 import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
@@ -12,6 +13,8 @@ import classes from './index.module.scss'
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
   const { user } = useAuth()
+  const router = useRouter()
+  const pathname = usePathname()
 
   return (
     <nav

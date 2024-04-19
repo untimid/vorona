@@ -37,13 +37,6 @@ export default async function Page({ params: { slug = 'home' } }) {
     // console.error(error)
   }
 
-  // if no `home` page exists, render a static one using dummy content
-  // you should delete this code once you have a home page in the CMS
-  // this is really only useful for those who are demoing this template
-  if (!page && slug === 'home') {
-    page = staticHome
-  }
-
   if (!page) {
     return notFound()
   }
@@ -64,7 +57,26 @@ export default async function Page({ params: { slug = 'home' } }) {
 export async function generateStaticParams() {
   try {
     const pages = await fetchDocs<Page>('pages')
-    return pages?.map(({ slug }) => slug)
+    const paths = pages?.map(({ slug }) => {
+      //TODO: rewrite with locales mapping, setup locale in some single place
+      if (slug === 'index') {
+        return [
+          { params: { slug: false, locale: 'en' } },
+          { params: { slug: false, locale: 'ru' } },
+        ]
+      }
+
+      const slugParts = slug.split('/')
+      return [
+        { params: { slug: slugParts, locale: 'en' } },
+        { params: { slug: slugParts, locale: 'ru' } },
+      ]
+    })
+
+    return {
+      paths,
+      fallback: false,
+    }
   } catch (error) {
     return []
   }
@@ -86,10 +98,6 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
     // this is so that we can render static fallback pages for the demo
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
     // in production you may want to redirect to a 404  page or at least log the error somewhere
-  }
-
-  if (!page) {
-    if (slug === 'home') page = staticHome
   }
 
   return generateMeta({ doc: page })

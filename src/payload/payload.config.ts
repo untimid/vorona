@@ -66,8 +66,23 @@ export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   collections: [Pages, Posts, Projects, Media, Categories, Users, Comments],
   localization: {
-    locales: ['en', 'ru'],
-    defaultLocale: 'en',
+    locales: [
+      {
+        label: {
+          en: 'English',
+          ru: 'Английский',
+        },
+        code: 'en',
+      },
+      {
+        label: {
+          en: 'Russian',
+          ru: 'Русский',
+        },
+        code: 'ru',
+      },
+    ],
+    defaultLocale: 'ru',
     fallback: true,
   },
 
