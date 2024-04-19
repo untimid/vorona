@@ -21,11 +21,13 @@ export const FormBlock: Block = {
     {
       name: 'enableIntro',
       label: 'Enable Intro Content',
+      localized: true,
       type: 'checkbox',
     },
     richText({
       name: 'introContent',
       label: 'Intro Content',
+      localized: true,
       admin: {
         condition: (_, { enableIntro }) => Boolean(enableIntro),
       },
