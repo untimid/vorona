@@ -36,6 +36,13 @@ export const MEDIA_BLOCK = `
 }
 `
 
+export const VORONA_HOME = `
+...on VoronaHome {
+  blockType
+  invertBackground
+}
+`
+
 export const ARCHIVE_BLOCK = `
 ...on Archive {
   blockType

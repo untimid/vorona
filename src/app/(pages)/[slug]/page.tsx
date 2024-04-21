@@ -58,7 +58,7 @@ export async function generateStaticParams() {
     const pages = await fetchDocs<Page>('pages')
     const paths = pages?.map(({ slug }) => {
       //TODO: rewrite with locales mapping, setup locale in some single place
-      if (slug === 'index') {
+      if (slug === 'home') {
         return [
           { params: { slug: false, locale: 'en' } },
           { params: { slug: false, locale: 'ru' } },
