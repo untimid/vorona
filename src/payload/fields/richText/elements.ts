@@ -13,6 +13,12 @@ const elements: RichTextElement[] = [
   'link',
   largeBody,
   label,
+  'ol',
+  'ul',
+  'textAlign',
+  'indent',
+  'relationship',
+  'upload',
 ]
 
 export default elements

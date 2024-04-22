@@ -43,6 +43,10 @@ const columnFields: Field[] = [
   richText(),
   {
     name: 'enableLink',
+    label: {
+      en: 'Enable CTA Link',
+      ru: 'Добавить CTA ссылку',
+    },
     type: 'checkbox',
   },
   link({
@@ -63,7 +67,7 @@ export const Content: Block = {
     },
     plural: {
       en: 'content layouts',
-      ru: 'контент лэйаут',
+      ru: 'контент лэйауты',
     },
   },
   fields: [
