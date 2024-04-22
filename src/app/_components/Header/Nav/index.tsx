@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
 
 import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
@@ -13,8 +12,6 @@ import classes from './index.module.scss'
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
   const { user } = useAuth()
-  const router = useRouter()
-  const pathname = usePathname()
 
   return (
     <nav
@@ -30,7 +27,8 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
       {navItems.map(({ link }, i) => {
         return <CMSLink key={i} {...link} appearance="none" />
       })}
-      {user && <Link href="/account">Account</Link>}
+      {/* Disable account link due to it is not needed now */}
+      {/* {user && <Link href="/account">Account</Link>} */}
       {/*
         // Uncomment this code if you want to add a login link to the header
         {!user && (

@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import { Project } from '../../../../payload/payload-types'
+import type { Project } from '../../../../payload/payload-types'
 import { fetchDoc } from '../../../_api/fetchDoc'
 import { fetchDocs } from '../../../_api/fetchDocs'
 import { RelatedPosts } from '../../../_blocks/RelatedPosts'
@@ -87,7 +87,11 @@ export default async function Project({ params: { slug } }) {
 export async function generateStaticParams() {
   try {
     const projects = await fetchDocs<Project>('projects')
-    return projects?.map(({ slug }) => slug)
+    const paths = projects?.map(({ slug }) => {
+      const slugParts = slug.split('/')
+      return [{ params: { slug: slugParts } }]
+    })
+    return paths
   } catch (error) {
     return []
   }
