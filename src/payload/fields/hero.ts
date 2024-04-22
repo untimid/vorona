@@ -13,24 +13,39 @@ export const hero: Field = {
     {
       type: 'select',
       name: 'type',
-      label: 'Type',
+      label: {
+        en: 'Type',
+        ru: 'Вариант',
+      },
       required: true,
       defaultValue: 'lowImpact',
       options: [
         {
-          label: 'None',
+          label: {
+            en: 'None',
+            ru: 'Оключить',
+          },
           value: 'none',
         },
         {
-          label: 'High Impact',
+          label: {
+            en: 'High Impact',
+            ru: 'Большой',
+          },
           value: 'highImpact',
         },
         {
-          label: 'Medium Impact',
+          label: {
+            en: 'Medium Impact',
+            ru: 'Средний',
+          },
           value: 'mediumImpact',
         },
         {
-          label: 'Low Impact',
+          label: {
+            en: 'Low Impact',
+            ru: 'Маленький',
+          },
           value: 'lowImpact',
         },
       ],

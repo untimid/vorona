@@ -12,11 +12,17 @@ export const MediaBlock: Block = {
       defaultValue: 'default',
       options: [
         {
-          label: 'Default',
+          label: {
+            en: 'Default',
+            ru: 'Стандарт',
+          },
           value: 'default',
         },
         {
-          label: 'Fullscreen',
+          label: {
+            en: 'Fullscreen',
+            ru: 'Полноэкраный',
+          },
           value: 'fullscreen',
         },
       ],

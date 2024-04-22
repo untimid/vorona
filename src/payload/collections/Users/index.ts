@@ -36,11 +36,17 @@ const Users: CollectionConfig = {
       defaultValue: ['user'],
       options: [
         {
-          label: 'admin',
+          label: {
+            en: 'admin',
+            ru: 'админ',
+          },
           value: 'admin',
         },
         {
-          label: 'user',
+          label: {
+            en: 'user',
+            ru: 'пользователь',
+          },
           value: 'user',
         },
       ],

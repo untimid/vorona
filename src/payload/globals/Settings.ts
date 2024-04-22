@@ -16,13 +16,19 @@ export const Settings: GlobalConfig = {
       name: 'postsPage',
       type: 'relationship',
       relationTo: 'pages',
-      label: 'Posts page',
+      label: {
+        en: 'Posts page',
+        ru: 'Страница с постами',
+      },
     },
     {
       name: 'projectsPage',
       type: 'relationship',
       relationTo: 'pages',
-      label: 'Projects page',
+      label: {
+        en: 'Projects page',
+        ru: 'Страница проектов',
+      },
     },
   ],
 }

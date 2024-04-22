@@ -63,11 +63,17 @@ export const Projects: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Hero',
+          label: {
+            en: 'Hero',
+            ru: 'Hero (титульный блок)',
+          },
           fields: [hero],
         },
         {
-          label: 'Content',
+          label: {
+            en: 'Content',
+            ru: 'Контент',
+          },
           fields: [
             {
               name: 'layout',

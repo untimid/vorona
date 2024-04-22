@@ -12,19 +12,31 @@ const columnFields: Field[] = [
     options: [
       {
         value: 'oneThird',
-        label: 'One Third',
+        label: {
+          en: 'One Third',
+          ru: 'Треть ширины',
+        },
       },
       {
         value: 'half',
-        label: 'Half',
+        label: {
+          en: 'Half',
+          ru: 'Половина ширины',
+        },
       },
       {
         value: 'twoThirds',
-        label: 'Two Thirds',
+        label: {
+          en: 'Two Thirds',
+          ru: 'Две трети ширины',
+        },
       },
       {
         value: 'full',
-        label: 'Full',
+        label: {
+          en: 'Full',
+          ru: 'Полная ширина',
+        },
       },
     ],
   },
@@ -44,11 +56,22 @@ const columnFields: Field[] = [
 
 export const Content: Block = {
   slug: 'content',
+  labels: {
+    singular: {
+      en: 'content layout',
+      ru: 'контент лэйаут',
+    },
+    plural: {
+      en: 'content layouts',
+      ru: 'контент лэйаут',
+    },
+  },
   fields: [
     invertBackground,
     {
       name: 'columns',
       type: 'array',
+      localized: true,
       fields: columnFields,
     },
   ],
