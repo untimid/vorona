@@ -613,6 +613,45 @@ export interface Project {
         blockName?: string | null;
         blockType: 'archive';
       }
+    | {
+        invertBackground?: boolean | null;
+        content: {
+          [k: string]: unknown;
+        }[];
+        name: string;
+        role: string;
+        company?: string | null;
+        photo?: string | Media | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'quote';
+      }
+    | {
+        invertBackground?: boolean | null;
+        columnsSm?: ('1' | '2') | null;
+        columnsMd?: ('1' | '2' | '3' | '4') | null;
+        columnsLg?: ('1' | '2' | '3' | '4' | '5' | '6') | null;
+        tipItems?:
+          | {
+              image?: string | Media | null;
+              title: string;
+              subtitle?: string | null;
+              chips?:
+                | {
+                    title?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              content: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'tips';
+      }
   )[];
   relatedProjects?: (string | Project)[] | null;
   slug?: string | null;

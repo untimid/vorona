@@ -7,6 +7,7 @@ import { CallToAction } from '../../blocks/CallToAction'
 import { Content } from '../../blocks/Content'
 import { MediaBlock } from '../../blocks/MediaBlock'
 import { Quote } from '../../blocks/Quote'
+import { Tips } from '../../blocks/Tips'
 import { hero } from '../../fields/hero'
 import { slugField } from '../../fields/slug'
 import { populateArchiveBlock } from '../../hooks/populateArchiveBlock'
@@ -80,7 +81,7 @@ export const Projects: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive, Quote],
+              blocks: [CallToAction, Content, MediaBlock, Archive, Quote, Tips],
             },
           ],
         },

@@ -7,8 +7,14 @@ import richText from '../../fields/richText'
 export const CallToAction: Block = {
   slug: 'cta',
   labels: {
-    singular: 'Call to Action',
-    plural: 'Calls to Action',
+    singular: {
+      en: 'Call to Action',
+      ru: 'CTA - призыв к действию',
+    },
+    plural: {
+      en: 'Calls to Action',
+      ru: 'CTA - призывы к действию',
+    },
   },
   fields: [
     invertBackground,

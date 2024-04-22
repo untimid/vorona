@@ -1299,7 +1299,389 @@ input Project_Hero_Media_where_or {
   OR: [Project_Hero_Media_where_or]
 }
 
-union Project_Layout = Cta | Content | MediaBlock | Archive
+union Project_Layout = Cta | Content | MediaBlock | Archive | Quote | Tips
+
+type Quote {
+  invertBackground: Boolean
+  content(depth: Int): JSON
+  name: String
+  role: String
+  company: String
+  photo(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Quote_Photo_where): Media
+  id: String
+  blockName: String
+  blockType: String
+}
+
+input Quote_Photo_where {
+  alt: Quote_Photo_alt_operator
+  caption: Quote_Photo_caption_operator
+  updatedAt: Quote_Photo_updatedAt_operator
+  createdAt: Quote_Photo_createdAt_operator
+  url: Quote_Photo_url_operator
+  filename: Quote_Photo_filename_operator
+  mimeType: Quote_Photo_mimeType_operator
+  filesize: Quote_Photo_filesize_operator
+  width: Quote_Photo_width_operator
+  height: Quote_Photo_height_operator
+  id: Quote_Photo_id_operator
+  AND: [Quote_Photo_where_and]
+  OR: [Quote_Photo_where_or]
+}
+
+input Quote_Photo_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Quote_Photo_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Quote_Photo_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Quote_Photo_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Quote_Photo_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Quote_Photo_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Quote_Photo_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Quote_Photo_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Quote_Photo_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Quote_Photo_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Quote_Photo_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Quote_Photo_where_and {
+  alt: Quote_Photo_alt_operator
+  caption: Quote_Photo_caption_operator
+  updatedAt: Quote_Photo_updatedAt_operator
+  createdAt: Quote_Photo_createdAt_operator
+  url: Quote_Photo_url_operator
+  filename: Quote_Photo_filename_operator
+  mimeType: Quote_Photo_mimeType_operator
+  filesize: Quote_Photo_filesize_operator
+  width: Quote_Photo_width_operator
+  height: Quote_Photo_height_operator
+  id: Quote_Photo_id_operator
+  AND: [Quote_Photo_where_and]
+  OR: [Quote_Photo_where_or]
+}
+
+input Quote_Photo_where_or {
+  alt: Quote_Photo_alt_operator
+  caption: Quote_Photo_caption_operator
+  updatedAt: Quote_Photo_updatedAt_operator
+  createdAt: Quote_Photo_createdAt_operator
+  url: Quote_Photo_url_operator
+  filename: Quote_Photo_filename_operator
+  mimeType: Quote_Photo_mimeType_operator
+  filesize: Quote_Photo_filesize_operator
+  width: Quote_Photo_width_operator
+  height: Quote_Photo_height_operator
+  id: Quote_Photo_id_operator
+  AND: [Quote_Photo_where_and]
+  OR: [Quote_Photo_where_or]
+}
+
+type Tips {
+  invertBackground: Boolean
+  columnsSm: Tips_columnsSm
+  columnsMd: Tips_columnsMd
+  columnsLg: Tips_columnsLg
+  tipItems: [Tips_TipItems!]
+  id: String
+  blockName: String
+  blockType: String
+}
+
+enum Tips_columnsSm {
+  _1
+  _2
+}
+
+enum Tips_columnsMd {
+  _1
+  _2
+  _3
+  _4
+}
+
+enum Tips_columnsLg {
+  _1
+  _2
+  _3
+  _4
+  _5
+  _6
+}
+
+type Tips_TipItems {
+  image(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Tips_TipItems_Image_where): Media
+  title: String
+  subtitle: String
+  chips: [Tips_TipItems_Chips!]
+  content(depth: Int): JSON
+  id: String
+}
+
+input Tips_TipItems_Image_where {
+  alt: Tips_TipItems_Image_alt_operator
+  caption: Tips_TipItems_Image_caption_operator
+  updatedAt: Tips_TipItems_Image_updatedAt_operator
+  createdAt: Tips_TipItems_Image_createdAt_operator
+  url: Tips_TipItems_Image_url_operator
+  filename: Tips_TipItems_Image_filename_operator
+  mimeType: Tips_TipItems_Image_mimeType_operator
+  filesize: Tips_TipItems_Image_filesize_operator
+  width: Tips_TipItems_Image_width_operator
+  height: Tips_TipItems_Image_height_operator
+  id: Tips_TipItems_Image_id_operator
+  AND: [Tips_TipItems_Image_where_and]
+  OR: [Tips_TipItems_Image_where_or]
+}
+
+input Tips_TipItems_Image_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Tips_TipItems_Image_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Tips_TipItems_Image_where_and {
+  alt: Tips_TipItems_Image_alt_operator
+  caption: Tips_TipItems_Image_caption_operator
+  updatedAt: Tips_TipItems_Image_updatedAt_operator
+  createdAt: Tips_TipItems_Image_createdAt_operator
+  url: Tips_TipItems_Image_url_operator
+  filename: Tips_TipItems_Image_filename_operator
+  mimeType: Tips_TipItems_Image_mimeType_operator
+  filesize: Tips_TipItems_Image_filesize_operator
+  width: Tips_TipItems_Image_width_operator
+  height: Tips_TipItems_Image_height_operator
+  id: Tips_TipItems_Image_id_operator
+  AND: [Tips_TipItems_Image_where_and]
+  OR: [Tips_TipItems_Image_where_or]
+}
+
+input Tips_TipItems_Image_where_or {
+  alt: Tips_TipItems_Image_alt_operator
+  caption: Tips_TipItems_Image_caption_operator
+  updatedAt: Tips_TipItems_Image_updatedAt_operator
+  createdAt: Tips_TipItems_Image_createdAt_operator
+  url: Tips_TipItems_Image_url_operator
+  filename: Tips_TipItems_Image_filename_operator
+  mimeType: Tips_TipItems_Image_mimeType_operator
+  filesize: Tips_TipItems_Image_filesize_operator
+  width: Tips_TipItems_Image_width_operator
+  height: Tips_TipItems_Image_height_operator
+  id: Tips_TipItems_Image_id_operator
+  AND: [Tips_TipItems_Image_where_and]
+  OR: [Tips_TipItems_Image_where_or]
+}
+
+type Tips_TipItems_Chips {
+  title: String
+  id: String
+}
 
 type Project_Meta {
   title: String
@@ -6768,7 +7150,7 @@ input ProjectVersion_Version_Hero_Media_where_or {
   OR: [ProjectVersion_Version_Hero_Media_where_or]
 }
 
-union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive
+union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Tips
 
 type ProjectVersion_Version_Meta {
   title: String
