@@ -89,15 +89,9 @@ export async function generateStaticParams() {
     const projects = await fetchDocs<Project>('projects')
     const paths = projects?.map(({ slug }) => {
       const slugParts = slug.split('/')
-      return [
-        { params: { slug: slugParts, locale: 'en' } },
-        { params: { slug: slugParts, locale: 'ru' } },
-      ]
+      return [{ params: { slug: slugParts } }]
     })
-    return {
-      paths,
-      fallback: false,
-    }
+    return paths
   } catch (error) {
     return []
   }

@@ -56,26 +56,21 @@ export default async function Page({ params: { slug = 'home' } }) {
 export async function generateStaticParams() {
   try {
     const pages = await fetchDocs<Page>('pages')
-    const paths = pages?.map(({ slug }) => {
+    const paths = pages.map(({ slug }) => {
       //TODO: rewrite with locales mapping, setup locale in some single place
       if (slug === 'home') {
-        return [
-          { params: { slug: false, locale: 'en' } },
-          { params: { slug: false, locale: 'ru' } },
-        ]
+        return [{ params: { slug: false } }]
       }
 
       const slugParts = slug.split('/')
-      return [
-        { params: { slug: slugParts, locale: 'en' } },
-        { params: { slug: slugParts, locale: 'ru' } },
-      ]
+      return {
+        params: {
+          slug: slugParts,
+        },
+      }
     })
 
-    return {
-      paths,
-      fallback: false,
-    }
+    return paths
   } catch (error) {
     return []
   }
