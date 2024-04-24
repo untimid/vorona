@@ -1,6 +1,6 @@
 import { CATEGORIES } from './categories'
 import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import { MEDIA, MEDIA_FIELDS } from './media'
 import { META } from './meta'
 
 export const CALL_TO_ACTION = `
@@ -88,5 +88,35 @@ export const ARCHIVE_BLOCK = `
     }
   }
   populatedDocsTotal
+}
+`
+
+export const CARDS = `
+...on Cards {
+  blockType
+  invertBackground
+  header
+  description
+  columnsLg 
+  columnsMd
+  columnsSm
+  radius
+  shadow
+  imageHeight
+  cardItems {
+    id
+    icon
+    image {
+      ${MEDIA_FIELDS}
+    }
+    title
+    subtitle
+    chips {
+      title
+      bgColorSelect
+      id
+    }
+    content
+  }
 }
 `

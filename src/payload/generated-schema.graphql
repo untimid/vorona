@@ -1299,7 +1299,7 @@ input Project_Hero_Media_where_or {
   OR: [Project_Hero_Media_where_or]
 }
 
-union Project_Layout = Cta | Content | MediaBlock | Archive | Quote | Tips
+union Project_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
 
 type Quote {
   invertBackground: Boolean
@@ -1475,64 +1475,89 @@ input Quote_Photo_where_or {
   OR: [Quote_Photo_where_or]
 }
 
-type Tips {
+type Cards {
   invertBackground: Boolean
-  columnsSm: Tips_columnsSm
-  columnsMd: Tips_columnsMd
-  columnsLg: Tips_columnsLg
-  tipItems: [Tips_TipItems!]
+  header: String
+  description(depth: Int): JSON
+  columnsSm: Cards_columnsSm
+  columnsMd: Cards_columnsMd
+  columnsLg: Cards_columnsLg
+  radius: Cards_radius
+  shadow: Cards_shadow
+  imageHeight: Cards_imageHeight
+  cardItems: [Cards_CardItems!]!
   id: String
   blockName: String
   blockType: String
 }
 
-enum Tips_columnsSm {
-  _1
-  _2
+enum Cards_columnsSm {
+  one
+  two
 }
 
-enum Tips_columnsMd {
-  _1
-  _2
-  _3
-  _4
+enum Cards_columnsMd {
+  one
+  two
+  three
+  four
 }
 
-enum Tips_columnsLg {
-  _1
-  _2
-  _3
-  _4
-  _5
-  _6
+enum Cards_columnsLg {
+  one
+  two
+  three
+  four
+  six
 }
 
-type Tips_TipItems {
-  image(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Tips_TipItems_Image_where): Media
-  title: String
+enum Cards_radius {
+  none
+  sm
+  md
+  lg
+}
+
+enum Cards_shadow {
+  none
+  sm
+  md
+  lg
+}
+
+enum Cards_imageHeight {
+  h_40
+  h_60
+  h_80
+}
+
+type Cards_CardItems {
+  image(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Cards_CardItems_Image_where): Media
+  icon: Cards_CardItems_icon
+  title: String!
   subtitle: String
-  chips: [Tips_TipItems_Chips!]
+  chips: [Cards_CardItems_Chips!]
   content(depth: Int): JSON
   id: String
 }
 
-input Tips_TipItems_Image_where {
-  alt: Tips_TipItems_Image_alt_operator
-  caption: Tips_TipItems_Image_caption_operator
-  updatedAt: Tips_TipItems_Image_updatedAt_operator
-  createdAt: Tips_TipItems_Image_createdAt_operator
-  url: Tips_TipItems_Image_url_operator
-  filename: Tips_TipItems_Image_filename_operator
-  mimeType: Tips_TipItems_Image_mimeType_operator
-  filesize: Tips_TipItems_Image_filesize_operator
-  width: Tips_TipItems_Image_width_operator
-  height: Tips_TipItems_Image_height_operator
-  id: Tips_TipItems_Image_id_operator
-  AND: [Tips_TipItems_Image_where_and]
-  OR: [Tips_TipItems_Image_where_or]
+input Cards_CardItems_Image_where {
+  alt: Cards_CardItems_Image_alt_operator
+  caption: Cards_CardItems_Image_caption_operator
+  updatedAt: Cards_CardItems_Image_updatedAt_operator
+  createdAt: Cards_CardItems_Image_createdAt_operator
+  url: Cards_CardItems_Image_url_operator
+  filename: Cards_CardItems_Image_filename_operator
+  mimeType: Cards_CardItems_Image_mimeType_operator
+  filesize: Cards_CardItems_Image_filesize_operator
+  width: Cards_CardItems_Image_width_operator
+  height: Cards_CardItems_Image_height_operator
+  id: Cards_CardItems_Image_id_operator
+  AND: [Cards_CardItems_Image_where_and]
+  OR: [Cards_CardItems_Image_where_or]
 }
 
-input Tips_TipItems_Image_alt_operator {
+input Cards_CardItems_Image_alt_operator {
   equals: String
   not_equals: String
   like: String
@@ -1542,7 +1567,7 @@ input Tips_TipItems_Image_alt_operator {
   all: [String]
 }
 
-input Tips_TipItems_Image_caption_operator {
+input Cards_CardItems_Image_caption_operator {
   equals: JSON
   not_equals: JSON
   like: JSON
@@ -1550,7 +1575,7 @@ input Tips_TipItems_Image_caption_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_updatedAt_operator {
+input Cards_CardItems_Image_updatedAt_operator {
   equals: DateTime
   not_equals: DateTime
   greater_than_equal: DateTime
@@ -1561,7 +1586,7 @@ input Tips_TipItems_Image_updatedAt_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_createdAt_operator {
+input Cards_CardItems_Image_createdAt_operator {
   equals: DateTime
   not_equals: DateTime
   greater_than_equal: DateTime
@@ -1572,7 +1597,7 @@ input Tips_TipItems_Image_createdAt_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_url_operator {
+input Cards_CardItems_Image_url_operator {
   equals: String
   not_equals: String
   like: String
@@ -1583,7 +1608,7 @@ input Tips_TipItems_Image_url_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_filename_operator {
+input Cards_CardItems_Image_filename_operator {
   equals: String
   not_equals: String
   like: String
@@ -1594,7 +1619,7 @@ input Tips_TipItems_Image_filename_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_mimeType_operator {
+input Cards_CardItems_Image_mimeType_operator {
   equals: String
   not_equals: String
   like: String
@@ -1605,7 +1630,7 @@ input Tips_TipItems_Image_mimeType_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_filesize_operator {
+input Cards_CardItems_Image_filesize_operator {
   equals: Float
   not_equals: Float
   greater_than_equal: Float
@@ -1615,7 +1640,7 @@ input Tips_TipItems_Image_filesize_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_width_operator {
+input Cards_CardItems_Image_width_operator {
   equals: Float
   not_equals: Float
   greater_than_equal: Float
@@ -1625,7 +1650,7 @@ input Tips_TipItems_Image_width_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_height_operator {
+input Cards_CardItems_Image_height_operator {
   equals: Float
   not_equals: Float
   greater_than_equal: Float
@@ -1635,7 +1660,7 @@ input Tips_TipItems_Image_height_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_id_operator {
+input Cards_CardItems_Image_id_operator {
   equals: String
   not_equals: String
   like: String
@@ -1646,40 +1671,341 @@ input Tips_TipItems_Image_id_operator {
   exists: Boolean
 }
 
-input Tips_TipItems_Image_where_and {
-  alt: Tips_TipItems_Image_alt_operator
-  caption: Tips_TipItems_Image_caption_operator
-  updatedAt: Tips_TipItems_Image_updatedAt_operator
-  createdAt: Tips_TipItems_Image_createdAt_operator
-  url: Tips_TipItems_Image_url_operator
-  filename: Tips_TipItems_Image_filename_operator
-  mimeType: Tips_TipItems_Image_mimeType_operator
-  filesize: Tips_TipItems_Image_filesize_operator
-  width: Tips_TipItems_Image_width_operator
-  height: Tips_TipItems_Image_height_operator
-  id: Tips_TipItems_Image_id_operator
-  AND: [Tips_TipItems_Image_where_and]
-  OR: [Tips_TipItems_Image_where_or]
+input Cards_CardItems_Image_where_and {
+  alt: Cards_CardItems_Image_alt_operator
+  caption: Cards_CardItems_Image_caption_operator
+  updatedAt: Cards_CardItems_Image_updatedAt_operator
+  createdAt: Cards_CardItems_Image_createdAt_operator
+  url: Cards_CardItems_Image_url_operator
+  filename: Cards_CardItems_Image_filename_operator
+  mimeType: Cards_CardItems_Image_mimeType_operator
+  filesize: Cards_CardItems_Image_filesize_operator
+  width: Cards_CardItems_Image_width_operator
+  height: Cards_CardItems_Image_height_operator
+  id: Cards_CardItems_Image_id_operator
+  AND: [Cards_CardItems_Image_where_and]
+  OR: [Cards_CardItems_Image_where_or]
 }
 
-input Tips_TipItems_Image_where_or {
-  alt: Tips_TipItems_Image_alt_operator
-  caption: Tips_TipItems_Image_caption_operator
-  updatedAt: Tips_TipItems_Image_updatedAt_operator
-  createdAt: Tips_TipItems_Image_createdAt_operator
-  url: Tips_TipItems_Image_url_operator
-  filename: Tips_TipItems_Image_filename_operator
-  mimeType: Tips_TipItems_Image_mimeType_operator
-  filesize: Tips_TipItems_Image_filesize_operator
-  width: Tips_TipItems_Image_width_operator
-  height: Tips_TipItems_Image_height_operator
-  id: Tips_TipItems_Image_id_operator
-  AND: [Tips_TipItems_Image_where_and]
-  OR: [Tips_TipItems_Image_where_or]
+input Cards_CardItems_Image_where_or {
+  alt: Cards_CardItems_Image_alt_operator
+  caption: Cards_CardItems_Image_caption_operator
+  updatedAt: Cards_CardItems_Image_updatedAt_operator
+  createdAt: Cards_CardItems_Image_createdAt_operator
+  url: Cards_CardItems_Image_url_operator
+  filename: Cards_CardItems_Image_filename_operator
+  mimeType: Cards_CardItems_Image_mimeType_operator
+  filesize: Cards_CardItems_Image_filesize_operator
+  width: Cards_CardItems_Image_width_operator
+  height: Cards_CardItems_Image_height_operator
+  id: Cards_CardItems_Image_id_operator
+  AND: [Cards_CardItems_Image_where_and]
+  OR: [Cards_CardItems_Image_where_or]
 }
 
-type Tips_TipItems_Chips {
+enum Cards_CardItems_icon {
+  AcademicCapIcon
+  AdjustmentsHorizontalIcon
+  AdjustmentsVerticalIcon
+  ArchiveBoxArrowDownIcon
+  ArchiveBoxXMarkIcon
+  ArchiveBoxIcon
+  ArrowDownCircleIcon
+  ArrowDownLeftIcon
+  ArrowDownOnSquareStackIcon
+  ArrowDownOnSquareIcon
+  ArrowDownRightIcon
+  ArrowDownTrayIcon
+  ArrowDownIcon
+  ArrowLeftCircleIcon
+  ArrowLeftEndOnRectangleIcon
+  ArrowLeftOnRectangleIcon
+  ArrowLeftStartOnRectangleIcon
+  ArrowLeftIcon
+  ArrowLongDownIcon
+  ArrowLongLeftIcon
+  ArrowLongRightIcon
+  ArrowLongUpIcon
+  ArrowPathRoundedSquareIcon
+  ArrowPathIcon
+  ArrowRightCircleIcon
+  ArrowRightEndOnRectangleIcon
+  ArrowRightOnRectangleIcon
+  ArrowRightStartOnRectangleIcon
+  ArrowRightIcon
+  ArrowSmallDownIcon
+  ArrowSmallLeftIcon
+  ArrowSmallRightIcon
+  ArrowSmallUpIcon
+  ArrowTopRightOnSquareIcon
+  ArrowTrendingDownIcon
+  ArrowTrendingUpIcon
+  ArrowUpCircleIcon
+  ArrowUpLeftIcon
+  ArrowUpOnSquareStackIcon
+  ArrowUpOnSquareIcon
+  ArrowUpRightIcon
+  ArrowUpTrayIcon
+  ArrowUpIcon
+  ArrowUturnDownIcon
+  ArrowUturnLeftIcon
+  ArrowUturnRightIcon
+  ArrowUturnUpIcon
+  ArrowsPointingInIcon
+  ArrowsPointingOutIcon
+  ArrowsRightLeftIcon
+  ArrowsUpDownIcon
+  AtSymbolIcon
+  BackspaceIcon
+  BackwardIcon
+  BanknotesIcon
+  Bars2Icon
+  Bars3BottomLeftIcon
+  Bars3BottomRightIcon
+  Bars3CenterLeftIcon
+  Bars3Icon
+  Bars4Icon
+  BarsArrowDownIcon
+  BarsArrowUpIcon
+  Battery0Icon
+  Battery100Icon
+  Battery50Icon
+  BeakerIcon
+  BellAlertIcon
+  BellSlashIcon
+  BellSnoozeIcon
+  BellIcon
+  BoltSlashIcon
+  BoltIcon
+  BookOpenIcon
+  BookmarkSlashIcon
+  BookmarkSquareIcon
+  BookmarkIcon
+  BriefcaseIcon
+  BugAntIcon
+  BuildingLibraryIcon
+  BuildingOffice2Icon
+  BuildingOfficeIcon
+  BuildingStorefrontIcon
+  CakeIcon
+  CalculatorIcon
+  CalendarDaysIcon
+  CalendarIcon
+  CameraIcon
+  ChartBarSquareIcon
+  ChartBarIcon
+  ChartPieIcon
+  ChatBubbleBottomCenterTextIcon
+  ChatBubbleBottomCenterIcon
+  ChatBubbleLeftEllipsisIcon
+  ChatBubbleLeftRightIcon
+  ChatBubbleLeftIcon
+  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftIcon
+  CheckBadgeIcon
+  CheckCircleIcon
+  CheckIcon
+  ChevronDoubleDownIcon
+  ChevronDoubleLeftIcon
+  ChevronDoubleRightIcon
+  ChevronDoubleUpIcon
+  ChevronDownIcon
+  ChevronLeftIcon
+  ChevronRightIcon
+  ChevronUpDownIcon
+  ChevronUpIcon
+  CircleStackIcon
+  ClipboardDocumentCheckIcon
+  ClipboardDocumentListIcon
+  ClipboardDocumentIcon
+  ClipboardIcon
+  ClockIcon
+  CloudArrowDownIcon
+  CloudArrowUpIcon
+  CloudIcon
+  CodeBracketSquareIcon
+  CodeBracketIcon
+  Cog6ToothIcon
+  Cog8ToothIcon
+  CogIcon
+  CommandLineIcon
+  ComputerDesktopIcon
+  CpuChipIcon
+  CreditCardIcon
+  CubeTransparentIcon
+  CubeIcon
+  CurrencyBangladeshiIcon
+  CurrencyDollarIcon
+  CurrencyEuroIcon
+  CurrencyPoundIcon
+  CurrencyRupeeIcon
+  CurrencyYenIcon
+  CursorArrowRaysIcon
+  CursorArrowRippleIcon
+  DevicePhoneMobileIcon
+  DeviceTabletIcon
+  DocumentArrowDownIcon
+  DocumentArrowUpIcon
+  DocumentChartBarIcon
+  DocumentCheckIcon
+  DocumentDuplicateIcon
+  DocumentMagnifyingGlassIcon
+  DocumentMinusIcon
+  DocumentPlusIcon
+  DocumentTextIcon
+  DocumentIcon
+  EllipsisHorizontalCircleIcon
+  EllipsisHorizontalIcon
+  EllipsisVerticalIcon
+  EnvelopeOpenIcon
+  EnvelopeIcon
+  ExclamationCircleIcon
+  ExclamationTriangleIcon
+  EyeDropperIcon
+  EyeSlashIcon
+  EyeIcon
+  FaceFrownIcon
+  FaceSmileIcon
+  FilmIcon
+  FingerPrintIcon
+  FireIcon
+  FlagIcon
+  FolderArrowDownIcon
+  FolderMinusIcon
+  FolderOpenIcon
+  FolderPlusIcon
+  FolderIcon
+  ForwardIcon
+  FunnelIcon
+  GifIcon
+  GiftTopIcon
+  GiftIcon
+  GlobeAltIcon
+  GlobeAmericasIcon
+  GlobeAsiaAustraliaIcon
+  GlobeEuropeAfricaIcon
+  HandRaisedIcon
+  HandThumbDownIcon
+  HandThumbUpIcon
+  HashtagIcon
+  HeartIcon
+  HomeModernIcon
+  HomeIcon
+  IdentificationIcon
+  InboxArrowDownIcon
+  InboxStackIcon
+  InboxIcon
+  InformationCircleIcon
+  KeyIcon
+  LanguageIcon
+  LifebuoyIcon
+  LightBulbIcon
+  LinkIcon
+  ListBulletIcon
+  LockClosedIcon
+  LockOpenIcon
+  MagnifyingGlassCircleIcon
+  MagnifyingGlassMinusIcon
+  MagnifyingGlassPlusIcon
+  MagnifyingGlassIcon
+  MapPinIcon
+  MapIcon
+  MegaphoneIcon
+  MicrophoneIcon
+  MinusCircleIcon
+  MinusSmallIcon
+  MinusIcon
+  MoonIcon
+  MusicalNoteIcon
+  NewspaperIcon
+  NoSymbolIcon
+  PaintBrushIcon
+  PaperAirplaneIcon
+  PaperClipIcon
+  PauseCircleIcon
+  PauseIcon
+  PencilSquareIcon
+  PencilIcon
+  PhoneArrowDownLeftIcon
+  PhoneArrowUpRightIcon
+  PhoneXMarkIcon
+  PhoneIcon
+  PhotoIcon
+  PlayCircleIcon
+  PlayPauseIcon
+  PlayIcon
+  PlusCircleIcon
+  PlusSmallIcon
+  PlusIcon
+  PowerIcon
+  PresentationChartBarIcon
+  PresentationChartLineIcon
+  PrinterIcon
+  PuzzlePieceIcon
+  QrCodeIcon
+  QuestionMarkCircleIcon
+  QueueListIcon
+  RadioIcon
+  ReceiptPercentIcon
+  ReceiptRefundIcon
+  RectangleGroupIcon
+  RectangleStackIcon
+  RocketLaunchIcon
+  RssIcon
+  ScaleIcon
+  ScissorsIcon
+  ServerStackIcon
+  ServerIcon
+  ShareIcon
+  ShieldCheckIcon
+  ShieldExclamationIcon
+  ShoppingBagIcon
+  ShoppingCartIcon
+  SignalSlashIcon
+  SignalIcon
+  SparklesIcon
+  SpeakerWaveIcon
+  SpeakerXMarkIcon
+  Square2StackIcon
+  Square3Stack3DIcon
+  Squares2X2Icon
+  SquaresPlusIcon
+  StarIcon
+  StopCircleIcon
+  StopIcon
+  SunIcon
+  SwatchIcon
+  TableCellsIcon
+  TagIcon
+  TicketIcon
+  TrashIcon
+  TrophyIcon
+  TruckIcon
+  TvIcon
+  UserCircleIcon
+  UserGroupIcon
+  UserMinusIcon
+  UserPlusIcon
+  UserIcon
+  UsersIcon
+  VariableIcon
+  VideoCameraSlashIcon
+  VideoCameraIcon
+  ViewColumnsIcon
+  ViewfinderCircleIcon
+  WalletIcon
+  WifiIcon
+  WindowIcon
+  WrenchScrewdriverIcon
+  WrenchIcon
+  XCircleIcon
+  XMarkIcon
+  default
+}
+
+type Cards_CardItems_Chips {
   title: String
+  bgColorSelect: String
   id: String
 }
 
@@ -7150,7 +7476,7 @@ input ProjectVersion_Version_Hero_Media_where_or {
   OR: [ProjectVersion_Version_Hero_Media_where_or]
 }
 
-union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Tips
+union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
 
 type ProjectVersion_Version_Meta {
   title: String
