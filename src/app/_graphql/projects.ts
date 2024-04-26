@@ -1,6 +1,6 @@
 import { ARCHIVE_BLOCK, CALL_TO_ACTION, CARDS, CONTENT, MEDIA_BLOCK } from './blocks'
 import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import { MEDIA, MEDIA_FIELDS } from './media'
 import { META } from './meta'
 
 export const PROJECTS = `
@@ -30,6 +30,12 @@ export const PROJECT = `
             link ${LINK_FIELDS()}
           }
           ${MEDIA}
+          slider {
+            slideContent
+            slideImage {
+              ${MEDIA_FIELDS}
+            }
+          }
         }
         layout {
           ${CONTENT}

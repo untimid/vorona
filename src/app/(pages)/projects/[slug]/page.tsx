@@ -6,9 +6,8 @@ import { notFound } from 'next/navigation'
 import type { Project } from '../../../../payload/payload-types'
 import { fetchDoc } from '../../../_api/fetchDoc'
 import { fetchDocs } from '../../../_api/fetchDocs'
-import { RelatedPosts } from '../../../_blocks/RelatedPosts'
 import { Blocks } from '../../../_components/Blocks'
-import { ProjectHero } from '../../../_heros/ProjectHero'
+import { Hero } from '../../../_components/Hero'
 import { generateMeta } from '../../../_utilities/generateMeta'
 
 // Force this page to be dynamic so that Next.js does not cache it
@@ -34,11 +33,11 @@ export default async function Project({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, relatedProjects } = project
+  const { title, layout, relatedProjects, hero } = project
 
   return (
     <React.Fragment>
-      <ProjectHero project={project} />
+      <Hero {...hero} title={title} />
       <Blocks
         blocks={[
           ...layout,
