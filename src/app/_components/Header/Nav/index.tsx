@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
 
+// import Link from 'next/link'
 import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
 import { CMSLink } from '../../Link'
@@ -25,7 +25,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         .join(' ')}
     >
       {navItems.map(({ link }, i) => {
-        return <CMSLink key={i} {...link} appearance="none" />
+        return <CMSLink key={i} {...link} appearance="none" className="text-gray-100 text-bold" />
       })}
       {/* Disable account link due to it is not needed now */}
       {/* {user && <Link href="/account">Account</Link>} */}

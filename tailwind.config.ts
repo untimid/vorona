@@ -16,10 +16,14 @@ export default {
     extend: {},
   },
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      defaultTheme: 'light',
+    }),
+  ],
   safelist: [
     {
-      // Need to use TW classes as options to be set in admin
+      // Need to use TW color classes as options to be set in admin
       pattern: new RegExp(
         `bg-(${DEFAULT_COLORS_WITH_GRADES.join('|')})-(${COLOR_GRADES.join('|')})`,
       ),
