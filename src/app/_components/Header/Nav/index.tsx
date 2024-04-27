@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
+import { Link } from '@nextui-org/react'
 
-// import Link from 'next/link'
 import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
-import { CMSLink } from '../../Link'
+import { getLinkProps } from '../../../_utilities/'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
@@ -22,8 +22,12 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         .filter(Boolean)
         .join(' ')}
     >
-      {navItems.map(({ link }, i) => {
-        return <CMSLink key={i} {...link} appearance="none" />
+      {navItems.map(({ link: { type, url, newTab, reference, label } }, i) => {
+        return (
+          <Link key={i} {...getLinkProps({ type, url, newTab, reference })} color="foreground">
+            {label}
+          </Link>
+        )
       })}
       {/* Disable account link due to it is not needed now */}
       {/* {user && <Link href="/account">Account</Link>} */}
