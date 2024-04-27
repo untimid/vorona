@@ -3,11 +3,8 @@ import Link from 'next/link'
 
 import type { Footer as FooterType } from '../../../payload/payload-types'
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
-import { ThemeSelector } from '../../_providers/Theme/ThemeSelector'
-import { Gutter } from '../Gutter'
-import { CMSLink } from '../Link'
-
-import classes from './index.module.scss'
+import { BlockWrapper } from '../../_blocks/VoronaHome/components'
+import { FooterNav } from './FooterNav'
 
 export async function Footer() {
   let footer: FooterType | null = null
@@ -24,21 +21,15 @@ export async function Footer() {
   const navItems = footer?.navItems || []
 
   return (
-    <footer className={classes.footer}>
-      <Gutter className={classes.wrap}>
-        <Link href="/">
-          <picture>
-            <img className={classes.logo} alt="Payload Logo" src="/favicon.ico" height="50px" />
-          </picture>
-        </Link>
-        <nav className={classes.nav}>
-          <ThemeSelector />
-          {navItems.map(({ link }, i) => {
-            return <CMSLink key={i} {...link} />
-          })}
-          <Link href="/admin">Admin</Link>
-        </nav>
-      </Gutter>
+    <footer className="w-full py-8 sm:p-0">
+      <BlockWrapper>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+          <Link href="/">
+            <span className="text-4xl">{'VORONA :>'}</span>
+          </Link>
+          <FooterNav navItems={navItems} />
+        </div>
+      </BlockWrapper>
     </footer>
   )
 }
