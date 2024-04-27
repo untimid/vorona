@@ -7,8 +7,6 @@ import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
 import { CMSLink } from '../../Link'
 
-import classes from './index.module.scss'
-
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
   const { user } = useAuth()
@@ -16,16 +14,16 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   return (
     <nav
       className={[
-        classes.nav,
+        'flex items-center flex-wrap opacity-100 transition-all duration-100 ease-linear gap-3',
         // fade the nav in on user load to avoid flash of content and layout shift
         // Vercel also does this in their own website header, see https://vercel.com
-        user === undefined && classes.hide,
+        user === undefined && 'hidden opacity-0',
       ]
         .filter(Boolean)
         .join(' ')}
     >
       {navItems.map(({ link }, i) => {
-        return <CMSLink key={i} {...link} appearance="none" className="text-gray-100 text-bold" />
+        return <CMSLink key={i} {...link} appearance="none" />
       })}
       {/* Disable account link due to it is not needed now */}
       {/* {user && <Link href="/account">Account</Link>} */}

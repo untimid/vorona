@@ -17,7 +17,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body>
+      <body className="min-h-screen bg-background  antialiased">
         <Providers>
           <AdminBar />
           {/* @ts-expect-error */}

@@ -4,10 +4,8 @@ import React, { useEffect } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { PayloadAdminBar, PayloadAdminBarProps } from 'payload-admin-bar'
 
+import { BlockWrapper } from '../../_blocks/VoronaHome/components'
 import { useAuth } from '../../_providers/Auth'
-import { Gutter } from '../Gutter'
-
-import classes from './index.module.scss'
 
 const collectionLabels = {
   pages: {
@@ -24,7 +22,7 @@ const collectionLabels = {
   },
 }
 
-const Title: React.FC = () => <span>Dashboard</span>
+const Title: React.FC = () => <span>{':> админка'}</span>
 
 export const AdminBar: React.FC<{
   adminBarProps?: PayloadAdminBarProps
@@ -47,8 +45,15 @@ export const AdminBar: React.FC<{
   if (!isAdmin) return null
 
   return (
-    <div className={[classes.adminBar, show && classes.show].filter(Boolean).join(' ')}>
-      <Gutter className={classes.blockContainer}>
+    <div
+      className={[
+        'z-50 w-full sticky top-0 bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 -mb-11',
+        !show && 'hidden absolute',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <BlockWrapper className="py-2 md:py-2 lg:py-2">
         <PayloadAdminBar
           {...adminBarProps}
           collection={collection}
@@ -58,21 +63,15 @@ export const AdminBar: React.FC<{
           }}
           key={user?.id} // use key to get the admin bar to re-run its `me` request
           cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
-          className={classes.payloadAdminBar}
+          className={'relative p-0 bg-transparent text-xl'}
           classNames={{
-            user: classes.user,
-            logo: classes.logo,
-            controls: classes.controls,
+            user: 'me-2',
+            logo: 'me-2',
+            controls: 'grid gap-3',
           }}
           logo={<Title />}
-          style={{
-            position: 'relative',
-            zIndex: 'unset',
-            padding: 0,
-            backgroundColor: 'transparent',
-          }}
         />
-      </Gutter>
+      </BlockWrapper>
     </div>
   )
 }

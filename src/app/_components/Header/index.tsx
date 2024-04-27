@@ -8,10 +8,7 @@ import Link from 'next/link'
 import type { Header } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
 import { BlockWrapper } from '../../_blocks/VoronaHome/components'
-import { Gutter } from '../Gutter'
 import { HeaderNav } from './Nav'
-
-import classes from './index.module.scss'
 
 export async function Header() {
   let header: Header | null = null
@@ -27,7 +24,7 @@ export async function Header() {
 
   return (
     <>
-      <header className="w-full bg-gray-950">
+      <header className="w-full">
         <BlockWrapper>
           <div className="flex justify-between">
             <Link href="/" className="">
