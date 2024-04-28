@@ -120,3 +120,16 @@ export const CARDS = `
   }
 }
 `
+export const QUOTE = `
+...on Quote {
+  blockType
+  invertBackground
+  content
+  name
+  role
+  company
+  photo {
+    ${MEDIA_FIELDS}
+  }
+}
+`

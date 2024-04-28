@@ -7,6 +7,7 @@ import { Cards } from '../../_blocks/Cards'
 import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments/index'
 import { ContentBlock } from '../../_blocks/Content'
 import { MediaBlock } from '../../_blocks/MediaBlock'
+import { Quote } from '../../_blocks/Quote'
 import { RelatedPosts, type RelatedPostsProps } from '../../_blocks/RelatedPosts'
 import { VoronaHome } from '../../_blocks/VoronaHome'
 import { toKebabCase } from '../../_utilities/toKebabCase'
@@ -22,6 +23,7 @@ const blockComponents = {
   comments: CommentsBlock,
   voronaHome: VoronaHome,
   cards: Cards,
+  quote: Quote,
 }
 
 export const Blocks: React.FC<{

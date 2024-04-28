@@ -1,4 +1,12 @@
-import { ARCHIVE_BLOCK, CALL_TO_ACTION, CONTENT, MEDIA_BLOCK, VORONA_HOME } from './blocks'
+import {
+  ARCHIVE_BLOCK,
+  CALL_TO_ACTION,
+  CARDS,
+  CONTENT,
+  MEDIA_BLOCK,
+  QUOTE,
+  VORONA_HOME,
+} from './blocks'
 import { LINK_FIELDS } from './link'
 import { MEDIA } from './media'
 import { META } from './meta'
@@ -34,6 +42,8 @@ export const PAGE = `
           ${MEDIA_BLOCK}
           ${ARCHIVE_BLOCK}
           ${VORONA_HOME}
+          ${QUOTE}
+          ${CARDS}
         }
         ${META}
       }

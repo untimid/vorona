@@ -144,7 +144,7 @@ export const Posts: CollectionConfig = {
               access: {
                 read: ({ req }) => req.user,
               },
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [CallToAction, Content, MediaBlock, Archive, Quote, Cards],
             },
           ],
         },
