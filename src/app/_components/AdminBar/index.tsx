@@ -53,7 +53,7 @@ export const AdminBar: React.FC<{
         .filter(Boolean)
         .join(' ')}
     >
-      <BlockWrapper className="py-2 md:py-2 lg:py-2">
+      <BlockWrapper className="py-1 md:py-1 lg:py-1">
         <PayloadAdminBar
           {...adminBarProps}
           collection={collection}
