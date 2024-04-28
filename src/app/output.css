@@ -700,6 +700,18 @@ video {
   top: var(--navbar-height) !important;
 }
 
+.end-8 {
+  inset-inline-end: 2rem !important;
+}
+
+.top-8 {
+  top: 2rem !important;
+}
+
+.end-0 {
+  inset-inline-end: 0px !important;
+}
+
 .-z-30 {
   z-index: -30 !important;
 }
@@ -885,6 +897,22 @@ video {
 
 .mt-8 {
   margin-top: 2rem !important;
+}
+
+.ms-auto {
+  margin-inline-start: auto !important;
+}
+
+.-mt-8 {
+  margin-top: -2rem !important;
+}
+
+.-mt-12 {
+  margin-top: -3rem !important;
+}
+
+.-mt-4 {
+  margin-top: -1rem !important;
 }
 
 .box-border {
@@ -1245,6 +1273,10 @@ video {
 
 .w-unit-8 {
   width: var(--nextui-spacing-unit-8) !important;
+}
+
+.w-1\/2 {
+  width: 50% !important;
 }
 
 .min-w-10 {
@@ -1837,6 +1869,10 @@ video {
 
 .whitespace-nowrap {
   white-space: nowrap !important;
+}
+
+.text-nowrap {
+  text-wrap: nowrap !important;
 }
 
 .break-words {
@@ -25820,6 +25856,26 @@ video {
   --tw-bg-opacity: 0.4 !important;
 }
 
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8 !important;
+}
+
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5 !important;
+}
+
+.bg-opacity-30 {
+  --tw-bg-opacity: 0.3 !important;
+}
+
+.bg-opacity-100 {
+  --tw-bg-opacity: 1 !important;
+}
+
+.bg-opacity-70 {
+  --tw-bg-opacity: 0.7 !important;
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)) !important;
 }
@@ -30514,6 +30570,27 @@ video {
   background-color: transparent !important;
 }
 
+.dark\:bg-gray-600:is(.dark *) {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity)) !important;
+}
+
+.dark\:bg-opacity-30:is(.dark *) {
+  --tw-bg-opacity: 0.3 !important;
+}
+
+.dark\:bg-opacity-100:is(.dark *) {
+  --tw-bg-opacity: 1 !important;
+}
+
+.dark\:bg-opacity-50:is(.dark *) {
+  --tw-bg-opacity: 0.5 !important;
+}
+
+.dark\:bg-opacity-40:is(.dark *) {
+  --tw-bg-opacity: 0.4 !important;
+}
+
 .dark\:from-red-900:is(.dark *) {
   --tw-gradient-from: #7f1d1d var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgb(127 29 29 / 0) var(--tw-gradient-to-position) !important;
@@ -30602,8 +30679,40 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:absolute {
+    position: absolute !important;
+  }
+
   .sm\:bottom-6 {
     bottom: 1.5rem !important;
+  }
+
+  .sm\:top-0 {
+    top: 0px !important;
+  }
+
+  .sm\:bottom-0 {
+    bottom: 0px !important;
+  }
+
+  .sm\:top-auto {
+    top: auto !important;
+  }
+
+  .sm\:end-0 {
+    inset-inline-end: 0px !important;
+  }
+
+  .sm\:top-8 {
+    top: 2rem !important;
+  }
+
+  .sm\:end-8 {
+    inset-inline-end: 2rem !important;
+  }
+
+  .sm\:start-8 {
+    inset-inline-start: 2rem !important;
   }
 
   .sm\:mx-0 {
@@ -30638,8 +30747,45 @@ video {
     margin-inline-start: 2rem !important;
   }
 
+  .sm\:ms-auto {
+    margin-inline-start: auto !important;
+  }
+
+  .sm\:me-auto {
+    margin-inline-end: auto !important;
+  }
+
+  .sm\:mt-0 {
+    margin-top: 0px !important;
+  }
+
+  .sm\:-ms-8 {
+    margin-inline-start: -2rem !important;
+  }
+
   .sm\:flex {
     display: flex !important;
+  }
+
+  .sm\:w-1\/2 {
+    width: 50% !important;
+  }
+
+  .sm\:w-auto {
+    width: auto !important;
+  }
+
+  .sm\:w-min {
+    width: -moz-min-content !important;
+    width: min-content !important;
+  }
+
+  .sm\:w-2\/3 {
+    width: 66.666667% !important;
+  }
+
+  .sm\:w-1\/3 {
+    width: 33.333333% !important;
   }
 
   .sm\:grid-cols-1 {
@@ -30668,6 +30814,18 @@ video {
 
   .sm\:gap-4 {
     gap: 1rem !important;
+  }
+
+  .sm\:bg-opacity-30 {
+    --tw-bg-opacity: 0.3 !important;
+  }
+
+  .sm\:bg-opacity-50 {
+    --tw-bg-opacity: 0.5 !important;
+  }
+
+  .sm\:bg-opacity-40 {
+    --tw-bg-opacity: 0.4 !important;
   }
 
   .sm\:p-0 {
@@ -30714,11 +30872,23 @@ video {
   .group[data-hover=true] .sm\:group-data-\[hover\=true\]\:data-\[visible\=true\]\:opacity-100[data-visible=true] {
     opacity: 1 !important;
   }
+
+  .sm\:dark\:bg-opacity-30:is(.dark *) {
+    --tw-bg-opacity: 0.3 !important;
+  }
 }
 
 @media (min-width: 768px) {
   .md\:bottom-8 {
     bottom: 2rem !important;
+  }
+
+  .md\:top-12 {
+    top: 3rem !important;
+  }
+
+  .md\:top-16 {
+    top: 4rem !important;
   }
 
   .md\:flex {
@@ -30823,6 +30993,13 @@ video {
   .lg\:py-8 {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:py-1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
   }
 }
 

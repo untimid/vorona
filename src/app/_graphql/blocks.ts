@@ -33,6 +33,7 @@ export const MEDIA_BLOCK = `
   invertBackground
   position
   ${MEDIA}
+  content
 }
 `
 

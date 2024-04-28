@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import { invertBackground } from '../../fields/invertBackground'
+import richText from '../../fields/richText'
 
 export const MediaBlock: Block = {
   slug: 'mediaBlock',
@@ -33,5 +34,13 @@ export const MediaBlock: Block = {
       relationTo: 'media',
       required: true,
     },
+    richText({
+      name: 'content',
+      label: {
+        en: 'Content',
+        ru: 'Содержание',
+      },
+      localized: true,
+    }),
   ],
 }

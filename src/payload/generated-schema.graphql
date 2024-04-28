@@ -579,6 +579,7 @@ type MediaBlock {
   invertBackground: Boolean
   position: MediaBlock_position
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: MediaBlock_Media_where): Media
+  content(depth: Int): JSON
   id: String
   blockName: String
   blockType: String
@@ -1945,7 +1946,7 @@ type Cards_CardItems_Chips {
   id: String
 }
 
-union Post_PremiumContent = Cta | Content | MediaBlock | Archive
+union Post_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards
 
 type Post_Meta {
   title: String
@@ -6807,7 +6808,7 @@ input PostVersion_Version_Hero_Slider_SlideImage_where_or {
 
 union PostVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
 
-union PostVersion_Version_PremiumContent = Cta | Content | MediaBlock | Archive
+union PostVersion_Version_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards
 
 type PostVersion_Version_Meta {
   title: String
