@@ -68,6 +68,18 @@ export interface Page {
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -93,6 +105,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -120,6 +144,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
         content: {
@@ -130,6 +166,19 @@ export interface Page {
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -168,6 +217,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         media?: string | Media | null;
         testProp?: string | null;
         id?: string | null;
@@ -176,6 +237,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         content: {
           [k: string]: unknown;
         }[];
@@ -189,7 +262,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
-        header: string;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         description: {
           [k: string]: unknown;
         }[];
@@ -622,6 +706,18 @@ export interface Post {
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -647,6 +743,18 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -674,6 +782,18 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
         content: {
@@ -684,6 +804,19 @@ export interface Post {
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -722,6 +855,18 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         content: {
           [k: string]: unknown;
         }[];
@@ -735,7 +880,18 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
-        header: string;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         description: {
           [k: string]: unknown;
         }[];
@@ -1072,6 +1228,18 @@ export interface Post {
     | (
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             richText: {
               [k: string]: unknown;
             }[];
@@ -1097,6 +1265,18 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             columns?:
               | {
                   size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -1124,6 +1304,18 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             position?: ('default' | 'fullscreen') | null;
             media: string | Media;
             content: {
@@ -1134,6 +1326,19 @@ export interface Post {
             blockType: 'mediaBlock';
           }
         | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             introContent: {
               [k: string]: unknown;
             }[];
@@ -1172,6 +1377,18 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             content: {
               [k: string]: unknown;
             }[];
@@ -1185,7 +1402,18 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
-            header: string;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             description: {
               [k: string]: unknown;
             }[];
@@ -1592,6 +1820,18 @@ export interface Project {
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -1617,6 +1857,18 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -1644,6 +1896,18 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
         content: {
@@ -1654,6 +1918,19 @@ export interface Project {
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -1692,6 +1969,18 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         content: {
           [k: string]: unknown;
         }[];
@@ -1705,7 +1994,18 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
-        header: string;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         description: {
           [k: string]: unknown;
         }[];

@@ -1,8 +1,8 @@
 import type { Block, Field } from 'payload/types'
 
-import { invertBackground } from '../../fields/invertBackground'
 import link from '../../fields/link'
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 const columnFields: Field[] = [
   {
@@ -71,7 +71,7 @@ export const Content: Block = {
     },
   },
   fields: [
-    invertBackground,
+    ...commonBlockFields,
     {
       name: 'columns',
       type: 'array',

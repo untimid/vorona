@@ -479,6 +479,18 @@ union Page_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | 
 
 type Cta {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   richText(depth: Int): JSON
   links: [Cta_Links!]
   id: String
@@ -523,6 +535,18 @@ enum Cta_Links_Link_appearance {
 
 type Content {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   columns: [Content_Columns!]
   id: String
   blockName: String
@@ -577,6 +601,18 @@ enum Content_Columns_Link_appearance {
 
 type MediaBlock {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   position: MediaBlock_position
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: MediaBlock_Media_where): Media
   content(depth: Int): JSON
@@ -753,6 +789,19 @@ input MediaBlock_Media_where_or {
 }
 
 type Archive {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   introContent(depth: Int): JSON
   populateBy: Archive_populateBy
   relationTo: Archive_relationTo
@@ -1240,6 +1289,18 @@ union Post_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
 
 type Quote {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   content(depth: Int): JSON
   name: String
   role: String
@@ -1414,7 +1475,18 @@ input Quote_Photo_where_or {
 
 type Cards {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
   header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   description(depth: Int): JSON
   columnsSm: Cards_columnsSm
   columnsMd: Cards_columnsMd
@@ -2707,6 +2779,18 @@ union Archive_PopulatedDocs = Post | Project
 
 type VoronaHome {
   invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: VoronaHome_Media_where): Media
   testProp: String
   id: String

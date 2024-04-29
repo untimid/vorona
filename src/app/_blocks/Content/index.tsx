@@ -3,7 +3,6 @@ import React from 'react'
 import { Page } from '../../../payload/payload-types'
 import { CMSLink } from '../../_components/Link'
 import RichText from '../../_components/RichText'
-import { BlockWrapper } from '../VoronaHome/components'
 
 import classes from './index.module.scss'
 
@@ -17,7 +16,7 @@ export const ContentBlock: React.FC<
   const { columns } = props
 
   return (
-    <BlockWrapper>
+    <>
       <div className={classes.grid}>
         {columns &&
           columns.length > 0 &&
@@ -32,6 +31,6 @@ export const ContentBlock: React.FC<
             )
           })}
       </div>
-    </BlockWrapper>
+    </>
   )
 }

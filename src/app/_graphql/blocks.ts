@@ -3,10 +3,26 @@ import { LINK_FIELDS } from './link'
 import { MEDIA, MEDIA_FIELDS } from './media'
 import { META } from './meta'
 
+export const COMMON_BLOCK_FIELDS = `
+    invertBackground
+    colorizeBlock
+    blockColorFrom
+    blockColorTo
+    blockColorFromDark
+    blockColorToDark
+    header
+    enableColorizing
+    textToColorize
+    textColorFrom
+    textColorTo
+    textColorFromDark
+    textColorToDark
+`
+
 export const CALL_TO_ACTION = `
 ...on Cta {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
   richText
   links {
     link ${LINK_FIELDS()}
@@ -17,7 +33,7 @@ export const CALL_TO_ACTION = `
 export const CONTENT = `
 ...on Content {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
   columns {
     size
     richText
@@ -30,7 +46,7 @@ export const CONTENT = `
 export const MEDIA_BLOCK = `
 ...on MediaBlock {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
   position
   ${MEDIA}
   content
@@ -40,13 +56,14 @@ export const MEDIA_BLOCK = `
 export const VORONA_HOME = `
 ...on VoronaHome {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
 }
 `
 
 export const ARCHIVE_BLOCK = `
 ...on Archive {
   blockType
+  ${COMMON_BLOCK_FIELDS}
   introContent
   populateBy
   relationTo
@@ -95,7 +112,7 @@ export const ARCHIVE_BLOCK = `
 export const CARDS = `
 ...on Cards {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
   header
   description
   columnsLg 
@@ -124,7 +141,7 @@ export const CARDS = `
 export const QUOTE = `
 ...on Quote {
   blockType
-  invertBackground
+  ${COMMON_BLOCK_FIELDS}
   content
   name
   role

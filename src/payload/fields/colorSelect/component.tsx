@@ -5,6 +5,7 @@ import {
   ALL_COLORS,
   COLOR_GRADES,
   ColorGradesType,
+  ColorPrefixType,
   DEFAULT_COLORS_MAP,
   DEFAULT_COLORS_SIMPLE,
   DefaultColorsNamesType,
@@ -18,8 +19,20 @@ const getColor = (color, grade) => {
   }
   return DEFAULT_COLORS_MAP[color][grade]
 }
+interface CustomColorSelectProps {
+  path: string
+  label: { ru: string } // TODO: should use some common label type which can respect localization
+}
+export interface ColorSelectComponentProps extends CustomColorSelectProps {
+  prefix?: ColorPrefixType
+}
+
 // Color value is used for tailwind so should be like 'bg-amber-400'
-export const BgColorSelectComponent: FC<{ path: string }> = ({ path }) => {
+export const ColorSelectComponent: FC<ColorSelectComponentProps> = ({
+  path,
+  label,
+  prefix = 'bg-',
+}) => {
   const { value, setValue } = useField<string>({ path })
   const [color, setColor] = useState<DefaultColorsNamesType>('gray')
   const [grade, setGrade] = useState<ColorGradesType>('400')
@@ -31,15 +44,15 @@ export const BgColorSelectComponent: FC<{ path: string }> = ({ path }) => {
   }, [value])
   const updateValue = (newColor: DefaultColorsNamesType, newGrade?: ColorGradesType) => {
     if (DEFAULT_COLORS_SIMPLE.includes(newColor)) {
-      setValue(`bg-${newColor}`)
+      setValue(`${prefix}${newColor}`)
     } else {
-      setValue(`bg-${newColor}-${newGrade}`)
+      setValue(`${prefix}${newColor}-${newGrade}`)
     }
   }
 
   return (
     <div>
-      <label className="field-label">Выбор цвета</label>
+      <label className="field-label">{label?.ru || 'Выбор цвета'}</label>
       <div
         style={{
           display: 'flex',
@@ -86,3 +99,16 @@ export const BgColorSelectComponent: FC<{ path: string }> = ({ path }) => {
     </div>
   )
 }
+
+export const BgColorSelectComponent: FC<CustomColorSelectProps> = props => (
+  <ColorSelectComponent {...props} prefix="bg-" />
+)
+export const TextColorSelectComponent: FC<CustomColorSelectProps> = props => (
+  <ColorSelectComponent {...props} prefix="text-" />
+)
+export const FromColorSelectComponent: FC<CustomColorSelectProps> = props => (
+  <ColorSelectComponent {...props} prefix="from-" />
+)
+export const ToColorSelectComponent: FC<CustomColorSelectProps> = props => (
+  <ColorSelectComponent {...props} prefix="to-" />
+)

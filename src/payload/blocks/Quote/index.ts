@@ -1,7 +1,7 @@
 import type { Block } from 'payload/types'
 
-import { invertBackground } from '../../fields/invertBackground'
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const Quote: Block = {
   slug: 'quote',
@@ -16,7 +16,7 @@ export const Quote: Block = {
     },
   },
   fields: [
-    invertBackground,
+    ...commonBlockFields,
     richText({
       name: 'content',
       label: {

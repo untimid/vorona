@@ -12,12 +12,12 @@ import './output.css'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning className="min-h-screen antialiased">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body className="min-h-screen bg-background  antialiased">
+      <body className="min-h-screen bg-color-background">
         <Providers>
           <AdminBar />
           {/* @ts-expect-error */}

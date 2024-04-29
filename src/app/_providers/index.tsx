@@ -13,7 +13,7 @@ export const Providers: React.FC<{
 
   return (
     <NextUIProvider navigate={router.push}>
-      <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem>
+      <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
         <AuthProvider>{children}</AuthProvider>
       </NextThemesProvider>
     </NextUIProvider>

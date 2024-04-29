@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const Archive: Block = {
   slug: 'archive',
@@ -15,6 +16,7 @@ export const Archive: Block = {
     },
   },
   fields: [
+    ...commonBlockFields,
     richText({
       name: 'introContent',
       label: {

@@ -1,5 +1,7 @@
 import colors from 'tailwindcss/colors'
 
+export const COLOR_PREFIXES = ['bg-', 'from-', 'to-', 'text-'] as const
+export type ColorPrefixType = (typeof COLOR_PREFIXES)[number]
 export const DEFAULT_COLORS_MAP = colors
 export type DefaultColorsNamesType = keyof typeof colors
 export type ColorGradesType = keyof (typeof colors)['gray']

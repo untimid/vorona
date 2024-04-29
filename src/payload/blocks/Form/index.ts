@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const FormBlock: Block = {
   slug: 'formBlock',
@@ -12,6 +13,7 @@ export const FormBlock: Block = {
     singularName: 'FormBlock',
   },
   fields: [
+    ...commonBlockFields,
     {
       name: 'form',
       type: 'relationship',

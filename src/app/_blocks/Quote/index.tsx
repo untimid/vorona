@@ -4,25 +4,17 @@ import { Avatar } from '@nextui-org/react'
 
 import type { Page } from '../../../payload/payload-types'
 import RichText from '../../_components/RichText'
-import { BlockWrapper } from '../VoronaHome/components'
 
 export type QuoteProps = Extract<Page['layout'][0], { blockType: 'quote' }>
 
-export const Quote: FC<QuoteProps> = ({
-  invertBackground,
-  content,
-  name,
-  role,
-  company,
-  photo,
-}) => {
+export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo }) => {
   const { alt, url } =
     typeof photo !== 'string'
       ? { alt: photo.alt, url: `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${photo.filename}` }
       : { url: photo, alt: name }
 
   return (
-    <BlockWrapper className="bg-gradient-to-br from-red-200 to-amber-200 dark:from-red-900 dark:to-amber-800 ">
+    <>
       <div className="flex flex-col sm:flex-row w-full ">
         <RichText
           content={content}
@@ -37,6 +29,6 @@ export const Quote: FC<QuoteProps> = ({
           </div>
         </div>
       </div>
-    </BlockWrapper>
+    </>
   )
 }

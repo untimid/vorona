@@ -27,9 +27,9 @@ export const Card: FC<CardProps> = ({
 }) => {
   let Icon = null
   if (icon) Icon = icons[icon]
-
+  const gotPaddings = shadow !== 'none' || radius !== 'none'
   return (
-    <UICard shadow={shadow} radius={radius}>
+    <UICard shadow={shadow} radius={radius} className={gotPaddings ? '' : 'bg-transparent'}>
       {image && (
         <div
           className={[imageHeight.replace('_', '-'), 'overflow-hidden'].filter(Boolean).join(' ')}
@@ -38,9 +38,7 @@ export const Card: FC<CardProps> = ({
         </div>
       )}
       <div
-        className={`${shadow !== 'none' || radius !== 'none' ? 'sm:p-4 md:p-6 lg:p-8' : ''} ${
-          image ? 'pt-6' : ''
-        }`}
+        className={[gotPaddings && 'p-4 md:p-6 lg:p-8', image && 'pt-6'].filter(Boolean).join(' ')}
       >
         <div className="flex items-start">
           {icon && <Icon className="h-6 w-6 min-w-6 min-h-6 text-blue-500 me-2" />}

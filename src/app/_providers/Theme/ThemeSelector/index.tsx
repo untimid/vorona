@@ -9,13 +9,14 @@ import { SunIcon } from './SunIcon'
 
 export const ThemeSelector: FC = () => {
   const { theme, setTheme } = useTheme()
+
   const handleChange = (isChecked: Boolean) => {
     isChecked ? setTheme('light') : setTheme('dark')
   }
 
   return (
     <Switch
-      checked={theme === 'light' ? true : false}
+      value={theme}
       onValueChange={val => handleChange(val)}
       size="lg"
       color="secondary"

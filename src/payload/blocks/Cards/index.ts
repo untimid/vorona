@@ -2,8 +2,8 @@ import * as icons from '@heroicons/react/24/outline'
 import type { Block, Option } from 'payload/types'
 
 import { BgColorSelectField } from '../../fields/colorSelect/field'
-import { invertBackground } from '../../fields/invertBackground'
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 // TODO: maybe move to separate common constants file
 
@@ -167,16 +167,7 @@ export const Cards: Block = {
     },
   },
   fields: [
-    invertBackground,
-    {
-      name: 'header',
-      type: 'text',
-      label: {
-        en: 'Header',
-        ru: 'Заголовок блока',
-      },
-      required: true,
-    },
+    ...commonBlockFields,
     richText({
       name: 'description',
       label: {

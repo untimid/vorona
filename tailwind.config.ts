@@ -3,6 +3,7 @@ import type { Config } from 'tailwindcss'
 
 import {
   COLOR_GRADES,
+  COLOR_PREFIXES,
   DEFAULT_COLORS_WITH_GRADES,
 } from './src/payload/fields/constantValues/colorsMap'
 
@@ -18,14 +19,16 @@ export default {
   darkMode: 'class',
   plugins: [
     nextui({
-      defaultTheme: 'light',
+      // ƒdefaultTheme: 'light',
     }),
   ],
   safelist: [
     {
       // Need to use TW color classes as options to be set in admin
       pattern: new RegExp(
-        `bg-(${DEFAULT_COLORS_WITH_GRADES.join('|')})-(${COLOR_GRADES.join('|')})`,
+        `(${COLOR_PREFIXES.join('|')})(${DEFAULT_COLORS_WITH_GRADES.join(
+          '|',
+        )})-(${COLOR_GRADES.join('|')})`,
       ),
     },
   ],
