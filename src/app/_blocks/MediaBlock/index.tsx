@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import { StaticImageData } from 'next/image'
 
 import { Page } from '../../../payload/payload-types'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { Media } from '../../_components/Media'
 import RichText from '../../_components/RichText'
-import { BlockWrapper } from '../VoronaHome/components'
 
 interface MediaBlockProps extends Extract<Page['layout'][0], { blockType: 'mediaBlock' }> {
   staticImage?: StaticImageData

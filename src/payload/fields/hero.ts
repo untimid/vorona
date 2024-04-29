@@ -1,5 +1,6 @@
 import type { Block, Field } from 'payload/types'
 
+import { commonHeroFields } from './commonHeroFields'
 import linkGroup from './linkGroup'
 import richText from './richText'
 import label from './richText/label'
@@ -77,6 +78,7 @@ export const hero: Field = {
         },
       ],
     },
+    ...commonHeroFields,
     richText({
       admin: {
         elements: ['h1', largeBody, label, 'link'],

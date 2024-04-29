@@ -35,6 +35,24 @@ export interface Page {
   publishedAt?: string | null;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];
@@ -673,6 +691,24 @@ export interface Post {
     | null;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];
@@ -1787,6 +1823,24 @@ export interface Project {
   publishedAt?: string | null;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];

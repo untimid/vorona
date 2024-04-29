@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { PayloadAdminBar, PayloadAdminBarProps } from 'payload-admin-bar'
 
-import { BlockWrapper } from '../../_blocks/VoronaHome/components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { useAuth } from '../../_providers/Auth'
 
 const collectionLabels = {

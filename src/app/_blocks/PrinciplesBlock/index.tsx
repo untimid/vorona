@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react'
 import { Accordion, AccordionItem, Selection } from '@nextui-org/react'
 
-import { BlockWrapper } from '../components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { Collaboration, CollaborationProps } from './Collaboration'
 import { Pricing, PricingProps } from './Pricing'
 import { Process, ProcessProps } from './Process'

@@ -1,7 +1,7 @@
 'use client'
 import React, { FC } from 'react'
 
-import { BlockWrapper } from '../components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { PersonCard, PersonCardProps } from './PersonCard'
 
 export interface TeamBlockProps {

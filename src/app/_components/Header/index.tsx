@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 import type { Header } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
-import { BlockWrapper } from '../../_blocks/VoronaHome/components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { HeaderNav } from './Nav'
 
 export async function Header() {

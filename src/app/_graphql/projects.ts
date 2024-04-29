@@ -1,6 +1,5 @@
 import { ARCHIVE_BLOCK, CALL_TO_ACTION, CARDS, CONTENT, MEDIA_BLOCK, QUOTE } from './blocks'
-import { LINK_FIELDS } from './link'
-import { MEDIA, MEDIA_FIELDS } from './media'
+import { HERO } from './hero'
 import { META } from './meta'
 
 export const PROJECTS = `
@@ -24,18 +23,7 @@ export const PROJECT = `
         }
         createdAt
         hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
-          slider {
-            slideContent
-            slideImage {
-              ${MEDIA_FIELDS}
-            }
-          }
+          ${HERO}
         }
         layout {
           ${CONTENT}

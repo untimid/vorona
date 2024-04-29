@@ -10,8 +10,8 @@ import { MediaBlock } from '../../_blocks/MediaBlock'
 import { Quote } from '../../_blocks/Quote'
 import { RelatedPosts, type RelatedPostsProps } from '../../_blocks/RelatedPosts'
 import { VoronaHome } from '../../_blocks/VoronaHome'
-import { BlockWrapper } from '../../_blocks/VoronaHome/components/BlockWrapper'
 import { toKebabCase } from '../../_utilities/toKebabCase'
+import { BlockWrapper } from '../BlockWrapper'
 
 const blockComponents = {
   cta: CallToActionBlock,

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Chip } from '@nextui-org/react'
 
-import { HeroIconType } from '../../../../commonTypes'
+import { HeroIconType } from '../../../commonTypes'
 
 export interface CollaborationPrincipleProps {
   title: string

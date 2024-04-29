@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import type { Footer as FooterType } from '../../../payload/payload-types'
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
-import { BlockWrapper } from '../../_blocks/VoronaHome/components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { FooterNav } from './FooterNav'
 
 export async function Footer() {

@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import { Button, Checkbox, Input, Textarea } from '@nextui-org/react'
 
-import { BlockWrapper } from '../components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 
 export const MailIcon = ({ className }: { className: string }) => (
   <svg

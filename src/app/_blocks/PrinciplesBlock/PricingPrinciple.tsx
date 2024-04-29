@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { HeroIconType } from '../../../../commonTypes'
+import { HeroIconType } from '../../../commonTypes'
 
 interface PricingPrincipleProps {
   title: string

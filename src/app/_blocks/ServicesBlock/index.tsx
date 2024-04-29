@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { BlockWrapper } from '../components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { ServicesSection } from './ServicesSection'
 
 type ServiceType = {

@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import { ArrowTrendingUpIcon, MegaphoneIcon } from '@heroicons/react/24/outline'
 
-import { BlockWrapper } from '../components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 
 export interface PricingBlockProps {
   header: string

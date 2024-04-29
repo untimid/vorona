@@ -1,6 +1,5 @@
 import { ARCHIVE_BLOCK, CALL_TO_ACTION, CARDS, CONTENT, MEDIA_BLOCK, QUOTE } from './blocks'
-import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import { HERO } from './hero'
 import { META } from './meta'
 
 export const POSTS = `
@@ -29,12 +28,7 @@ export const POST = `
           name
         }
         hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
+          ${HERO}
         }
         layout {
           ${CONTENT}

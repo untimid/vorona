@@ -5,15 +5,15 @@ import {
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline'
 
-import type { BenefitsBlockProps } from './BenefitsBlock'
-import { ContactFormBlockProps } from './ContactFormBlock'
-import { ContactsBlockProps } from './ContactsBlock'
-import type { HeroBlockProps } from './HeroBlock'
-import { PricingBlockProps } from './PricingBlock'
-import { PrinciplesBlockProps } from './PrinciplesBlock'
-import type { ServicesBlockProps } from './ServicesBlock'
-import { TeamBlockProps } from './TeamBlock'
-import type { WhoBlockProps } from './WhoBlock'
+import type { BenefitsBlockProps } from '../BenefitsBlock'
+import { ContactFormBlockProps } from '../ContactFormBlock'
+import { ContactsBlockProps } from '../ContactsBlock'
+import type { HeroBlockProps } from '../HeroBlock'
+import { PricingBlockProps } from '../PricingBlock'
+import { PrinciplesBlockProps } from '../PrinciplesBlock'
+import type { ServicesBlockProps } from '../ServicesBlock'
+import { TeamBlockProps } from '../TeamBlock'
+import type { WhoBlockProps } from '../WhoBlock'
 
 export const PROMO_SLIDE = {
   title: 'Check our youtube channel',

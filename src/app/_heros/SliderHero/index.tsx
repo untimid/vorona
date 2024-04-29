@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Page } from '../../../payload/payload-types'
-import { BlockWrapper } from '../../_blocks/VoronaHome/components'
+import { BlockWrapper } from '../../_components/BlockWrapper'
 import { CMSLink } from '../../_components/Link'
 import { Media } from '../../_components/Media'
 import { Image } from '../../_components/Media/Image'

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import type { HeroIconType } from '../../../../commonTypes'
+import type { HeroIconType } from '../../../commonTypes'
 import { PricingPrinciple } from './PricingPrinciple'
 import { TabWrapper } from './TabWrapper'
 

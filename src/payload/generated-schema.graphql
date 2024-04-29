@@ -65,6 +65,15 @@ scalar DateTime
 
 type Page_Hero {
   type: Page_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [Page_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [Page_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Page_Hero_Media_where): Media
@@ -77,6 +86,15 @@ enum Page_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type Page_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 """
@@ -905,6 +923,15 @@ type Post_PopulatedAuthors {
 
 type Post_Hero {
   type: Post_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [Post_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [Post_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Post_Hero_Media_where): Media
@@ -917,6 +944,15 @@ enum Post_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type Post_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 type Post_Hero_Links {
@@ -2210,6 +2246,15 @@ type Project {
 
 type Project_Hero {
   type: Project_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [Project_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [Project_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Project_Hero_Media_where): Media
@@ -2222,6 +2267,15 @@ enum Project_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type Project_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 type Project_Hero_Links {
@@ -3151,6 +3205,20 @@ input Page_where {
   title: Page_title_operator
   publishedAt: Page_publishedAt_operator
   hero__type: Page_hero__type_operator
+  hero__invertBackground: Page_hero__invertBackground_operator
+  hero__colorizeBlock: Page_hero__colorizeBlock_operator
+  hero__blockColorFrom: Page_hero__blockColorFrom_operator
+  hero__blockColorTo: Page_hero__blockColorTo_operator
+  hero__blockColorFromDark: Page_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Page_hero__blockColorToDark_operator
+  hero__header: Page_hero__header_operator
+  hero__enableColorizing: Page_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Page_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Page_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Page_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Page_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Page_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Page_hero__colorizeTemplates__id_operator
   hero__richText: Page_hero__richText_operator
   hero__links__link__type: Page_hero__links__link__type_operator
   hero__links__link__newTab: Page_hero__links__link__newTab_operator
@@ -3210,6 +3278,145 @@ enum Page_hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input Page_hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Page_hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Page_hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Page_hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input Page_hero__richText_operator {
@@ -3409,6 +3616,20 @@ input Page_where_and {
   title: Page_title_operator
   publishedAt: Page_publishedAt_operator
   hero__type: Page_hero__type_operator
+  hero__invertBackground: Page_hero__invertBackground_operator
+  hero__colorizeBlock: Page_hero__colorizeBlock_operator
+  hero__blockColorFrom: Page_hero__blockColorFrom_operator
+  hero__blockColorTo: Page_hero__blockColorTo_operator
+  hero__blockColorFromDark: Page_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Page_hero__blockColorToDark_operator
+  hero__header: Page_hero__header_operator
+  hero__enableColorizing: Page_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Page_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Page_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Page_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Page_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Page_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Page_hero__colorizeTemplates__id_operator
   hero__richText: Page_hero__richText_operator
   hero__links__link__type: Page_hero__links__link__type_operator
   hero__links__link__newTab: Page_hero__links__link__newTab_operator
@@ -3437,6 +3658,20 @@ input Page_where_or {
   title: Page_title_operator
   publishedAt: Page_publishedAt_operator
   hero__type: Page_hero__type_operator
+  hero__invertBackground: Page_hero__invertBackground_operator
+  hero__colorizeBlock: Page_hero__colorizeBlock_operator
+  hero__blockColorFrom: Page_hero__blockColorFrom_operator
+  hero__blockColorTo: Page_hero__blockColorTo_operator
+  hero__blockColorFromDark: Page_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Page_hero__blockColorToDark_operator
+  hero__header: Page_hero__header_operator
+  hero__enableColorizing: Page_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Page_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Page_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Page_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Page_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Page_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Page_hero__colorizeTemplates__id_operator
   hero__richText: Page_hero__richText_operator
   hero__links__link__type: Page_hero__links__link__type_operator
   hero__links__link__newTab: Page_hero__links__link__newTab_operator
@@ -3554,6 +3789,15 @@ type PagesDocAccessFields_hero_Delete {
 
 type PagesDocAccessFields_hero_Fields {
   type: PagesDocAccessFields_hero_type
+  invertBackground: PagesDocAccessFields_hero_invertBackground
+  colorizeBlock: PagesDocAccessFields_hero_colorizeBlock
+  blockColorFrom: PagesDocAccessFields_hero_blockColorFrom
+  blockColorTo: PagesDocAccessFields_hero_blockColorTo
+  blockColorFromDark: PagesDocAccessFields_hero_blockColorFromDark
+  blockColorToDark: PagesDocAccessFields_hero_blockColorToDark
+  header: PagesDocAccessFields_hero_header
+  enableColorizing: PagesDocAccessFields_hero_enableColorizing
+  colorizeTemplates: PagesDocAccessFields_hero_colorizeTemplates
   richText: PagesDocAccessFields_hero_richText
   links: PagesDocAccessFields_hero_links
   media: PagesDocAccessFields_hero_media
@@ -3580,6 +3824,361 @@ type PagesDocAccessFields_hero_type_Update {
 }
 
 type PagesDocAccessFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_invertBackground {
+  create: PagesDocAccessFields_hero_invertBackground_Create
+  read: PagesDocAccessFields_hero_invertBackground_Read
+  update: PagesDocAccessFields_hero_invertBackground_Update
+  delete: PagesDocAccessFields_hero_invertBackground_Delete
+}
+
+type PagesDocAccessFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeBlock {
+  create: PagesDocAccessFields_hero_colorizeBlock_Create
+  read: PagesDocAccessFields_hero_colorizeBlock_Read
+  update: PagesDocAccessFields_hero_colorizeBlock_Update
+  delete: PagesDocAccessFields_hero_colorizeBlock_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFrom {
+  create: PagesDocAccessFields_hero_blockColorFrom_Create
+  read: PagesDocAccessFields_hero_blockColorFrom_Read
+  update: PagesDocAccessFields_hero_blockColorFrom_Update
+  delete: PagesDocAccessFields_hero_blockColorFrom_Delete
+}
+
+type PagesDocAccessFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorTo {
+  create: PagesDocAccessFields_hero_blockColorTo_Create
+  read: PagesDocAccessFields_hero_blockColorTo_Read
+  update: PagesDocAccessFields_hero_blockColorTo_Update
+  delete: PagesDocAccessFields_hero_blockColorTo_Delete
+}
+
+type PagesDocAccessFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFromDark {
+  create: PagesDocAccessFields_hero_blockColorFromDark_Create
+  read: PagesDocAccessFields_hero_blockColorFromDark_Read
+  update: PagesDocAccessFields_hero_blockColorFromDark_Update
+  delete: PagesDocAccessFields_hero_blockColorFromDark_Delete
+}
+
+type PagesDocAccessFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorToDark {
+  create: PagesDocAccessFields_hero_blockColorToDark_Create
+  read: PagesDocAccessFields_hero_blockColorToDark_Read
+  update: PagesDocAccessFields_hero_blockColorToDark_Update
+  delete: PagesDocAccessFields_hero_blockColorToDark_Delete
+}
+
+type PagesDocAccessFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_header {
+  create: PagesDocAccessFields_hero_header_Create
+  read: PagesDocAccessFields_hero_header_Read
+  update: PagesDocAccessFields_hero_header_Update
+  delete: PagesDocAccessFields_hero_header_Delete
+}
+
+type PagesDocAccessFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_enableColorizing {
+  create: PagesDocAccessFields_hero_enableColorizing_Create
+  read: PagesDocAccessFields_hero_enableColorizing_Read
+  update: PagesDocAccessFields_hero_enableColorizing_Update
+  delete: PagesDocAccessFields_hero_enableColorizing_Delete
+}
+
+type PagesDocAccessFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates {
+  create: PagesDocAccessFields_hero_colorizeTemplates_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_Delete
+  fields: PagesDocAccessFields_hero_colorizeTemplates_Fields
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_Fields {
+  textToColorize: PagesDocAccessFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: PagesDocAccessFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: PagesDocAccessFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: PagesDocAccessFields_hero_colorizeTemplates_textColorToDark
+  id: PagesDocAccessFields_hero_colorizeTemplates_id
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textToColorize {
+  create: PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFrom {
+  create: PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorTo {
+  create: PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark {
+  create: PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorToDark {
+  create: PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_id {
+  create: PagesDocAccessFields_hero_colorizeTemplates_id_Create
+  read: PagesDocAccessFields_hero_colorizeTemplates_id_Read
+  update: PagesDocAccessFields_hero_colorizeTemplates_id_Update
+  delete: PagesDocAccessFields_hero_colorizeTemplates_id_Delete
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type PagesDocAccessFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -4218,6 +4817,15 @@ type PageVersion_Version {
 
 type PageVersion_Version_Hero {
   type: PageVersion_Version_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [PageVersion_Version_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [PageVersion_Version_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: PageVersion_Version_Hero_Media_where): Media
@@ -4230,6 +4838,15 @@ enum PageVersion_Version_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type PageVersion_Version_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 type PageVersion_Version_Hero_Links {
@@ -4792,6 +5409,20 @@ input versionsPage_where {
   version__title: versionsPage_version__title_operator
   version__publishedAt: versionsPage_version__publishedAt_operator
   version__hero__type: versionsPage_version__hero__type_operator
+  version__hero__invertBackground: versionsPage_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPage_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPage_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPage_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPage_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPage_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPage_version__hero__header_operator
+  version__hero__enableColorizing: versionsPage_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPage_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPage_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPage_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPage_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPage_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPage_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPage_version__hero__richText_operator
   version__hero__links__link__type: versionsPage_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPage_version__hero__links__link__newTab_operator
@@ -4863,6 +5494,145 @@ enum versionsPage_version__hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input versionsPage_version__hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPage_version__hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPage_version__hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input versionsPage_version__hero__richText_operator {
@@ -5091,6 +5861,20 @@ input versionsPage_where_and {
   version__title: versionsPage_version__title_operator
   version__publishedAt: versionsPage_version__publishedAt_operator
   version__hero__type: versionsPage_version__hero__type_operator
+  version__hero__invertBackground: versionsPage_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPage_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPage_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPage_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPage_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPage_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPage_version__hero__header_operator
+  version__hero__enableColorizing: versionsPage_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPage_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPage_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPage_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPage_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPage_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPage_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPage_version__hero__richText_operator
   version__hero__links__link__type: versionsPage_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPage_version__hero__links__link__newTab_operator
@@ -5123,6 +5907,20 @@ input versionsPage_where_or {
   version__title: versionsPage_version__title_operator
   version__publishedAt: versionsPage_version__publishedAt_operator
   version__hero__type: versionsPage_version__hero__type_operator
+  version__hero__invertBackground: versionsPage_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPage_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPage_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPage_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPage_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPage_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPage_version__hero__header_operator
+  version__hero__enableColorizing: versionsPage_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPage_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPage_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPage_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPage_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPage_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPage_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPage_version__hero__richText_operator
   version__hero__links__link__type: versionsPage_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPage_version__hero__links__link__newTab_operator
@@ -5172,6 +5970,20 @@ input Post_where {
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
   hero__type: Post_hero__type_operator
+  hero__invertBackground: Post_hero__invertBackground_operator
+  hero__colorizeBlock: Post_hero__colorizeBlock_operator
+  hero__blockColorFrom: Post_hero__blockColorFrom_operator
+  hero__blockColorTo: Post_hero__blockColorTo_operator
+  hero__blockColorFromDark: Post_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Post_hero__blockColorToDark_operator
+  hero__header: Post_hero__header_operator
+  hero__enableColorizing: Post_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Post_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Post_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Post_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Post_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Post_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Post_hero__colorizeTemplates__id_operator
   hero__richText: Post_hero__richText_operator
   hero__links__link__type: Post_hero__links__link__type_operator
   hero__links__link__newTab: Post_hero__links__link__newTab_operator
@@ -5273,6 +6085,145 @@ enum Post_hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input Post_hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Post_hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Post_hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Post_hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input Post_hero__richText_operator {
@@ -5491,6 +6442,20 @@ input Post_where_and {
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
   hero__type: Post_hero__type_operator
+  hero__invertBackground: Post_hero__invertBackground_operator
+  hero__colorizeBlock: Post_hero__colorizeBlock_operator
+  hero__blockColorFrom: Post_hero__blockColorFrom_operator
+  hero__blockColorTo: Post_hero__blockColorTo_operator
+  hero__blockColorFromDark: Post_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Post_hero__blockColorToDark_operator
+  hero__header: Post_hero__header_operator
+  hero__enableColorizing: Post_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Post_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Post_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Post_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Post_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Post_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Post_hero__colorizeTemplates__id_operator
   hero__richText: Post_hero__richText_operator
   hero__links__link__type: Post_hero__links__link__type_operator
   hero__links__link__newTab: Post_hero__links__link__newTab_operator
@@ -5525,6 +6490,20 @@ input Post_where_or {
   populatedAuthors__id: Post_populatedAuthors__id_operator
   populatedAuthors__name: Post_populatedAuthors__name_operator
   hero__type: Post_hero__type_operator
+  hero__invertBackground: Post_hero__invertBackground_operator
+  hero__colorizeBlock: Post_hero__colorizeBlock_operator
+  hero__blockColorFrom: Post_hero__blockColorFrom_operator
+  hero__blockColorTo: Post_hero__blockColorTo_operator
+  hero__blockColorFromDark: Post_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Post_hero__blockColorToDark_operator
+  hero__header: Post_hero__header_operator
+  hero__enableColorizing: Post_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Post_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Post_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Post_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Post_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Post_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Post_hero__colorizeTemplates__id_operator
   hero__richText: Post_hero__richText_operator
   hero__links__link__type: Post_hero__links__link__type_operator
   hero__links__link__newTab: Post_hero__links__link__newTab_operator
@@ -5771,6 +6750,15 @@ type PostsDocAccessFields_hero_Delete {
 
 type PostsDocAccessFields_hero_Fields {
   type: PostsDocAccessFields_hero_type
+  invertBackground: PostsDocAccessFields_hero_invertBackground
+  colorizeBlock: PostsDocAccessFields_hero_colorizeBlock
+  blockColorFrom: PostsDocAccessFields_hero_blockColorFrom
+  blockColorTo: PostsDocAccessFields_hero_blockColorTo
+  blockColorFromDark: PostsDocAccessFields_hero_blockColorFromDark
+  blockColorToDark: PostsDocAccessFields_hero_blockColorToDark
+  header: PostsDocAccessFields_hero_header
+  enableColorizing: PostsDocAccessFields_hero_enableColorizing
+  colorizeTemplates: PostsDocAccessFields_hero_colorizeTemplates
   richText: PostsDocAccessFields_hero_richText
   links: PostsDocAccessFields_hero_links
   media: PostsDocAccessFields_hero_media
@@ -5797,6 +6785,361 @@ type PostsDocAccessFields_hero_type_Update {
 }
 
 type PostsDocAccessFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_invertBackground {
+  create: PostsDocAccessFields_hero_invertBackground_Create
+  read: PostsDocAccessFields_hero_invertBackground_Read
+  update: PostsDocAccessFields_hero_invertBackground_Update
+  delete: PostsDocAccessFields_hero_invertBackground_Delete
+}
+
+type PostsDocAccessFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeBlock {
+  create: PostsDocAccessFields_hero_colorizeBlock_Create
+  read: PostsDocAccessFields_hero_colorizeBlock_Read
+  update: PostsDocAccessFields_hero_colorizeBlock_Update
+  delete: PostsDocAccessFields_hero_colorizeBlock_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFrom {
+  create: PostsDocAccessFields_hero_blockColorFrom_Create
+  read: PostsDocAccessFields_hero_blockColorFrom_Read
+  update: PostsDocAccessFields_hero_blockColorFrom_Update
+  delete: PostsDocAccessFields_hero_blockColorFrom_Delete
+}
+
+type PostsDocAccessFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorTo {
+  create: PostsDocAccessFields_hero_blockColorTo_Create
+  read: PostsDocAccessFields_hero_blockColorTo_Read
+  update: PostsDocAccessFields_hero_blockColorTo_Update
+  delete: PostsDocAccessFields_hero_blockColorTo_Delete
+}
+
+type PostsDocAccessFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFromDark {
+  create: PostsDocAccessFields_hero_blockColorFromDark_Create
+  read: PostsDocAccessFields_hero_blockColorFromDark_Read
+  update: PostsDocAccessFields_hero_blockColorFromDark_Update
+  delete: PostsDocAccessFields_hero_blockColorFromDark_Delete
+}
+
+type PostsDocAccessFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorToDark {
+  create: PostsDocAccessFields_hero_blockColorToDark_Create
+  read: PostsDocAccessFields_hero_blockColorToDark_Read
+  update: PostsDocAccessFields_hero_blockColorToDark_Update
+  delete: PostsDocAccessFields_hero_blockColorToDark_Delete
+}
+
+type PostsDocAccessFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_header {
+  create: PostsDocAccessFields_hero_header_Create
+  read: PostsDocAccessFields_hero_header_Read
+  update: PostsDocAccessFields_hero_header_Update
+  delete: PostsDocAccessFields_hero_header_Delete
+}
+
+type PostsDocAccessFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_enableColorizing {
+  create: PostsDocAccessFields_hero_enableColorizing_Create
+  read: PostsDocAccessFields_hero_enableColorizing_Read
+  update: PostsDocAccessFields_hero_enableColorizing_Update
+  delete: PostsDocAccessFields_hero_enableColorizing_Delete
+}
+
+type PostsDocAccessFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates {
+  create: PostsDocAccessFields_hero_colorizeTemplates_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_Delete
+  fields: PostsDocAccessFields_hero_colorizeTemplates_Fields
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_Fields {
+  textToColorize: PostsDocAccessFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: PostsDocAccessFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: PostsDocAccessFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: PostsDocAccessFields_hero_colorizeTemplates_textColorToDark
+  id: PostsDocAccessFields_hero_colorizeTemplates_id
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textToColorize {
+  create: PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFrom {
+  create: PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorTo {
+  create: PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark {
+  create: PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorToDark {
+  create: PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_id {
+  create: PostsDocAccessFields_hero_colorizeTemplates_id_Create
+  read: PostsDocAccessFields_hero_colorizeTemplates_id_Read
+  update: PostsDocAccessFields_hero_colorizeTemplates_id_Update
+  delete: PostsDocAccessFields_hero_colorizeTemplates_id_Delete
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -6510,6 +7853,15 @@ type PostVersion_Version_PopulatedAuthors {
 
 type PostVersion_Version_Hero {
   type: PostVersion_Version_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [PostVersion_Version_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [PostVersion_Version_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: PostVersion_Version_Hero_Media_where): Media
@@ -6522,6 +7874,15 @@ enum PostVersion_Version_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type PostVersion_Version_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 type PostVersion_Version_Hero_Links {
@@ -7090,6 +8451,20 @@ input versionsPost_where {
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
   version__hero__type: versionsPost_version__hero__type_operator
+  version__hero__invertBackground: versionsPost_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPost_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPost_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPost_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPost_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPost_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPost_version__hero__header_operator
+  version__hero__enableColorizing: versionsPost_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPost_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPost_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPost_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPost_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPost_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPost_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPost_version__hero__richText_operator
   version__hero__links__link__type: versionsPost_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPost_version__hero__links__link__newTab_operator
@@ -7203,6 +8578,145 @@ enum versionsPost_version__hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input versionsPost_version__hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPost_version__hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsPost_version__hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input versionsPost_version__hero__richText_operator {
@@ -7450,6 +8964,20 @@ input versionsPost_where_and {
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
   version__hero__type: versionsPost_version__hero__type_operator
+  version__hero__invertBackground: versionsPost_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPost_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPost_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPost_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPost_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPost_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPost_version__hero__header_operator
+  version__hero__enableColorizing: versionsPost_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPost_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPost_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPost_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPost_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPost_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPost_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPost_version__hero__richText_operator
   version__hero__links__link__type: versionsPost_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPost_version__hero__links__link__newTab_operator
@@ -7488,6 +9016,20 @@ input versionsPost_where_or {
   version__populatedAuthors__id: versionsPost_version__populatedAuthors__id_operator
   version__populatedAuthors__name: versionsPost_version__populatedAuthors__name_operator
   version__hero__type: versionsPost_version__hero__type_operator
+  version__hero__invertBackground: versionsPost_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsPost_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsPost_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsPost_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsPost_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsPost_version__hero__blockColorToDark_operator
+  version__hero__header: versionsPost_version__hero__header_operator
+  version__hero__enableColorizing: versionsPost_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsPost_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsPost_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsPost_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsPost_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsPost_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsPost_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsPost_version__hero__richText_operator
   version__hero__links__link__type: versionsPost_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsPost_version__hero__links__link__newTab_operator
@@ -7536,6 +9078,20 @@ input Project_where {
   categories: Project_categories_operator
   publishedAt: Project_publishedAt_operator
   hero__type: Project_hero__type_operator
+  hero__invertBackground: Project_hero__invertBackground_operator
+  hero__colorizeBlock: Project_hero__colorizeBlock_operator
+  hero__blockColorFrom: Project_hero__blockColorFrom_operator
+  hero__blockColorTo: Project_hero__blockColorTo_operator
+  hero__blockColorFromDark: Project_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Project_hero__blockColorToDark_operator
+  hero__header: Project_hero__header_operator
+  hero__enableColorizing: Project_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Project_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Project_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Project_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Project_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Project_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Project_hero__colorizeTemplates__id_operator
   hero__richText: Project_hero__richText_operator
   hero__links__link__type: Project_hero__links__link__type_operator
   hero__links__link__newTab: Project_hero__links__link__newTab_operator
@@ -7605,6 +9161,145 @@ enum Project_hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input Project_hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Project_hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Project_hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Project_hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input Project_hero__richText_operator {
@@ -7814,6 +9509,20 @@ input Project_where_and {
   categories: Project_categories_operator
   publishedAt: Project_publishedAt_operator
   hero__type: Project_hero__type_operator
+  hero__invertBackground: Project_hero__invertBackground_operator
+  hero__colorizeBlock: Project_hero__colorizeBlock_operator
+  hero__blockColorFrom: Project_hero__blockColorFrom_operator
+  hero__blockColorTo: Project_hero__blockColorTo_operator
+  hero__blockColorFromDark: Project_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Project_hero__blockColorToDark_operator
+  hero__header: Project_hero__header_operator
+  hero__enableColorizing: Project_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Project_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Project_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Project_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Project_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Project_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Project_hero__colorizeTemplates__id_operator
   hero__richText: Project_hero__richText_operator
   hero__links__link__type: Project_hero__links__link__type_operator
   hero__links__link__newTab: Project_hero__links__link__newTab_operator
@@ -7844,6 +9553,20 @@ input Project_where_or {
   categories: Project_categories_operator
   publishedAt: Project_publishedAt_operator
   hero__type: Project_hero__type_operator
+  hero__invertBackground: Project_hero__invertBackground_operator
+  hero__colorizeBlock: Project_hero__colorizeBlock_operator
+  hero__blockColorFrom: Project_hero__blockColorFrom_operator
+  hero__blockColorTo: Project_hero__blockColorTo_operator
+  hero__blockColorFromDark: Project_hero__blockColorFromDark_operator
+  hero__blockColorToDark: Project_hero__blockColorToDark_operator
+  hero__header: Project_hero__header_operator
+  hero__enableColorizing: Project_hero__enableColorizing_operator
+  hero__colorizeTemplates__textToColorize: Project_hero__colorizeTemplates__textToColorize_operator
+  hero__colorizeTemplates__textColorFrom: Project_hero__colorizeTemplates__textColorFrom_operator
+  hero__colorizeTemplates__textColorTo: Project_hero__colorizeTemplates__textColorTo_operator
+  hero__colorizeTemplates__textColorFromDark: Project_hero__colorizeTemplates__textColorFromDark_operator
+  hero__colorizeTemplates__textColorToDark: Project_hero__colorizeTemplates__textColorToDark_operator
+  hero__colorizeTemplates__id: Project_hero__colorizeTemplates__id_operator
   hero__richText: Project_hero__richText_operator
   hero__links__link__type: Project_hero__links__link__type_operator
   hero__links__link__newTab: Project_hero__links__link__newTab_operator
@@ -7987,6 +9710,15 @@ type ProjectsDocAccessFields_hero_Delete {
 
 type ProjectsDocAccessFields_hero_Fields {
   type: ProjectsDocAccessFields_hero_type
+  invertBackground: ProjectsDocAccessFields_hero_invertBackground
+  colorizeBlock: ProjectsDocAccessFields_hero_colorizeBlock
+  blockColorFrom: ProjectsDocAccessFields_hero_blockColorFrom
+  blockColorTo: ProjectsDocAccessFields_hero_blockColorTo
+  blockColorFromDark: ProjectsDocAccessFields_hero_blockColorFromDark
+  blockColorToDark: ProjectsDocAccessFields_hero_blockColorToDark
+  header: ProjectsDocAccessFields_hero_header
+  enableColorizing: ProjectsDocAccessFields_hero_enableColorizing
+  colorizeTemplates: ProjectsDocAccessFields_hero_colorizeTemplates
   richText: ProjectsDocAccessFields_hero_richText
   links: ProjectsDocAccessFields_hero_links
   media: ProjectsDocAccessFields_hero_media
@@ -8013,6 +9745,361 @@ type ProjectsDocAccessFields_hero_type_Update {
 }
 
 type ProjectsDocAccessFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_invertBackground {
+  create: ProjectsDocAccessFields_hero_invertBackground_Create
+  read: ProjectsDocAccessFields_hero_invertBackground_Read
+  update: ProjectsDocAccessFields_hero_invertBackground_Update
+  delete: ProjectsDocAccessFields_hero_invertBackground_Delete
+}
+
+type ProjectsDocAccessFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeBlock {
+  create: ProjectsDocAccessFields_hero_colorizeBlock_Create
+  read: ProjectsDocAccessFields_hero_colorizeBlock_Read
+  update: ProjectsDocAccessFields_hero_colorizeBlock_Update
+  delete: ProjectsDocAccessFields_hero_colorizeBlock_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFrom {
+  create: ProjectsDocAccessFields_hero_blockColorFrom_Create
+  read: ProjectsDocAccessFields_hero_blockColorFrom_Read
+  update: ProjectsDocAccessFields_hero_blockColorFrom_Update
+  delete: ProjectsDocAccessFields_hero_blockColorFrom_Delete
+}
+
+type ProjectsDocAccessFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorTo {
+  create: ProjectsDocAccessFields_hero_blockColorTo_Create
+  read: ProjectsDocAccessFields_hero_blockColorTo_Read
+  update: ProjectsDocAccessFields_hero_blockColorTo_Update
+  delete: ProjectsDocAccessFields_hero_blockColorTo_Delete
+}
+
+type ProjectsDocAccessFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFromDark {
+  create: ProjectsDocAccessFields_hero_blockColorFromDark_Create
+  read: ProjectsDocAccessFields_hero_blockColorFromDark_Read
+  update: ProjectsDocAccessFields_hero_blockColorFromDark_Update
+  delete: ProjectsDocAccessFields_hero_blockColorFromDark_Delete
+}
+
+type ProjectsDocAccessFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorToDark {
+  create: ProjectsDocAccessFields_hero_blockColorToDark_Create
+  read: ProjectsDocAccessFields_hero_blockColorToDark_Read
+  update: ProjectsDocAccessFields_hero_blockColorToDark_Update
+  delete: ProjectsDocAccessFields_hero_blockColorToDark_Delete
+}
+
+type ProjectsDocAccessFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_header {
+  create: ProjectsDocAccessFields_hero_header_Create
+  read: ProjectsDocAccessFields_hero_header_Read
+  update: ProjectsDocAccessFields_hero_header_Update
+  delete: ProjectsDocAccessFields_hero_header_Delete
+}
+
+type ProjectsDocAccessFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_enableColorizing {
+  create: ProjectsDocAccessFields_hero_enableColorizing_Create
+  read: ProjectsDocAccessFields_hero_enableColorizing_Read
+  update: ProjectsDocAccessFields_hero_enableColorizing_Update
+  delete: ProjectsDocAccessFields_hero_enableColorizing_Delete
+}
+
+type ProjectsDocAccessFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_Delete
+  fields: ProjectsDocAccessFields_hero_colorizeTemplates_Fields
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_Fields {
+  textToColorize: ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark
+  id: ProjectsDocAccessFields_hero_colorizeTemplates_id
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_id {
+  create: ProjectsDocAccessFields_hero_colorizeTemplates_id_Create
+  read: ProjectsDocAccessFields_hero_colorizeTemplates_id_Read
+  update: ProjectsDocAccessFields_hero_colorizeTemplates_id_Update
+  delete: ProjectsDocAccessFields_hero_colorizeTemplates_id_Delete
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type ProjectsDocAccessFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -8671,6 +10758,15 @@ type ProjectVersion_Version {
 
 type ProjectVersion_Version_Hero {
   type: ProjectVersion_Version_Hero_type
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [ProjectVersion_Version_Hero_ColorizeTemplates!]
   richText(depth: Int): JSON
   links: [ProjectVersion_Version_Hero_Links!]
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: ProjectVersion_Version_Hero_Media_where): Media
@@ -8683,6 +10779,15 @@ enum ProjectVersion_Version_Hero_type {
   mediumImpact
   lowImpact
   slider
+}
+
+type ProjectVersion_Version_Hero_ColorizeTemplates {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 type ProjectVersion_Version_Hero_Links {
@@ -9246,6 +11351,20 @@ input versionsProject_where {
   version__categories: versionsProject_version__categories_operator
   version__publishedAt: versionsProject_version__publishedAt_operator
   version__hero__type: versionsProject_version__hero__type_operator
+  version__hero__invertBackground: versionsProject_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsProject_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsProject_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsProject_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsProject_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsProject_version__hero__blockColorToDark_operator
+  version__hero__header: versionsProject_version__hero__header_operator
+  version__hero__enableColorizing: versionsProject_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsProject_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsProject_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsProject_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsProject_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsProject_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsProject_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsProject_version__hero__richText_operator
   version__hero__links__link__type: versionsProject_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsProject_version__hero__links__link__newTab_operator
@@ -9327,6 +11446,145 @@ enum versionsProject_version__hero__type_Input {
   mediumImpact
   lowImpact
   slider
+}
+
+input versionsProject_version__hero__invertBackground_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeBlock_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsProject_version__hero__blockColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__blockColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__blockColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__blockColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__header_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__enableColorizing_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__textToColorize_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__textColorFrom_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__textColorTo_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__textColorFromDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__textColorToDark_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input versionsProject_version__hero__colorizeTemplates__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input versionsProject_version__hero__richText_operator {
@@ -9565,6 +11823,20 @@ input versionsProject_where_and {
   version__categories: versionsProject_version__categories_operator
   version__publishedAt: versionsProject_version__publishedAt_operator
   version__hero__type: versionsProject_version__hero__type_operator
+  version__hero__invertBackground: versionsProject_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsProject_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsProject_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsProject_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsProject_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsProject_version__hero__blockColorToDark_operator
+  version__hero__header: versionsProject_version__hero__header_operator
+  version__hero__enableColorizing: versionsProject_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsProject_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsProject_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsProject_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsProject_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsProject_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsProject_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsProject_version__hero__richText_operator
   version__hero__links__link__type: versionsProject_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsProject_version__hero__links__link__newTab_operator
@@ -9599,6 +11871,20 @@ input versionsProject_where_or {
   version__categories: versionsProject_version__categories_operator
   version__publishedAt: versionsProject_version__publishedAt_operator
   version__hero__type: versionsProject_version__hero__type_operator
+  version__hero__invertBackground: versionsProject_version__hero__invertBackground_operator
+  version__hero__colorizeBlock: versionsProject_version__hero__colorizeBlock_operator
+  version__hero__blockColorFrom: versionsProject_version__hero__blockColorFrom_operator
+  version__hero__blockColorTo: versionsProject_version__hero__blockColorTo_operator
+  version__hero__blockColorFromDark: versionsProject_version__hero__blockColorFromDark_operator
+  version__hero__blockColorToDark: versionsProject_version__hero__blockColorToDark_operator
+  version__hero__header: versionsProject_version__hero__header_operator
+  version__hero__enableColorizing: versionsProject_version__hero__enableColorizing_operator
+  version__hero__colorizeTemplates__textToColorize: versionsProject_version__hero__colorizeTemplates__textToColorize_operator
+  version__hero__colorizeTemplates__textColorFrom: versionsProject_version__hero__colorizeTemplates__textColorFrom_operator
+  version__hero__colorizeTemplates__textColorTo: versionsProject_version__hero__colorizeTemplates__textColorTo_operator
+  version__hero__colorizeTemplates__textColorFromDark: versionsProject_version__hero__colorizeTemplates__textColorFromDark_operator
+  version__hero__colorizeTemplates__textColorToDark: versionsProject_version__hero__colorizeTemplates__textColorToDark_operator
+  version__hero__colorizeTemplates__id: versionsProject_version__hero__colorizeTemplates__id_operator
   version__hero__richText: versionsProject_version__hero__richText_operator
   version__hero__links__link__type: versionsProject_version__hero__links__link__type_operator
   version__hero__links__link__newTab: versionsProject_version__hero__links__link__newTab_operator
@@ -12913,6 +15199,15 @@ type PagesFields_hero_Delete {
 
 type PagesFields_hero_Fields {
   type: PagesFields_hero_type
+  invertBackground: PagesFields_hero_invertBackground
+  colorizeBlock: PagesFields_hero_colorizeBlock
+  blockColorFrom: PagesFields_hero_blockColorFrom
+  blockColorTo: PagesFields_hero_blockColorTo
+  blockColorFromDark: PagesFields_hero_blockColorFromDark
+  blockColorToDark: PagesFields_hero_blockColorToDark
+  header: PagesFields_hero_header
+  enableColorizing: PagesFields_hero_enableColorizing
+  colorizeTemplates: PagesFields_hero_colorizeTemplates
   richText: PagesFields_hero_richText
   links: PagesFields_hero_links
   media: PagesFields_hero_media
@@ -12939,6 +15234,361 @@ type PagesFields_hero_type_Update {
 }
 
 type PagesFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_invertBackground {
+  create: PagesFields_hero_invertBackground_Create
+  read: PagesFields_hero_invertBackground_Read
+  update: PagesFields_hero_invertBackground_Update
+  delete: PagesFields_hero_invertBackground_Delete
+}
+
+type PagesFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeBlock {
+  create: PagesFields_hero_colorizeBlock_Create
+  read: PagesFields_hero_colorizeBlock_Read
+  update: PagesFields_hero_colorizeBlock_Update
+  delete: PagesFields_hero_colorizeBlock_Delete
+}
+
+type PagesFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFrom {
+  create: PagesFields_hero_blockColorFrom_Create
+  read: PagesFields_hero_blockColorFrom_Read
+  update: PagesFields_hero_blockColorFrom_Update
+  delete: PagesFields_hero_blockColorFrom_Delete
+}
+
+type PagesFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorTo {
+  create: PagesFields_hero_blockColorTo_Create
+  read: PagesFields_hero_blockColorTo_Read
+  update: PagesFields_hero_blockColorTo_Update
+  delete: PagesFields_hero_blockColorTo_Delete
+}
+
+type PagesFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFromDark {
+  create: PagesFields_hero_blockColorFromDark_Create
+  read: PagesFields_hero_blockColorFromDark_Read
+  update: PagesFields_hero_blockColorFromDark_Update
+  delete: PagesFields_hero_blockColorFromDark_Delete
+}
+
+type PagesFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorToDark {
+  create: PagesFields_hero_blockColorToDark_Create
+  read: PagesFields_hero_blockColorToDark_Read
+  update: PagesFields_hero_blockColorToDark_Update
+  delete: PagesFields_hero_blockColorToDark_Delete
+}
+
+type PagesFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_header {
+  create: PagesFields_hero_header_Create
+  read: PagesFields_hero_header_Read
+  update: PagesFields_hero_header_Update
+  delete: PagesFields_hero_header_Delete
+}
+
+type PagesFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_enableColorizing {
+  create: PagesFields_hero_enableColorizing_Create
+  read: PagesFields_hero_enableColorizing_Read
+  update: PagesFields_hero_enableColorizing_Update
+  delete: PagesFields_hero_enableColorizing_Delete
+}
+
+type PagesFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates {
+  create: PagesFields_hero_colorizeTemplates_Create
+  read: PagesFields_hero_colorizeTemplates_Read
+  update: PagesFields_hero_colorizeTemplates_Update
+  delete: PagesFields_hero_colorizeTemplates_Delete
+  fields: PagesFields_hero_colorizeTemplates_Fields
+}
+
+type PagesFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_Fields {
+  textToColorize: PagesFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: PagesFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: PagesFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: PagesFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: PagesFields_hero_colorizeTemplates_textColorToDark
+  id: PagesFields_hero_colorizeTemplates_id
+}
+
+type PagesFields_hero_colorizeTemplates_textToColorize {
+  create: PagesFields_hero_colorizeTemplates_textToColorize_Create
+  read: PagesFields_hero_colorizeTemplates_textToColorize_Read
+  update: PagesFields_hero_colorizeTemplates_textToColorize_Update
+  delete: PagesFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFrom {
+  create: PagesFields_hero_colorizeTemplates_textColorFrom_Create
+  read: PagesFields_hero_colorizeTemplates_textColorFrom_Read
+  update: PagesFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: PagesFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorTo {
+  create: PagesFields_hero_colorizeTemplates_textColorTo_Create
+  read: PagesFields_hero_colorizeTemplates_textColorTo_Read
+  update: PagesFields_hero_colorizeTemplates_textColorTo_Update
+  delete: PagesFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFromDark {
+  create: PagesFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: PagesFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: PagesFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: PagesFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorToDark {
+  create: PagesFields_hero_colorizeTemplates_textColorToDark_Create
+  read: PagesFields_hero_colorizeTemplates_textColorToDark_Read
+  update: PagesFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: PagesFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_id {
+  create: PagesFields_hero_colorizeTemplates_id_Create
+  read: PagesFields_hero_colorizeTemplates_id_Read
+  update: PagesFields_hero_colorizeTemplates_id_Update
+  delete: PagesFields_hero_colorizeTemplates_id_Delete
+}
+
+type PagesFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type PagesFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -13769,6 +16419,15 @@ type PostsFields_hero_Delete {
 
 type PostsFields_hero_Fields {
   type: PostsFields_hero_type
+  invertBackground: PostsFields_hero_invertBackground
+  colorizeBlock: PostsFields_hero_colorizeBlock
+  blockColorFrom: PostsFields_hero_blockColorFrom
+  blockColorTo: PostsFields_hero_blockColorTo
+  blockColorFromDark: PostsFields_hero_blockColorFromDark
+  blockColorToDark: PostsFields_hero_blockColorToDark
+  header: PostsFields_hero_header
+  enableColorizing: PostsFields_hero_enableColorizing
+  colorizeTemplates: PostsFields_hero_colorizeTemplates
   richText: PostsFields_hero_richText
   links: PostsFields_hero_links
   media: PostsFields_hero_media
@@ -13795,6 +16454,361 @@ type PostsFields_hero_type_Update {
 }
 
 type PostsFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_invertBackground {
+  create: PostsFields_hero_invertBackground_Create
+  read: PostsFields_hero_invertBackground_Read
+  update: PostsFields_hero_invertBackground_Update
+  delete: PostsFields_hero_invertBackground_Delete
+}
+
+type PostsFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeBlock {
+  create: PostsFields_hero_colorizeBlock_Create
+  read: PostsFields_hero_colorizeBlock_Read
+  update: PostsFields_hero_colorizeBlock_Update
+  delete: PostsFields_hero_colorizeBlock_Delete
+}
+
+type PostsFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFrom {
+  create: PostsFields_hero_blockColorFrom_Create
+  read: PostsFields_hero_blockColorFrom_Read
+  update: PostsFields_hero_blockColorFrom_Update
+  delete: PostsFields_hero_blockColorFrom_Delete
+}
+
+type PostsFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorTo {
+  create: PostsFields_hero_blockColorTo_Create
+  read: PostsFields_hero_blockColorTo_Read
+  update: PostsFields_hero_blockColorTo_Update
+  delete: PostsFields_hero_blockColorTo_Delete
+}
+
+type PostsFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFromDark {
+  create: PostsFields_hero_blockColorFromDark_Create
+  read: PostsFields_hero_blockColorFromDark_Read
+  update: PostsFields_hero_blockColorFromDark_Update
+  delete: PostsFields_hero_blockColorFromDark_Delete
+}
+
+type PostsFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorToDark {
+  create: PostsFields_hero_blockColorToDark_Create
+  read: PostsFields_hero_blockColorToDark_Read
+  update: PostsFields_hero_blockColorToDark_Update
+  delete: PostsFields_hero_blockColorToDark_Delete
+}
+
+type PostsFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_header {
+  create: PostsFields_hero_header_Create
+  read: PostsFields_hero_header_Read
+  update: PostsFields_hero_header_Update
+  delete: PostsFields_hero_header_Delete
+}
+
+type PostsFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_enableColorizing {
+  create: PostsFields_hero_enableColorizing_Create
+  read: PostsFields_hero_enableColorizing_Read
+  update: PostsFields_hero_enableColorizing_Update
+  delete: PostsFields_hero_enableColorizing_Delete
+}
+
+type PostsFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates {
+  create: PostsFields_hero_colorizeTemplates_Create
+  read: PostsFields_hero_colorizeTemplates_Read
+  update: PostsFields_hero_colorizeTemplates_Update
+  delete: PostsFields_hero_colorizeTemplates_Delete
+  fields: PostsFields_hero_colorizeTemplates_Fields
+}
+
+type PostsFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_Fields {
+  textToColorize: PostsFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: PostsFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: PostsFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: PostsFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: PostsFields_hero_colorizeTemplates_textColorToDark
+  id: PostsFields_hero_colorizeTemplates_id
+}
+
+type PostsFields_hero_colorizeTemplates_textToColorize {
+  create: PostsFields_hero_colorizeTemplates_textToColorize_Create
+  read: PostsFields_hero_colorizeTemplates_textToColorize_Read
+  update: PostsFields_hero_colorizeTemplates_textToColorize_Update
+  delete: PostsFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFrom {
+  create: PostsFields_hero_colorizeTemplates_textColorFrom_Create
+  read: PostsFields_hero_colorizeTemplates_textColorFrom_Read
+  update: PostsFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: PostsFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorTo {
+  create: PostsFields_hero_colorizeTemplates_textColorTo_Create
+  read: PostsFields_hero_colorizeTemplates_textColorTo_Read
+  update: PostsFields_hero_colorizeTemplates_textColorTo_Update
+  delete: PostsFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFromDark {
+  create: PostsFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: PostsFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: PostsFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: PostsFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorToDark {
+  create: PostsFields_hero_colorizeTemplates_textColorToDark_Create
+  read: PostsFields_hero_colorizeTemplates_textColorToDark_Read
+  update: PostsFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: PostsFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_id {
+  create: PostsFields_hero_colorizeTemplates_id_Create
+  read: PostsFields_hero_colorizeTemplates_id_Read
+  update: PostsFields_hero_colorizeTemplates_id_Update
+  delete: PostsFields_hero_colorizeTemplates_id_Delete
+}
+
+type PostsFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type PostsFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -14592,6 +17606,15 @@ type ProjectsFields_hero_Delete {
 
 type ProjectsFields_hero_Fields {
   type: ProjectsFields_hero_type
+  invertBackground: ProjectsFields_hero_invertBackground
+  colorizeBlock: ProjectsFields_hero_colorizeBlock
+  blockColorFrom: ProjectsFields_hero_blockColorFrom
+  blockColorTo: ProjectsFields_hero_blockColorTo
+  blockColorFromDark: ProjectsFields_hero_blockColorFromDark
+  blockColorToDark: ProjectsFields_hero_blockColorToDark
+  header: ProjectsFields_hero_header
+  enableColorizing: ProjectsFields_hero_enableColorizing
+  colorizeTemplates: ProjectsFields_hero_colorizeTemplates
   richText: ProjectsFields_hero_richText
   links: ProjectsFields_hero_links
   media: ProjectsFields_hero_media
@@ -14618,6 +17641,361 @@ type ProjectsFields_hero_type_Update {
 }
 
 type ProjectsFields_hero_type_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_invertBackground {
+  create: ProjectsFields_hero_invertBackground_Create
+  read: ProjectsFields_hero_invertBackground_Read
+  update: ProjectsFields_hero_invertBackground_Update
+  delete: ProjectsFields_hero_invertBackground_Delete
+}
+
+type ProjectsFields_hero_invertBackground_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_invertBackground_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_invertBackground_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_invertBackground_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeBlock {
+  create: ProjectsFields_hero_colorizeBlock_Create
+  read: ProjectsFields_hero_colorizeBlock_Read
+  update: ProjectsFields_hero_colorizeBlock_Update
+  delete: ProjectsFields_hero_colorizeBlock_Delete
+}
+
+type ProjectsFields_hero_colorizeBlock_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeBlock_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeBlock_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeBlock_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFrom {
+  create: ProjectsFields_hero_blockColorFrom_Create
+  read: ProjectsFields_hero_blockColorFrom_Read
+  update: ProjectsFields_hero_blockColorFrom_Update
+  delete: ProjectsFields_hero_blockColorFrom_Delete
+}
+
+type ProjectsFields_hero_blockColorFrom_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFrom_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFrom_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFrom_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorTo {
+  create: ProjectsFields_hero_blockColorTo_Create
+  read: ProjectsFields_hero_blockColorTo_Read
+  update: ProjectsFields_hero_blockColorTo_Update
+  delete: ProjectsFields_hero_blockColorTo_Delete
+}
+
+type ProjectsFields_hero_blockColorTo_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorTo_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorTo_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorTo_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFromDark {
+  create: ProjectsFields_hero_blockColorFromDark_Create
+  read: ProjectsFields_hero_blockColorFromDark_Read
+  update: ProjectsFields_hero_blockColorFromDark_Update
+  delete: ProjectsFields_hero_blockColorFromDark_Delete
+}
+
+type ProjectsFields_hero_blockColorFromDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFromDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFromDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorToDark {
+  create: ProjectsFields_hero_blockColorToDark_Create
+  read: ProjectsFields_hero_blockColorToDark_Read
+  update: ProjectsFields_hero_blockColorToDark_Update
+  delete: ProjectsFields_hero_blockColorToDark_Delete
+}
+
+type ProjectsFields_hero_blockColorToDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorToDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorToDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_blockColorToDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_header {
+  create: ProjectsFields_hero_header_Create
+  read: ProjectsFields_hero_header_Read
+  update: ProjectsFields_hero_header_Update
+  delete: ProjectsFields_hero_header_Delete
+}
+
+type ProjectsFields_hero_header_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_header_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_header_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_header_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_enableColorizing {
+  create: ProjectsFields_hero_enableColorizing_Create
+  read: ProjectsFields_hero_enableColorizing_Read
+  update: ProjectsFields_hero_enableColorizing_Update
+  delete: ProjectsFields_hero_enableColorizing_Delete
+}
+
+type ProjectsFields_hero_enableColorizing_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_enableColorizing_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_enableColorizing_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_enableColorizing_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates {
+  create: ProjectsFields_hero_colorizeTemplates_Create
+  read: ProjectsFields_hero_colorizeTemplates_Read
+  update: ProjectsFields_hero_colorizeTemplates_Update
+  delete: ProjectsFields_hero_colorizeTemplates_Delete
+  fields: ProjectsFields_hero_colorizeTemplates_Fields
+}
+
+type ProjectsFields_hero_colorizeTemplates_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_Fields {
+  textToColorize: ProjectsFields_hero_colorizeTemplates_textToColorize
+  textColorFrom: ProjectsFields_hero_colorizeTemplates_textColorFrom
+  textColorTo: ProjectsFields_hero_colorizeTemplates_textColorTo
+  textColorFromDark: ProjectsFields_hero_colorizeTemplates_textColorFromDark
+  textColorToDark: ProjectsFields_hero_colorizeTemplates_textColorToDark
+  id: ProjectsFields_hero_colorizeTemplates_id
+}
+
+type ProjectsFields_hero_colorizeTemplates_textToColorize {
+  create: ProjectsFields_hero_colorizeTemplates_textToColorize_Create
+  read: ProjectsFields_hero_colorizeTemplates_textToColorize_Read
+  update: ProjectsFields_hero_colorizeTemplates_textToColorize_Update
+  delete: ProjectsFields_hero_colorizeTemplates_textToColorize_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_textToColorize_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textToColorize_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textToColorize_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textToColorize_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFrom {
+  create: ProjectsFields_hero_colorizeTemplates_textColorFrom_Create
+  read: ProjectsFields_hero_colorizeTemplates_textColorFrom_Read
+  update: ProjectsFields_hero_colorizeTemplates_textColorFrom_Update
+  delete: ProjectsFields_hero_colorizeTemplates_textColorFrom_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFrom_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFrom_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFrom_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFrom_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorTo {
+  create: ProjectsFields_hero_colorizeTemplates_textColorTo_Create
+  read: ProjectsFields_hero_colorizeTemplates_textColorTo_Read
+  update: ProjectsFields_hero_colorizeTemplates_textColorTo_Update
+  delete: ProjectsFields_hero_colorizeTemplates_textColorTo_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorTo_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorTo_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorTo_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorTo_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFromDark {
+  create: ProjectsFields_hero_colorizeTemplates_textColorFromDark_Create
+  read: ProjectsFields_hero_colorizeTemplates_textColorFromDark_Read
+  update: ProjectsFields_hero_colorizeTemplates_textColorFromDark_Update
+  delete: ProjectsFields_hero_colorizeTemplates_textColorFromDark_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFromDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFromDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFromDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorFromDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorToDark {
+  create: ProjectsFields_hero_colorizeTemplates_textColorToDark_Create
+  read: ProjectsFields_hero_colorizeTemplates_textColorToDark_Read
+  update: ProjectsFields_hero_colorizeTemplates_textColorToDark_Update
+  delete: ProjectsFields_hero_colorizeTemplates_textColorToDark_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorToDark_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorToDark_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorToDark_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_textColorToDark_Delete {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_id {
+  create: ProjectsFields_hero_colorizeTemplates_id_Create
+  read: ProjectsFields_hero_colorizeTemplates_id_Read
+  update: ProjectsFields_hero_colorizeTemplates_id_Update
+  delete: ProjectsFields_hero_colorizeTemplates_id_Delete
+}
+
+type ProjectsFields_hero_colorizeTemplates_id_Create {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_id_Read {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_id_Update {
+  permission: Boolean!
+}
+
+type ProjectsFields_hero_colorizeTemplates_id_Delete {
   permission: Boolean!
 }
 
@@ -17272,6 +20650,15 @@ input mutationPageInput {
 
 input mutationPage_HeroInput {
   type: Page_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationPage_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationPage_Hero_LinksInput]
   media: String
@@ -17284,6 +20671,15 @@ enum Page_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationPage_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationPage_Hero_LinksInput {
@@ -17346,6 +20742,15 @@ input mutationPageUpdateInput {
 
 input mutationPageUpdate_HeroInput {
   type: PageUpdate_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationPageUpdate_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationPageUpdate_Hero_LinksInput]
   media: String
@@ -17358,6 +20763,15 @@ enum PageUpdate_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationPageUpdate_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationPageUpdate_Hero_LinksInput {
@@ -17431,6 +20845,15 @@ input mutationPost_PopulatedAuthorsInput {
 
 input mutationPost_HeroInput {
   type: Post_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationPost_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationPost_Hero_LinksInput]
   media: String
@@ -17443,6 +20866,15 @@ enum Post_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationPost_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationPost_Hero_LinksInput {
@@ -17516,6 +20948,15 @@ input mutationPostUpdate_PopulatedAuthorsInput {
 
 input mutationPostUpdate_HeroInput {
   type: PostUpdate_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationPostUpdate_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationPostUpdate_Hero_LinksInput]
   media: String
@@ -17528,6 +20969,15 @@ enum PostUpdate_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationPostUpdate_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationPostUpdate_Hero_LinksInput {
@@ -17592,6 +21042,15 @@ input mutationProjectInput {
 
 input mutationProject_HeroInput {
   type: Project_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationProject_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationProject_Hero_LinksInput]
   media: String
@@ -17604,6 +21063,15 @@ enum Project_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationProject_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationProject_Hero_LinksInput {
@@ -17668,6 +21136,15 @@ input mutationProjectUpdateInput {
 
 input mutationProjectUpdate_HeroInput {
   type: ProjectUpdate_Hero_type_MutationInput!
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  colorizeTemplates: [mutationProjectUpdate_Hero_ColorizeTemplatesInput]
   richText: JSON!
   links: [mutationProjectUpdate_Hero_LinksInput]
   media: String
@@ -17680,6 +21157,15 @@ enum ProjectUpdate_Hero_type_MutationInput {
   mediumImpact
   lowImpact
   slider
+}
+
+input mutationProjectUpdate_Hero_ColorizeTemplatesInput {
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  id: String
 }
 
 input mutationProjectUpdate_Hero_LinksInput {

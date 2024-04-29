@@ -7,8 +7,7 @@ import {
   QUOTE,
   VORONA_HOME,
 } from './blocks'
-import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import { HERO } from './hero'
 import { META } from './meta'
 
 export const PAGES = `
@@ -28,12 +27,7 @@ export const PAGE = `
         id
         title
         hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
+          ${HERO}
         }
         layout {
           ${CONTENT}
