@@ -1,14 +1,20 @@
 import React, { Fragment } from 'react'
 
-import { Page } from '../../../payload/payload-types.js'
+import { Page } from '../../../payload/payload-types'
 import { ArchiveBlock } from '../../_blocks/ArchiveBlock'
+import { Audience } from '../../_blocks/Audience'
 import { CallToActionBlock } from '../../_blocks/CallToAction'
 import { Cards } from '../../_blocks/Cards'
-import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments/index'
+import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments'
+import { ContactForm } from '../../_blocks/ContactForm'
 import { ContentBlock } from '../../_blocks/Content'
 import { MediaBlock } from '../../_blocks/MediaBlock'
+import { Pricing } from '../../_blocks/Pricing'
+import { Principles } from '../../_blocks/Principles'
 import { Quote } from '../../_blocks/Quote'
 import { RelatedPosts, type RelatedPostsProps } from '../../_blocks/RelatedPosts'
+import { Services } from '../../_blocks/Services'
+import { Team } from '../../_blocks/Team'
 import { VoronaHome } from '../../_blocks/VoronaHome'
 import { toKebabCase } from '../../_utilities/toKebabCase'
 import { BlockWrapper } from '../BlockWrapper'
@@ -23,6 +29,12 @@ const blockComponents = {
   voronaHome: VoronaHome,
   cards: Cards,
   quote: Quote,
+  contactForm: ContactForm,
+  pricing: Pricing,
+  principles: Principles,
+  team: Team,
+  audience: Audience,
+  services: Services,
 }
 
 export const Blocks: React.FC<{

@@ -2,17 +2,12 @@
 import React, { FC } from 'react'
 import { CheckIcon } from '@heroicons/react/24/solid'
 import { Card, Chip } from '@nextui-org/react'
-import NextImage from 'next/image'
 
-export interface PersonCardProps {
-  name: string
-  role: string
-  highlightHeader: string
-  highlightDescription: string
-  competences: string[]
-  description: string
-  photo: string
-}
+import { Media } from '../../_components/Media'
+import RichText from '../../_components/RichText'
+import type { TeamProps } from './'
+
+export type PersonCardProps = TeamProps['persons'][number]
 
 export const PersonCard: FC<PersonCardProps> = ({
   name,
@@ -25,7 +20,7 @@ export const PersonCard: FC<PersonCardProps> = ({
 }) => {
   return (
     <Card radius="sm" className="border-none p-6">
-      <NextImage src={photo} alt={name} width={300} height={300} />
+      <Media resource={photo} />
       <h3 className="text-2xl font-extrabold mb-1 mt-2">{name}</h3>
       <div className="divide-y-1 divide-solid">
         <p className="italic  mb-2">{role}</p>
@@ -38,13 +33,13 @@ export const PersonCard: FC<PersonCardProps> = ({
         </div>
       </div>
       <div>
-        {competences?.map((text, i) => (
-          <Chip className="me-2 mb-2" variant="flat" color="primary" key={`${text}-${i}`}>
-            {text}
+        {competences?.map((competence, i) => (
+          <Chip key={competence.id || i} className="me-2 mb-2" variant="flat" color="primary">
+            {competence.title}
           </Chip>
         ))}
       </div>
-      <p>{description}</p>
+      <RichText content={description} />
     </Card>
   )
 }

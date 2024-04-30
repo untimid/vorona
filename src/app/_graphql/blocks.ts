@@ -151,3 +151,134 @@ export const QUOTE = `
   }
 }
 `
+export const AUDIENCE = `
+...on Audience {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  audienceItems {
+    image {
+      ${MEDIA_FIELDS}
+    }
+    title
+    description
+    benefitItems {
+      title
+      description
+    }
+  }
+}
+`
+export const CONTACT_FORM = `
+...on ContactForm {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  nameInput {
+    label
+    placeholder
+  }
+  emailInput {
+    label
+    placeholder
+  }
+  descriptionInput {
+    label
+    placeholder
+  }
+  agreementCheckboxText
+  submitButtonText
+}
+`
+
+export const PRICING = `
+...on Pricing {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  highlightedPrices {
+    rate
+    description
+  }
+  tips {
+    icon
+    title
+    description
+  }
+}
+`
+
+export const PRINCIPLES = `
+...on Principles {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  pricingPrinciples {
+    principles {
+      title
+      description
+      icon
+    }
+    videoSrc
+  }
+  processPrinciples {
+    description
+    videoSrc
+    stepDelay
+    typingDelay
+    steps {
+      title
+      description
+      percentage
+    }
+  }
+  collaborationPrinciples {
+    description
+    videoSrc
+    principles {
+      title
+      description
+      icon
+      color
+      services {
+        title
+      }
+    }
+  }
+}
+`
+
+export const SERVICES = `
+...on Services {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  servicesGroups {
+    title
+    color
+    services {
+      title
+    }
+  }
+}
+`
+export const TEAM = `
+...on Team {
+  blockType
+  ${COMMON_BLOCK_FIELDS}
+  description
+  persons {
+    photo {
+      ${MEDIA_FIELDS}
+    }
+    name
+    role
+    highlightHeader
+    highlightDescription
+    description
+    competences {
+      title
+    }
+  }
+}
+`

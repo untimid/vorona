@@ -1,10 +1,16 @@
 import {
   ARCHIVE_BLOCK,
+  AUDIENCE,
   CALL_TO_ACTION,
   CARDS,
+  CONTACT_FORM,
   CONTENT,
   MEDIA_BLOCK,
+  PRICING,
+  PRINCIPLES,
   QUOTE,
+  SERVICES,
+  TEAM,
   VORONA_HOME,
 } from './blocks'
 import { HERO } from './hero'
@@ -38,6 +44,12 @@ export const PAGE = `
           ${VORONA_HOME}
           ${QUOTE}
           ${CARDS}
+          ${TEAM}
+          ${SERVICES}
+          ${PRINCIPLES}
+          ${PRICING}
+          ${CONTACT_FORM}
+          ${AUDIENCE}
         }
         ${META}
       }

@@ -1,19 +1,17 @@
 import React, { FC } from 'react'
 
-import { CollaborationPrinciple, CollaborationPrincipleProps } from './CollaborationPrinciple'
+import RichText from '../../_components/RichText'
+import type { PrinciplesProps } from './'
+import { CollaborationPrinciple } from './CollaborationPrinciple'
 import { TabWrapper } from './TabWrapper'
 
-export interface CollaborationProps {
-  description: string
-  principles?: CollaborationPrincipleProps[]
-  videoSrc?: string
-}
+export type CollaborationProps = PrinciplesProps['collaborationPrinciples']
 
 export const Collaboration: FC<CollaborationProps> = ({ principles, description, videoSrc }) => {
   return (
     <TabWrapper>
       <div>
-        <p>{description}</p>
+        <RichText content={description} />
         <div className="mt-4 flex-col">
           {principles?.map(({ title, color, description, icon, services }, i) => (
             <CollaborationPrinciple

@@ -1,20 +1,24 @@
 import React, { FC } from 'react'
 
-import { PrincipleStepType, ProcessPrinciple } from './ProcessPrinciple'
+import RichText from '../../_components/RichText'
+import type { PrinciplesProps } from './'
+import { ProcessPrinciples } from './ProcessPrinciples'
 import { TabWrapper } from './TabWrapper'
 
-export interface ProcessProps {
-  steps?: PrincipleStepType[]
-  description: string
-  videoSrc?: string
-}
+export type ProcessProps = PrinciplesProps['processPrinciples']
 
-export const Process: FC<ProcessProps> = ({ steps, description, videoSrc }) => {
+export const Process: FC<ProcessProps> = ({
+  steps,
+  description,
+  videoSrc,
+  typingDelay,
+  stepDelay,
+}) => {
   return (
     <TabWrapper>
       <div>
-        <p>{description}</p>
-        <ProcessPrinciple steps={steps} />
+        <RichText content={description} />
+        <ProcessPrinciples steps={steps} typingDelay={typingDelay} stepDelay={stepDelay} />
       </div>
       {videoSrc && (
         <iframe

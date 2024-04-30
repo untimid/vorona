@@ -48,9 +48,9 @@ export const Card: FC<CardProps> = ({
           {subtitle && <span>{subtitle}</span>}
           {chips?.length && (
             <div>
-              {chips.map(({ title, id, bgColorSelect }) => (
+              {chips.map(({ title, id, bgColorSelect }, i) => (
                 <Chip
-                  key={id}
+                  key={id || i}
                   className={`${bgColorSelect ? bgColorSelect : 'bg-amber-300'} mt-2 me-2`}
                 >
                   {title}

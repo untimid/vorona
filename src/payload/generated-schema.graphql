@@ -493,7 +493,7 @@ input Page_Hero_Slider_SlideImage_where_or {
   OR: [Page_Hero_Slider_SlideImage_where_or]
 }
 
-union Page_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards
+union Page_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type Cta {
   invertBackground: Boolean
@@ -1321,7 +1321,7 @@ input Post_Hero_Slider_SlideImage_where_or {
   OR: [Post_Hero_Slider_SlideImage_where_or]
 }
 
-union Post_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
+union Post_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type Quote {
   invertBackground: Boolean
@@ -2054,7 +2054,1481 @@ type Cards_CardItems_Chips {
   id: String
 }
 
-union Post_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards
+type ContactForm {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  nameInput: ContactForm_NameInput
+  emailInput: ContactForm_EmailInput
+  descriptionInput: ContactForm_DescriptionInput
+  agreementCheckboxText(depth: Int): JSON
+  submitButtonText: String
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type ContactForm_NameInput {
+  label: String
+  placeholder: String
+}
+
+type ContactForm_EmailInput {
+  label: String
+  placeholder: String
+}
+
+type ContactForm_DescriptionInput {
+  label: String
+  placeholder: String
+}
+
+type Pricing {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  highlightedPrices: [Pricing_HighlightedPrices!]
+  tips: [Pricing_Tips!]
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type Pricing_HighlightedPrices {
+  rate: String
+  description(depth: Int): JSON
+  id: String
+}
+
+type Pricing_Tips {
+  icon: Pricing_Tips_icon
+  title: String
+  description(depth: Int): JSON
+  id: String
+}
+
+enum Pricing_Tips_icon {
+  AcademicCapIcon
+  AdjustmentsHorizontalIcon
+  AdjustmentsVerticalIcon
+  ArchiveBoxArrowDownIcon
+  ArchiveBoxXMarkIcon
+  ArchiveBoxIcon
+  ArrowDownCircleIcon
+  ArrowDownLeftIcon
+  ArrowDownOnSquareStackIcon
+  ArrowDownOnSquareIcon
+  ArrowDownRightIcon
+  ArrowDownTrayIcon
+  ArrowDownIcon
+  ArrowLeftCircleIcon
+  ArrowLeftEndOnRectangleIcon
+  ArrowLeftOnRectangleIcon
+  ArrowLeftStartOnRectangleIcon
+  ArrowLeftIcon
+  ArrowLongDownIcon
+  ArrowLongLeftIcon
+  ArrowLongRightIcon
+  ArrowLongUpIcon
+  ArrowPathRoundedSquareIcon
+  ArrowPathIcon
+  ArrowRightCircleIcon
+  ArrowRightEndOnRectangleIcon
+  ArrowRightOnRectangleIcon
+  ArrowRightStartOnRectangleIcon
+  ArrowRightIcon
+  ArrowSmallDownIcon
+  ArrowSmallLeftIcon
+  ArrowSmallRightIcon
+  ArrowSmallUpIcon
+  ArrowTopRightOnSquareIcon
+  ArrowTrendingDownIcon
+  ArrowTrendingUpIcon
+  ArrowUpCircleIcon
+  ArrowUpLeftIcon
+  ArrowUpOnSquareStackIcon
+  ArrowUpOnSquareIcon
+  ArrowUpRightIcon
+  ArrowUpTrayIcon
+  ArrowUpIcon
+  ArrowUturnDownIcon
+  ArrowUturnLeftIcon
+  ArrowUturnRightIcon
+  ArrowUturnUpIcon
+  ArrowsPointingInIcon
+  ArrowsPointingOutIcon
+  ArrowsRightLeftIcon
+  ArrowsUpDownIcon
+  AtSymbolIcon
+  BackspaceIcon
+  BackwardIcon
+  BanknotesIcon
+  Bars2Icon
+  Bars3BottomLeftIcon
+  Bars3BottomRightIcon
+  Bars3CenterLeftIcon
+  Bars3Icon
+  Bars4Icon
+  BarsArrowDownIcon
+  BarsArrowUpIcon
+  Battery0Icon
+  Battery100Icon
+  Battery50Icon
+  BeakerIcon
+  BellAlertIcon
+  BellSlashIcon
+  BellSnoozeIcon
+  BellIcon
+  BoltSlashIcon
+  BoltIcon
+  BookOpenIcon
+  BookmarkSlashIcon
+  BookmarkSquareIcon
+  BookmarkIcon
+  BriefcaseIcon
+  BugAntIcon
+  BuildingLibraryIcon
+  BuildingOffice2Icon
+  BuildingOfficeIcon
+  BuildingStorefrontIcon
+  CakeIcon
+  CalculatorIcon
+  CalendarDaysIcon
+  CalendarIcon
+  CameraIcon
+  ChartBarSquareIcon
+  ChartBarIcon
+  ChartPieIcon
+  ChatBubbleBottomCenterTextIcon
+  ChatBubbleBottomCenterIcon
+  ChatBubbleLeftEllipsisIcon
+  ChatBubbleLeftRightIcon
+  ChatBubbleLeftIcon
+  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftIcon
+  CheckBadgeIcon
+  CheckCircleIcon
+  CheckIcon
+  ChevronDoubleDownIcon
+  ChevronDoubleLeftIcon
+  ChevronDoubleRightIcon
+  ChevronDoubleUpIcon
+  ChevronDownIcon
+  ChevronLeftIcon
+  ChevronRightIcon
+  ChevronUpDownIcon
+  ChevronUpIcon
+  CircleStackIcon
+  ClipboardDocumentCheckIcon
+  ClipboardDocumentListIcon
+  ClipboardDocumentIcon
+  ClipboardIcon
+  ClockIcon
+  CloudArrowDownIcon
+  CloudArrowUpIcon
+  CloudIcon
+  CodeBracketSquareIcon
+  CodeBracketIcon
+  Cog6ToothIcon
+  Cog8ToothIcon
+  CogIcon
+  CommandLineIcon
+  ComputerDesktopIcon
+  CpuChipIcon
+  CreditCardIcon
+  CubeTransparentIcon
+  CubeIcon
+  CurrencyBangladeshiIcon
+  CurrencyDollarIcon
+  CurrencyEuroIcon
+  CurrencyPoundIcon
+  CurrencyRupeeIcon
+  CurrencyYenIcon
+  CursorArrowRaysIcon
+  CursorArrowRippleIcon
+  DevicePhoneMobileIcon
+  DeviceTabletIcon
+  DocumentArrowDownIcon
+  DocumentArrowUpIcon
+  DocumentChartBarIcon
+  DocumentCheckIcon
+  DocumentDuplicateIcon
+  DocumentMagnifyingGlassIcon
+  DocumentMinusIcon
+  DocumentPlusIcon
+  DocumentTextIcon
+  DocumentIcon
+  EllipsisHorizontalCircleIcon
+  EllipsisHorizontalIcon
+  EllipsisVerticalIcon
+  EnvelopeOpenIcon
+  EnvelopeIcon
+  ExclamationCircleIcon
+  ExclamationTriangleIcon
+  EyeDropperIcon
+  EyeSlashIcon
+  EyeIcon
+  FaceFrownIcon
+  FaceSmileIcon
+  FilmIcon
+  FingerPrintIcon
+  FireIcon
+  FlagIcon
+  FolderArrowDownIcon
+  FolderMinusIcon
+  FolderOpenIcon
+  FolderPlusIcon
+  FolderIcon
+  ForwardIcon
+  FunnelIcon
+  GifIcon
+  GiftTopIcon
+  GiftIcon
+  GlobeAltIcon
+  GlobeAmericasIcon
+  GlobeAsiaAustraliaIcon
+  GlobeEuropeAfricaIcon
+  HandRaisedIcon
+  HandThumbDownIcon
+  HandThumbUpIcon
+  HashtagIcon
+  HeartIcon
+  HomeModernIcon
+  HomeIcon
+  IdentificationIcon
+  InboxArrowDownIcon
+  InboxStackIcon
+  InboxIcon
+  InformationCircleIcon
+  KeyIcon
+  LanguageIcon
+  LifebuoyIcon
+  LightBulbIcon
+  LinkIcon
+  ListBulletIcon
+  LockClosedIcon
+  LockOpenIcon
+  MagnifyingGlassCircleIcon
+  MagnifyingGlassMinusIcon
+  MagnifyingGlassPlusIcon
+  MagnifyingGlassIcon
+  MapPinIcon
+  MapIcon
+  MegaphoneIcon
+  MicrophoneIcon
+  MinusCircleIcon
+  MinusSmallIcon
+  MinusIcon
+  MoonIcon
+  MusicalNoteIcon
+  NewspaperIcon
+  NoSymbolIcon
+  PaintBrushIcon
+  PaperAirplaneIcon
+  PaperClipIcon
+  PauseCircleIcon
+  PauseIcon
+  PencilSquareIcon
+  PencilIcon
+  PhoneArrowDownLeftIcon
+  PhoneArrowUpRightIcon
+  PhoneXMarkIcon
+  PhoneIcon
+  PhotoIcon
+  PlayCircleIcon
+  PlayPauseIcon
+  PlayIcon
+  PlusCircleIcon
+  PlusSmallIcon
+  PlusIcon
+  PowerIcon
+  PresentationChartBarIcon
+  PresentationChartLineIcon
+  PrinterIcon
+  PuzzlePieceIcon
+  QrCodeIcon
+  QuestionMarkCircleIcon
+  QueueListIcon
+  RadioIcon
+  ReceiptPercentIcon
+  ReceiptRefundIcon
+  RectangleGroupIcon
+  RectangleStackIcon
+  RocketLaunchIcon
+  RssIcon
+  ScaleIcon
+  ScissorsIcon
+  ServerStackIcon
+  ServerIcon
+  ShareIcon
+  ShieldCheckIcon
+  ShieldExclamationIcon
+  ShoppingBagIcon
+  ShoppingCartIcon
+  SignalSlashIcon
+  SignalIcon
+  SparklesIcon
+  SpeakerWaveIcon
+  SpeakerXMarkIcon
+  Square2StackIcon
+  Square3Stack3DIcon
+  Squares2X2Icon
+  SquaresPlusIcon
+  StarIcon
+  StopCircleIcon
+  StopIcon
+  SunIcon
+  SwatchIcon
+  TableCellsIcon
+  TagIcon
+  TicketIcon
+  TrashIcon
+  TrophyIcon
+  TruckIcon
+  TvIcon
+  UserCircleIcon
+  UserGroupIcon
+  UserMinusIcon
+  UserPlusIcon
+  UserIcon
+  UsersIcon
+  VariableIcon
+  VideoCameraSlashIcon
+  VideoCameraIcon
+  ViewColumnsIcon
+  ViewfinderCircleIcon
+  WalletIcon
+  WifiIcon
+  WindowIcon
+  WrenchScrewdriverIcon
+  WrenchIcon
+  XCircleIcon
+  XMarkIcon
+  default
+}
+
+type Principles {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  pricingPrinciples: Principles_PricingPrinciples
+  processPrinciples: Principles_ProcessPrinciples
+  collaborationPrinciples: Principles_CollaborationPrinciples
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type Principles_PricingPrinciples {
+  principles: [Principles_PricingPrinciples_Principles!]
+  videoSrc: String
+}
+
+type Principles_PricingPrinciples_Principles {
+  title: String
+  description(depth: Int): JSON
+  icon: Principles_PricingPrinciples_Principles_icon
+  id: String
+}
+
+enum Principles_PricingPrinciples_Principles_icon {
+  AcademicCapIcon
+  AdjustmentsHorizontalIcon
+  AdjustmentsVerticalIcon
+  ArchiveBoxArrowDownIcon
+  ArchiveBoxXMarkIcon
+  ArchiveBoxIcon
+  ArrowDownCircleIcon
+  ArrowDownLeftIcon
+  ArrowDownOnSquareStackIcon
+  ArrowDownOnSquareIcon
+  ArrowDownRightIcon
+  ArrowDownTrayIcon
+  ArrowDownIcon
+  ArrowLeftCircleIcon
+  ArrowLeftEndOnRectangleIcon
+  ArrowLeftOnRectangleIcon
+  ArrowLeftStartOnRectangleIcon
+  ArrowLeftIcon
+  ArrowLongDownIcon
+  ArrowLongLeftIcon
+  ArrowLongRightIcon
+  ArrowLongUpIcon
+  ArrowPathRoundedSquareIcon
+  ArrowPathIcon
+  ArrowRightCircleIcon
+  ArrowRightEndOnRectangleIcon
+  ArrowRightOnRectangleIcon
+  ArrowRightStartOnRectangleIcon
+  ArrowRightIcon
+  ArrowSmallDownIcon
+  ArrowSmallLeftIcon
+  ArrowSmallRightIcon
+  ArrowSmallUpIcon
+  ArrowTopRightOnSquareIcon
+  ArrowTrendingDownIcon
+  ArrowTrendingUpIcon
+  ArrowUpCircleIcon
+  ArrowUpLeftIcon
+  ArrowUpOnSquareStackIcon
+  ArrowUpOnSquareIcon
+  ArrowUpRightIcon
+  ArrowUpTrayIcon
+  ArrowUpIcon
+  ArrowUturnDownIcon
+  ArrowUturnLeftIcon
+  ArrowUturnRightIcon
+  ArrowUturnUpIcon
+  ArrowsPointingInIcon
+  ArrowsPointingOutIcon
+  ArrowsRightLeftIcon
+  ArrowsUpDownIcon
+  AtSymbolIcon
+  BackspaceIcon
+  BackwardIcon
+  BanknotesIcon
+  Bars2Icon
+  Bars3BottomLeftIcon
+  Bars3BottomRightIcon
+  Bars3CenterLeftIcon
+  Bars3Icon
+  Bars4Icon
+  BarsArrowDownIcon
+  BarsArrowUpIcon
+  Battery0Icon
+  Battery100Icon
+  Battery50Icon
+  BeakerIcon
+  BellAlertIcon
+  BellSlashIcon
+  BellSnoozeIcon
+  BellIcon
+  BoltSlashIcon
+  BoltIcon
+  BookOpenIcon
+  BookmarkSlashIcon
+  BookmarkSquareIcon
+  BookmarkIcon
+  BriefcaseIcon
+  BugAntIcon
+  BuildingLibraryIcon
+  BuildingOffice2Icon
+  BuildingOfficeIcon
+  BuildingStorefrontIcon
+  CakeIcon
+  CalculatorIcon
+  CalendarDaysIcon
+  CalendarIcon
+  CameraIcon
+  ChartBarSquareIcon
+  ChartBarIcon
+  ChartPieIcon
+  ChatBubbleBottomCenterTextIcon
+  ChatBubbleBottomCenterIcon
+  ChatBubbleLeftEllipsisIcon
+  ChatBubbleLeftRightIcon
+  ChatBubbleLeftIcon
+  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftIcon
+  CheckBadgeIcon
+  CheckCircleIcon
+  CheckIcon
+  ChevronDoubleDownIcon
+  ChevronDoubleLeftIcon
+  ChevronDoubleRightIcon
+  ChevronDoubleUpIcon
+  ChevronDownIcon
+  ChevronLeftIcon
+  ChevronRightIcon
+  ChevronUpDownIcon
+  ChevronUpIcon
+  CircleStackIcon
+  ClipboardDocumentCheckIcon
+  ClipboardDocumentListIcon
+  ClipboardDocumentIcon
+  ClipboardIcon
+  ClockIcon
+  CloudArrowDownIcon
+  CloudArrowUpIcon
+  CloudIcon
+  CodeBracketSquareIcon
+  CodeBracketIcon
+  Cog6ToothIcon
+  Cog8ToothIcon
+  CogIcon
+  CommandLineIcon
+  ComputerDesktopIcon
+  CpuChipIcon
+  CreditCardIcon
+  CubeTransparentIcon
+  CubeIcon
+  CurrencyBangladeshiIcon
+  CurrencyDollarIcon
+  CurrencyEuroIcon
+  CurrencyPoundIcon
+  CurrencyRupeeIcon
+  CurrencyYenIcon
+  CursorArrowRaysIcon
+  CursorArrowRippleIcon
+  DevicePhoneMobileIcon
+  DeviceTabletIcon
+  DocumentArrowDownIcon
+  DocumentArrowUpIcon
+  DocumentChartBarIcon
+  DocumentCheckIcon
+  DocumentDuplicateIcon
+  DocumentMagnifyingGlassIcon
+  DocumentMinusIcon
+  DocumentPlusIcon
+  DocumentTextIcon
+  DocumentIcon
+  EllipsisHorizontalCircleIcon
+  EllipsisHorizontalIcon
+  EllipsisVerticalIcon
+  EnvelopeOpenIcon
+  EnvelopeIcon
+  ExclamationCircleIcon
+  ExclamationTriangleIcon
+  EyeDropperIcon
+  EyeSlashIcon
+  EyeIcon
+  FaceFrownIcon
+  FaceSmileIcon
+  FilmIcon
+  FingerPrintIcon
+  FireIcon
+  FlagIcon
+  FolderArrowDownIcon
+  FolderMinusIcon
+  FolderOpenIcon
+  FolderPlusIcon
+  FolderIcon
+  ForwardIcon
+  FunnelIcon
+  GifIcon
+  GiftTopIcon
+  GiftIcon
+  GlobeAltIcon
+  GlobeAmericasIcon
+  GlobeAsiaAustraliaIcon
+  GlobeEuropeAfricaIcon
+  HandRaisedIcon
+  HandThumbDownIcon
+  HandThumbUpIcon
+  HashtagIcon
+  HeartIcon
+  HomeModernIcon
+  HomeIcon
+  IdentificationIcon
+  InboxArrowDownIcon
+  InboxStackIcon
+  InboxIcon
+  InformationCircleIcon
+  KeyIcon
+  LanguageIcon
+  LifebuoyIcon
+  LightBulbIcon
+  LinkIcon
+  ListBulletIcon
+  LockClosedIcon
+  LockOpenIcon
+  MagnifyingGlassCircleIcon
+  MagnifyingGlassMinusIcon
+  MagnifyingGlassPlusIcon
+  MagnifyingGlassIcon
+  MapPinIcon
+  MapIcon
+  MegaphoneIcon
+  MicrophoneIcon
+  MinusCircleIcon
+  MinusSmallIcon
+  MinusIcon
+  MoonIcon
+  MusicalNoteIcon
+  NewspaperIcon
+  NoSymbolIcon
+  PaintBrushIcon
+  PaperAirplaneIcon
+  PaperClipIcon
+  PauseCircleIcon
+  PauseIcon
+  PencilSquareIcon
+  PencilIcon
+  PhoneArrowDownLeftIcon
+  PhoneArrowUpRightIcon
+  PhoneXMarkIcon
+  PhoneIcon
+  PhotoIcon
+  PlayCircleIcon
+  PlayPauseIcon
+  PlayIcon
+  PlusCircleIcon
+  PlusSmallIcon
+  PlusIcon
+  PowerIcon
+  PresentationChartBarIcon
+  PresentationChartLineIcon
+  PrinterIcon
+  PuzzlePieceIcon
+  QrCodeIcon
+  QuestionMarkCircleIcon
+  QueueListIcon
+  RadioIcon
+  ReceiptPercentIcon
+  ReceiptRefundIcon
+  RectangleGroupIcon
+  RectangleStackIcon
+  RocketLaunchIcon
+  RssIcon
+  ScaleIcon
+  ScissorsIcon
+  ServerStackIcon
+  ServerIcon
+  ShareIcon
+  ShieldCheckIcon
+  ShieldExclamationIcon
+  ShoppingBagIcon
+  ShoppingCartIcon
+  SignalSlashIcon
+  SignalIcon
+  SparklesIcon
+  SpeakerWaveIcon
+  SpeakerXMarkIcon
+  Square2StackIcon
+  Square3Stack3DIcon
+  Squares2X2Icon
+  SquaresPlusIcon
+  StarIcon
+  StopCircleIcon
+  StopIcon
+  SunIcon
+  SwatchIcon
+  TableCellsIcon
+  TagIcon
+  TicketIcon
+  TrashIcon
+  TrophyIcon
+  TruckIcon
+  TvIcon
+  UserCircleIcon
+  UserGroupIcon
+  UserMinusIcon
+  UserPlusIcon
+  UserIcon
+  UsersIcon
+  VariableIcon
+  VideoCameraSlashIcon
+  VideoCameraIcon
+  ViewColumnsIcon
+  ViewfinderCircleIcon
+  WalletIcon
+  WifiIcon
+  WindowIcon
+  WrenchScrewdriverIcon
+  WrenchIcon
+  XCircleIcon
+  XMarkIcon
+  default
+}
+
+type Principles_ProcessPrinciples {
+  description(depth: Int): JSON
+  videoSrc: String
+  stepDelay: Float
+  typingDelay: Float
+  steps: [Principles_ProcessPrinciples_Steps!]
+}
+
+type Principles_ProcessPrinciples_Steps {
+  title: String
+  description(depth: Int): JSON
+  percentage: Float
+  id: String
+}
+
+type Principles_CollaborationPrinciples {
+  principles: [Principles_CollaborationPrinciples_Principles!]
+  description(depth: Int): JSON
+  videoSrc: String
+}
+
+type Principles_CollaborationPrinciples_Principles {
+  title: String
+  description(depth: Int): JSON
+  icon: Principles_CollaborationPrinciples_Principles_icon
+  color: String
+  services: [Principles_CollaborationPrinciples_Principles_Services!]
+  id: String
+}
+
+enum Principles_CollaborationPrinciples_Principles_icon {
+  AcademicCapIcon
+  AdjustmentsHorizontalIcon
+  AdjustmentsVerticalIcon
+  ArchiveBoxArrowDownIcon
+  ArchiveBoxXMarkIcon
+  ArchiveBoxIcon
+  ArrowDownCircleIcon
+  ArrowDownLeftIcon
+  ArrowDownOnSquareStackIcon
+  ArrowDownOnSquareIcon
+  ArrowDownRightIcon
+  ArrowDownTrayIcon
+  ArrowDownIcon
+  ArrowLeftCircleIcon
+  ArrowLeftEndOnRectangleIcon
+  ArrowLeftOnRectangleIcon
+  ArrowLeftStartOnRectangleIcon
+  ArrowLeftIcon
+  ArrowLongDownIcon
+  ArrowLongLeftIcon
+  ArrowLongRightIcon
+  ArrowLongUpIcon
+  ArrowPathRoundedSquareIcon
+  ArrowPathIcon
+  ArrowRightCircleIcon
+  ArrowRightEndOnRectangleIcon
+  ArrowRightOnRectangleIcon
+  ArrowRightStartOnRectangleIcon
+  ArrowRightIcon
+  ArrowSmallDownIcon
+  ArrowSmallLeftIcon
+  ArrowSmallRightIcon
+  ArrowSmallUpIcon
+  ArrowTopRightOnSquareIcon
+  ArrowTrendingDownIcon
+  ArrowTrendingUpIcon
+  ArrowUpCircleIcon
+  ArrowUpLeftIcon
+  ArrowUpOnSquareStackIcon
+  ArrowUpOnSquareIcon
+  ArrowUpRightIcon
+  ArrowUpTrayIcon
+  ArrowUpIcon
+  ArrowUturnDownIcon
+  ArrowUturnLeftIcon
+  ArrowUturnRightIcon
+  ArrowUturnUpIcon
+  ArrowsPointingInIcon
+  ArrowsPointingOutIcon
+  ArrowsRightLeftIcon
+  ArrowsUpDownIcon
+  AtSymbolIcon
+  BackspaceIcon
+  BackwardIcon
+  BanknotesIcon
+  Bars2Icon
+  Bars3BottomLeftIcon
+  Bars3BottomRightIcon
+  Bars3CenterLeftIcon
+  Bars3Icon
+  Bars4Icon
+  BarsArrowDownIcon
+  BarsArrowUpIcon
+  Battery0Icon
+  Battery100Icon
+  Battery50Icon
+  BeakerIcon
+  BellAlertIcon
+  BellSlashIcon
+  BellSnoozeIcon
+  BellIcon
+  BoltSlashIcon
+  BoltIcon
+  BookOpenIcon
+  BookmarkSlashIcon
+  BookmarkSquareIcon
+  BookmarkIcon
+  BriefcaseIcon
+  BugAntIcon
+  BuildingLibraryIcon
+  BuildingOffice2Icon
+  BuildingOfficeIcon
+  BuildingStorefrontIcon
+  CakeIcon
+  CalculatorIcon
+  CalendarDaysIcon
+  CalendarIcon
+  CameraIcon
+  ChartBarSquareIcon
+  ChartBarIcon
+  ChartPieIcon
+  ChatBubbleBottomCenterTextIcon
+  ChatBubbleBottomCenterIcon
+  ChatBubbleLeftEllipsisIcon
+  ChatBubbleLeftRightIcon
+  ChatBubbleLeftIcon
+  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftIcon
+  CheckBadgeIcon
+  CheckCircleIcon
+  CheckIcon
+  ChevronDoubleDownIcon
+  ChevronDoubleLeftIcon
+  ChevronDoubleRightIcon
+  ChevronDoubleUpIcon
+  ChevronDownIcon
+  ChevronLeftIcon
+  ChevronRightIcon
+  ChevronUpDownIcon
+  ChevronUpIcon
+  CircleStackIcon
+  ClipboardDocumentCheckIcon
+  ClipboardDocumentListIcon
+  ClipboardDocumentIcon
+  ClipboardIcon
+  ClockIcon
+  CloudArrowDownIcon
+  CloudArrowUpIcon
+  CloudIcon
+  CodeBracketSquareIcon
+  CodeBracketIcon
+  Cog6ToothIcon
+  Cog8ToothIcon
+  CogIcon
+  CommandLineIcon
+  ComputerDesktopIcon
+  CpuChipIcon
+  CreditCardIcon
+  CubeTransparentIcon
+  CubeIcon
+  CurrencyBangladeshiIcon
+  CurrencyDollarIcon
+  CurrencyEuroIcon
+  CurrencyPoundIcon
+  CurrencyRupeeIcon
+  CurrencyYenIcon
+  CursorArrowRaysIcon
+  CursorArrowRippleIcon
+  DevicePhoneMobileIcon
+  DeviceTabletIcon
+  DocumentArrowDownIcon
+  DocumentArrowUpIcon
+  DocumentChartBarIcon
+  DocumentCheckIcon
+  DocumentDuplicateIcon
+  DocumentMagnifyingGlassIcon
+  DocumentMinusIcon
+  DocumentPlusIcon
+  DocumentTextIcon
+  DocumentIcon
+  EllipsisHorizontalCircleIcon
+  EllipsisHorizontalIcon
+  EllipsisVerticalIcon
+  EnvelopeOpenIcon
+  EnvelopeIcon
+  ExclamationCircleIcon
+  ExclamationTriangleIcon
+  EyeDropperIcon
+  EyeSlashIcon
+  EyeIcon
+  FaceFrownIcon
+  FaceSmileIcon
+  FilmIcon
+  FingerPrintIcon
+  FireIcon
+  FlagIcon
+  FolderArrowDownIcon
+  FolderMinusIcon
+  FolderOpenIcon
+  FolderPlusIcon
+  FolderIcon
+  ForwardIcon
+  FunnelIcon
+  GifIcon
+  GiftTopIcon
+  GiftIcon
+  GlobeAltIcon
+  GlobeAmericasIcon
+  GlobeAsiaAustraliaIcon
+  GlobeEuropeAfricaIcon
+  HandRaisedIcon
+  HandThumbDownIcon
+  HandThumbUpIcon
+  HashtagIcon
+  HeartIcon
+  HomeModernIcon
+  HomeIcon
+  IdentificationIcon
+  InboxArrowDownIcon
+  InboxStackIcon
+  InboxIcon
+  InformationCircleIcon
+  KeyIcon
+  LanguageIcon
+  LifebuoyIcon
+  LightBulbIcon
+  LinkIcon
+  ListBulletIcon
+  LockClosedIcon
+  LockOpenIcon
+  MagnifyingGlassCircleIcon
+  MagnifyingGlassMinusIcon
+  MagnifyingGlassPlusIcon
+  MagnifyingGlassIcon
+  MapPinIcon
+  MapIcon
+  MegaphoneIcon
+  MicrophoneIcon
+  MinusCircleIcon
+  MinusSmallIcon
+  MinusIcon
+  MoonIcon
+  MusicalNoteIcon
+  NewspaperIcon
+  NoSymbolIcon
+  PaintBrushIcon
+  PaperAirplaneIcon
+  PaperClipIcon
+  PauseCircleIcon
+  PauseIcon
+  PencilSquareIcon
+  PencilIcon
+  PhoneArrowDownLeftIcon
+  PhoneArrowUpRightIcon
+  PhoneXMarkIcon
+  PhoneIcon
+  PhotoIcon
+  PlayCircleIcon
+  PlayPauseIcon
+  PlayIcon
+  PlusCircleIcon
+  PlusSmallIcon
+  PlusIcon
+  PowerIcon
+  PresentationChartBarIcon
+  PresentationChartLineIcon
+  PrinterIcon
+  PuzzlePieceIcon
+  QrCodeIcon
+  QuestionMarkCircleIcon
+  QueueListIcon
+  RadioIcon
+  ReceiptPercentIcon
+  ReceiptRefundIcon
+  RectangleGroupIcon
+  RectangleStackIcon
+  RocketLaunchIcon
+  RssIcon
+  ScaleIcon
+  ScissorsIcon
+  ServerStackIcon
+  ServerIcon
+  ShareIcon
+  ShieldCheckIcon
+  ShieldExclamationIcon
+  ShoppingBagIcon
+  ShoppingCartIcon
+  SignalSlashIcon
+  SignalIcon
+  SparklesIcon
+  SpeakerWaveIcon
+  SpeakerXMarkIcon
+  Square2StackIcon
+  Square3Stack3DIcon
+  Squares2X2Icon
+  SquaresPlusIcon
+  StarIcon
+  StopCircleIcon
+  StopIcon
+  SunIcon
+  SwatchIcon
+  TableCellsIcon
+  TagIcon
+  TicketIcon
+  TrashIcon
+  TrophyIcon
+  TruckIcon
+  TvIcon
+  UserCircleIcon
+  UserGroupIcon
+  UserMinusIcon
+  UserPlusIcon
+  UserIcon
+  UsersIcon
+  VariableIcon
+  VideoCameraSlashIcon
+  VideoCameraIcon
+  ViewColumnsIcon
+  ViewfinderCircleIcon
+  WalletIcon
+  WifiIcon
+  WindowIcon
+  WrenchScrewdriverIcon
+  WrenchIcon
+  XCircleIcon
+  XMarkIcon
+  default
+}
+
+type Principles_CollaborationPrinciples_Principles_Services {
+  title: String
+  id: String
+}
+
+type Team {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  persons: [Team_Persons!]!
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type Team_Persons {
+  photo(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Team_Persons_Photo_where): Media!
+  name: String
+  role: String
+  highlightHeader: String
+  highlightDescription: String
+  description(depth: Int): JSON
+  competences: [Team_Persons_Competences!]!
+  id: String
+}
+
+input Team_Persons_Photo_where {
+  alt: Team_Persons_Photo_alt_operator
+  caption: Team_Persons_Photo_caption_operator
+  updatedAt: Team_Persons_Photo_updatedAt_operator
+  createdAt: Team_Persons_Photo_createdAt_operator
+  url: Team_Persons_Photo_url_operator
+  filename: Team_Persons_Photo_filename_operator
+  mimeType: Team_Persons_Photo_mimeType_operator
+  filesize: Team_Persons_Photo_filesize_operator
+  width: Team_Persons_Photo_width_operator
+  height: Team_Persons_Photo_height_operator
+  id: Team_Persons_Photo_id_operator
+  AND: [Team_Persons_Photo_where_and]
+  OR: [Team_Persons_Photo_where_or]
+}
+
+input Team_Persons_Photo_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Team_Persons_Photo_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Team_Persons_Photo_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Team_Persons_Photo_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Team_Persons_Photo_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Team_Persons_Photo_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Team_Persons_Photo_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Team_Persons_Photo_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Team_Persons_Photo_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Team_Persons_Photo_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Team_Persons_Photo_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Team_Persons_Photo_where_and {
+  alt: Team_Persons_Photo_alt_operator
+  caption: Team_Persons_Photo_caption_operator
+  updatedAt: Team_Persons_Photo_updatedAt_operator
+  createdAt: Team_Persons_Photo_createdAt_operator
+  url: Team_Persons_Photo_url_operator
+  filename: Team_Persons_Photo_filename_operator
+  mimeType: Team_Persons_Photo_mimeType_operator
+  filesize: Team_Persons_Photo_filesize_operator
+  width: Team_Persons_Photo_width_operator
+  height: Team_Persons_Photo_height_operator
+  id: Team_Persons_Photo_id_operator
+  AND: [Team_Persons_Photo_where_and]
+  OR: [Team_Persons_Photo_where_or]
+}
+
+input Team_Persons_Photo_where_or {
+  alt: Team_Persons_Photo_alt_operator
+  caption: Team_Persons_Photo_caption_operator
+  updatedAt: Team_Persons_Photo_updatedAt_operator
+  createdAt: Team_Persons_Photo_createdAt_operator
+  url: Team_Persons_Photo_url_operator
+  filename: Team_Persons_Photo_filename_operator
+  mimeType: Team_Persons_Photo_mimeType_operator
+  filesize: Team_Persons_Photo_filesize_operator
+  width: Team_Persons_Photo_width_operator
+  height: Team_Persons_Photo_height_operator
+  id: Team_Persons_Photo_id_operator
+  AND: [Team_Persons_Photo_where_and]
+  OR: [Team_Persons_Photo_where_or]
+}
+
+type Team_Persons_Competences {
+  title: String
+  id: String
+}
+
+type Audience {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  audienceItems: [Audience_AudienceItems!]
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type Audience_AudienceItems {
+  image(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Audience_AudienceItems_Image_where): Media
+  title: String
+  description(depth: Int): JSON
+  benefitItems: [Audience_AudienceItems_BenefitItems!]
+  id: String
+}
+
+input Audience_AudienceItems_Image_where {
+  alt: Audience_AudienceItems_Image_alt_operator
+  caption: Audience_AudienceItems_Image_caption_operator
+  updatedAt: Audience_AudienceItems_Image_updatedAt_operator
+  createdAt: Audience_AudienceItems_Image_createdAt_operator
+  url: Audience_AudienceItems_Image_url_operator
+  filename: Audience_AudienceItems_Image_filename_operator
+  mimeType: Audience_AudienceItems_Image_mimeType_operator
+  filesize: Audience_AudienceItems_Image_filesize_operator
+  width: Audience_AudienceItems_Image_width_operator
+  height: Audience_AudienceItems_Image_height_operator
+  id: Audience_AudienceItems_Image_id_operator
+  AND: [Audience_AudienceItems_Image_where_and]
+  OR: [Audience_AudienceItems_Image_where_or]
+}
+
+input Audience_AudienceItems_Image_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Audience_AudienceItems_Image_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Audience_AudienceItems_Image_where_and {
+  alt: Audience_AudienceItems_Image_alt_operator
+  caption: Audience_AudienceItems_Image_caption_operator
+  updatedAt: Audience_AudienceItems_Image_updatedAt_operator
+  createdAt: Audience_AudienceItems_Image_createdAt_operator
+  url: Audience_AudienceItems_Image_url_operator
+  filename: Audience_AudienceItems_Image_filename_operator
+  mimeType: Audience_AudienceItems_Image_mimeType_operator
+  filesize: Audience_AudienceItems_Image_filesize_operator
+  width: Audience_AudienceItems_Image_width_operator
+  height: Audience_AudienceItems_Image_height_operator
+  id: Audience_AudienceItems_Image_id_operator
+  AND: [Audience_AudienceItems_Image_where_and]
+  OR: [Audience_AudienceItems_Image_where_or]
+}
+
+input Audience_AudienceItems_Image_where_or {
+  alt: Audience_AudienceItems_Image_alt_operator
+  caption: Audience_AudienceItems_Image_caption_operator
+  updatedAt: Audience_AudienceItems_Image_updatedAt_operator
+  createdAt: Audience_AudienceItems_Image_createdAt_operator
+  url: Audience_AudienceItems_Image_url_operator
+  filename: Audience_AudienceItems_Image_filename_operator
+  mimeType: Audience_AudienceItems_Image_mimeType_operator
+  filesize: Audience_AudienceItems_Image_filesize_operator
+  width: Audience_AudienceItems_Image_width_operator
+  height: Audience_AudienceItems_Image_height_operator
+  id: Audience_AudienceItems_Image_id_operator
+  AND: [Audience_AudienceItems_Image_where_and]
+  OR: [Audience_AudienceItems_Image_where_or]
+}
+
+type Audience_AudienceItems_BenefitItems {
+  title: String
+  description(depth: Int): JSON
+  id: String
+}
+
+type Services {
+  invertBackground: Boolean
+  colorizeBlock: Boolean
+  blockColorFrom: String
+  blockColorTo: String
+  blockColorFromDark: String
+  blockColorToDark: String
+  header: String
+  enableColorizing: Boolean
+  textToColorize: String
+  textColorFrom: String
+  textColorTo: String
+  textColorFromDark: String
+  textColorToDark: String
+  description(depth: Int): JSON
+  servicesGroups: [Services_ServicesGroups!]!
+  id: String
+  blockName: String
+  blockType: String
+}
+
+type Services_ServicesGroups {
+  title: String
+  color: String
+  services: [Services_ServicesGroups_Services!]!
+  id: String
+}
+
+type Services_ServicesGroups_Services {
+  title: String
+  id: String
+}
+
+union Post_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type Post_Meta {
   title: String
@@ -2644,7 +4118,7 @@ input Project_Hero_Slider_SlideImage_where_or {
   OR: [Project_Hero_Slider_SlideImage_where_or]
 }
 
-union Project_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
+union Project_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type Project_Meta {
   title: String
@@ -5215,7 +6689,7 @@ input PageVersion_Version_Hero_Slider_SlideImage_where_or {
   OR: [PageVersion_Version_Hero_Slider_SlideImage_where_or]
 }
 
-union PageVersion_Version_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards
+union PageVersion_Version_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type PageVersion_Version_Meta {
   title: String
@@ -8251,9 +9725,9 @@ input PostVersion_Version_Hero_Slider_SlideImage_where_or {
   OR: [PostVersion_Version_Hero_Slider_SlideImage_where_or]
 }
 
-union PostVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
+union PostVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
-union PostVersion_Version_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards
+union PostVersion_Version_PremiumContent = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type PostVersion_Version_Meta {
   title: String
@@ -11156,7 +12630,7 @@ input ProjectVersion_Version_Hero_Slider_SlideImage_where_or {
   OR: [ProjectVersion_Version_Hero_Slider_SlideImage_where_or]
 }
 
-union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards
+union ProjectVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type ProjectVersion_Version_Meta {
   title: String

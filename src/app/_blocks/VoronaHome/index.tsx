@@ -1,13 +1,12 @@
 'use client'
 import React, { FC } from 'react'
 
-import { ContactFormBlock } from '../ContactFormBlock'
-import { ContactsBlock } from '../ContactsBlock'
-import { PricingBlock } from '../PricingBlock'
-import { PrinciplesBlock } from '../PrinciplesBlock'
-import { ServicesBlock } from '../ServicesBlock'
-import { TeamBlock } from '../TeamBlock'
-import { WhoBlock } from '../WhoBlock'
+import { Audience } from '../Audience'
+import { ContactForm } from '../ContactForm'
+import { Pricing } from '../Pricing'
+import { Principles } from '../Principles'
+import { Services } from '../Services'
+import { Team } from '../Team'
 import {
   BENEFITS_BLOCK,
   CONTACT_FORM_BLOCK,
@@ -28,13 +27,12 @@ interface VoronaHomeProps {
 export const VoronaHome: FC<VoronaHomeProps> = ({ testProp }) => {
   return (
     <div key={testProp}>
-      <WhoBlock {...WHO_BLOCK} />
-      <ServicesBlock {...SERVICES_BLOCK} />
-      <PrinciplesBlock {...PRINCIPLES_BLOCK} />
-      <TeamBlock {...TEAM_BLOCK} />
-      <PricingBlock {...PRICING_BLOCK} />
-      <ContactsBlock {...CONTACTS_BLOCK} />
-      <ContactFormBlock {...CONTACT_FORM_BLOCK} />
+      <Audience {...WHO_BLOCK} />
+      <Services {...SERVICES_BLOCK} />
+      <Principles {...PRINCIPLES_BLOCK} />
+      <Team {...TEAM_BLOCK} />
+      <Pricing {...PRICING_BLOCK} />
+      <ContactForm {...CONTACT_FORM_BLOCK} />
     </div>
   )
 }

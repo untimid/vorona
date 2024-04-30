@@ -1,19 +1,9 @@
 import React, { FC } from 'react'
 
-import type { HeroIconType } from '../../../commonTypes'
+import type { PrinciplesProps } from './'
 import { PricingPrinciple } from './PricingPrinciple'
 import { TabWrapper } from './TabWrapper'
-
-type PricingPrincipleType = {
-  title: string
-  description: string
-  icon: HeroIconType
-}
-
-export interface PricingProps {
-  principles: PricingPrincipleType[]
-  videoSrc?: string
-}
+type PricingProps = PrinciplesProps['pricingPrinciples']
 
 export const Pricing: FC<PricingProps> = ({ principles, videoSrc }) => {
   return (

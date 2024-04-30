@@ -1,4 +1,17 @@
-import { ARCHIVE_BLOCK, CALL_TO_ACTION, CARDS, CONTENT, MEDIA_BLOCK, QUOTE } from './blocks'
+import {
+  ARCHIVE_BLOCK,
+  AUDIENCE,
+  CALL_TO_ACTION,
+  CARDS,
+  CONTACT_FORM,
+  CONTENT,
+  MEDIA_BLOCK,
+  PRICING,
+  PRINCIPLES,
+  QUOTE,
+  SERVICES,
+  TEAM,
+} from './blocks'
 import { HERO } from './hero'
 import { META } from './meta'
 
@@ -33,6 +46,12 @@ export const PROJECT = `
           ${ARCHIVE_BLOCK}
           ${CARDS}
           ${QUOTE}
+          ${TEAM}
+          ${SERVICES}
+          ${PRINCIPLES}
+          ${PRICING}
+          ${CONTACT_FORM}
+          ${AUDIENCE}
         }
         relatedProjects {
           id

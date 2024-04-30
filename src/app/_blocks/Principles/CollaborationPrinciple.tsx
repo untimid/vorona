@@ -1,15 +1,11 @@
 import React, { FC } from 'react'
+import * as icons from '@heroicons/react/24/outline'
 import { Chip } from '@nextui-org/react'
 
-import { HeroIconType } from '../../../commonTypes'
+import RichText from '../../_components/RichText'
+import type { CollaborationProps } from './Collaboration'
 
-export interface CollaborationPrincipleProps {
-  title: string
-  description: string
-  icon: HeroIconType
-  color: string
-  services: string[]
-}
+type CollaborationPrincipleProps = CollaborationProps['principles'][number]
 
 export const CollaborationPrinciple: FC<CollaborationPrincipleProps> = ({
   title,
@@ -18,7 +14,7 @@ export const CollaborationPrinciple: FC<CollaborationPrincipleProps> = ({
   color,
   services,
 }) => {
-  const RenderIcon = icon
+  const RenderIcon = icons[icon]
   return (
     <div className="mt-8">
       <div className="flex align-baseline">
@@ -31,10 +27,10 @@ export const CollaborationPrinciple: FC<CollaborationPrincipleProps> = ({
             className={`${color ? color : 'bg-amber-300'} mt-2 me-2`}
             key={`${title}-${service}-${i}`}
           >
-            {service}
+            {service.title}
           </Chip>
         ))}
-        <p className="mb-4 mt-4">{description}</p>
+        <RichText className="mb-4 mt-4" content={description} />
       </div>
     </div>
   )

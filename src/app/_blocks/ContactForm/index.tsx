@@ -2,7 +2,8 @@
 import React, { FC } from 'react'
 import { Button, Checkbox, Input, Textarea } from '@nextui-org/react'
 
-import { BlockWrapper } from '../../_components/BlockWrapper'
+import type { Page } from '../../../payload/payload-types'
+import RichText from '../../_components/RichText'
 
 export const MailIcon = ({ className }: { className: string }) => (
   <svg
@@ -22,26 +23,9 @@ export const MailIcon = ({ className }: { className: string }) => (
   </svg>
 )
 
-export interface ContactFormBlockProps {
-  header: string
-  nameInput: {
-    label: string
-    placeholder: string
-  }
-  emailInput: {
-    label: string
-    placeholder: string
-  }
-  descriptionInput: {
-    label: string
-    placeholder: string
-  }
-  agreementCheckboxText: string
-  submitButtonText: string
-}
+export type ContactFormProps = Extract<Page['layout'][0], { blockType: 'contactForm' }>
 
-export const ContactFormBlock: FC<ContactFormBlockProps> = ({
-  header,
+export const ContactForm: FC<ContactFormProps> = ({
   nameInput,
   emailInput,
   descriptionInput,
@@ -49,11 +33,8 @@ export const ContactFormBlock: FC<ContactFormBlockProps> = ({
   submitButtonText,
 }) => {
   return (
-    <BlockWrapper className="w-full bg-red-100">
+    <>
       <div className="grid sm:gap-4 sm:grid-cols-1 md:gap-8 md:grid-cols-2 lg:gap-12">
-        <h2 className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600 pb-1">
-          {header}
-        </h2>
         <div className="flex flex-col">
           <Input
             type="text"
@@ -73,19 +54,21 @@ export const ContactFormBlock: FC<ContactFormBlockProps> = ({
             }
           />
           <Textarea
-            label=""
+            label={descriptionInput.label}
             labelPlacement="outside"
-            placeholder=""
+            placeholder={descriptionInput.placeholder}
             rows={4}
             classNames={{ inputWrapper: 'h-auto' }}
             className="mb-4"
           />
-          <Checkbox className="mb-4">{agreementCheckboxText}</Checkbox>
+          <Checkbox className="mb-4">
+            <RichText content={agreementCheckboxText} />
+          </Checkbox>
           <Button color="primary" variant="solid" className="self-start">
             {submitButtonText}
           </Button>
         </div>
       </div>
-    </BlockWrapper>
+    </>
   )
 }
