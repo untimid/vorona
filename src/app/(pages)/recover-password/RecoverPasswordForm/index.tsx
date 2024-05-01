@@ -8,8 +8,6 @@ import { Button } from '../../../_components/Button'
 import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 
-import classes from './index.module.scss'
-
 type FormData = {
   email: string
 }
@@ -50,16 +48,16 @@ export const RecoverPasswordForm: React.FC = () => {
     <Fragment>
       {!success && (
         <React.Fragment>
-          <h1>Recover Password</h1>
-          <div className={classes.formWrapper}>
-            <p>
+          <h1 className="vrn-h1">Recover Password</h1>
+          <div>
+            <p className="vrn-p">
               {`Please enter your email below. You will receive an email message with instructions on
               how to reset your password. To manage your all users, `}
               <Link href="/admin/collections/users">login to the admin dashboard</Link>
               {'.'}
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-              <Message error={error} className={classes.message} />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Message error={error} />
               <Input
                 name="email"
                 label="Email Address"
@@ -68,20 +66,17 @@ export const RecoverPasswordForm: React.FC = () => {
                 error={errors.email}
                 type="email"
               />
-              <Button
-                type="submit"
-                appearance="primary"
-                label="Recover Password"
-                className={classes.submit}
-              />
+              <Button type="submit" appearance="primary" label="Recover Password" />
             </form>
           </div>
         </React.Fragment>
       )}
       {success && (
         <React.Fragment>
-          <h1>Request submitted</h1>
-          <p>Check your email for a link that will allow you to securely reset your password.</p>
+          <h1 className="vrn-h1">Request submitted</h1>
+          <p className="vrn-p">
+            Check your email for a link that will allow you to securely reset your password.
+          </p>
         </React.Fragment>
       )}
     </Fragment>

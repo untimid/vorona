@@ -11,8 +11,6 @@ import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
 
-import classes from './index.module.scss'
-
 type FormData = {
   comment: string
 }
@@ -84,8 +82,8 @@ export const CommentForm: React.FC<{
   )
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <Message error={error} success={success} className={classes.message} />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Message error={error} success={success} />
       <Input
         name="comment"
         label="Comment"
@@ -108,7 +106,6 @@ export const CommentForm: React.FC<{
           appearance="primary"
           label="Login to comment"
           disabled={isLoading}
-          className={classes.submit}
         />
       ) : (
         <Button
@@ -116,7 +113,6 @@ export const CommentForm: React.FC<{
           appearance="primary"
           label={isLoading ? 'Processing' : 'Comment'}
           disabled={isLoading}
-          className={classes.submit}
         />
       )}
     </form>

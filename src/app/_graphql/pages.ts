@@ -1,6 +1,19 @@
-import { ARCHIVE_BLOCK, CALL_TO_ACTION, CONTENT, MEDIA_BLOCK, VORONA_HOME } from './blocks'
-import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import {
+  ARCHIVE_BLOCK,
+  AUDIENCE,
+  CALL_TO_ACTION,
+  CARDS,
+  CONTACT_FORM,
+  CONTENT,
+  MEDIA_BLOCK,
+  PRICING,
+  PRINCIPLES,
+  QUOTE,
+  SERVICES,
+  TEAM,
+  VORONA_HOME,
+} from './blocks'
+import { HERO } from './hero'
 import { META } from './meta'
 
 export const PAGES = `
@@ -20,12 +33,7 @@ export const PAGE = `
         id
         title
         hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
+          ${HERO}
         }
         layout {
           ${CONTENT}
@@ -34,6 +42,14 @@ export const PAGE = `
           ${MEDIA_BLOCK}
           ${ARCHIVE_BLOCK}
           ${VORONA_HOME}
+          ${QUOTE}
+          ${CARDS}
+          ${TEAM}
+          ${SERVICES}
+          ${PRINCIPLES}
+          ${PRICING}
+          ${CONTACT_FORM}
+          ${AUDIENCE}
         }
         ${META}
       }

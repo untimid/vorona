@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const FormBlock: Block = {
   slug: 'formBlock',
@@ -12,6 +13,7 @@ export const FormBlock: Block = {
     singularName: 'FormBlock',
   },
   fields: [
+    ...commonBlockFields,
     {
       name: 'form',
       type: 'relationship',
@@ -20,13 +22,19 @@ export const FormBlock: Block = {
     },
     {
       name: 'enableIntro',
-      label: 'Enable Intro Content',
+      label: {
+        en: 'Enable Intro Content',
+        ru: 'Добавить вступление',
+      },
       localized: true,
       type: 'checkbox',
     },
     richText({
       name: 'introContent',
-      label: 'Intro Content',
+      label: {
+        en: 'Intro Content',
+        ru: 'Вступление',
+      },
       localized: true,
       admin: {
         condition: (_, { enableIntro }) => Boolean(enableIntro),

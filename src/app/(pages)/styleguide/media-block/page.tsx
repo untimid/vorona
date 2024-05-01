@@ -12,12 +12,12 @@ export default async function MediaBlockPage() {
   return (
     <Fragment>
       <Gutter>
-        <p>
+        <p className="vrn-p">
           <Link href="/styleguide">Styleguide</Link>
           {' / '}
           <span>Media Block</span>
         </p>
-        <h1>Media Block</h1>
+        <h1 className="vrn-h1">Media Block</h1>
       </Gutter>
       <VerticalPadding bottom="large" top="none">
         <MediaBlock position="default" blockType="mediaBlock" media="" staticImage={staticImage} />

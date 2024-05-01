@@ -1,7 +1,14 @@
 import { LINK_FIELDS } from './link'
+import { MEDIA_FIELDS } from './media'
 
 export const HEADER = `
   Header {
+    logoLight {
+      ${MEDIA_FIELDS}
+    }
+    logoDark {
+      ${MEDIA_FIELDS}
+    }
     navItems {
       link ${LINK_FIELDS({ disableAppearance: true })}
 		}
@@ -16,6 +23,12 @@ query Header {
 
 export const FOOTER = `
   Footer {
+    logoLight {
+      ${MEDIA_FIELDS}
+    }
+    logoDark {
+      ${MEDIA_FIELDS}
+    }
     navItems {
       link ${LINK_FIELDS({ disableAppearance: true })}
 		}

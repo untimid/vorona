@@ -11,12 +11,12 @@ export default async function ContentBlockPage() {
   return (
     <Fragment>
       <Gutter>
-        <p>
+        <p className="vrn-p">
           <Link href="/styleguide">Styleguide</Link>
           {' / '}
           <span>Content Block</span>
         </p>
-        <h1>Content Block</h1>
+        <h1 className="vrn-h1">Content Block</h1>
       </Gutter>
       <VerticalPadding bottom="large" top="none">
         <ContentBlock

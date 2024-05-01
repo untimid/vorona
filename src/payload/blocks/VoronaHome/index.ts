@@ -1,11 +1,11 @@
 import type { Block } from 'payload/types'
 
-import { invertBackground } from '../../fields/invertBackground'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const VoronaHome: Block = {
   slug: 'voronaHome',
   fields: [
-    invertBackground,
+    ...commonBlockFields,
     {
       name: 'media',
       type: 'upload',

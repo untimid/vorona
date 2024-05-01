@@ -4,15 +4,24 @@ import deepMerge from '../utilities/deepMerge'
 
 export const appearanceOptions = {
   primary: {
-    label: 'Primary Button',
+    label: {
+      en: 'Primary Button',
+      ru: 'Primary Button',
+    },
     value: 'primary',
   },
   secondary: {
-    label: 'Secondary Button',
+    label: {
+      en: 'Secondary Button',
+      ru: 'Secondary Button',
+    },
     value: 'secondary',
   },
   default: {
-    label: 'Default',
+    label: {
+      en: 'Default',
+      ru: 'Стандарт',
+    },
     value: 'default',
   },
 }
@@ -41,11 +50,17 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
             type: 'radio',
             options: [
               {
-                label: 'Internal link',
+                label: {
+                  en: 'Internal link',
+                  ru: 'Внутренняя ссылка',
+                },
                 value: 'reference',
               },
               {
-                label: 'Custom URL',
+                label: {
+                  en: 'Custom URL',
+                  ru: 'Кастомный URL',
+                },
                 value: 'custom',
               },
             ],
@@ -57,7 +72,10 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
           },
           {
             name: 'newTab',
-            label: 'Open in new tab',
+            label: {
+              en: 'Open in new tab',
+              ru: 'В новой вкладке',
+            },
             type: 'checkbox',
             admin: {
               width: '50%',
@@ -74,7 +92,10 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
   const linkTypes: Field[] = [
     {
       name: 'reference',
-      label: 'Document to link to',
+      label: {
+        en: 'Document to link to',
+        ru: 'На какой документ ссылка',
+      },
       type: 'relationship',
       relationTo: ['pages'],
       required: true,
@@ -85,7 +106,10 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
     },
     {
       name: 'url',
-      label: 'Custom URL',
+      label: {
+        en: 'Custom URL',
+        ru: 'Кастомный URL',
+      },
       type: 'text',
       required: true,
       admin: {
@@ -109,7 +133,10 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
         ...linkTypes,
         {
           name: 'label',
-          label: 'Label',
+          label: {
+            en: 'Label',
+            ru: 'Лейбл',
+          },
           type: 'text',
           required: true,
           admin: {

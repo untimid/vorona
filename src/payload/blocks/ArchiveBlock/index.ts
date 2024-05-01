@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const Archive: Block = {
   slug: 'archive',
@@ -15,9 +16,13 @@ export const Archive: Block = {
     },
   },
   fields: [
+    ...commonBlockFields,
     richText({
       name: 'introContent',
-      label: 'Intro Content',
+      label: {
+        en: 'Intro Content',
+        ru: 'Вступление',
+      },
       localized: true,
     }),
     {
@@ -27,11 +32,17 @@ export const Archive: Block = {
       localized: true,
       options: [
         {
-          label: 'Collection',
+          label: {
+            en: 'Collection',
+            ru: 'Коллекция',
+          },
           value: 'collection',
         },
         {
-          label: 'Individual Selection',
+          label: {
+            en: 'Individual Selection',
+            ru: 'Выбор поштучно',
+          },
           value: 'selection',
         },
       ],
@@ -50,11 +61,17 @@ export const Archive: Block = {
       },
       options: [
         {
-          label: 'Posts',
+          label: {
+            en: 'Posts',
+            ru: 'Посты',
+          },
           value: 'posts',
         },
         {
-          label: 'Projects',
+          label: {
+            en: 'Projects',
+            ru: 'Проекты',
+          },
           value: 'projects',
         },
       ],
@@ -63,7 +80,10 @@ export const Archive: Block = {
       type: 'relationship',
       name: 'categories',
       localized: true,
-      label: 'Categories To Show',
+      label: {
+        en: 'Categories To Show',
+        ru: 'Категирии к показу',
+      },
       relationTo: 'categories',
       hasMany: true,
       admin: {
@@ -73,7 +93,10 @@ export const Archive: Block = {
     {
       type: 'number',
       name: 'limit',
-      label: 'Limit',
+      label: {
+        en: 'Limit',
+        ru: 'Лимит',
+      },
       localized: true,
       defaultValue: 10,
       admin: {
@@ -84,7 +107,10 @@ export const Archive: Block = {
     {
       type: 'relationship',
       name: 'selectedDocs',
-      label: 'Selection',
+      label: {
+        en: 'Selection',
+        ru: 'Выбор',
+      },
       localized: true,
       relationTo: ['posts', 'projects'],
       hasMany: true,
@@ -95,7 +121,10 @@ export const Archive: Block = {
     {
       type: 'relationship',
       name: 'populatedDocs',
-      label: 'Populated Docs',
+      label: {
+        en: 'Populated Docs',
+        ru: 'Собранные документы',
+      },
       localized: true,
       relationTo: ['posts', 'projects'],
       hasMany: true,
@@ -108,7 +137,10 @@ export const Archive: Block = {
     {
       type: 'number',
       name: 'populatedDocsTotal',
-      label: 'Populated Docs Total',
+      label: {
+        en: 'Populated Docs Total',
+        ru: 'Итого документов собрано',
+      },
       localized: true,
       admin: {
         step: 1,

@@ -35,8 +35,8 @@ export const LogoutPage: React.FC<{
     <Fragment>
       {(error || success) && (
         <div>
-          <h1>{error || success}</h1>
-          <p>
+          <h1 className="vrn-h1">{error || success}</h1>
+          <p className="vrn-p">
             {'What would you like to do next? '}
             {hasPostsPage && hasProjectsPage && <Fragment>{'Browse '}</Fragment>}
             {hasPostsPage && (

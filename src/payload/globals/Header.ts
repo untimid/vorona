@@ -9,6 +9,24 @@ export const Header: GlobalConfig = {
   },
   fields: [
     {
+      name: 'logoLight',
+      type: 'upload',
+      label: {
+        en: 'Logo for light theme',
+        ru: 'Лого для светлой темы',
+      },
+      relationTo: 'media',
+    },
+    {
+      name: 'logoDark',
+      type: 'upload',
+      label: {
+        en: 'Logo for dark theme',
+        ru: 'Лого для темной темы',
+      },
+      relationTo: 'media',
+    },
+    {
       name: 'navItems',
       type: 'array',
       maxRows: 6,

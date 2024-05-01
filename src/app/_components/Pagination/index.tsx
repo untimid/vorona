@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Chevron } from '../Chevron'
 
-import classes from './index.module.scss'
-
 export const Pagination: React.FC<{
   page: number
   totalPages: number
@@ -15,31 +13,29 @@ export const Pagination: React.FC<{
   const hasPrevPage = page > 1
 
   return (
-    <div className={[classes.pagination, className].filter(Boolean).join(' ')}>
+    <div className={[className].filter(Boolean).join(' ')}>
       <button
         type="button"
-        className={classes.button}
         disabled={!hasPrevPage}
         onClick={() => {
           onClick(page - 1)
         }}
       >
-        <Chevron rotate={90} className={classes.icon} />
+        <Chevron rotate={90} />
       </button>
-      <div className={classes.pageRange}>
-        <span className={classes.pageRangeLabel}>
+      <div>
+        <span>
           Page {page} of {totalPages}
         </span>
       </div>
       <button
         type="button"
-        className={classes.button}
         disabled={!hasNextPage}
         onClick={() => {
           onClick(page + 1)
         }}
       >
-        <Chevron rotate={-90} className={classes.icon} />
+        <Chevron rotate={-90} />
       </button>
     </div>
   )

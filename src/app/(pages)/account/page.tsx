@@ -13,8 +13,6 @@ import { getMeUser } from '../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import AccountForm from './AccountForm'
 
-import classes from './index.module.scss'
-
 export default async function Account() {
   const { user } = await getMeUser({
     nullUserRedirect: `/login?error=${encodeURIComponent(
@@ -29,7 +27,7 @@ export default async function Account() {
   return (
     <Fragment>
       <Gutter>
-        <RenderParams className={classes.params} />
+        <RenderParams />
       </Gutter>
       <LowImpactHero
         type="lowImpact"
@@ -62,11 +60,11 @@ export default async function Account() {
           },
         ]}
       />
-      <Gutter className={classes.account}>
+      <Gutter>
         <AccountForm />
         <HR />
-        <h2>Comments</h2>
-        <p>
+        <h2 className="vrn-h2">Comments</h2>
+        <p className="vrn-p">
           These are the comments you have placed over time. Each comment is associated with a
           specific post. All comments must be approved by an admin before they appear on the site.
         </p>
@@ -80,9 +78,9 @@ export default async function Account() {
 
             return (
               <Fragment key={index}>
-                <div className={classes.column}>
-                  <p className={classes.comment}>"{comment}"</p>
-                  <p className={classes.meta}>
+                <div>
+                  <p className="vrn-p">"{comment}"</p>
+                  <p className="vrn-p">
                     {'Posted '}
                     {doc && typeof doc === 'object' && (
                       <Fragment>

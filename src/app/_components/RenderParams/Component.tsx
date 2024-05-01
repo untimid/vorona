@@ -5,8 +5,6 @@ import { useSearchParams } from 'next/navigation'
 
 import { Message } from '../Message'
 
-import classes from './index.module.scss'
-
 export type Props = {
   params?: string[]
   message?: string
@@ -36,7 +34,6 @@ export const RenderParamsComponent: React.FC<Props> = ({
 
           return (
             <Message
-              className={classes.renderParams}
               key={paramValue}
               {...{
                 [params[index]]: paramValue,

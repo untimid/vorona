@@ -11,8 +11,6 @@ import RichText from '../../_components/RichText'
 import { formatDateTime } from '../../_utilities/formatDateTime'
 import { CommentForm } from './CommentForm'
 
-import classes from './index.module.scss'
-
 export type CommentsBlockProps = {
   blockType: 'comments'
   blockName: string
@@ -26,14 +24,14 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = props => {
   const { introContent, doc, comments } = props
 
   return (
-    <div className={classes.commentsBlock}>
+    <div>
       {introContent && (
-        <Gutter className={classes.introContent}>
+        <Gutter>
           <RichText content={introContent} />
         </Gutter>
       )}
       <Gutter>
-        <div className={classes.comments}>
+        <div>
           <HR />
           {comments?.map((com, index) => {
             const { populatedUser, comment, createdAt, _status } = com
@@ -42,15 +40,7 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = props => {
 
             return (
               <Fragment key={index}>
-                <div
-                  className={[
-                    classes.column,
-                    comments.length === 2 && classes['cols-half'],
-                    comments.length >= 3 && classes['cols-thirds'],
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                >
+                <div>
                   {_status === 'draft' && (
                     <Message
                       message={
@@ -68,9 +58,9 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = props => {
                       }
                     />
                   )}
-                  <p className={classes.comment}>"{comment}"</p>
+                  <p className="vrn-p">"{comment}"</p>
                   {populatedUser && (
-                    <p className={classes.meta}>
+                    <p className="vrn-p">
                       {populatedUser?.name || 'Unnamed User'}
                       {createdAt && ` on ${formatDateTime(createdAt)}`}
                     </p>

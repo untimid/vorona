@@ -5,11 +5,9 @@ import { Gutter } from '../../_components/Gutter'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import { RecoverPasswordForm } from './RecoverPasswordForm'
 
-import classes from './index.module.scss'
-
 export default async function RecoverPassword() {
   return (
-    <Gutter className={classes.recoverPassword}>
+    <Gutter>
       <RecoverPasswordForm />
     </Gutter>
   )

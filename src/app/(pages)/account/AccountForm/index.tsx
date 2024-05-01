@@ -9,8 +9,6 @@ import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
 
-import classes from './index.module.scss'
-
 type FormData = {
   email: string
   name: string
@@ -91,17 +89,13 @@ const AccountForm: React.FC = () => {
   }, [user, router, reset, changePassword])
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <Message error={error} success={success} className={classes.message} />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Message error={error} success={success} />
       {!changePassword ? (
         <Fragment>
-          <p>
+          <p className="vrn-p">
             {'Change your account details below, or '}
-            <button
-              type="button"
-              className={classes.changePassword}
-              onClick={() => setChangePassword(!changePassword)}
-            >
+            <button type="button" onClick={() => setChangePassword(!changePassword)}>
               click here
             </button>
             {' to change your password.'}
@@ -118,13 +112,9 @@ const AccountForm: React.FC = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <p>
+          <p className="vrn-p">
             {'Change your password below, or '}
-            <button
-              type="button"
-              className={classes.changePassword}
-              onClick={() => setChangePassword(!changePassword)}
-            >
+            <button type="button" onClick={() => setChangePassword(!changePassword)}>
               cancel
             </button>
             .
@@ -153,7 +143,6 @@ const AccountForm: React.FC = () => {
         label={isLoading ? 'Processing' : changePassword ? 'Change Password' : 'Update Account'}
         disabled={isLoading}
         appearance="primary"
-        className={classes.submit}
       />
     </form>
   )

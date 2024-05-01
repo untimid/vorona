@@ -1,22 +1,29 @@
 import type { Block } from 'payload/types'
 
-import { invertBackground } from '../../fields/invertBackground'
+import richText from '../../fields/richText'
+import { commonBlockFields } from '../commonBlockFields'
 
 export const MediaBlock: Block = {
   slug: 'mediaBlock',
   fields: [
-    invertBackground,
+    ...commonBlockFields,
     {
       name: 'position',
       type: 'select',
       defaultValue: 'default',
       options: [
         {
-          label: 'Default',
+          label: {
+            en: 'Default',
+            ru: 'Стандарт',
+          },
           value: 'default',
         },
         {
-          label: 'Fullscreen',
+          label: {
+            en: 'Fullscreen',
+            ru: 'Полноэкраный',
+          },
           value: 'fullscreen',
         },
       ],
@@ -27,5 +34,13 @@ export const MediaBlock: Block = {
       relationTo: 'media',
       required: true,
     },
+    richText({
+      name: 'content',
+      label: {
+        en: 'Content',
+        ru: 'Содержание',
+      },
+      localized: true,
+    }),
   ],
 }

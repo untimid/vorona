@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
+import { Button, Link } from '@nextui-org/react'
 
 import { Page } from '../../../payload/payload-types'
-import { Button, Props as ButtonProps } from '../Button'
+import { Props as OldButtonProps } from '../Button'
 
 type CMSLinkType = {
   type?: 'custom' | 'reference'
@@ -13,10 +15,9 @@ type CMSLinkType = {
     relationTo: 'pages'
   }
   label?: string
-  appearance?: ButtonProps['appearance']
+  appearance?: OldButtonProps['appearance']
   children?: React.ReactNode
   className?: string
-  invert?: ButtonProps['invert']
 }
 
 export const CMSLink: React.FC<CMSLinkType> = ({
@@ -28,7 +29,6 @@ export const CMSLink: React.FC<CMSLinkType> = ({
   appearance,
   children,
   className,
-  invert,
 }) => {
   const href =
     type === 'reference' && typeof reference?.value === 'object' && reference.value.slug
@@ -39,9 +39,8 @@ export const CMSLink: React.FC<CMSLinkType> = ({
 
   if (!href) return null
 
+  const newTabProps = newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {}
   if (!appearance) {
-    const newTabProps = newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {}
-
     if (href || url) {
       return (
         <Link {...newTabProps} href={href || url} className={className}>
@@ -55,11 +54,14 @@ export const CMSLink: React.FC<CMSLinkType> = ({
   return (
     <Button
       className={className}
-      newTab={newTab}
+      as={Link}
+      color="primary"
+      size="lg"
+      {...newTabProps}
       href={href}
-      appearance={appearance}
-      label={label}
-      invert={invert}
-    />
+      variant={appearance === 'primary' || appearance === 'default' ? 'solid' : 'bordered'}
+    >
+      {label}
+    </Button>
   )
 }

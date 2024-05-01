@@ -5,13 +5,11 @@ import { Gutter } from '../../_components/Gutter'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import { ResetPasswordForm } from './ResetPasswordForm'
 
-import classes from './index.module.scss'
-
 export default async function ResetPassword() {
   return (
-    <Gutter className={classes.resetPassword}>
-      <h1>Reset Password</h1>
-      <p>Please enter a new password below.</p>
+    <Gutter>
+      <h1 className="vrn-h1">Reset Password</h1>
+      <p className="vrn-p">Please enter a new password below.</p>
       <ResetPasswordForm />
     </Gutter>
   )

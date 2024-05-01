@@ -5,6 +5,7 @@ import largeBody from './largeBody'
 
 const elements: RichTextElement[] = [
   'blockquote',
+  'h1',
   'h2',
   'h3',
   'h4',
@@ -13,6 +14,12 @@ const elements: RichTextElement[] = [
   'link',
   largeBody,
   label,
+  'ol',
+  'ul',
+  'textAlign',
+  'indent',
+  'relationship',
+  'upload',
 ]
 
 export default elements

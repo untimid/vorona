@@ -6,8 +6,6 @@ import { CMSLink } from '../../_components/Link'
 import RichText from '../../_components/RichText'
 import { VerticalPadding } from '../../_components/VerticalPadding'
 
-import classes from './index.module.scss'
-
 type Props = Extract<Page['layout'][0], { blockType: 'cta' }>
 
 export const CallToActionBlock: React.FC<
@@ -17,16 +15,12 @@ export const CallToActionBlock: React.FC<
 > = ({ links, richText, invertBackground }) => {
   return (
     <Gutter>
-      <VerticalPadding
-        className={[classes.callToAction, invertBackground && classes.invert]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <div className={classes.wrap}>
-          <div className={classes.content}>
-            <RichText className={classes.richText} content={richText} />
+      <VerticalPadding>
+        <div>
+          <div>
+            <RichText content={richText} />
           </div>
-          <div className={classes.linkGroup}>
+          <div>
             {(links || []).map(({ link }, i) => {
               return <CMSLink key={i} {...link} invert={invertBackground} />
             })}

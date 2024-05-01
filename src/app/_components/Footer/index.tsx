@@ -1,16 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { Footer } from '../../../payload/payload-types'
+import type { Footer as FooterType } from '../../../payload/payload-types'
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
-import { ThemeSelector } from '../../_providers/Theme/ThemeSelector'
-import { Gutter } from '../Gutter'
-import { CMSLink } from '../Link'
-
-import classes from './index.module.scss'
+import { BlockWrapper } from '../../_components/BlockWrapper'
+import { Logo } from '../Logo'
+import { FooterNav } from './FooterNav'
 
 export async function Footer() {
-  let footer: Footer | null = null
+  let footer: FooterType | null = null
 
   try {
     footer = await fetchFooter()
@@ -24,35 +22,15 @@ export async function Footer() {
   const navItems = footer?.navItems || []
 
   return (
-    <footer className={classes.footer}>
-      <Gutter className={classes.wrap}>
-        <Link href="/">
-          <picture>
-            <img
-              className={classes.logo}
-              alt="Payload Logo"
-              src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
-            />
-          </picture>
-        </Link>
-        <nav className={classes.nav}>
-          <ThemeSelector />
-          {navItems.map(({ link }, i) => {
-            return <CMSLink key={i} {...link} />
-          })}
-          <Link href="/admin">Admin</Link>
-          <Link
-            href="https://github.com/payloadcms/payload/tree/main/templates/website"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Source Code
+    <footer className="w-full py-8 sm:p-0">
+      <BlockWrapper>
+        <div className="flex flex-col sm:flex-row sm:justify-between vrn-gap-m">
+          <Link href="/">
+            {footer && <Logo logoDark={footer.logoDark} logoLight={footer.logoLight} />}
           </Link>
-          <Link href="https://payloadcms.com" target="_blank" rel="noopener noreferrer">
-            Payload
-          </Link>
-        </nav>
-      </Gutter>
+          <FooterNav navItems={navItems} />
+        </div>
+      </BlockWrapper>
     </footer>
   )
 }

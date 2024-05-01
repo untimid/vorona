@@ -5,8 +5,6 @@ import { Gutter } from '../../_components/Gutter'
 import RichText from '../../_components/RichText'
 import { ArchiveBlockProps } from './types'
 
-import classes from './index.module.scss'
-
 export const ArchiveBlock: React.FC<
   ArchiveBlockProps & {
     id?: string

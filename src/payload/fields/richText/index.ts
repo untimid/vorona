@@ -38,7 +38,10 @@ const richText: RichText = (
               {
                 type: 'richText',
                 name: 'caption',
-                label: 'Caption',
+                label: {
+                  en: 'Caption',
+                  ru: 'Подпись',
+                },
                 editor: slateEditor({
                   admin: {
                     elements: [...elements],
@@ -49,18 +52,30 @@ const richText: RichText = (
               {
                 type: 'radio',
                 name: 'alignment',
-                label: 'Alignment',
+                label: {
+                  en: 'Alignment',
+                  ru: 'Расположение',
+                },
                 options: [
                   {
-                    label: 'Left',
+                    label: {
+                      en: 'Left',
+                      ru: 'Слева',
+                    },
                     value: 'left',
                   },
                   {
-                    label: 'Center',
+                    label: {
+                      en: 'Center',
+                      ru: 'По центру',
+                    },
                     value: 'center',
                   },
                   {
-                    label: 'Right',
+                    label: {
+                      en: 'Right',
+                      ru: 'Справа',
+                    },
                     value: 'right',
                   },
                 ],
@@ -68,7 +83,10 @@ const richText: RichText = (
               {
                 name: 'enableLink',
                 type: 'checkbox',
-                label: 'Enable Link',
+                label: {
+                  en: 'Enable Link',
+                  ru: 'Добавить CTA ссылку',
+                },
               },
               link({
                 appearances: false,

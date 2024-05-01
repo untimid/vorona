@@ -34,7 +34,25 @@ export interface Page {
   title: string;
   publishedAt?: string | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];
@@ -55,10 +73,31 @@ export interface Page {
         }[]
       | null;
     media?: string | Media | null;
+    slider?:
+      | {
+          slideContent: {
+            [k: string]: unknown;
+          }[];
+          slideImage?: string | Media | null;
+          id?: string | null;
+        }[]
+      | null;
   };
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -84,6 +123,18 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -111,13 +162,41 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
+        content: {
+          [k: string]: unknown;
+        }[];
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -156,11 +235,1554 @@ export interface Page {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         media?: string | Media | null;
         testProp?: string | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'voronaHome';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        content: {
+          [k: string]: unknown;
+        }[];
+        name: string;
+        role: string;
+        company?: string | null;
+        photo?: string | Media | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'quote';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        columnsSm?: ('one' | 'two') | null;
+        columnsMd?: ('one' | 'two' | 'three' | 'four') | null;
+        columnsLg?: ('one' | 'two' | 'three' | 'four' | 'six') | null;
+        radius?: ('none' | 'sm' | 'md' | 'lg') | null;
+        shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
+        imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
+        cardItems: {
+          image?: string | Media | null;
+          icon?:
+            | (
+                | 'AcademicCapIcon'
+                | 'AdjustmentsHorizontalIcon'
+                | 'AdjustmentsVerticalIcon'
+                | 'ArchiveBoxArrowDownIcon'
+                | 'ArchiveBoxXMarkIcon'
+                | 'ArchiveBoxIcon'
+                | 'ArrowDownCircleIcon'
+                | 'ArrowDownLeftIcon'
+                | 'ArrowDownOnSquareStackIcon'
+                | 'ArrowDownOnSquareIcon'
+                | 'ArrowDownRightIcon'
+                | 'ArrowDownTrayIcon'
+                | 'ArrowDownIcon'
+                | 'ArrowLeftCircleIcon'
+                | 'ArrowLeftEndOnRectangleIcon'
+                | 'ArrowLeftOnRectangleIcon'
+                | 'ArrowLeftStartOnRectangleIcon'
+                | 'ArrowLeftIcon'
+                | 'ArrowLongDownIcon'
+                | 'ArrowLongLeftIcon'
+                | 'ArrowLongRightIcon'
+                | 'ArrowLongUpIcon'
+                | 'ArrowPathRoundedSquareIcon'
+                | 'ArrowPathIcon'
+                | 'ArrowRightCircleIcon'
+                | 'ArrowRightEndOnRectangleIcon'
+                | 'ArrowRightOnRectangleIcon'
+                | 'ArrowRightStartOnRectangleIcon'
+                | 'ArrowRightIcon'
+                | 'ArrowSmallDownIcon'
+                | 'ArrowSmallLeftIcon'
+                | 'ArrowSmallRightIcon'
+                | 'ArrowSmallUpIcon'
+                | 'ArrowTopRightOnSquareIcon'
+                | 'ArrowTrendingDownIcon'
+                | 'ArrowTrendingUpIcon'
+                | 'ArrowUpCircleIcon'
+                | 'ArrowUpLeftIcon'
+                | 'ArrowUpOnSquareStackIcon'
+                | 'ArrowUpOnSquareIcon'
+                | 'ArrowUpRightIcon'
+                | 'ArrowUpTrayIcon'
+                | 'ArrowUpIcon'
+                | 'ArrowUturnDownIcon'
+                | 'ArrowUturnLeftIcon'
+                | 'ArrowUturnRightIcon'
+                | 'ArrowUturnUpIcon'
+                | 'ArrowsPointingInIcon'
+                | 'ArrowsPointingOutIcon'
+                | 'ArrowsRightLeftIcon'
+                | 'ArrowsUpDownIcon'
+                | 'AtSymbolIcon'
+                | 'BackspaceIcon'
+                | 'BackwardIcon'
+                | 'BanknotesIcon'
+                | 'Bars2Icon'
+                | 'Bars3BottomLeftIcon'
+                | 'Bars3BottomRightIcon'
+                | 'Bars3CenterLeftIcon'
+                | 'Bars3Icon'
+                | 'Bars4Icon'
+                | 'BarsArrowDownIcon'
+                | 'BarsArrowUpIcon'
+                | 'Battery0Icon'
+                | 'Battery100Icon'
+                | 'Battery50Icon'
+                | 'BeakerIcon'
+                | 'BellAlertIcon'
+                | 'BellSlashIcon'
+                | 'BellSnoozeIcon'
+                | 'BellIcon'
+                | 'BoltSlashIcon'
+                | 'BoltIcon'
+                | 'BookOpenIcon'
+                | 'BookmarkSlashIcon'
+                | 'BookmarkSquareIcon'
+                | 'BookmarkIcon'
+                | 'BriefcaseIcon'
+                | 'BugAntIcon'
+                | 'BuildingLibraryIcon'
+                | 'BuildingOffice2Icon'
+                | 'BuildingOfficeIcon'
+                | 'BuildingStorefrontIcon'
+                | 'CakeIcon'
+                | 'CalculatorIcon'
+                | 'CalendarDaysIcon'
+                | 'CalendarIcon'
+                | 'CameraIcon'
+                | 'ChartBarSquareIcon'
+                | 'ChartBarIcon'
+                | 'ChartPieIcon'
+                | 'ChatBubbleBottomCenterTextIcon'
+                | 'ChatBubbleBottomCenterIcon'
+                | 'ChatBubbleLeftEllipsisIcon'
+                | 'ChatBubbleLeftRightIcon'
+                | 'ChatBubbleLeftIcon'
+                | 'ChatBubbleOvalLeftEllipsisIcon'
+                | 'ChatBubbleOvalLeftIcon'
+                | 'CheckBadgeIcon'
+                | 'CheckCircleIcon'
+                | 'CheckIcon'
+                | 'ChevronDoubleDownIcon'
+                | 'ChevronDoubleLeftIcon'
+                | 'ChevronDoubleRightIcon'
+                | 'ChevronDoubleUpIcon'
+                | 'ChevronDownIcon'
+                | 'ChevronLeftIcon'
+                | 'ChevronRightIcon'
+                | 'ChevronUpDownIcon'
+                | 'ChevronUpIcon'
+                | 'CircleStackIcon'
+                | 'ClipboardDocumentCheckIcon'
+                | 'ClipboardDocumentListIcon'
+                | 'ClipboardDocumentIcon'
+                | 'ClipboardIcon'
+                | 'ClockIcon'
+                | 'CloudArrowDownIcon'
+                | 'CloudArrowUpIcon'
+                | 'CloudIcon'
+                | 'CodeBracketSquareIcon'
+                | 'CodeBracketIcon'
+                | 'Cog6ToothIcon'
+                | 'Cog8ToothIcon'
+                | 'CogIcon'
+                | 'CommandLineIcon'
+                | 'ComputerDesktopIcon'
+                | 'CpuChipIcon'
+                | 'CreditCardIcon'
+                | 'CubeTransparentIcon'
+                | 'CubeIcon'
+                | 'CurrencyBangladeshiIcon'
+                | 'CurrencyDollarIcon'
+                | 'CurrencyEuroIcon'
+                | 'CurrencyPoundIcon'
+                | 'CurrencyRupeeIcon'
+                | 'CurrencyYenIcon'
+                | 'CursorArrowRaysIcon'
+                | 'CursorArrowRippleIcon'
+                | 'DevicePhoneMobileIcon'
+                | 'DeviceTabletIcon'
+                | 'DocumentArrowDownIcon'
+                | 'DocumentArrowUpIcon'
+                | 'DocumentChartBarIcon'
+                | 'DocumentCheckIcon'
+                | 'DocumentDuplicateIcon'
+                | 'DocumentMagnifyingGlassIcon'
+                | 'DocumentMinusIcon'
+                | 'DocumentPlusIcon'
+                | 'DocumentTextIcon'
+                | 'DocumentIcon'
+                | 'EllipsisHorizontalCircleIcon'
+                | 'EllipsisHorizontalIcon'
+                | 'EllipsisVerticalIcon'
+                | 'EnvelopeOpenIcon'
+                | 'EnvelopeIcon'
+                | 'ExclamationCircleIcon'
+                | 'ExclamationTriangleIcon'
+                | 'EyeDropperIcon'
+                | 'EyeSlashIcon'
+                | 'EyeIcon'
+                | 'FaceFrownIcon'
+                | 'FaceSmileIcon'
+                | 'FilmIcon'
+                | 'FingerPrintIcon'
+                | 'FireIcon'
+                | 'FlagIcon'
+                | 'FolderArrowDownIcon'
+                | 'FolderMinusIcon'
+                | 'FolderOpenIcon'
+                | 'FolderPlusIcon'
+                | 'FolderIcon'
+                | 'ForwardIcon'
+                | 'FunnelIcon'
+                | 'GifIcon'
+                | 'GiftTopIcon'
+                | 'GiftIcon'
+                | 'GlobeAltIcon'
+                | 'GlobeAmericasIcon'
+                | 'GlobeAsiaAustraliaIcon'
+                | 'GlobeEuropeAfricaIcon'
+                | 'HandRaisedIcon'
+                | 'HandThumbDownIcon'
+                | 'HandThumbUpIcon'
+                | 'HashtagIcon'
+                | 'HeartIcon'
+                | 'HomeModernIcon'
+                | 'HomeIcon'
+                | 'IdentificationIcon'
+                | 'InboxArrowDownIcon'
+                | 'InboxStackIcon'
+                | 'InboxIcon'
+                | 'InformationCircleIcon'
+                | 'KeyIcon'
+                | 'LanguageIcon'
+                | 'LifebuoyIcon'
+                | 'LightBulbIcon'
+                | 'LinkIcon'
+                | 'ListBulletIcon'
+                | 'LockClosedIcon'
+                | 'LockOpenIcon'
+                | 'MagnifyingGlassCircleIcon'
+                | 'MagnifyingGlassMinusIcon'
+                | 'MagnifyingGlassPlusIcon'
+                | 'MagnifyingGlassIcon'
+                | 'MapPinIcon'
+                | 'MapIcon'
+                | 'MegaphoneIcon'
+                | 'MicrophoneIcon'
+                | 'MinusCircleIcon'
+                | 'MinusSmallIcon'
+                | 'MinusIcon'
+                | 'MoonIcon'
+                | 'MusicalNoteIcon'
+                | 'NewspaperIcon'
+                | 'NoSymbolIcon'
+                | 'PaintBrushIcon'
+                | 'PaperAirplaneIcon'
+                | 'PaperClipIcon'
+                | 'PauseCircleIcon'
+                | 'PauseIcon'
+                | 'PencilSquareIcon'
+                | 'PencilIcon'
+                | 'PhoneArrowDownLeftIcon'
+                | 'PhoneArrowUpRightIcon'
+                | 'PhoneXMarkIcon'
+                | 'PhoneIcon'
+                | 'PhotoIcon'
+                | 'PlayCircleIcon'
+                | 'PlayPauseIcon'
+                | 'PlayIcon'
+                | 'PlusCircleIcon'
+                | 'PlusSmallIcon'
+                | 'PlusIcon'
+                | 'PowerIcon'
+                | 'PresentationChartBarIcon'
+                | 'PresentationChartLineIcon'
+                | 'PrinterIcon'
+                | 'PuzzlePieceIcon'
+                | 'QrCodeIcon'
+                | 'QuestionMarkCircleIcon'
+                | 'QueueListIcon'
+                | 'RadioIcon'
+                | 'ReceiptPercentIcon'
+                | 'ReceiptRefundIcon'
+                | 'RectangleGroupIcon'
+                | 'RectangleStackIcon'
+                | 'RocketLaunchIcon'
+                | 'RssIcon'
+                | 'ScaleIcon'
+                | 'ScissorsIcon'
+                | 'ServerStackIcon'
+                | 'ServerIcon'
+                | 'ShareIcon'
+                | 'ShieldCheckIcon'
+                | 'ShieldExclamationIcon'
+                | 'ShoppingBagIcon'
+                | 'ShoppingCartIcon'
+                | 'SignalSlashIcon'
+                | 'SignalIcon'
+                | 'SparklesIcon'
+                | 'SpeakerWaveIcon'
+                | 'SpeakerXMarkIcon'
+                | 'Square2StackIcon'
+                | 'Square3Stack3DIcon'
+                | 'Squares2X2Icon'
+                | 'SquaresPlusIcon'
+                | 'StarIcon'
+                | 'StopCircleIcon'
+                | 'StopIcon'
+                | 'SunIcon'
+                | 'SwatchIcon'
+                | 'TableCellsIcon'
+                | 'TagIcon'
+                | 'TicketIcon'
+                | 'TrashIcon'
+                | 'TrophyIcon'
+                | 'TruckIcon'
+                | 'TvIcon'
+                | 'UserCircleIcon'
+                | 'UserGroupIcon'
+                | 'UserMinusIcon'
+                | 'UserPlusIcon'
+                | 'UserIcon'
+                | 'UsersIcon'
+                | 'VariableIcon'
+                | 'VideoCameraSlashIcon'
+                | 'VideoCameraIcon'
+                | 'ViewColumnsIcon'
+                | 'ViewfinderCircleIcon'
+                | 'WalletIcon'
+                | 'WifiIcon'
+                | 'WindowIcon'
+                | 'WrenchScrewdriverIcon'
+                | 'WrenchIcon'
+                | 'XCircleIcon'
+                | 'XMarkIcon'
+                | 'default'
+              )
+            | null;
+          title: string;
+          subtitle?: string | null;
+          chips?:
+            | {
+                title?: string | null;
+                bgColorSelect?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          content: {
+            [k: string]: unknown;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cards';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        nameInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        emailInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        descriptionInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        agreementCheckboxText: {
+          [k: string]: unknown;
+        }[];
+        submitButtonText?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'contactForm';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        highlightedPrices?:
+          | {
+              rate?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        tips?:
+          | {
+              icon?:
+                | (
+                    | 'AcademicCapIcon'
+                    | 'AdjustmentsHorizontalIcon'
+                    | 'AdjustmentsVerticalIcon'
+                    | 'ArchiveBoxArrowDownIcon'
+                    | 'ArchiveBoxXMarkIcon'
+                    | 'ArchiveBoxIcon'
+                    | 'ArrowDownCircleIcon'
+                    | 'ArrowDownLeftIcon'
+                    | 'ArrowDownOnSquareStackIcon'
+                    | 'ArrowDownOnSquareIcon'
+                    | 'ArrowDownRightIcon'
+                    | 'ArrowDownTrayIcon'
+                    | 'ArrowDownIcon'
+                    | 'ArrowLeftCircleIcon'
+                    | 'ArrowLeftEndOnRectangleIcon'
+                    | 'ArrowLeftOnRectangleIcon'
+                    | 'ArrowLeftStartOnRectangleIcon'
+                    | 'ArrowLeftIcon'
+                    | 'ArrowLongDownIcon'
+                    | 'ArrowLongLeftIcon'
+                    | 'ArrowLongRightIcon'
+                    | 'ArrowLongUpIcon'
+                    | 'ArrowPathRoundedSquareIcon'
+                    | 'ArrowPathIcon'
+                    | 'ArrowRightCircleIcon'
+                    | 'ArrowRightEndOnRectangleIcon'
+                    | 'ArrowRightOnRectangleIcon'
+                    | 'ArrowRightStartOnRectangleIcon'
+                    | 'ArrowRightIcon'
+                    | 'ArrowSmallDownIcon'
+                    | 'ArrowSmallLeftIcon'
+                    | 'ArrowSmallRightIcon'
+                    | 'ArrowSmallUpIcon'
+                    | 'ArrowTopRightOnSquareIcon'
+                    | 'ArrowTrendingDownIcon'
+                    | 'ArrowTrendingUpIcon'
+                    | 'ArrowUpCircleIcon'
+                    | 'ArrowUpLeftIcon'
+                    | 'ArrowUpOnSquareStackIcon'
+                    | 'ArrowUpOnSquareIcon'
+                    | 'ArrowUpRightIcon'
+                    | 'ArrowUpTrayIcon'
+                    | 'ArrowUpIcon'
+                    | 'ArrowUturnDownIcon'
+                    | 'ArrowUturnLeftIcon'
+                    | 'ArrowUturnRightIcon'
+                    | 'ArrowUturnUpIcon'
+                    | 'ArrowsPointingInIcon'
+                    | 'ArrowsPointingOutIcon'
+                    | 'ArrowsRightLeftIcon'
+                    | 'ArrowsUpDownIcon'
+                    | 'AtSymbolIcon'
+                    | 'BackspaceIcon'
+                    | 'BackwardIcon'
+                    | 'BanknotesIcon'
+                    | 'Bars2Icon'
+                    | 'Bars3BottomLeftIcon'
+                    | 'Bars3BottomRightIcon'
+                    | 'Bars3CenterLeftIcon'
+                    | 'Bars3Icon'
+                    | 'Bars4Icon'
+                    | 'BarsArrowDownIcon'
+                    | 'BarsArrowUpIcon'
+                    | 'Battery0Icon'
+                    | 'Battery100Icon'
+                    | 'Battery50Icon'
+                    | 'BeakerIcon'
+                    | 'BellAlertIcon'
+                    | 'BellSlashIcon'
+                    | 'BellSnoozeIcon'
+                    | 'BellIcon'
+                    | 'BoltSlashIcon'
+                    | 'BoltIcon'
+                    | 'BookOpenIcon'
+                    | 'BookmarkSlashIcon'
+                    | 'BookmarkSquareIcon'
+                    | 'BookmarkIcon'
+                    | 'BriefcaseIcon'
+                    | 'BugAntIcon'
+                    | 'BuildingLibraryIcon'
+                    | 'BuildingOffice2Icon'
+                    | 'BuildingOfficeIcon'
+                    | 'BuildingStorefrontIcon'
+                    | 'CakeIcon'
+                    | 'CalculatorIcon'
+                    | 'CalendarDaysIcon'
+                    | 'CalendarIcon'
+                    | 'CameraIcon'
+                    | 'ChartBarSquareIcon'
+                    | 'ChartBarIcon'
+                    | 'ChartPieIcon'
+                    | 'ChatBubbleBottomCenterTextIcon'
+                    | 'ChatBubbleBottomCenterIcon'
+                    | 'ChatBubbleLeftEllipsisIcon'
+                    | 'ChatBubbleLeftRightIcon'
+                    | 'ChatBubbleLeftIcon'
+                    | 'ChatBubbleOvalLeftEllipsisIcon'
+                    | 'ChatBubbleOvalLeftIcon'
+                    | 'CheckBadgeIcon'
+                    | 'CheckCircleIcon'
+                    | 'CheckIcon'
+                    | 'ChevronDoubleDownIcon'
+                    | 'ChevronDoubleLeftIcon'
+                    | 'ChevronDoubleRightIcon'
+                    | 'ChevronDoubleUpIcon'
+                    | 'ChevronDownIcon'
+                    | 'ChevronLeftIcon'
+                    | 'ChevronRightIcon'
+                    | 'ChevronUpDownIcon'
+                    | 'ChevronUpIcon'
+                    | 'CircleStackIcon'
+                    | 'ClipboardDocumentCheckIcon'
+                    | 'ClipboardDocumentListIcon'
+                    | 'ClipboardDocumentIcon'
+                    | 'ClipboardIcon'
+                    | 'ClockIcon'
+                    | 'CloudArrowDownIcon'
+                    | 'CloudArrowUpIcon'
+                    | 'CloudIcon'
+                    | 'CodeBracketSquareIcon'
+                    | 'CodeBracketIcon'
+                    | 'Cog6ToothIcon'
+                    | 'Cog8ToothIcon'
+                    | 'CogIcon'
+                    | 'CommandLineIcon'
+                    | 'ComputerDesktopIcon'
+                    | 'CpuChipIcon'
+                    | 'CreditCardIcon'
+                    | 'CubeTransparentIcon'
+                    | 'CubeIcon'
+                    | 'CurrencyBangladeshiIcon'
+                    | 'CurrencyDollarIcon'
+                    | 'CurrencyEuroIcon'
+                    | 'CurrencyPoundIcon'
+                    | 'CurrencyRupeeIcon'
+                    | 'CurrencyYenIcon'
+                    | 'CursorArrowRaysIcon'
+                    | 'CursorArrowRippleIcon'
+                    | 'DevicePhoneMobileIcon'
+                    | 'DeviceTabletIcon'
+                    | 'DocumentArrowDownIcon'
+                    | 'DocumentArrowUpIcon'
+                    | 'DocumentChartBarIcon'
+                    | 'DocumentCheckIcon'
+                    | 'DocumentDuplicateIcon'
+                    | 'DocumentMagnifyingGlassIcon'
+                    | 'DocumentMinusIcon'
+                    | 'DocumentPlusIcon'
+                    | 'DocumentTextIcon'
+                    | 'DocumentIcon'
+                    | 'EllipsisHorizontalCircleIcon'
+                    | 'EllipsisHorizontalIcon'
+                    | 'EllipsisVerticalIcon'
+                    | 'EnvelopeOpenIcon'
+                    | 'EnvelopeIcon'
+                    | 'ExclamationCircleIcon'
+                    | 'ExclamationTriangleIcon'
+                    | 'EyeDropperIcon'
+                    | 'EyeSlashIcon'
+                    | 'EyeIcon'
+                    | 'FaceFrownIcon'
+                    | 'FaceSmileIcon'
+                    | 'FilmIcon'
+                    | 'FingerPrintIcon'
+                    | 'FireIcon'
+                    | 'FlagIcon'
+                    | 'FolderArrowDownIcon'
+                    | 'FolderMinusIcon'
+                    | 'FolderOpenIcon'
+                    | 'FolderPlusIcon'
+                    | 'FolderIcon'
+                    | 'ForwardIcon'
+                    | 'FunnelIcon'
+                    | 'GifIcon'
+                    | 'GiftTopIcon'
+                    | 'GiftIcon'
+                    | 'GlobeAltIcon'
+                    | 'GlobeAmericasIcon'
+                    | 'GlobeAsiaAustraliaIcon'
+                    | 'GlobeEuropeAfricaIcon'
+                    | 'HandRaisedIcon'
+                    | 'HandThumbDownIcon'
+                    | 'HandThumbUpIcon'
+                    | 'HashtagIcon'
+                    | 'HeartIcon'
+                    | 'HomeModernIcon'
+                    | 'HomeIcon'
+                    | 'IdentificationIcon'
+                    | 'InboxArrowDownIcon'
+                    | 'InboxStackIcon'
+                    | 'InboxIcon'
+                    | 'InformationCircleIcon'
+                    | 'KeyIcon'
+                    | 'LanguageIcon'
+                    | 'LifebuoyIcon'
+                    | 'LightBulbIcon'
+                    | 'LinkIcon'
+                    | 'ListBulletIcon'
+                    | 'LockClosedIcon'
+                    | 'LockOpenIcon'
+                    | 'MagnifyingGlassCircleIcon'
+                    | 'MagnifyingGlassMinusIcon'
+                    | 'MagnifyingGlassPlusIcon'
+                    | 'MagnifyingGlassIcon'
+                    | 'MapPinIcon'
+                    | 'MapIcon'
+                    | 'MegaphoneIcon'
+                    | 'MicrophoneIcon'
+                    | 'MinusCircleIcon'
+                    | 'MinusSmallIcon'
+                    | 'MinusIcon'
+                    | 'MoonIcon'
+                    | 'MusicalNoteIcon'
+                    | 'NewspaperIcon'
+                    | 'NoSymbolIcon'
+                    | 'PaintBrushIcon'
+                    | 'PaperAirplaneIcon'
+                    | 'PaperClipIcon'
+                    | 'PauseCircleIcon'
+                    | 'PauseIcon'
+                    | 'PencilSquareIcon'
+                    | 'PencilIcon'
+                    | 'PhoneArrowDownLeftIcon'
+                    | 'PhoneArrowUpRightIcon'
+                    | 'PhoneXMarkIcon'
+                    | 'PhoneIcon'
+                    | 'PhotoIcon'
+                    | 'PlayCircleIcon'
+                    | 'PlayPauseIcon'
+                    | 'PlayIcon'
+                    | 'PlusCircleIcon'
+                    | 'PlusSmallIcon'
+                    | 'PlusIcon'
+                    | 'PowerIcon'
+                    | 'PresentationChartBarIcon'
+                    | 'PresentationChartLineIcon'
+                    | 'PrinterIcon'
+                    | 'PuzzlePieceIcon'
+                    | 'QrCodeIcon'
+                    | 'QuestionMarkCircleIcon'
+                    | 'QueueListIcon'
+                    | 'RadioIcon'
+                    | 'ReceiptPercentIcon'
+                    | 'ReceiptRefundIcon'
+                    | 'RectangleGroupIcon'
+                    | 'RectangleStackIcon'
+                    | 'RocketLaunchIcon'
+                    | 'RssIcon'
+                    | 'ScaleIcon'
+                    | 'ScissorsIcon'
+                    | 'ServerStackIcon'
+                    | 'ServerIcon'
+                    | 'ShareIcon'
+                    | 'ShieldCheckIcon'
+                    | 'ShieldExclamationIcon'
+                    | 'ShoppingBagIcon'
+                    | 'ShoppingCartIcon'
+                    | 'SignalSlashIcon'
+                    | 'SignalIcon'
+                    | 'SparklesIcon'
+                    | 'SpeakerWaveIcon'
+                    | 'SpeakerXMarkIcon'
+                    | 'Square2StackIcon'
+                    | 'Square3Stack3DIcon'
+                    | 'Squares2X2Icon'
+                    | 'SquaresPlusIcon'
+                    | 'StarIcon'
+                    | 'StopCircleIcon'
+                    | 'StopIcon'
+                    | 'SunIcon'
+                    | 'SwatchIcon'
+                    | 'TableCellsIcon'
+                    | 'TagIcon'
+                    | 'TicketIcon'
+                    | 'TrashIcon'
+                    | 'TrophyIcon'
+                    | 'TruckIcon'
+                    | 'TvIcon'
+                    | 'UserCircleIcon'
+                    | 'UserGroupIcon'
+                    | 'UserMinusIcon'
+                    | 'UserPlusIcon'
+                    | 'UserIcon'
+                    | 'UsersIcon'
+                    | 'VariableIcon'
+                    | 'VideoCameraSlashIcon'
+                    | 'VideoCameraIcon'
+                    | 'ViewColumnsIcon'
+                    | 'ViewfinderCircleIcon'
+                    | 'WalletIcon'
+                    | 'WifiIcon'
+                    | 'WindowIcon'
+                    | 'WrenchScrewdriverIcon'
+                    | 'WrenchIcon'
+                    | 'XCircleIcon'
+                    | 'XMarkIcon'
+                    | 'default'
+                  )
+                | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pricing';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        pricingPrinciples?: {
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        processPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          stepDelay?: number | null;
+          typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                color?: string | null;
+                services?:
+                  | {
+                      title?: string | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'principles';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        persons: {
+          photo: string | Media;
+          name: string;
+          role?: string | null;
+          highlightHeader?: string | null;
+          highlightDescription?: string | null;
+          description: {
+            [k: string]: unknown;
+          }[];
+          competences: {
+            title?: string | null;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'team';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        audienceItems?:
+          | {
+              image?: string | Media | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              benefitItems?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'audience';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        servicesGroups: {
+          title: string;
+          color?: string | null;
+          services: {
+            title: string;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'services';
       }
   )[];
   slug?: string | null;
@@ -230,7 +1852,25 @@ export interface Post {
       }[]
     | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];
@@ -251,10 +1891,31 @@ export interface Post {
         }[]
       | null;
     media?: string | Media | null;
+    slider?:
+      | {
+          slideContent: {
+            [k: string]: unknown;
+          }[];
+          slideImage?: string | Media | null;
+          id?: string | null;
+        }[]
+      | null;
   };
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -280,6 +1941,18 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -307,13 +1980,41 @@ export interface Post {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
+        content: {
+          [k: string]: unknown;
+        }[];
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -350,12 +2051,1555 @@ export interface Post {
         blockName?: string | null;
         blockType: 'archive';
       }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        content: {
+          [k: string]: unknown;
+        }[];
+        name: string;
+        role: string;
+        company?: string | null;
+        photo?: string | Media | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'quote';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        columnsSm?: ('one' | 'two') | null;
+        columnsMd?: ('one' | 'two' | 'three' | 'four') | null;
+        columnsLg?: ('one' | 'two' | 'three' | 'four' | 'six') | null;
+        radius?: ('none' | 'sm' | 'md' | 'lg') | null;
+        shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
+        imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
+        cardItems: {
+          image?: string | Media | null;
+          icon?:
+            | (
+                | 'AcademicCapIcon'
+                | 'AdjustmentsHorizontalIcon'
+                | 'AdjustmentsVerticalIcon'
+                | 'ArchiveBoxArrowDownIcon'
+                | 'ArchiveBoxXMarkIcon'
+                | 'ArchiveBoxIcon'
+                | 'ArrowDownCircleIcon'
+                | 'ArrowDownLeftIcon'
+                | 'ArrowDownOnSquareStackIcon'
+                | 'ArrowDownOnSquareIcon'
+                | 'ArrowDownRightIcon'
+                | 'ArrowDownTrayIcon'
+                | 'ArrowDownIcon'
+                | 'ArrowLeftCircleIcon'
+                | 'ArrowLeftEndOnRectangleIcon'
+                | 'ArrowLeftOnRectangleIcon'
+                | 'ArrowLeftStartOnRectangleIcon'
+                | 'ArrowLeftIcon'
+                | 'ArrowLongDownIcon'
+                | 'ArrowLongLeftIcon'
+                | 'ArrowLongRightIcon'
+                | 'ArrowLongUpIcon'
+                | 'ArrowPathRoundedSquareIcon'
+                | 'ArrowPathIcon'
+                | 'ArrowRightCircleIcon'
+                | 'ArrowRightEndOnRectangleIcon'
+                | 'ArrowRightOnRectangleIcon'
+                | 'ArrowRightStartOnRectangleIcon'
+                | 'ArrowRightIcon'
+                | 'ArrowSmallDownIcon'
+                | 'ArrowSmallLeftIcon'
+                | 'ArrowSmallRightIcon'
+                | 'ArrowSmallUpIcon'
+                | 'ArrowTopRightOnSquareIcon'
+                | 'ArrowTrendingDownIcon'
+                | 'ArrowTrendingUpIcon'
+                | 'ArrowUpCircleIcon'
+                | 'ArrowUpLeftIcon'
+                | 'ArrowUpOnSquareStackIcon'
+                | 'ArrowUpOnSquareIcon'
+                | 'ArrowUpRightIcon'
+                | 'ArrowUpTrayIcon'
+                | 'ArrowUpIcon'
+                | 'ArrowUturnDownIcon'
+                | 'ArrowUturnLeftIcon'
+                | 'ArrowUturnRightIcon'
+                | 'ArrowUturnUpIcon'
+                | 'ArrowsPointingInIcon'
+                | 'ArrowsPointingOutIcon'
+                | 'ArrowsRightLeftIcon'
+                | 'ArrowsUpDownIcon'
+                | 'AtSymbolIcon'
+                | 'BackspaceIcon'
+                | 'BackwardIcon'
+                | 'BanknotesIcon'
+                | 'Bars2Icon'
+                | 'Bars3BottomLeftIcon'
+                | 'Bars3BottomRightIcon'
+                | 'Bars3CenterLeftIcon'
+                | 'Bars3Icon'
+                | 'Bars4Icon'
+                | 'BarsArrowDownIcon'
+                | 'BarsArrowUpIcon'
+                | 'Battery0Icon'
+                | 'Battery100Icon'
+                | 'Battery50Icon'
+                | 'BeakerIcon'
+                | 'BellAlertIcon'
+                | 'BellSlashIcon'
+                | 'BellSnoozeIcon'
+                | 'BellIcon'
+                | 'BoltSlashIcon'
+                | 'BoltIcon'
+                | 'BookOpenIcon'
+                | 'BookmarkSlashIcon'
+                | 'BookmarkSquareIcon'
+                | 'BookmarkIcon'
+                | 'BriefcaseIcon'
+                | 'BugAntIcon'
+                | 'BuildingLibraryIcon'
+                | 'BuildingOffice2Icon'
+                | 'BuildingOfficeIcon'
+                | 'BuildingStorefrontIcon'
+                | 'CakeIcon'
+                | 'CalculatorIcon'
+                | 'CalendarDaysIcon'
+                | 'CalendarIcon'
+                | 'CameraIcon'
+                | 'ChartBarSquareIcon'
+                | 'ChartBarIcon'
+                | 'ChartPieIcon'
+                | 'ChatBubbleBottomCenterTextIcon'
+                | 'ChatBubbleBottomCenterIcon'
+                | 'ChatBubbleLeftEllipsisIcon'
+                | 'ChatBubbleLeftRightIcon'
+                | 'ChatBubbleLeftIcon'
+                | 'ChatBubbleOvalLeftEllipsisIcon'
+                | 'ChatBubbleOvalLeftIcon'
+                | 'CheckBadgeIcon'
+                | 'CheckCircleIcon'
+                | 'CheckIcon'
+                | 'ChevronDoubleDownIcon'
+                | 'ChevronDoubleLeftIcon'
+                | 'ChevronDoubleRightIcon'
+                | 'ChevronDoubleUpIcon'
+                | 'ChevronDownIcon'
+                | 'ChevronLeftIcon'
+                | 'ChevronRightIcon'
+                | 'ChevronUpDownIcon'
+                | 'ChevronUpIcon'
+                | 'CircleStackIcon'
+                | 'ClipboardDocumentCheckIcon'
+                | 'ClipboardDocumentListIcon'
+                | 'ClipboardDocumentIcon'
+                | 'ClipboardIcon'
+                | 'ClockIcon'
+                | 'CloudArrowDownIcon'
+                | 'CloudArrowUpIcon'
+                | 'CloudIcon'
+                | 'CodeBracketSquareIcon'
+                | 'CodeBracketIcon'
+                | 'Cog6ToothIcon'
+                | 'Cog8ToothIcon'
+                | 'CogIcon'
+                | 'CommandLineIcon'
+                | 'ComputerDesktopIcon'
+                | 'CpuChipIcon'
+                | 'CreditCardIcon'
+                | 'CubeTransparentIcon'
+                | 'CubeIcon'
+                | 'CurrencyBangladeshiIcon'
+                | 'CurrencyDollarIcon'
+                | 'CurrencyEuroIcon'
+                | 'CurrencyPoundIcon'
+                | 'CurrencyRupeeIcon'
+                | 'CurrencyYenIcon'
+                | 'CursorArrowRaysIcon'
+                | 'CursorArrowRippleIcon'
+                | 'DevicePhoneMobileIcon'
+                | 'DeviceTabletIcon'
+                | 'DocumentArrowDownIcon'
+                | 'DocumentArrowUpIcon'
+                | 'DocumentChartBarIcon'
+                | 'DocumentCheckIcon'
+                | 'DocumentDuplicateIcon'
+                | 'DocumentMagnifyingGlassIcon'
+                | 'DocumentMinusIcon'
+                | 'DocumentPlusIcon'
+                | 'DocumentTextIcon'
+                | 'DocumentIcon'
+                | 'EllipsisHorizontalCircleIcon'
+                | 'EllipsisHorizontalIcon'
+                | 'EllipsisVerticalIcon'
+                | 'EnvelopeOpenIcon'
+                | 'EnvelopeIcon'
+                | 'ExclamationCircleIcon'
+                | 'ExclamationTriangleIcon'
+                | 'EyeDropperIcon'
+                | 'EyeSlashIcon'
+                | 'EyeIcon'
+                | 'FaceFrownIcon'
+                | 'FaceSmileIcon'
+                | 'FilmIcon'
+                | 'FingerPrintIcon'
+                | 'FireIcon'
+                | 'FlagIcon'
+                | 'FolderArrowDownIcon'
+                | 'FolderMinusIcon'
+                | 'FolderOpenIcon'
+                | 'FolderPlusIcon'
+                | 'FolderIcon'
+                | 'ForwardIcon'
+                | 'FunnelIcon'
+                | 'GifIcon'
+                | 'GiftTopIcon'
+                | 'GiftIcon'
+                | 'GlobeAltIcon'
+                | 'GlobeAmericasIcon'
+                | 'GlobeAsiaAustraliaIcon'
+                | 'GlobeEuropeAfricaIcon'
+                | 'HandRaisedIcon'
+                | 'HandThumbDownIcon'
+                | 'HandThumbUpIcon'
+                | 'HashtagIcon'
+                | 'HeartIcon'
+                | 'HomeModernIcon'
+                | 'HomeIcon'
+                | 'IdentificationIcon'
+                | 'InboxArrowDownIcon'
+                | 'InboxStackIcon'
+                | 'InboxIcon'
+                | 'InformationCircleIcon'
+                | 'KeyIcon'
+                | 'LanguageIcon'
+                | 'LifebuoyIcon'
+                | 'LightBulbIcon'
+                | 'LinkIcon'
+                | 'ListBulletIcon'
+                | 'LockClosedIcon'
+                | 'LockOpenIcon'
+                | 'MagnifyingGlassCircleIcon'
+                | 'MagnifyingGlassMinusIcon'
+                | 'MagnifyingGlassPlusIcon'
+                | 'MagnifyingGlassIcon'
+                | 'MapPinIcon'
+                | 'MapIcon'
+                | 'MegaphoneIcon'
+                | 'MicrophoneIcon'
+                | 'MinusCircleIcon'
+                | 'MinusSmallIcon'
+                | 'MinusIcon'
+                | 'MoonIcon'
+                | 'MusicalNoteIcon'
+                | 'NewspaperIcon'
+                | 'NoSymbolIcon'
+                | 'PaintBrushIcon'
+                | 'PaperAirplaneIcon'
+                | 'PaperClipIcon'
+                | 'PauseCircleIcon'
+                | 'PauseIcon'
+                | 'PencilSquareIcon'
+                | 'PencilIcon'
+                | 'PhoneArrowDownLeftIcon'
+                | 'PhoneArrowUpRightIcon'
+                | 'PhoneXMarkIcon'
+                | 'PhoneIcon'
+                | 'PhotoIcon'
+                | 'PlayCircleIcon'
+                | 'PlayPauseIcon'
+                | 'PlayIcon'
+                | 'PlusCircleIcon'
+                | 'PlusSmallIcon'
+                | 'PlusIcon'
+                | 'PowerIcon'
+                | 'PresentationChartBarIcon'
+                | 'PresentationChartLineIcon'
+                | 'PrinterIcon'
+                | 'PuzzlePieceIcon'
+                | 'QrCodeIcon'
+                | 'QuestionMarkCircleIcon'
+                | 'QueueListIcon'
+                | 'RadioIcon'
+                | 'ReceiptPercentIcon'
+                | 'ReceiptRefundIcon'
+                | 'RectangleGroupIcon'
+                | 'RectangleStackIcon'
+                | 'RocketLaunchIcon'
+                | 'RssIcon'
+                | 'ScaleIcon'
+                | 'ScissorsIcon'
+                | 'ServerStackIcon'
+                | 'ServerIcon'
+                | 'ShareIcon'
+                | 'ShieldCheckIcon'
+                | 'ShieldExclamationIcon'
+                | 'ShoppingBagIcon'
+                | 'ShoppingCartIcon'
+                | 'SignalSlashIcon'
+                | 'SignalIcon'
+                | 'SparklesIcon'
+                | 'SpeakerWaveIcon'
+                | 'SpeakerXMarkIcon'
+                | 'Square2StackIcon'
+                | 'Square3Stack3DIcon'
+                | 'Squares2X2Icon'
+                | 'SquaresPlusIcon'
+                | 'StarIcon'
+                | 'StopCircleIcon'
+                | 'StopIcon'
+                | 'SunIcon'
+                | 'SwatchIcon'
+                | 'TableCellsIcon'
+                | 'TagIcon'
+                | 'TicketIcon'
+                | 'TrashIcon'
+                | 'TrophyIcon'
+                | 'TruckIcon'
+                | 'TvIcon'
+                | 'UserCircleIcon'
+                | 'UserGroupIcon'
+                | 'UserMinusIcon'
+                | 'UserPlusIcon'
+                | 'UserIcon'
+                | 'UsersIcon'
+                | 'VariableIcon'
+                | 'VideoCameraSlashIcon'
+                | 'VideoCameraIcon'
+                | 'ViewColumnsIcon'
+                | 'ViewfinderCircleIcon'
+                | 'WalletIcon'
+                | 'WifiIcon'
+                | 'WindowIcon'
+                | 'WrenchScrewdriverIcon'
+                | 'WrenchIcon'
+                | 'XCircleIcon'
+                | 'XMarkIcon'
+                | 'default'
+              )
+            | null;
+          title: string;
+          subtitle?: string | null;
+          chips?:
+            | {
+                title?: string | null;
+                bgColorSelect?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          content: {
+            [k: string]: unknown;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cards';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        nameInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        emailInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        descriptionInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        agreementCheckboxText: {
+          [k: string]: unknown;
+        }[];
+        submitButtonText?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'contactForm';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        highlightedPrices?:
+          | {
+              rate?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        tips?:
+          | {
+              icon?:
+                | (
+                    | 'AcademicCapIcon'
+                    | 'AdjustmentsHorizontalIcon'
+                    | 'AdjustmentsVerticalIcon'
+                    | 'ArchiveBoxArrowDownIcon'
+                    | 'ArchiveBoxXMarkIcon'
+                    | 'ArchiveBoxIcon'
+                    | 'ArrowDownCircleIcon'
+                    | 'ArrowDownLeftIcon'
+                    | 'ArrowDownOnSquareStackIcon'
+                    | 'ArrowDownOnSquareIcon'
+                    | 'ArrowDownRightIcon'
+                    | 'ArrowDownTrayIcon'
+                    | 'ArrowDownIcon'
+                    | 'ArrowLeftCircleIcon'
+                    | 'ArrowLeftEndOnRectangleIcon'
+                    | 'ArrowLeftOnRectangleIcon'
+                    | 'ArrowLeftStartOnRectangleIcon'
+                    | 'ArrowLeftIcon'
+                    | 'ArrowLongDownIcon'
+                    | 'ArrowLongLeftIcon'
+                    | 'ArrowLongRightIcon'
+                    | 'ArrowLongUpIcon'
+                    | 'ArrowPathRoundedSquareIcon'
+                    | 'ArrowPathIcon'
+                    | 'ArrowRightCircleIcon'
+                    | 'ArrowRightEndOnRectangleIcon'
+                    | 'ArrowRightOnRectangleIcon'
+                    | 'ArrowRightStartOnRectangleIcon'
+                    | 'ArrowRightIcon'
+                    | 'ArrowSmallDownIcon'
+                    | 'ArrowSmallLeftIcon'
+                    | 'ArrowSmallRightIcon'
+                    | 'ArrowSmallUpIcon'
+                    | 'ArrowTopRightOnSquareIcon'
+                    | 'ArrowTrendingDownIcon'
+                    | 'ArrowTrendingUpIcon'
+                    | 'ArrowUpCircleIcon'
+                    | 'ArrowUpLeftIcon'
+                    | 'ArrowUpOnSquareStackIcon'
+                    | 'ArrowUpOnSquareIcon'
+                    | 'ArrowUpRightIcon'
+                    | 'ArrowUpTrayIcon'
+                    | 'ArrowUpIcon'
+                    | 'ArrowUturnDownIcon'
+                    | 'ArrowUturnLeftIcon'
+                    | 'ArrowUturnRightIcon'
+                    | 'ArrowUturnUpIcon'
+                    | 'ArrowsPointingInIcon'
+                    | 'ArrowsPointingOutIcon'
+                    | 'ArrowsRightLeftIcon'
+                    | 'ArrowsUpDownIcon'
+                    | 'AtSymbolIcon'
+                    | 'BackspaceIcon'
+                    | 'BackwardIcon'
+                    | 'BanknotesIcon'
+                    | 'Bars2Icon'
+                    | 'Bars3BottomLeftIcon'
+                    | 'Bars3BottomRightIcon'
+                    | 'Bars3CenterLeftIcon'
+                    | 'Bars3Icon'
+                    | 'Bars4Icon'
+                    | 'BarsArrowDownIcon'
+                    | 'BarsArrowUpIcon'
+                    | 'Battery0Icon'
+                    | 'Battery100Icon'
+                    | 'Battery50Icon'
+                    | 'BeakerIcon'
+                    | 'BellAlertIcon'
+                    | 'BellSlashIcon'
+                    | 'BellSnoozeIcon'
+                    | 'BellIcon'
+                    | 'BoltSlashIcon'
+                    | 'BoltIcon'
+                    | 'BookOpenIcon'
+                    | 'BookmarkSlashIcon'
+                    | 'BookmarkSquareIcon'
+                    | 'BookmarkIcon'
+                    | 'BriefcaseIcon'
+                    | 'BugAntIcon'
+                    | 'BuildingLibraryIcon'
+                    | 'BuildingOffice2Icon'
+                    | 'BuildingOfficeIcon'
+                    | 'BuildingStorefrontIcon'
+                    | 'CakeIcon'
+                    | 'CalculatorIcon'
+                    | 'CalendarDaysIcon'
+                    | 'CalendarIcon'
+                    | 'CameraIcon'
+                    | 'ChartBarSquareIcon'
+                    | 'ChartBarIcon'
+                    | 'ChartPieIcon'
+                    | 'ChatBubbleBottomCenterTextIcon'
+                    | 'ChatBubbleBottomCenterIcon'
+                    | 'ChatBubbleLeftEllipsisIcon'
+                    | 'ChatBubbleLeftRightIcon'
+                    | 'ChatBubbleLeftIcon'
+                    | 'ChatBubbleOvalLeftEllipsisIcon'
+                    | 'ChatBubbleOvalLeftIcon'
+                    | 'CheckBadgeIcon'
+                    | 'CheckCircleIcon'
+                    | 'CheckIcon'
+                    | 'ChevronDoubleDownIcon'
+                    | 'ChevronDoubleLeftIcon'
+                    | 'ChevronDoubleRightIcon'
+                    | 'ChevronDoubleUpIcon'
+                    | 'ChevronDownIcon'
+                    | 'ChevronLeftIcon'
+                    | 'ChevronRightIcon'
+                    | 'ChevronUpDownIcon'
+                    | 'ChevronUpIcon'
+                    | 'CircleStackIcon'
+                    | 'ClipboardDocumentCheckIcon'
+                    | 'ClipboardDocumentListIcon'
+                    | 'ClipboardDocumentIcon'
+                    | 'ClipboardIcon'
+                    | 'ClockIcon'
+                    | 'CloudArrowDownIcon'
+                    | 'CloudArrowUpIcon'
+                    | 'CloudIcon'
+                    | 'CodeBracketSquareIcon'
+                    | 'CodeBracketIcon'
+                    | 'Cog6ToothIcon'
+                    | 'Cog8ToothIcon'
+                    | 'CogIcon'
+                    | 'CommandLineIcon'
+                    | 'ComputerDesktopIcon'
+                    | 'CpuChipIcon'
+                    | 'CreditCardIcon'
+                    | 'CubeTransparentIcon'
+                    | 'CubeIcon'
+                    | 'CurrencyBangladeshiIcon'
+                    | 'CurrencyDollarIcon'
+                    | 'CurrencyEuroIcon'
+                    | 'CurrencyPoundIcon'
+                    | 'CurrencyRupeeIcon'
+                    | 'CurrencyYenIcon'
+                    | 'CursorArrowRaysIcon'
+                    | 'CursorArrowRippleIcon'
+                    | 'DevicePhoneMobileIcon'
+                    | 'DeviceTabletIcon'
+                    | 'DocumentArrowDownIcon'
+                    | 'DocumentArrowUpIcon'
+                    | 'DocumentChartBarIcon'
+                    | 'DocumentCheckIcon'
+                    | 'DocumentDuplicateIcon'
+                    | 'DocumentMagnifyingGlassIcon'
+                    | 'DocumentMinusIcon'
+                    | 'DocumentPlusIcon'
+                    | 'DocumentTextIcon'
+                    | 'DocumentIcon'
+                    | 'EllipsisHorizontalCircleIcon'
+                    | 'EllipsisHorizontalIcon'
+                    | 'EllipsisVerticalIcon'
+                    | 'EnvelopeOpenIcon'
+                    | 'EnvelopeIcon'
+                    | 'ExclamationCircleIcon'
+                    | 'ExclamationTriangleIcon'
+                    | 'EyeDropperIcon'
+                    | 'EyeSlashIcon'
+                    | 'EyeIcon'
+                    | 'FaceFrownIcon'
+                    | 'FaceSmileIcon'
+                    | 'FilmIcon'
+                    | 'FingerPrintIcon'
+                    | 'FireIcon'
+                    | 'FlagIcon'
+                    | 'FolderArrowDownIcon'
+                    | 'FolderMinusIcon'
+                    | 'FolderOpenIcon'
+                    | 'FolderPlusIcon'
+                    | 'FolderIcon'
+                    | 'ForwardIcon'
+                    | 'FunnelIcon'
+                    | 'GifIcon'
+                    | 'GiftTopIcon'
+                    | 'GiftIcon'
+                    | 'GlobeAltIcon'
+                    | 'GlobeAmericasIcon'
+                    | 'GlobeAsiaAustraliaIcon'
+                    | 'GlobeEuropeAfricaIcon'
+                    | 'HandRaisedIcon'
+                    | 'HandThumbDownIcon'
+                    | 'HandThumbUpIcon'
+                    | 'HashtagIcon'
+                    | 'HeartIcon'
+                    | 'HomeModernIcon'
+                    | 'HomeIcon'
+                    | 'IdentificationIcon'
+                    | 'InboxArrowDownIcon'
+                    | 'InboxStackIcon'
+                    | 'InboxIcon'
+                    | 'InformationCircleIcon'
+                    | 'KeyIcon'
+                    | 'LanguageIcon'
+                    | 'LifebuoyIcon'
+                    | 'LightBulbIcon'
+                    | 'LinkIcon'
+                    | 'ListBulletIcon'
+                    | 'LockClosedIcon'
+                    | 'LockOpenIcon'
+                    | 'MagnifyingGlassCircleIcon'
+                    | 'MagnifyingGlassMinusIcon'
+                    | 'MagnifyingGlassPlusIcon'
+                    | 'MagnifyingGlassIcon'
+                    | 'MapPinIcon'
+                    | 'MapIcon'
+                    | 'MegaphoneIcon'
+                    | 'MicrophoneIcon'
+                    | 'MinusCircleIcon'
+                    | 'MinusSmallIcon'
+                    | 'MinusIcon'
+                    | 'MoonIcon'
+                    | 'MusicalNoteIcon'
+                    | 'NewspaperIcon'
+                    | 'NoSymbolIcon'
+                    | 'PaintBrushIcon'
+                    | 'PaperAirplaneIcon'
+                    | 'PaperClipIcon'
+                    | 'PauseCircleIcon'
+                    | 'PauseIcon'
+                    | 'PencilSquareIcon'
+                    | 'PencilIcon'
+                    | 'PhoneArrowDownLeftIcon'
+                    | 'PhoneArrowUpRightIcon'
+                    | 'PhoneXMarkIcon'
+                    | 'PhoneIcon'
+                    | 'PhotoIcon'
+                    | 'PlayCircleIcon'
+                    | 'PlayPauseIcon'
+                    | 'PlayIcon'
+                    | 'PlusCircleIcon'
+                    | 'PlusSmallIcon'
+                    | 'PlusIcon'
+                    | 'PowerIcon'
+                    | 'PresentationChartBarIcon'
+                    | 'PresentationChartLineIcon'
+                    | 'PrinterIcon'
+                    | 'PuzzlePieceIcon'
+                    | 'QrCodeIcon'
+                    | 'QuestionMarkCircleIcon'
+                    | 'QueueListIcon'
+                    | 'RadioIcon'
+                    | 'ReceiptPercentIcon'
+                    | 'ReceiptRefundIcon'
+                    | 'RectangleGroupIcon'
+                    | 'RectangleStackIcon'
+                    | 'RocketLaunchIcon'
+                    | 'RssIcon'
+                    | 'ScaleIcon'
+                    | 'ScissorsIcon'
+                    | 'ServerStackIcon'
+                    | 'ServerIcon'
+                    | 'ShareIcon'
+                    | 'ShieldCheckIcon'
+                    | 'ShieldExclamationIcon'
+                    | 'ShoppingBagIcon'
+                    | 'ShoppingCartIcon'
+                    | 'SignalSlashIcon'
+                    | 'SignalIcon'
+                    | 'SparklesIcon'
+                    | 'SpeakerWaveIcon'
+                    | 'SpeakerXMarkIcon'
+                    | 'Square2StackIcon'
+                    | 'Square3Stack3DIcon'
+                    | 'Squares2X2Icon'
+                    | 'SquaresPlusIcon'
+                    | 'StarIcon'
+                    | 'StopCircleIcon'
+                    | 'StopIcon'
+                    | 'SunIcon'
+                    | 'SwatchIcon'
+                    | 'TableCellsIcon'
+                    | 'TagIcon'
+                    | 'TicketIcon'
+                    | 'TrashIcon'
+                    | 'TrophyIcon'
+                    | 'TruckIcon'
+                    | 'TvIcon'
+                    | 'UserCircleIcon'
+                    | 'UserGroupIcon'
+                    | 'UserMinusIcon'
+                    | 'UserPlusIcon'
+                    | 'UserIcon'
+                    | 'UsersIcon'
+                    | 'VariableIcon'
+                    | 'VideoCameraSlashIcon'
+                    | 'VideoCameraIcon'
+                    | 'ViewColumnsIcon'
+                    | 'ViewfinderCircleIcon'
+                    | 'WalletIcon'
+                    | 'WifiIcon'
+                    | 'WindowIcon'
+                    | 'WrenchScrewdriverIcon'
+                    | 'WrenchIcon'
+                    | 'XCircleIcon'
+                    | 'XMarkIcon'
+                    | 'default'
+                  )
+                | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pricing';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        pricingPrinciples?: {
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        processPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          stepDelay?: number | null;
+          typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                color?: string | null;
+                services?:
+                  | {
+                      title?: string | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'principles';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        persons: {
+          photo: string | Media;
+          name: string;
+          role?: string | null;
+          highlightHeader?: string | null;
+          highlightDescription?: string | null;
+          description: {
+            [k: string]: unknown;
+          }[];
+          competences: {
+            title?: string | null;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'team';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        audienceItems?:
+          | {
+              image?: string | Media | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              benefitItems?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'audience';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        servicesGroups: {
+          title: string;
+          color?: string | null;
+          services: {
+            title: string;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'services';
+      }
   )[];
   enablePremiumContent?: boolean | null;
   premiumContent?:
     | (
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             richText: {
               [k: string]: unknown;
             }[];
@@ -381,6 +3625,18 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             columns?:
               | {
                   size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -408,13 +3664,41 @@ export interface Post {
           }
         | {
             invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             position?: ('default' | 'fullscreen') | null;
             media: string | Media;
+            content: {
+              [k: string]: unknown;
+            }[];
             id?: string | null;
             blockName?: string | null;
             blockType: 'mediaBlock';
           }
         | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
             introContent: {
               [k: string]: unknown;
             }[];
@@ -450,6 +3734,1537 @@ export interface Post {
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            content: {
+              [k: string]: unknown;
+            }[];
+            name: string;
+            role: string;
+            company?: string | null;
+            photo?: string | Media | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'quote';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description: {
+              [k: string]: unknown;
+            }[];
+            columnsSm?: ('one' | 'two') | null;
+            columnsMd?: ('one' | 'two' | 'three' | 'four') | null;
+            columnsLg?: ('one' | 'two' | 'three' | 'four' | 'six') | null;
+            radius?: ('none' | 'sm' | 'md' | 'lg') | null;
+            shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
+            imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
+            cardItems: {
+              image?: string | Media | null;
+              icon?:
+                | (
+                    | 'AcademicCapIcon'
+                    | 'AdjustmentsHorizontalIcon'
+                    | 'AdjustmentsVerticalIcon'
+                    | 'ArchiveBoxArrowDownIcon'
+                    | 'ArchiveBoxXMarkIcon'
+                    | 'ArchiveBoxIcon'
+                    | 'ArrowDownCircleIcon'
+                    | 'ArrowDownLeftIcon'
+                    | 'ArrowDownOnSquareStackIcon'
+                    | 'ArrowDownOnSquareIcon'
+                    | 'ArrowDownRightIcon'
+                    | 'ArrowDownTrayIcon'
+                    | 'ArrowDownIcon'
+                    | 'ArrowLeftCircleIcon'
+                    | 'ArrowLeftEndOnRectangleIcon'
+                    | 'ArrowLeftOnRectangleIcon'
+                    | 'ArrowLeftStartOnRectangleIcon'
+                    | 'ArrowLeftIcon'
+                    | 'ArrowLongDownIcon'
+                    | 'ArrowLongLeftIcon'
+                    | 'ArrowLongRightIcon'
+                    | 'ArrowLongUpIcon'
+                    | 'ArrowPathRoundedSquareIcon'
+                    | 'ArrowPathIcon'
+                    | 'ArrowRightCircleIcon'
+                    | 'ArrowRightEndOnRectangleIcon'
+                    | 'ArrowRightOnRectangleIcon'
+                    | 'ArrowRightStartOnRectangleIcon'
+                    | 'ArrowRightIcon'
+                    | 'ArrowSmallDownIcon'
+                    | 'ArrowSmallLeftIcon'
+                    | 'ArrowSmallRightIcon'
+                    | 'ArrowSmallUpIcon'
+                    | 'ArrowTopRightOnSquareIcon'
+                    | 'ArrowTrendingDownIcon'
+                    | 'ArrowTrendingUpIcon'
+                    | 'ArrowUpCircleIcon'
+                    | 'ArrowUpLeftIcon'
+                    | 'ArrowUpOnSquareStackIcon'
+                    | 'ArrowUpOnSquareIcon'
+                    | 'ArrowUpRightIcon'
+                    | 'ArrowUpTrayIcon'
+                    | 'ArrowUpIcon'
+                    | 'ArrowUturnDownIcon'
+                    | 'ArrowUturnLeftIcon'
+                    | 'ArrowUturnRightIcon'
+                    | 'ArrowUturnUpIcon'
+                    | 'ArrowsPointingInIcon'
+                    | 'ArrowsPointingOutIcon'
+                    | 'ArrowsRightLeftIcon'
+                    | 'ArrowsUpDownIcon'
+                    | 'AtSymbolIcon'
+                    | 'BackspaceIcon'
+                    | 'BackwardIcon'
+                    | 'BanknotesIcon'
+                    | 'Bars2Icon'
+                    | 'Bars3BottomLeftIcon'
+                    | 'Bars3BottomRightIcon'
+                    | 'Bars3CenterLeftIcon'
+                    | 'Bars3Icon'
+                    | 'Bars4Icon'
+                    | 'BarsArrowDownIcon'
+                    | 'BarsArrowUpIcon'
+                    | 'Battery0Icon'
+                    | 'Battery100Icon'
+                    | 'Battery50Icon'
+                    | 'BeakerIcon'
+                    | 'BellAlertIcon'
+                    | 'BellSlashIcon'
+                    | 'BellSnoozeIcon'
+                    | 'BellIcon'
+                    | 'BoltSlashIcon'
+                    | 'BoltIcon'
+                    | 'BookOpenIcon'
+                    | 'BookmarkSlashIcon'
+                    | 'BookmarkSquareIcon'
+                    | 'BookmarkIcon'
+                    | 'BriefcaseIcon'
+                    | 'BugAntIcon'
+                    | 'BuildingLibraryIcon'
+                    | 'BuildingOffice2Icon'
+                    | 'BuildingOfficeIcon'
+                    | 'BuildingStorefrontIcon'
+                    | 'CakeIcon'
+                    | 'CalculatorIcon'
+                    | 'CalendarDaysIcon'
+                    | 'CalendarIcon'
+                    | 'CameraIcon'
+                    | 'ChartBarSquareIcon'
+                    | 'ChartBarIcon'
+                    | 'ChartPieIcon'
+                    | 'ChatBubbleBottomCenterTextIcon'
+                    | 'ChatBubbleBottomCenterIcon'
+                    | 'ChatBubbleLeftEllipsisIcon'
+                    | 'ChatBubbleLeftRightIcon'
+                    | 'ChatBubbleLeftIcon'
+                    | 'ChatBubbleOvalLeftEllipsisIcon'
+                    | 'ChatBubbleOvalLeftIcon'
+                    | 'CheckBadgeIcon'
+                    | 'CheckCircleIcon'
+                    | 'CheckIcon'
+                    | 'ChevronDoubleDownIcon'
+                    | 'ChevronDoubleLeftIcon'
+                    | 'ChevronDoubleRightIcon'
+                    | 'ChevronDoubleUpIcon'
+                    | 'ChevronDownIcon'
+                    | 'ChevronLeftIcon'
+                    | 'ChevronRightIcon'
+                    | 'ChevronUpDownIcon'
+                    | 'ChevronUpIcon'
+                    | 'CircleStackIcon'
+                    | 'ClipboardDocumentCheckIcon'
+                    | 'ClipboardDocumentListIcon'
+                    | 'ClipboardDocumentIcon'
+                    | 'ClipboardIcon'
+                    | 'ClockIcon'
+                    | 'CloudArrowDownIcon'
+                    | 'CloudArrowUpIcon'
+                    | 'CloudIcon'
+                    | 'CodeBracketSquareIcon'
+                    | 'CodeBracketIcon'
+                    | 'Cog6ToothIcon'
+                    | 'Cog8ToothIcon'
+                    | 'CogIcon'
+                    | 'CommandLineIcon'
+                    | 'ComputerDesktopIcon'
+                    | 'CpuChipIcon'
+                    | 'CreditCardIcon'
+                    | 'CubeTransparentIcon'
+                    | 'CubeIcon'
+                    | 'CurrencyBangladeshiIcon'
+                    | 'CurrencyDollarIcon'
+                    | 'CurrencyEuroIcon'
+                    | 'CurrencyPoundIcon'
+                    | 'CurrencyRupeeIcon'
+                    | 'CurrencyYenIcon'
+                    | 'CursorArrowRaysIcon'
+                    | 'CursorArrowRippleIcon'
+                    | 'DevicePhoneMobileIcon'
+                    | 'DeviceTabletIcon'
+                    | 'DocumentArrowDownIcon'
+                    | 'DocumentArrowUpIcon'
+                    | 'DocumentChartBarIcon'
+                    | 'DocumentCheckIcon'
+                    | 'DocumentDuplicateIcon'
+                    | 'DocumentMagnifyingGlassIcon'
+                    | 'DocumentMinusIcon'
+                    | 'DocumentPlusIcon'
+                    | 'DocumentTextIcon'
+                    | 'DocumentIcon'
+                    | 'EllipsisHorizontalCircleIcon'
+                    | 'EllipsisHorizontalIcon'
+                    | 'EllipsisVerticalIcon'
+                    | 'EnvelopeOpenIcon'
+                    | 'EnvelopeIcon'
+                    | 'ExclamationCircleIcon'
+                    | 'ExclamationTriangleIcon'
+                    | 'EyeDropperIcon'
+                    | 'EyeSlashIcon'
+                    | 'EyeIcon'
+                    | 'FaceFrownIcon'
+                    | 'FaceSmileIcon'
+                    | 'FilmIcon'
+                    | 'FingerPrintIcon'
+                    | 'FireIcon'
+                    | 'FlagIcon'
+                    | 'FolderArrowDownIcon'
+                    | 'FolderMinusIcon'
+                    | 'FolderOpenIcon'
+                    | 'FolderPlusIcon'
+                    | 'FolderIcon'
+                    | 'ForwardIcon'
+                    | 'FunnelIcon'
+                    | 'GifIcon'
+                    | 'GiftTopIcon'
+                    | 'GiftIcon'
+                    | 'GlobeAltIcon'
+                    | 'GlobeAmericasIcon'
+                    | 'GlobeAsiaAustraliaIcon'
+                    | 'GlobeEuropeAfricaIcon'
+                    | 'HandRaisedIcon'
+                    | 'HandThumbDownIcon'
+                    | 'HandThumbUpIcon'
+                    | 'HashtagIcon'
+                    | 'HeartIcon'
+                    | 'HomeModernIcon'
+                    | 'HomeIcon'
+                    | 'IdentificationIcon'
+                    | 'InboxArrowDownIcon'
+                    | 'InboxStackIcon'
+                    | 'InboxIcon'
+                    | 'InformationCircleIcon'
+                    | 'KeyIcon'
+                    | 'LanguageIcon'
+                    | 'LifebuoyIcon'
+                    | 'LightBulbIcon'
+                    | 'LinkIcon'
+                    | 'ListBulletIcon'
+                    | 'LockClosedIcon'
+                    | 'LockOpenIcon'
+                    | 'MagnifyingGlassCircleIcon'
+                    | 'MagnifyingGlassMinusIcon'
+                    | 'MagnifyingGlassPlusIcon'
+                    | 'MagnifyingGlassIcon'
+                    | 'MapPinIcon'
+                    | 'MapIcon'
+                    | 'MegaphoneIcon'
+                    | 'MicrophoneIcon'
+                    | 'MinusCircleIcon'
+                    | 'MinusSmallIcon'
+                    | 'MinusIcon'
+                    | 'MoonIcon'
+                    | 'MusicalNoteIcon'
+                    | 'NewspaperIcon'
+                    | 'NoSymbolIcon'
+                    | 'PaintBrushIcon'
+                    | 'PaperAirplaneIcon'
+                    | 'PaperClipIcon'
+                    | 'PauseCircleIcon'
+                    | 'PauseIcon'
+                    | 'PencilSquareIcon'
+                    | 'PencilIcon'
+                    | 'PhoneArrowDownLeftIcon'
+                    | 'PhoneArrowUpRightIcon'
+                    | 'PhoneXMarkIcon'
+                    | 'PhoneIcon'
+                    | 'PhotoIcon'
+                    | 'PlayCircleIcon'
+                    | 'PlayPauseIcon'
+                    | 'PlayIcon'
+                    | 'PlusCircleIcon'
+                    | 'PlusSmallIcon'
+                    | 'PlusIcon'
+                    | 'PowerIcon'
+                    | 'PresentationChartBarIcon'
+                    | 'PresentationChartLineIcon'
+                    | 'PrinterIcon'
+                    | 'PuzzlePieceIcon'
+                    | 'QrCodeIcon'
+                    | 'QuestionMarkCircleIcon'
+                    | 'QueueListIcon'
+                    | 'RadioIcon'
+                    | 'ReceiptPercentIcon'
+                    | 'ReceiptRefundIcon'
+                    | 'RectangleGroupIcon'
+                    | 'RectangleStackIcon'
+                    | 'RocketLaunchIcon'
+                    | 'RssIcon'
+                    | 'ScaleIcon'
+                    | 'ScissorsIcon'
+                    | 'ServerStackIcon'
+                    | 'ServerIcon'
+                    | 'ShareIcon'
+                    | 'ShieldCheckIcon'
+                    | 'ShieldExclamationIcon'
+                    | 'ShoppingBagIcon'
+                    | 'ShoppingCartIcon'
+                    | 'SignalSlashIcon'
+                    | 'SignalIcon'
+                    | 'SparklesIcon'
+                    | 'SpeakerWaveIcon'
+                    | 'SpeakerXMarkIcon'
+                    | 'Square2StackIcon'
+                    | 'Square3Stack3DIcon'
+                    | 'Squares2X2Icon'
+                    | 'SquaresPlusIcon'
+                    | 'StarIcon'
+                    | 'StopCircleIcon'
+                    | 'StopIcon'
+                    | 'SunIcon'
+                    | 'SwatchIcon'
+                    | 'TableCellsIcon'
+                    | 'TagIcon'
+                    | 'TicketIcon'
+                    | 'TrashIcon'
+                    | 'TrophyIcon'
+                    | 'TruckIcon'
+                    | 'TvIcon'
+                    | 'UserCircleIcon'
+                    | 'UserGroupIcon'
+                    | 'UserMinusIcon'
+                    | 'UserPlusIcon'
+                    | 'UserIcon'
+                    | 'UsersIcon'
+                    | 'VariableIcon'
+                    | 'VideoCameraSlashIcon'
+                    | 'VideoCameraIcon'
+                    | 'ViewColumnsIcon'
+                    | 'ViewfinderCircleIcon'
+                    | 'WalletIcon'
+                    | 'WifiIcon'
+                    | 'WindowIcon'
+                    | 'WrenchScrewdriverIcon'
+                    | 'WrenchIcon'
+                    | 'XCircleIcon'
+                    | 'XMarkIcon'
+                    | 'default'
+                  )
+                | null;
+              title: string;
+              subtitle?: string | null;
+              chips?:
+                | {
+                    title?: string | null;
+                    bgColorSelect?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              content: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cards';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description: {
+              [k: string]: unknown;
+            }[];
+            nameInput?: {
+              label?: string | null;
+              placeholder?: string | null;
+            };
+            emailInput?: {
+              label?: string | null;
+              placeholder?: string | null;
+            };
+            descriptionInput?: {
+              label?: string | null;
+              placeholder?: string | null;
+            };
+            agreementCheckboxText: {
+              [k: string]: unknown;
+            }[];
+            submitButtonText?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactForm';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description: {
+              [k: string]: unknown;
+            }[];
+            highlightedPrices?:
+              | {
+                  rate?: string | null;
+                  description: {
+                    [k: string]: unknown;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            tips?:
+              | {
+                  icon?:
+                    | (
+                        | 'AcademicCapIcon'
+                        | 'AdjustmentsHorizontalIcon'
+                        | 'AdjustmentsVerticalIcon'
+                        | 'ArchiveBoxArrowDownIcon'
+                        | 'ArchiveBoxXMarkIcon'
+                        | 'ArchiveBoxIcon'
+                        | 'ArrowDownCircleIcon'
+                        | 'ArrowDownLeftIcon'
+                        | 'ArrowDownOnSquareStackIcon'
+                        | 'ArrowDownOnSquareIcon'
+                        | 'ArrowDownRightIcon'
+                        | 'ArrowDownTrayIcon'
+                        | 'ArrowDownIcon'
+                        | 'ArrowLeftCircleIcon'
+                        | 'ArrowLeftEndOnRectangleIcon'
+                        | 'ArrowLeftOnRectangleIcon'
+                        | 'ArrowLeftStartOnRectangleIcon'
+                        | 'ArrowLeftIcon'
+                        | 'ArrowLongDownIcon'
+                        | 'ArrowLongLeftIcon'
+                        | 'ArrowLongRightIcon'
+                        | 'ArrowLongUpIcon'
+                        | 'ArrowPathRoundedSquareIcon'
+                        | 'ArrowPathIcon'
+                        | 'ArrowRightCircleIcon'
+                        | 'ArrowRightEndOnRectangleIcon'
+                        | 'ArrowRightOnRectangleIcon'
+                        | 'ArrowRightStartOnRectangleIcon'
+                        | 'ArrowRightIcon'
+                        | 'ArrowSmallDownIcon'
+                        | 'ArrowSmallLeftIcon'
+                        | 'ArrowSmallRightIcon'
+                        | 'ArrowSmallUpIcon'
+                        | 'ArrowTopRightOnSquareIcon'
+                        | 'ArrowTrendingDownIcon'
+                        | 'ArrowTrendingUpIcon'
+                        | 'ArrowUpCircleIcon'
+                        | 'ArrowUpLeftIcon'
+                        | 'ArrowUpOnSquareStackIcon'
+                        | 'ArrowUpOnSquareIcon'
+                        | 'ArrowUpRightIcon'
+                        | 'ArrowUpTrayIcon'
+                        | 'ArrowUpIcon'
+                        | 'ArrowUturnDownIcon'
+                        | 'ArrowUturnLeftIcon'
+                        | 'ArrowUturnRightIcon'
+                        | 'ArrowUturnUpIcon'
+                        | 'ArrowsPointingInIcon'
+                        | 'ArrowsPointingOutIcon'
+                        | 'ArrowsRightLeftIcon'
+                        | 'ArrowsUpDownIcon'
+                        | 'AtSymbolIcon'
+                        | 'BackspaceIcon'
+                        | 'BackwardIcon'
+                        | 'BanknotesIcon'
+                        | 'Bars2Icon'
+                        | 'Bars3BottomLeftIcon'
+                        | 'Bars3BottomRightIcon'
+                        | 'Bars3CenterLeftIcon'
+                        | 'Bars3Icon'
+                        | 'Bars4Icon'
+                        | 'BarsArrowDownIcon'
+                        | 'BarsArrowUpIcon'
+                        | 'Battery0Icon'
+                        | 'Battery100Icon'
+                        | 'Battery50Icon'
+                        | 'BeakerIcon'
+                        | 'BellAlertIcon'
+                        | 'BellSlashIcon'
+                        | 'BellSnoozeIcon'
+                        | 'BellIcon'
+                        | 'BoltSlashIcon'
+                        | 'BoltIcon'
+                        | 'BookOpenIcon'
+                        | 'BookmarkSlashIcon'
+                        | 'BookmarkSquareIcon'
+                        | 'BookmarkIcon'
+                        | 'BriefcaseIcon'
+                        | 'BugAntIcon'
+                        | 'BuildingLibraryIcon'
+                        | 'BuildingOffice2Icon'
+                        | 'BuildingOfficeIcon'
+                        | 'BuildingStorefrontIcon'
+                        | 'CakeIcon'
+                        | 'CalculatorIcon'
+                        | 'CalendarDaysIcon'
+                        | 'CalendarIcon'
+                        | 'CameraIcon'
+                        | 'ChartBarSquareIcon'
+                        | 'ChartBarIcon'
+                        | 'ChartPieIcon'
+                        | 'ChatBubbleBottomCenterTextIcon'
+                        | 'ChatBubbleBottomCenterIcon'
+                        | 'ChatBubbleLeftEllipsisIcon'
+                        | 'ChatBubbleLeftRightIcon'
+                        | 'ChatBubbleLeftIcon'
+                        | 'ChatBubbleOvalLeftEllipsisIcon'
+                        | 'ChatBubbleOvalLeftIcon'
+                        | 'CheckBadgeIcon'
+                        | 'CheckCircleIcon'
+                        | 'CheckIcon'
+                        | 'ChevronDoubleDownIcon'
+                        | 'ChevronDoubleLeftIcon'
+                        | 'ChevronDoubleRightIcon'
+                        | 'ChevronDoubleUpIcon'
+                        | 'ChevronDownIcon'
+                        | 'ChevronLeftIcon'
+                        | 'ChevronRightIcon'
+                        | 'ChevronUpDownIcon'
+                        | 'ChevronUpIcon'
+                        | 'CircleStackIcon'
+                        | 'ClipboardDocumentCheckIcon'
+                        | 'ClipboardDocumentListIcon'
+                        | 'ClipboardDocumentIcon'
+                        | 'ClipboardIcon'
+                        | 'ClockIcon'
+                        | 'CloudArrowDownIcon'
+                        | 'CloudArrowUpIcon'
+                        | 'CloudIcon'
+                        | 'CodeBracketSquareIcon'
+                        | 'CodeBracketIcon'
+                        | 'Cog6ToothIcon'
+                        | 'Cog8ToothIcon'
+                        | 'CogIcon'
+                        | 'CommandLineIcon'
+                        | 'ComputerDesktopIcon'
+                        | 'CpuChipIcon'
+                        | 'CreditCardIcon'
+                        | 'CubeTransparentIcon'
+                        | 'CubeIcon'
+                        | 'CurrencyBangladeshiIcon'
+                        | 'CurrencyDollarIcon'
+                        | 'CurrencyEuroIcon'
+                        | 'CurrencyPoundIcon'
+                        | 'CurrencyRupeeIcon'
+                        | 'CurrencyYenIcon'
+                        | 'CursorArrowRaysIcon'
+                        | 'CursorArrowRippleIcon'
+                        | 'DevicePhoneMobileIcon'
+                        | 'DeviceTabletIcon'
+                        | 'DocumentArrowDownIcon'
+                        | 'DocumentArrowUpIcon'
+                        | 'DocumentChartBarIcon'
+                        | 'DocumentCheckIcon'
+                        | 'DocumentDuplicateIcon'
+                        | 'DocumentMagnifyingGlassIcon'
+                        | 'DocumentMinusIcon'
+                        | 'DocumentPlusIcon'
+                        | 'DocumentTextIcon'
+                        | 'DocumentIcon'
+                        | 'EllipsisHorizontalCircleIcon'
+                        | 'EllipsisHorizontalIcon'
+                        | 'EllipsisVerticalIcon'
+                        | 'EnvelopeOpenIcon'
+                        | 'EnvelopeIcon'
+                        | 'ExclamationCircleIcon'
+                        | 'ExclamationTriangleIcon'
+                        | 'EyeDropperIcon'
+                        | 'EyeSlashIcon'
+                        | 'EyeIcon'
+                        | 'FaceFrownIcon'
+                        | 'FaceSmileIcon'
+                        | 'FilmIcon'
+                        | 'FingerPrintIcon'
+                        | 'FireIcon'
+                        | 'FlagIcon'
+                        | 'FolderArrowDownIcon'
+                        | 'FolderMinusIcon'
+                        | 'FolderOpenIcon'
+                        | 'FolderPlusIcon'
+                        | 'FolderIcon'
+                        | 'ForwardIcon'
+                        | 'FunnelIcon'
+                        | 'GifIcon'
+                        | 'GiftTopIcon'
+                        | 'GiftIcon'
+                        | 'GlobeAltIcon'
+                        | 'GlobeAmericasIcon'
+                        | 'GlobeAsiaAustraliaIcon'
+                        | 'GlobeEuropeAfricaIcon'
+                        | 'HandRaisedIcon'
+                        | 'HandThumbDownIcon'
+                        | 'HandThumbUpIcon'
+                        | 'HashtagIcon'
+                        | 'HeartIcon'
+                        | 'HomeModernIcon'
+                        | 'HomeIcon'
+                        | 'IdentificationIcon'
+                        | 'InboxArrowDownIcon'
+                        | 'InboxStackIcon'
+                        | 'InboxIcon'
+                        | 'InformationCircleIcon'
+                        | 'KeyIcon'
+                        | 'LanguageIcon'
+                        | 'LifebuoyIcon'
+                        | 'LightBulbIcon'
+                        | 'LinkIcon'
+                        | 'ListBulletIcon'
+                        | 'LockClosedIcon'
+                        | 'LockOpenIcon'
+                        | 'MagnifyingGlassCircleIcon'
+                        | 'MagnifyingGlassMinusIcon'
+                        | 'MagnifyingGlassPlusIcon'
+                        | 'MagnifyingGlassIcon'
+                        | 'MapPinIcon'
+                        | 'MapIcon'
+                        | 'MegaphoneIcon'
+                        | 'MicrophoneIcon'
+                        | 'MinusCircleIcon'
+                        | 'MinusSmallIcon'
+                        | 'MinusIcon'
+                        | 'MoonIcon'
+                        | 'MusicalNoteIcon'
+                        | 'NewspaperIcon'
+                        | 'NoSymbolIcon'
+                        | 'PaintBrushIcon'
+                        | 'PaperAirplaneIcon'
+                        | 'PaperClipIcon'
+                        | 'PauseCircleIcon'
+                        | 'PauseIcon'
+                        | 'PencilSquareIcon'
+                        | 'PencilIcon'
+                        | 'PhoneArrowDownLeftIcon'
+                        | 'PhoneArrowUpRightIcon'
+                        | 'PhoneXMarkIcon'
+                        | 'PhoneIcon'
+                        | 'PhotoIcon'
+                        | 'PlayCircleIcon'
+                        | 'PlayPauseIcon'
+                        | 'PlayIcon'
+                        | 'PlusCircleIcon'
+                        | 'PlusSmallIcon'
+                        | 'PlusIcon'
+                        | 'PowerIcon'
+                        | 'PresentationChartBarIcon'
+                        | 'PresentationChartLineIcon'
+                        | 'PrinterIcon'
+                        | 'PuzzlePieceIcon'
+                        | 'QrCodeIcon'
+                        | 'QuestionMarkCircleIcon'
+                        | 'QueueListIcon'
+                        | 'RadioIcon'
+                        | 'ReceiptPercentIcon'
+                        | 'ReceiptRefundIcon'
+                        | 'RectangleGroupIcon'
+                        | 'RectangleStackIcon'
+                        | 'RocketLaunchIcon'
+                        | 'RssIcon'
+                        | 'ScaleIcon'
+                        | 'ScissorsIcon'
+                        | 'ServerStackIcon'
+                        | 'ServerIcon'
+                        | 'ShareIcon'
+                        | 'ShieldCheckIcon'
+                        | 'ShieldExclamationIcon'
+                        | 'ShoppingBagIcon'
+                        | 'ShoppingCartIcon'
+                        | 'SignalSlashIcon'
+                        | 'SignalIcon'
+                        | 'SparklesIcon'
+                        | 'SpeakerWaveIcon'
+                        | 'SpeakerXMarkIcon'
+                        | 'Square2StackIcon'
+                        | 'Square3Stack3DIcon'
+                        | 'Squares2X2Icon'
+                        | 'SquaresPlusIcon'
+                        | 'StarIcon'
+                        | 'StopCircleIcon'
+                        | 'StopIcon'
+                        | 'SunIcon'
+                        | 'SwatchIcon'
+                        | 'TableCellsIcon'
+                        | 'TagIcon'
+                        | 'TicketIcon'
+                        | 'TrashIcon'
+                        | 'TrophyIcon'
+                        | 'TruckIcon'
+                        | 'TvIcon'
+                        | 'UserCircleIcon'
+                        | 'UserGroupIcon'
+                        | 'UserMinusIcon'
+                        | 'UserPlusIcon'
+                        | 'UserIcon'
+                        | 'UsersIcon'
+                        | 'VariableIcon'
+                        | 'VideoCameraSlashIcon'
+                        | 'VideoCameraIcon'
+                        | 'ViewColumnsIcon'
+                        | 'ViewfinderCircleIcon'
+                        | 'WalletIcon'
+                        | 'WifiIcon'
+                        | 'WindowIcon'
+                        | 'WrenchScrewdriverIcon'
+                        | 'WrenchIcon'
+                        | 'XCircleIcon'
+                        | 'XMarkIcon'
+                        | 'default'
+                      )
+                    | null;
+                  title?: string | null;
+                  description: {
+                    [k: string]: unknown;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'pricing';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
+            pricingPrinciples?: {
+              videoSrc?: string | null;
+              principles?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    icon?:
+                      | (
+                          | 'AcademicCapIcon'
+                          | 'AdjustmentsHorizontalIcon'
+                          | 'AdjustmentsVerticalIcon'
+                          | 'ArchiveBoxArrowDownIcon'
+                          | 'ArchiveBoxXMarkIcon'
+                          | 'ArchiveBoxIcon'
+                          | 'ArrowDownCircleIcon'
+                          | 'ArrowDownLeftIcon'
+                          | 'ArrowDownOnSquareStackIcon'
+                          | 'ArrowDownOnSquareIcon'
+                          | 'ArrowDownRightIcon'
+                          | 'ArrowDownTrayIcon'
+                          | 'ArrowDownIcon'
+                          | 'ArrowLeftCircleIcon'
+                          | 'ArrowLeftEndOnRectangleIcon'
+                          | 'ArrowLeftOnRectangleIcon'
+                          | 'ArrowLeftStartOnRectangleIcon'
+                          | 'ArrowLeftIcon'
+                          | 'ArrowLongDownIcon'
+                          | 'ArrowLongLeftIcon'
+                          | 'ArrowLongRightIcon'
+                          | 'ArrowLongUpIcon'
+                          | 'ArrowPathRoundedSquareIcon'
+                          | 'ArrowPathIcon'
+                          | 'ArrowRightCircleIcon'
+                          | 'ArrowRightEndOnRectangleIcon'
+                          | 'ArrowRightOnRectangleIcon'
+                          | 'ArrowRightStartOnRectangleIcon'
+                          | 'ArrowRightIcon'
+                          | 'ArrowSmallDownIcon'
+                          | 'ArrowSmallLeftIcon'
+                          | 'ArrowSmallRightIcon'
+                          | 'ArrowSmallUpIcon'
+                          | 'ArrowTopRightOnSquareIcon'
+                          | 'ArrowTrendingDownIcon'
+                          | 'ArrowTrendingUpIcon'
+                          | 'ArrowUpCircleIcon'
+                          | 'ArrowUpLeftIcon'
+                          | 'ArrowUpOnSquareStackIcon'
+                          | 'ArrowUpOnSquareIcon'
+                          | 'ArrowUpRightIcon'
+                          | 'ArrowUpTrayIcon'
+                          | 'ArrowUpIcon'
+                          | 'ArrowUturnDownIcon'
+                          | 'ArrowUturnLeftIcon'
+                          | 'ArrowUturnRightIcon'
+                          | 'ArrowUturnUpIcon'
+                          | 'ArrowsPointingInIcon'
+                          | 'ArrowsPointingOutIcon'
+                          | 'ArrowsRightLeftIcon'
+                          | 'ArrowsUpDownIcon'
+                          | 'AtSymbolIcon'
+                          | 'BackspaceIcon'
+                          | 'BackwardIcon'
+                          | 'BanknotesIcon'
+                          | 'Bars2Icon'
+                          | 'Bars3BottomLeftIcon'
+                          | 'Bars3BottomRightIcon'
+                          | 'Bars3CenterLeftIcon'
+                          | 'Bars3Icon'
+                          | 'Bars4Icon'
+                          | 'BarsArrowDownIcon'
+                          | 'BarsArrowUpIcon'
+                          | 'Battery0Icon'
+                          | 'Battery100Icon'
+                          | 'Battery50Icon'
+                          | 'BeakerIcon'
+                          | 'BellAlertIcon'
+                          | 'BellSlashIcon'
+                          | 'BellSnoozeIcon'
+                          | 'BellIcon'
+                          | 'BoltSlashIcon'
+                          | 'BoltIcon'
+                          | 'BookOpenIcon'
+                          | 'BookmarkSlashIcon'
+                          | 'BookmarkSquareIcon'
+                          | 'BookmarkIcon'
+                          | 'BriefcaseIcon'
+                          | 'BugAntIcon'
+                          | 'BuildingLibraryIcon'
+                          | 'BuildingOffice2Icon'
+                          | 'BuildingOfficeIcon'
+                          | 'BuildingStorefrontIcon'
+                          | 'CakeIcon'
+                          | 'CalculatorIcon'
+                          | 'CalendarDaysIcon'
+                          | 'CalendarIcon'
+                          | 'CameraIcon'
+                          | 'ChartBarSquareIcon'
+                          | 'ChartBarIcon'
+                          | 'ChartPieIcon'
+                          | 'ChatBubbleBottomCenterTextIcon'
+                          | 'ChatBubbleBottomCenterIcon'
+                          | 'ChatBubbleLeftEllipsisIcon'
+                          | 'ChatBubbleLeftRightIcon'
+                          | 'ChatBubbleLeftIcon'
+                          | 'ChatBubbleOvalLeftEllipsisIcon'
+                          | 'ChatBubbleOvalLeftIcon'
+                          | 'CheckBadgeIcon'
+                          | 'CheckCircleIcon'
+                          | 'CheckIcon'
+                          | 'ChevronDoubleDownIcon'
+                          | 'ChevronDoubleLeftIcon'
+                          | 'ChevronDoubleRightIcon'
+                          | 'ChevronDoubleUpIcon'
+                          | 'ChevronDownIcon'
+                          | 'ChevronLeftIcon'
+                          | 'ChevronRightIcon'
+                          | 'ChevronUpDownIcon'
+                          | 'ChevronUpIcon'
+                          | 'CircleStackIcon'
+                          | 'ClipboardDocumentCheckIcon'
+                          | 'ClipboardDocumentListIcon'
+                          | 'ClipboardDocumentIcon'
+                          | 'ClipboardIcon'
+                          | 'ClockIcon'
+                          | 'CloudArrowDownIcon'
+                          | 'CloudArrowUpIcon'
+                          | 'CloudIcon'
+                          | 'CodeBracketSquareIcon'
+                          | 'CodeBracketIcon'
+                          | 'Cog6ToothIcon'
+                          | 'Cog8ToothIcon'
+                          | 'CogIcon'
+                          | 'CommandLineIcon'
+                          | 'ComputerDesktopIcon'
+                          | 'CpuChipIcon'
+                          | 'CreditCardIcon'
+                          | 'CubeTransparentIcon'
+                          | 'CubeIcon'
+                          | 'CurrencyBangladeshiIcon'
+                          | 'CurrencyDollarIcon'
+                          | 'CurrencyEuroIcon'
+                          | 'CurrencyPoundIcon'
+                          | 'CurrencyRupeeIcon'
+                          | 'CurrencyYenIcon'
+                          | 'CursorArrowRaysIcon'
+                          | 'CursorArrowRippleIcon'
+                          | 'DevicePhoneMobileIcon'
+                          | 'DeviceTabletIcon'
+                          | 'DocumentArrowDownIcon'
+                          | 'DocumentArrowUpIcon'
+                          | 'DocumentChartBarIcon'
+                          | 'DocumentCheckIcon'
+                          | 'DocumentDuplicateIcon'
+                          | 'DocumentMagnifyingGlassIcon'
+                          | 'DocumentMinusIcon'
+                          | 'DocumentPlusIcon'
+                          | 'DocumentTextIcon'
+                          | 'DocumentIcon'
+                          | 'EllipsisHorizontalCircleIcon'
+                          | 'EllipsisHorizontalIcon'
+                          | 'EllipsisVerticalIcon'
+                          | 'EnvelopeOpenIcon'
+                          | 'EnvelopeIcon'
+                          | 'ExclamationCircleIcon'
+                          | 'ExclamationTriangleIcon'
+                          | 'EyeDropperIcon'
+                          | 'EyeSlashIcon'
+                          | 'EyeIcon'
+                          | 'FaceFrownIcon'
+                          | 'FaceSmileIcon'
+                          | 'FilmIcon'
+                          | 'FingerPrintIcon'
+                          | 'FireIcon'
+                          | 'FlagIcon'
+                          | 'FolderArrowDownIcon'
+                          | 'FolderMinusIcon'
+                          | 'FolderOpenIcon'
+                          | 'FolderPlusIcon'
+                          | 'FolderIcon'
+                          | 'ForwardIcon'
+                          | 'FunnelIcon'
+                          | 'GifIcon'
+                          | 'GiftTopIcon'
+                          | 'GiftIcon'
+                          | 'GlobeAltIcon'
+                          | 'GlobeAmericasIcon'
+                          | 'GlobeAsiaAustraliaIcon'
+                          | 'GlobeEuropeAfricaIcon'
+                          | 'HandRaisedIcon'
+                          | 'HandThumbDownIcon'
+                          | 'HandThumbUpIcon'
+                          | 'HashtagIcon'
+                          | 'HeartIcon'
+                          | 'HomeModernIcon'
+                          | 'HomeIcon'
+                          | 'IdentificationIcon'
+                          | 'InboxArrowDownIcon'
+                          | 'InboxStackIcon'
+                          | 'InboxIcon'
+                          | 'InformationCircleIcon'
+                          | 'KeyIcon'
+                          | 'LanguageIcon'
+                          | 'LifebuoyIcon'
+                          | 'LightBulbIcon'
+                          | 'LinkIcon'
+                          | 'ListBulletIcon'
+                          | 'LockClosedIcon'
+                          | 'LockOpenIcon'
+                          | 'MagnifyingGlassCircleIcon'
+                          | 'MagnifyingGlassMinusIcon'
+                          | 'MagnifyingGlassPlusIcon'
+                          | 'MagnifyingGlassIcon'
+                          | 'MapPinIcon'
+                          | 'MapIcon'
+                          | 'MegaphoneIcon'
+                          | 'MicrophoneIcon'
+                          | 'MinusCircleIcon'
+                          | 'MinusSmallIcon'
+                          | 'MinusIcon'
+                          | 'MoonIcon'
+                          | 'MusicalNoteIcon'
+                          | 'NewspaperIcon'
+                          | 'NoSymbolIcon'
+                          | 'PaintBrushIcon'
+                          | 'PaperAirplaneIcon'
+                          | 'PaperClipIcon'
+                          | 'PauseCircleIcon'
+                          | 'PauseIcon'
+                          | 'PencilSquareIcon'
+                          | 'PencilIcon'
+                          | 'PhoneArrowDownLeftIcon'
+                          | 'PhoneArrowUpRightIcon'
+                          | 'PhoneXMarkIcon'
+                          | 'PhoneIcon'
+                          | 'PhotoIcon'
+                          | 'PlayCircleIcon'
+                          | 'PlayPauseIcon'
+                          | 'PlayIcon'
+                          | 'PlusCircleIcon'
+                          | 'PlusSmallIcon'
+                          | 'PlusIcon'
+                          | 'PowerIcon'
+                          | 'PresentationChartBarIcon'
+                          | 'PresentationChartLineIcon'
+                          | 'PrinterIcon'
+                          | 'PuzzlePieceIcon'
+                          | 'QrCodeIcon'
+                          | 'QuestionMarkCircleIcon'
+                          | 'QueueListIcon'
+                          | 'RadioIcon'
+                          | 'ReceiptPercentIcon'
+                          | 'ReceiptRefundIcon'
+                          | 'RectangleGroupIcon'
+                          | 'RectangleStackIcon'
+                          | 'RocketLaunchIcon'
+                          | 'RssIcon'
+                          | 'ScaleIcon'
+                          | 'ScissorsIcon'
+                          | 'ServerStackIcon'
+                          | 'ServerIcon'
+                          | 'ShareIcon'
+                          | 'ShieldCheckIcon'
+                          | 'ShieldExclamationIcon'
+                          | 'ShoppingBagIcon'
+                          | 'ShoppingCartIcon'
+                          | 'SignalSlashIcon'
+                          | 'SignalIcon'
+                          | 'SparklesIcon'
+                          | 'SpeakerWaveIcon'
+                          | 'SpeakerXMarkIcon'
+                          | 'Square2StackIcon'
+                          | 'Square3Stack3DIcon'
+                          | 'Squares2X2Icon'
+                          | 'SquaresPlusIcon'
+                          | 'StarIcon'
+                          | 'StopCircleIcon'
+                          | 'StopIcon'
+                          | 'SunIcon'
+                          | 'SwatchIcon'
+                          | 'TableCellsIcon'
+                          | 'TagIcon'
+                          | 'TicketIcon'
+                          | 'TrashIcon'
+                          | 'TrophyIcon'
+                          | 'TruckIcon'
+                          | 'TvIcon'
+                          | 'UserCircleIcon'
+                          | 'UserGroupIcon'
+                          | 'UserMinusIcon'
+                          | 'UserPlusIcon'
+                          | 'UserIcon'
+                          | 'UsersIcon'
+                          | 'VariableIcon'
+                          | 'VideoCameraSlashIcon'
+                          | 'VideoCameraIcon'
+                          | 'ViewColumnsIcon'
+                          | 'ViewfinderCircleIcon'
+                          | 'WalletIcon'
+                          | 'WifiIcon'
+                          | 'WindowIcon'
+                          | 'WrenchScrewdriverIcon'
+                          | 'WrenchIcon'
+                          | 'XCircleIcon'
+                          | 'XMarkIcon'
+                          | 'default'
+                        )
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            processPrinciples: {
+              description: {
+                [k: string]: unknown;
+              }[];
+              videoSrc?: string | null;
+              stepDelay?: number | null;
+              typingDelay?: number | null;
+              steps?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    percentage?: number | null;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            collaborationPrinciples: {
+              description: {
+                [k: string]: unknown;
+              }[];
+              videoSrc?: string | null;
+              principles?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    icon?:
+                      | (
+                          | 'AcademicCapIcon'
+                          | 'AdjustmentsHorizontalIcon'
+                          | 'AdjustmentsVerticalIcon'
+                          | 'ArchiveBoxArrowDownIcon'
+                          | 'ArchiveBoxXMarkIcon'
+                          | 'ArchiveBoxIcon'
+                          | 'ArrowDownCircleIcon'
+                          | 'ArrowDownLeftIcon'
+                          | 'ArrowDownOnSquareStackIcon'
+                          | 'ArrowDownOnSquareIcon'
+                          | 'ArrowDownRightIcon'
+                          | 'ArrowDownTrayIcon'
+                          | 'ArrowDownIcon'
+                          | 'ArrowLeftCircleIcon'
+                          | 'ArrowLeftEndOnRectangleIcon'
+                          | 'ArrowLeftOnRectangleIcon'
+                          | 'ArrowLeftStartOnRectangleIcon'
+                          | 'ArrowLeftIcon'
+                          | 'ArrowLongDownIcon'
+                          | 'ArrowLongLeftIcon'
+                          | 'ArrowLongRightIcon'
+                          | 'ArrowLongUpIcon'
+                          | 'ArrowPathRoundedSquareIcon'
+                          | 'ArrowPathIcon'
+                          | 'ArrowRightCircleIcon'
+                          | 'ArrowRightEndOnRectangleIcon'
+                          | 'ArrowRightOnRectangleIcon'
+                          | 'ArrowRightStartOnRectangleIcon'
+                          | 'ArrowRightIcon'
+                          | 'ArrowSmallDownIcon'
+                          | 'ArrowSmallLeftIcon'
+                          | 'ArrowSmallRightIcon'
+                          | 'ArrowSmallUpIcon'
+                          | 'ArrowTopRightOnSquareIcon'
+                          | 'ArrowTrendingDownIcon'
+                          | 'ArrowTrendingUpIcon'
+                          | 'ArrowUpCircleIcon'
+                          | 'ArrowUpLeftIcon'
+                          | 'ArrowUpOnSquareStackIcon'
+                          | 'ArrowUpOnSquareIcon'
+                          | 'ArrowUpRightIcon'
+                          | 'ArrowUpTrayIcon'
+                          | 'ArrowUpIcon'
+                          | 'ArrowUturnDownIcon'
+                          | 'ArrowUturnLeftIcon'
+                          | 'ArrowUturnRightIcon'
+                          | 'ArrowUturnUpIcon'
+                          | 'ArrowsPointingInIcon'
+                          | 'ArrowsPointingOutIcon'
+                          | 'ArrowsRightLeftIcon'
+                          | 'ArrowsUpDownIcon'
+                          | 'AtSymbolIcon'
+                          | 'BackspaceIcon'
+                          | 'BackwardIcon'
+                          | 'BanknotesIcon'
+                          | 'Bars2Icon'
+                          | 'Bars3BottomLeftIcon'
+                          | 'Bars3BottomRightIcon'
+                          | 'Bars3CenterLeftIcon'
+                          | 'Bars3Icon'
+                          | 'Bars4Icon'
+                          | 'BarsArrowDownIcon'
+                          | 'BarsArrowUpIcon'
+                          | 'Battery0Icon'
+                          | 'Battery100Icon'
+                          | 'Battery50Icon'
+                          | 'BeakerIcon'
+                          | 'BellAlertIcon'
+                          | 'BellSlashIcon'
+                          | 'BellSnoozeIcon'
+                          | 'BellIcon'
+                          | 'BoltSlashIcon'
+                          | 'BoltIcon'
+                          | 'BookOpenIcon'
+                          | 'BookmarkSlashIcon'
+                          | 'BookmarkSquareIcon'
+                          | 'BookmarkIcon'
+                          | 'BriefcaseIcon'
+                          | 'BugAntIcon'
+                          | 'BuildingLibraryIcon'
+                          | 'BuildingOffice2Icon'
+                          | 'BuildingOfficeIcon'
+                          | 'BuildingStorefrontIcon'
+                          | 'CakeIcon'
+                          | 'CalculatorIcon'
+                          | 'CalendarDaysIcon'
+                          | 'CalendarIcon'
+                          | 'CameraIcon'
+                          | 'ChartBarSquareIcon'
+                          | 'ChartBarIcon'
+                          | 'ChartPieIcon'
+                          | 'ChatBubbleBottomCenterTextIcon'
+                          | 'ChatBubbleBottomCenterIcon'
+                          | 'ChatBubbleLeftEllipsisIcon'
+                          | 'ChatBubbleLeftRightIcon'
+                          | 'ChatBubbleLeftIcon'
+                          | 'ChatBubbleOvalLeftEllipsisIcon'
+                          | 'ChatBubbleOvalLeftIcon'
+                          | 'CheckBadgeIcon'
+                          | 'CheckCircleIcon'
+                          | 'CheckIcon'
+                          | 'ChevronDoubleDownIcon'
+                          | 'ChevronDoubleLeftIcon'
+                          | 'ChevronDoubleRightIcon'
+                          | 'ChevronDoubleUpIcon'
+                          | 'ChevronDownIcon'
+                          | 'ChevronLeftIcon'
+                          | 'ChevronRightIcon'
+                          | 'ChevronUpDownIcon'
+                          | 'ChevronUpIcon'
+                          | 'CircleStackIcon'
+                          | 'ClipboardDocumentCheckIcon'
+                          | 'ClipboardDocumentListIcon'
+                          | 'ClipboardDocumentIcon'
+                          | 'ClipboardIcon'
+                          | 'ClockIcon'
+                          | 'CloudArrowDownIcon'
+                          | 'CloudArrowUpIcon'
+                          | 'CloudIcon'
+                          | 'CodeBracketSquareIcon'
+                          | 'CodeBracketIcon'
+                          | 'Cog6ToothIcon'
+                          | 'Cog8ToothIcon'
+                          | 'CogIcon'
+                          | 'CommandLineIcon'
+                          | 'ComputerDesktopIcon'
+                          | 'CpuChipIcon'
+                          | 'CreditCardIcon'
+                          | 'CubeTransparentIcon'
+                          | 'CubeIcon'
+                          | 'CurrencyBangladeshiIcon'
+                          | 'CurrencyDollarIcon'
+                          | 'CurrencyEuroIcon'
+                          | 'CurrencyPoundIcon'
+                          | 'CurrencyRupeeIcon'
+                          | 'CurrencyYenIcon'
+                          | 'CursorArrowRaysIcon'
+                          | 'CursorArrowRippleIcon'
+                          | 'DevicePhoneMobileIcon'
+                          | 'DeviceTabletIcon'
+                          | 'DocumentArrowDownIcon'
+                          | 'DocumentArrowUpIcon'
+                          | 'DocumentChartBarIcon'
+                          | 'DocumentCheckIcon'
+                          | 'DocumentDuplicateIcon'
+                          | 'DocumentMagnifyingGlassIcon'
+                          | 'DocumentMinusIcon'
+                          | 'DocumentPlusIcon'
+                          | 'DocumentTextIcon'
+                          | 'DocumentIcon'
+                          | 'EllipsisHorizontalCircleIcon'
+                          | 'EllipsisHorizontalIcon'
+                          | 'EllipsisVerticalIcon'
+                          | 'EnvelopeOpenIcon'
+                          | 'EnvelopeIcon'
+                          | 'ExclamationCircleIcon'
+                          | 'ExclamationTriangleIcon'
+                          | 'EyeDropperIcon'
+                          | 'EyeSlashIcon'
+                          | 'EyeIcon'
+                          | 'FaceFrownIcon'
+                          | 'FaceSmileIcon'
+                          | 'FilmIcon'
+                          | 'FingerPrintIcon'
+                          | 'FireIcon'
+                          | 'FlagIcon'
+                          | 'FolderArrowDownIcon'
+                          | 'FolderMinusIcon'
+                          | 'FolderOpenIcon'
+                          | 'FolderPlusIcon'
+                          | 'FolderIcon'
+                          | 'ForwardIcon'
+                          | 'FunnelIcon'
+                          | 'GifIcon'
+                          | 'GiftTopIcon'
+                          | 'GiftIcon'
+                          | 'GlobeAltIcon'
+                          | 'GlobeAmericasIcon'
+                          | 'GlobeAsiaAustraliaIcon'
+                          | 'GlobeEuropeAfricaIcon'
+                          | 'HandRaisedIcon'
+                          | 'HandThumbDownIcon'
+                          | 'HandThumbUpIcon'
+                          | 'HashtagIcon'
+                          | 'HeartIcon'
+                          | 'HomeModernIcon'
+                          | 'HomeIcon'
+                          | 'IdentificationIcon'
+                          | 'InboxArrowDownIcon'
+                          | 'InboxStackIcon'
+                          | 'InboxIcon'
+                          | 'InformationCircleIcon'
+                          | 'KeyIcon'
+                          | 'LanguageIcon'
+                          | 'LifebuoyIcon'
+                          | 'LightBulbIcon'
+                          | 'LinkIcon'
+                          | 'ListBulletIcon'
+                          | 'LockClosedIcon'
+                          | 'LockOpenIcon'
+                          | 'MagnifyingGlassCircleIcon'
+                          | 'MagnifyingGlassMinusIcon'
+                          | 'MagnifyingGlassPlusIcon'
+                          | 'MagnifyingGlassIcon'
+                          | 'MapPinIcon'
+                          | 'MapIcon'
+                          | 'MegaphoneIcon'
+                          | 'MicrophoneIcon'
+                          | 'MinusCircleIcon'
+                          | 'MinusSmallIcon'
+                          | 'MinusIcon'
+                          | 'MoonIcon'
+                          | 'MusicalNoteIcon'
+                          | 'NewspaperIcon'
+                          | 'NoSymbolIcon'
+                          | 'PaintBrushIcon'
+                          | 'PaperAirplaneIcon'
+                          | 'PaperClipIcon'
+                          | 'PauseCircleIcon'
+                          | 'PauseIcon'
+                          | 'PencilSquareIcon'
+                          | 'PencilIcon'
+                          | 'PhoneArrowDownLeftIcon'
+                          | 'PhoneArrowUpRightIcon'
+                          | 'PhoneXMarkIcon'
+                          | 'PhoneIcon'
+                          | 'PhotoIcon'
+                          | 'PlayCircleIcon'
+                          | 'PlayPauseIcon'
+                          | 'PlayIcon'
+                          | 'PlusCircleIcon'
+                          | 'PlusSmallIcon'
+                          | 'PlusIcon'
+                          | 'PowerIcon'
+                          | 'PresentationChartBarIcon'
+                          | 'PresentationChartLineIcon'
+                          | 'PrinterIcon'
+                          | 'PuzzlePieceIcon'
+                          | 'QrCodeIcon'
+                          | 'QuestionMarkCircleIcon'
+                          | 'QueueListIcon'
+                          | 'RadioIcon'
+                          | 'ReceiptPercentIcon'
+                          | 'ReceiptRefundIcon'
+                          | 'RectangleGroupIcon'
+                          | 'RectangleStackIcon'
+                          | 'RocketLaunchIcon'
+                          | 'RssIcon'
+                          | 'ScaleIcon'
+                          | 'ScissorsIcon'
+                          | 'ServerStackIcon'
+                          | 'ServerIcon'
+                          | 'ShareIcon'
+                          | 'ShieldCheckIcon'
+                          | 'ShieldExclamationIcon'
+                          | 'ShoppingBagIcon'
+                          | 'ShoppingCartIcon'
+                          | 'SignalSlashIcon'
+                          | 'SignalIcon'
+                          | 'SparklesIcon'
+                          | 'SpeakerWaveIcon'
+                          | 'SpeakerXMarkIcon'
+                          | 'Square2StackIcon'
+                          | 'Square3Stack3DIcon'
+                          | 'Squares2X2Icon'
+                          | 'SquaresPlusIcon'
+                          | 'StarIcon'
+                          | 'StopCircleIcon'
+                          | 'StopIcon'
+                          | 'SunIcon'
+                          | 'SwatchIcon'
+                          | 'TableCellsIcon'
+                          | 'TagIcon'
+                          | 'TicketIcon'
+                          | 'TrashIcon'
+                          | 'TrophyIcon'
+                          | 'TruckIcon'
+                          | 'TvIcon'
+                          | 'UserCircleIcon'
+                          | 'UserGroupIcon'
+                          | 'UserMinusIcon'
+                          | 'UserPlusIcon'
+                          | 'UserIcon'
+                          | 'UsersIcon'
+                          | 'VariableIcon'
+                          | 'VideoCameraSlashIcon'
+                          | 'VideoCameraIcon'
+                          | 'ViewColumnsIcon'
+                          | 'ViewfinderCircleIcon'
+                          | 'WalletIcon'
+                          | 'WifiIcon'
+                          | 'WindowIcon'
+                          | 'WrenchScrewdriverIcon'
+                          | 'WrenchIcon'
+                          | 'XCircleIcon'
+                          | 'XMarkIcon'
+                          | 'default'
+                        )
+                      | null;
+                    color?: string | null;
+                    services?:
+                      | {
+                          title?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'principles';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description: {
+              [k: string]: unknown;
+            }[];
+            persons: {
+              photo: string | Media;
+              name: string;
+              role?: string | null;
+              highlightHeader?: string | null;
+              highlightDescription?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              competences: {
+                title?: string | null;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'team';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
+            audienceItems?:
+              | {
+                  image?: string | Media | null;
+                  title?: string | null;
+                  description: {
+                    [k: string]: unknown;
+                  }[];
+                  benefitItems?:
+                    | {
+                        title?: string | null;
+                        description: {
+                          [k: string]: unknown;
+                        }[];
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'audience';
+          }
+        | {
+            invertBackground?: boolean | null;
+            colorizeBlock?: boolean | null;
+            blockColorFrom?: string | null;
+            blockColorTo?: string | null;
+            blockColorFromDark?: string | null;
+            blockColorToDark?: string | null;
+            header?: string | null;
+            enableColorizing?: boolean | null;
+            textToColorize?: string | null;
+            textColorFrom?: string | null;
+            textColorTo?: string | null;
+            textColorFromDark?: string | null;
+            textColorToDark?: string | null;
+            description: {
+              [k: string]: unknown;
+            }[];
+            servicesGroups: {
+              title: string;
+              color?: string | null;
+              services: {
+                title: string;
+                id?: string | null;
+              }[];
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
           }
       )[]
     | null;
@@ -493,7 +5308,25 @@ export interface Project {
   categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
+    invertBackground?: boolean | null;
+    colorizeBlock?: boolean | null;
+    blockColorFrom?: string | null;
+    blockColorTo?: string | null;
+    blockColorFromDark?: string | null;
+    blockColorToDark?: string | null;
+    header?: string | null;
+    enableColorizing?: boolean | null;
+    colorizeTemplates?:
+      | {
+          textToColorize?: string | null;
+          textColorFrom?: string | null;
+          textColorTo?: string | null;
+          textColorFromDark?: string | null;
+          textColorToDark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText: {
       [k: string]: unknown;
     }[];
@@ -514,10 +5347,31 @@ export interface Project {
         }[]
       | null;
     media?: string | Media | null;
+    slider?:
+      | {
+          slideContent: {
+            [k: string]: unknown;
+          }[];
+          slideImage?: string | Media | null;
+          id?: string | null;
+        }[]
+      | null;
   };
   layout: (
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         richText: {
           [k: string]: unknown;
         }[];
@@ -543,6 +5397,18 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         columns?:
           | {
               size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -570,13 +5436,41 @@ export interface Project {
       }
     | {
         invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
+        content: {
+          [k: string]: unknown;
+        }[];
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
       }
     | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
         introContent: {
           [k: string]: unknown;
         }[];
@@ -612,6 +5506,1537 @@ export interface Project {
         id?: string | null;
         blockName?: string | null;
         blockType: 'archive';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        content: {
+          [k: string]: unknown;
+        }[];
+        name: string;
+        role: string;
+        company?: string | null;
+        photo?: string | Media | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'quote';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        columnsSm?: ('one' | 'two') | null;
+        columnsMd?: ('one' | 'two' | 'three' | 'four') | null;
+        columnsLg?: ('one' | 'two' | 'three' | 'four' | 'six') | null;
+        radius?: ('none' | 'sm' | 'md' | 'lg') | null;
+        shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
+        imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
+        cardItems: {
+          image?: string | Media | null;
+          icon?:
+            | (
+                | 'AcademicCapIcon'
+                | 'AdjustmentsHorizontalIcon'
+                | 'AdjustmentsVerticalIcon'
+                | 'ArchiveBoxArrowDownIcon'
+                | 'ArchiveBoxXMarkIcon'
+                | 'ArchiveBoxIcon'
+                | 'ArrowDownCircleIcon'
+                | 'ArrowDownLeftIcon'
+                | 'ArrowDownOnSquareStackIcon'
+                | 'ArrowDownOnSquareIcon'
+                | 'ArrowDownRightIcon'
+                | 'ArrowDownTrayIcon'
+                | 'ArrowDownIcon'
+                | 'ArrowLeftCircleIcon'
+                | 'ArrowLeftEndOnRectangleIcon'
+                | 'ArrowLeftOnRectangleIcon'
+                | 'ArrowLeftStartOnRectangleIcon'
+                | 'ArrowLeftIcon'
+                | 'ArrowLongDownIcon'
+                | 'ArrowLongLeftIcon'
+                | 'ArrowLongRightIcon'
+                | 'ArrowLongUpIcon'
+                | 'ArrowPathRoundedSquareIcon'
+                | 'ArrowPathIcon'
+                | 'ArrowRightCircleIcon'
+                | 'ArrowRightEndOnRectangleIcon'
+                | 'ArrowRightOnRectangleIcon'
+                | 'ArrowRightStartOnRectangleIcon'
+                | 'ArrowRightIcon'
+                | 'ArrowSmallDownIcon'
+                | 'ArrowSmallLeftIcon'
+                | 'ArrowSmallRightIcon'
+                | 'ArrowSmallUpIcon'
+                | 'ArrowTopRightOnSquareIcon'
+                | 'ArrowTrendingDownIcon'
+                | 'ArrowTrendingUpIcon'
+                | 'ArrowUpCircleIcon'
+                | 'ArrowUpLeftIcon'
+                | 'ArrowUpOnSquareStackIcon'
+                | 'ArrowUpOnSquareIcon'
+                | 'ArrowUpRightIcon'
+                | 'ArrowUpTrayIcon'
+                | 'ArrowUpIcon'
+                | 'ArrowUturnDownIcon'
+                | 'ArrowUturnLeftIcon'
+                | 'ArrowUturnRightIcon'
+                | 'ArrowUturnUpIcon'
+                | 'ArrowsPointingInIcon'
+                | 'ArrowsPointingOutIcon'
+                | 'ArrowsRightLeftIcon'
+                | 'ArrowsUpDownIcon'
+                | 'AtSymbolIcon'
+                | 'BackspaceIcon'
+                | 'BackwardIcon'
+                | 'BanknotesIcon'
+                | 'Bars2Icon'
+                | 'Bars3BottomLeftIcon'
+                | 'Bars3BottomRightIcon'
+                | 'Bars3CenterLeftIcon'
+                | 'Bars3Icon'
+                | 'Bars4Icon'
+                | 'BarsArrowDownIcon'
+                | 'BarsArrowUpIcon'
+                | 'Battery0Icon'
+                | 'Battery100Icon'
+                | 'Battery50Icon'
+                | 'BeakerIcon'
+                | 'BellAlertIcon'
+                | 'BellSlashIcon'
+                | 'BellSnoozeIcon'
+                | 'BellIcon'
+                | 'BoltSlashIcon'
+                | 'BoltIcon'
+                | 'BookOpenIcon'
+                | 'BookmarkSlashIcon'
+                | 'BookmarkSquareIcon'
+                | 'BookmarkIcon'
+                | 'BriefcaseIcon'
+                | 'BugAntIcon'
+                | 'BuildingLibraryIcon'
+                | 'BuildingOffice2Icon'
+                | 'BuildingOfficeIcon'
+                | 'BuildingStorefrontIcon'
+                | 'CakeIcon'
+                | 'CalculatorIcon'
+                | 'CalendarDaysIcon'
+                | 'CalendarIcon'
+                | 'CameraIcon'
+                | 'ChartBarSquareIcon'
+                | 'ChartBarIcon'
+                | 'ChartPieIcon'
+                | 'ChatBubbleBottomCenterTextIcon'
+                | 'ChatBubbleBottomCenterIcon'
+                | 'ChatBubbleLeftEllipsisIcon'
+                | 'ChatBubbleLeftRightIcon'
+                | 'ChatBubbleLeftIcon'
+                | 'ChatBubbleOvalLeftEllipsisIcon'
+                | 'ChatBubbleOvalLeftIcon'
+                | 'CheckBadgeIcon'
+                | 'CheckCircleIcon'
+                | 'CheckIcon'
+                | 'ChevronDoubleDownIcon'
+                | 'ChevronDoubleLeftIcon'
+                | 'ChevronDoubleRightIcon'
+                | 'ChevronDoubleUpIcon'
+                | 'ChevronDownIcon'
+                | 'ChevronLeftIcon'
+                | 'ChevronRightIcon'
+                | 'ChevronUpDownIcon'
+                | 'ChevronUpIcon'
+                | 'CircleStackIcon'
+                | 'ClipboardDocumentCheckIcon'
+                | 'ClipboardDocumentListIcon'
+                | 'ClipboardDocumentIcon'
+                | 'ClipboardIcon'
+                | 'ClockIcon'
+                | 'CloudArrowDownIcon'
+                | 'CloudArrowUpIcon'
+                | 'CloudIcon'
+                | 'CodeBracketSquareIcon'
+                | 'CodeBracketIcon'
+                | 'Cog6ToothIcon'
+                | 'Cog8ToothIcon'
+                | 'CogIcon'
+                | 'CommandLineIcon'
+                | 'ComputerDesktopIcon'
+                | 'CpuChipIcon'
+                | 'CreditCardIcon'
+                | 'CubeTransparentIcon'
+                | 'CubeIcon'
+                | 'CurrencyBangladeshiIcon'
+                | 'CurrencyDollarIcon'
+                | 'CurrencyEuroIcon'
+                | 'CurrencyPoundIcon'
+                | 'CurrencyRupeeIcon'
+                | 'CurrencyYenIcon'
+                | 'CursorArrowRaysIcon'
+                | 'CursorArrowRippleIcon'
+                | 'DevicePhoneMobileIcon'
+                | 'DeviceTabletIcon'
+                | 'DocumentArrowDownIcon'
+                | 'DocumentArrowUpIcon'
+                | 'DocumentChartBarIcon'
+                | 'DocumentCheckIcon'
+                | 'DocumentDuplicateIcon'
+                | 'DocumentMagnifyingGlassIcon'
+                | 'DocumentMinusIcon'
+                | 'DocumentPlusIcon'
+                | 'DocumentTextIcon'
+                | 'DocumentIcon'
+                | 'EllipsisHorizontalCircleIcon'
+                | 'EllipsisHorizontalIcon'
+                | 'EllipsisVerticalIcon'
+                | 'EnvelopeOpenIcon'
+                | 'EnvelopeIcon'
+                | 'ExclamationCircleIcon'
+                | 'ExclamationTriangleIcon'
+                | 'EyeDropperIcon'
+                | 'EyeSlashIcon'
+                | 'EyeIcon'
+                | 'FaceFrownIcon'
+                | 'FaceSmileIcon'
+                | 'FilmIcon'
+                | 'FingerPrintIcon'
+                | 'FireIcon'
+                | 'FlagIcon'
+                | 'FolderArrowDownIcon'
+                | 'FolderMinusIcon'
+                | 'FolderOpenIcon'
+                | 'FolderPlusIcon'
+                | 'FolderIcon'
+                | 'ForwardIcon'
+                | 'FunnelIcon'
+                | 'GifIcon'
+                | 'GiftTopIcon'
+                | 'GiftIcon'
+                | 'GlobeAltIcon'
+                | 'GlobeAmericasIcon'
+                | 'GlobeAsiaAustraliaIcon'
+                | 'GlobeEuropeAfricaIcon'
+                | 'HandRaisedIcon'
+                | 'HandThumbDownIcon'
+                | 'HandThumbUpIcon'
+                | 'HashtagIcon'
+                | 'HeartIcon'
+                | 'HomeModernIcon'
+                | 'HomeIcon'
+                | 'IdentificationIcon'
+                | 'InboxArrowDownIcon'
+                | 'InboxStackIcon'
+                | 'InboxIcon'
+                | 'InformationCircleIcon'
+                | 'KeyIcon'
+                | 'LanguageIcon'
+                | 'LifebuoyIcon'
+                | 'LightBulbIcon'
+                | 'LinkIcon'
+                | 'ListBulletIcon'
+                | 'LockClosedIcon'
+                | 'LockOpenIcon'
+                | 'MagnifyingGlassCircleIcon'
+                | 'MagnifyingGlassMinusIcon'
+                | 'MagnifyingGlassPlusIcon'
+                | 'MagnifyingGlassIcon'
+                | 'MapPinIcon'
+                | 'MapIcon'
+                | 'MegaphoneIcon'
+                | 'MicrophoneIcon'
+                | 'MinusCircleIcon'
+                | 'MinusSmallIcon'
+                | 'MinusIcon'
+                | 'MoonIcon'
+                | 'MusicalNoteIcon'
+                | 'NewspaperIcon'
+                | 'NoSymbolIcon'
+                | 'PaintBrushIcon'
+                | 'PaperAirplaneIcon'
+                | 'PaperClipIcon'
+                | 'PauseCircleIcon'
+                | 'PauseIcon'
+                | 'PencilSquareIcon'
+                | 'PencilIcon'
+                | 'PhoneArrowDownLeftIcon'
+                | 'PhoneArrowUpRightIcon'
+                | 'PhoneXMarkIcon'
+                | 'PhoneIcon'
+                | 'PhotoIcon'
+                | 'PlayCircleIcon'
+                | 'PlayPauseIcon'
+                | 'PlayIcon'
+                | 'PlusCircleIcon'
+                | 'PlusSmallIcon'
+                | 'PlusIcon'
+                | 'PowerIcon'
+                | 'PresentationChartBarIcon'
+                | 'PresentationChartLineIcon'
+                | 'PrinterIcon'
+                | 'PuzzlePieceIcon'
+                | 'QrCodeIcon'
+                | 'QuestionMarkCircleIcon'
+                | 'QueueListIcon'
+                | 'RadioIcon'
+                | 'ReceiptPercentIcon'
+                | 'ReceiptRefundIcon'
+                | 'RectangleGroupIcon'
+                | 'RectangleStackIcon'
+                | 'RocketLaunchIcon'
+                | 'RssIcon'
+                | 'ScaleIcon'
+                | 'ScissorsIcon'
+                | 'ServerStackIcon'
+                | 'ServerIcon'
+                | 'ShareIcon'
+                | 'ShieldCheckIcon'
+                | 'ShieldExclamationIcon'
+                | 'ShoppingBagIcon'
+                | 'ShoppingCartIcon'
+                | 'SignalSlashIcon'
+                | 'SignalIcon'
+                | 'SparklesIcon'
+                | 'SpeakerWaveIcon'
+                | 'SpeakerXMarkIcon'
+                | 'Square2StackIcon'
+                | 'Square3Stack3DIcon'
+                | 'Squares2X2Icon'
+                | 'SquaresPlusIcon'
+                | 'StarIcon'
+                | 'StopCircleIcon'
+                | 'StopIcon'
+                | 'SunIcon'
+                | 'SwatchIcon'
+                | 'TableCellsIcon'
+                | 'TagIcon'
+                | 'TicketIcon'
+                | 'TrashIcon'
+                | 'TrophyIcon'
+                | 'TruckIcon'
+                | 'TvIcon'
+                | 'UserCircleIcon'
+                | 'UserGroupIcon'
+                | 'UserMinusIcon'
+                | 'UserPlusIcon'
+                | 'UserIcon'
+                | 'UsersIcon'
+                | 'VariableIcon'
+                | 'VideoCameraSlashIcon'
+                | 'VideoCameraIcon'
+                | 'ViewColumnsIcon'
+                | 'ViewfinderCircleIcon'
+                | 'WalletIcon'
+                | 'WifiIcon'
+                | 'WindowIcon'
+                | 'WrenchScrewdriverIcon'
+                | 'WrenchIcon'
+                | 'XCircleIcon'
+                | 'XMarkIcon'
+                | 'default'
+              )
+            | null;
+          title: string;
+          subtitle?: string | null;
+          chips?:
+            | {
+                title?: string | null;
+                bgColorSelect?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          content: {
+            [k: string]: unknown;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cards';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        nameInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        emailInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        descriptionInput?: {
+          label?: string | null;
+          placeholder?: string | null;
+        };
+        agreementCheckboxText: {
+          [k: string]: unknown;
+        }[];
+        submitButtonText?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'contactForm';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        highlightedPrices?:
+          | {
+              rate?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        tips?:
+          | {
+              icon?:
+                | (
+                    | 'AcademicCapIcon'
+                    | 'AdjustmentsHorizontalIcon'
+                    | 'AdjustmentsVerticalIcon'
+                    | 'ArchiveBoxArrowDownIcon'
+                    | 'ArchiveBoxXMarkIcon'
+                    | 'ArchiveBoxIcon'
+                    | 'ArrowDownCircleIcon'
+                    | 'ArrowDownLeftIcon'
+                    | 'ArrowDownOnSquareStackIcon'
+                    | 'ArrowDownOnSquareIcon'
+                    | 'ArrowDownRightIcon'
+                    | 'ArrowDownTrayIcon'
+                    | 'ArrowDownIcon'
+                    | 'ArrowLeftCircleIcon'
+                    | 'ArrowLeftEndOnRectangleIcon'
+                    | 'ArrowLeftOnRectangleIcon'
+                    | 'ArrowLeftStartOnRectangleIcon'
+                    | 'ArrowLeftIcon'
+                    | 'ArrowLongDownIcon'
+                    | 'ArrowLongLeftIcon'
+                    | 'ArrowLongRightIcon'
+                    | 'ArrowLongUpIcon'
+                    | 'ArrowPathRoundedSquareIcon'
+                    | 'ArrowPathIcon'
+                    | 'ArrowRightCircleIcon'
+                    | 'ArrowRightEndOnRectangleIcon'
+                    | 'ArrowRightOnRectangleIcon'
+                    | 'ArrowRightStartOnRectangleIcon'
+                    | 'ArrowRightIcon'
+                    | 'ArrowSmallDownIcon'
+                    | 'ArrowSmallLeftIcon'
+                    | 'ArrowSmallRightIcon'
+                    | 'ArrowSmallUpIcon'
+                    | 'ArrowTopRightOnSquareIcon'
+                    | 'ArrowTrendingDownIcon'
+                    | 'ArrowTrendingUpIcon'
+                    | 'ArrowUpCircleIcon'
+                    | 'ArrowUpLeftIcon'
+                    | 'ArrowUpOnSquareStackIcon'
+                    | 'ArrowUpOnSquareIcon'
+                    | 'ArrowUpRightIcon'
+                    | 'ArrowUpTrayIcon'
+                    | 'ArrowUpIcon'
+                    | 'ArrowUturnDownIcon'
+                    | 'ArrowUturnLeftIcon'
+                    | 'ArrowUturnRightIcon'
+                    | 'ArrowUturnUpIcon'
+                    | 'ArrowsPointingInIcon'
+                    | 'ArrowsPointingOutIcon'
+                    | 'ArrowsRightLeftIcon'
+                    | 'ArrowsUpDownIcon'
+                    | 'AtSymbolIcon'
+                    | 'BackspaceIcon'
+                    | 'BackwardIcon'
+                    | 'BanknotesIcon'
+                    | 'Bars2Icon'
+                    | 'Bars3BottomLeftIcon'
+                    | 'Bars3BottomRightIcon'
+                    | 'Bars3CenterLeftIcon'
+                    | 'Bars3Icon'
+                    | 'Bars4Icon'
+                    | 'BarsArrowDownIcon'
+                    | 'BarsArrowUpIcon'
+                    | 'Battery0Icon'
+                    | 'Battery100Icon'
+                    | 'Battery50Icon'
+                    | 'BeakerIcon'
+                    | 'BellAlertIcon'
+                    | 'BellSlashIcon'
+                    | 'BellSnoozeIcon'
+                    | 'BellIcon'
+                    | 'BoltSlashIcon'
+                    | 'BoltIcon'
+                    | 'BookOpenIcon'
+                    | 'BookmarkSlashIcon'
+                    | 'BookmarkSquareIcon'
+                    | 'BookmarkIcon'
+                    | 'BriefcaseIcon'
+                    | 'BugAntIcon'
+                    | 'BuildingLibraryIcon'
+                    | 'BuildingOffice2Icon'
+                    | 'BuildingOfficeIcon'
+                    | 'BuildingStorefrontIcon'
+                    | 'CakeIcon'
+                    | 'CalculatorIcon'
+                    | 'CalendarDaysIcon'
+                    | 'CalendarIcon'
+                    | 'CameraIcon'
+                    | 'ChartBarSquareIcon'
+                    | 'ChartBarIcon'
+                    | 'ChartPieIcon'
+                    | 'ChatBubbleBottomCenterTextIcon'
+                    | 'ChatBubbleBottomCenterIcon'
+                    | 'ChatBubbleLeftEllipsisIcon'
+                    | 'ChatBubbleLeftRightIcon'
+                    | 'ChatBubbleLeftIcon'
+                    | 'ChatBubbleOvalLeftEllipsisIcon'
+                    | 'ChatBubbleOvalLeftIcon'
+                    | 'CheckBadgeIcon'
+                    | 'CheckCircleIcon'
+                    | 'CheckIcon'
+                    | 'ChevronDoubleDownIcon'
+                    | 'ChevronDoubleLeftIcon'
+                    | 'ChevronDoubleRightIcon'
+                    | 'ChevronDoubleUpIcon'
+                    | 'ChevronDownIcon'
+                    | 'ChevronLeftIcon'
+                    | 'ChevronRightIcon'
+                    | 'ChevronUpDownIcon'
+                    | 'ChevronUpIcon'
+                    | 'CircleStackIcon'
+                    | 'ClipboardDocumentCheckIcon'
+                    | 'ClipboardDocumentListIcon'
+                    | 'ClipboardDocumentIcon'
+                    | 'ClipboardIcon'
+                    | 'ClockIcon'
+                    | 'CloudArrowDownIcon'
+                    | 'CloudArrowUpIcon'
+                    | 'CloudIcon'
+                    | 'CodeBracketSquareIcon'
+                    | 'CodeBracketIcon'
+                    | 'Cog6ToothIcon'
+                    | 'Cog8ToothIcon'
+                    | 'CogIcon'
+                    | 'CommandLineIcon'
+                    | 'ComputerDesktopIcon'
+                    | 'CpuChipIcon'
+                    | 'CreditCardIcon'
+                    | 'CubeTransparentIcon'
+                    | 'CubeIcon'
+                    | 'CurrencyBangladeshiIcon'
+                    | 'CurrencyDollarIcon'
+                    | 'CurrencyEuroIcon'
+                    | 'CurrencyPoundIcon'
+                    | 'CurrencyRupeeIcon'
+                    | 'CurrencyYenIcon'
+                    | 'CursorArrowRaysIcon'
+                    | 'CursorArrowRippleIcon'
+                    | 'DevicePhoneMobileIcon'
+                    | 'DeviceTabletIcon'
+                    | 'DocumentArrowDownIcon'
+                    | 'DocumentArrowUpIcon'
+                    | 'DocumentChartBarIcon'
+                    | 'DocumentCheckIcon'
+                    | 'DocumentDuplicateIcon'
+                    | 'DocumentMagnifyingGlassIcon'
+                    | 'DocumentMinusIcon'
+                    | 'DocumentPlusIcon'
+                    | 'DocumentTextIcon'
+                    | 'DocumentIcon'
+                    | 'EllipsisHorizontalCircleIcon'
+                    | 'EllipsisHorizontalIcon'
+                    | 'EllipsisVerticalIcon'
+                    | 'EnvelopeOpenIcon'
+                    | 'EnvelopeIcon'
+                    | 'ExclamationCircleIcon'
+                    | 'ExclamationTriangleIcon'
+                    | 'EyeDropperIcon'
+                    | 'EyeSlashIcon'
+                    | 'EyeIcon'
+                    | 'FaceFrownIcon'
+                    | 'FaceSmileIcon'
+                    | 'FilmIcon'
+                    | 'FingerPrintIcon'
+                    | 'FireIcon'
+                    | 'FlagIcon'
+                    | 'FolderArrowDownIcon'
+                    | 'FolderMinusIcon'
+                    | 'FolderOpenIcon'
+                    | 'FolderPlusIcon'
+                    | 'FolderIcon'
+                    | 'ForwardIcon'
+                    | 'FunnelIcon'
+                    | 'GifIcon'
+                    | 'GiftTopIcon'
+                    | 'GiftIcon'
+                    | 'GlobeAltIcon'
+                    | 'GlobeAmericasIcon'
+                    | 'GlobeAsiaAustraliaIcon'
+                    | 'GlobeEuropeAfricaIcon'
+                    | 'HandRaisedIcon'
+                    | 'HandThumbDownIcon'
+                    | 'HandThumbUpIcon'
+                    | 'HashtagIcon'
+                    | 'HeartIcon'
+                    | 'HomeModernIcon'
+                    | 'HomeIcon'
+                    | 'IdentificationIcon'
+                    | 'InboxArrowDownIcon'
+                    | 'InboxStackIcon'
+                    | 'InboxIcon'
+                    | 'InformationCircleIcon'
+                    | 'KeyIcon'
+                    | 'LanguageIcon'
+                    | 'LifebuoyIcon'
+                    | 'LightBulbIcon'
+                    | 'LinkIcon'
+                    | 'ListBulletIcon'
+                    | 'LockClosedIcon'
+                    | 'LockOpenIcon'
+                    | 'MagnifyingGlassCircleIcon'
+                    | 'MagnifyingGlassMinusIcon'
+                    | 'MagnifyingGlassPlusIcon'
+                    | 'MagnifyingGlassIcon'
+                    | 'MapPinIcon'
+                    | 'MapIcon'
+                    | 'MegaphoneIcon'
+                    | 'MicrophoneIcon'
+                    | 'MinusCircleIcon'
+                    | 'MinusSmallIcon'
+                    | 'MinusIcon'
+                    | 'MoonIcon'
+                    | 'MusicalNoteIcon'
+                    | 'NewspaperIcon'
+                    | 'NoSymbolIcon'
+                    | 'PaintBrushIcon'
+                    | 'PaperAirplaneIcon'
+                    | 'PaperClipIcon'
+                    | 'PauseCircleIcon'
+                    | 'PauseIcon'
+                    | 'PencilSquareIcon'
+                    | 'PencilIcon'
+                    | 'PhoneArrowDownLeftIcon'
+                    | 'PhoneArrowUpRightIcon'
+                    | 'PhoneXMarkIcon'
+                    | 'PhoneIcon'
+                    | 'PhotoIcon'
+                    | 'PlayCircleIcon'
+                    | 'PlayPauseIcon'
+                    | 'PlayIcon'
+                    | 'PlusCircleIcon'
+                    | 'PlusSmallIcon'
+                    | 'PlusIcon'
+                    | 'PowerIcon'
+                    | 'PresentationChartBarIcon'
+                    | 'PresentationChartLineIcon'
+                    | 'PrinterIcon'
+                    | 'PuzzlePieceIcon'
+                    | 'QrCodeIcon'
+                    | 'QuestionMarkCircleIcon'
+                    | 'QueueListIcon'
+                    | 'RadioIcon'
+                    | 'ReceiptPercentIcon'
+                    | 'ReceiptRefundIcon'
+                    | 'RectangleGroupIcon'
+                    | 'RectangleStackIcon'
+                    | 'RocketLaunchIcon'
+                    | 'RssIcon'
+                    | 'ScaleIcon'
+                    | 'ScissorsIcon'
+                    | 'ServerStackIcon'
+                    | 'ServerIcon'
+                    | 'ShareIcon'
+                    | 'ShieldCheckIcon'
+                    | 'ShieldExclamationIcon'
+                    | 'ShoppingBagIcon'
+                    | 'ShoppingCartIcon'
+                    | 'SignalSlashIcon'
+                    | 'SignalIcon'
+                    | 'SparklesIcon'
+                    | 'SpeakerWaveIcon'
+                    | 'SpeakerXMarkIcon'
+                    | 'Square2StackIcon'
+                    | 'Square3Stack3DIcon'
+                    | 'Squares2X2Icon'
+                    | 'SquaresPlusIcon'
+                    | 'StarIcon'
+                    | 'StopCircleIcon'
+                    | 'StopIcon'
+                    | 'SunIcon'
+                    | 'SwatchIcon'
+                    | 'TableCellsIcon'
+                    | 'TagIcon'
+                    | 'TicketIcon'
+                    | 'TrashIcon'
+                    | 'TrophyIcon'
+                    | 'TruckIcon'
+                    | 'TvIcon'
+                    | 'UserCircleIcon'
+                    | 'UserGroupIcon'
+                    | 'UserMinusIcon'
+                    | 'UserPlusIcon'
+                    | 'UserIcon'
+                    | 'UsersIcon'
+                    | 'VariableIcon'
+                    | 'VideoCameraSlashIcon'
+                    | 'VideoCameraIcon'
+                    | 'ViewColumnsIcon'
+                    | 'ViewfinderCircleIcon'
+                    | 'WalletIcon'
+                    | 'WifiIcon'
+                    | 'WindowIcon'
+                    | 'WrenchScrewdriverIcon'
+                    | 'WrenchIcon'
+                    | 'XCircleIcon'
+                    | 'XMarkIcon'
+                    | 'default'
+                  )
+                | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pricing';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        pricingPrinciples?: {
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        processPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          stepDelay?: number | null;
+          typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
+          principles?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                icon?:
+                  | (
+                      | 'AcademicCapIcon'
+                      | 'AdjustmentsHorizontalIcon'
+                      | 'AdjustmentsVerticalIcon'
+                      | 'ArchiveBoxArrowDownIcon'
+                      | 'ArchiveBoxXMarkIcon'
+                      | 'ArchiveBoxIcon'
+                      | 'ArrowDownCircleIcon'
+                      | 'ArrowDownLeftIcon'
+                      | 'ArrowDownOnSquareStackIcon'
+                      | 'ArrowDownOnSquareIcon'
+                      | 'ArrowDownRightIcon'
+                      | 'ArrowDownTrayIcon'
+                      | 'ArrowDownIcon'
+                      | 'ArrowLeftCircleIcon'
+                      | 'ArrowLeftEndOnRectangleIcon'
+                      | 'ArrowLeftOnRectangleIcon'
+                      | 'ArrowLeftStartOnRectangleIcon'
+                      | 'ArrowLeftIcon'
+                      | 'ArrowLongDownIcon'
+                      | 'ArrowLongLeftIcon'
+                      | 'ArrowLongRightIcon'
+                      | 'ArrowLongUpIcon'
+                      | 'ArrowPathRoundedSquareIcon'
+                      | 'ArrowPathIcon'
+                      | 'ArrowRightCircleIcon'
+                      | 'ArrowRightEndOnRectangleIcon'
+                      | 'ArrowRightOnRectangleIcon'
+                      | 'ArrowRightStartOnRectangleIcon'
+                      | 'ArrowRightIcon'
+                      | 'ArrowSmallDownIcon'
+                      | 'ArrowSmallLeftIcon'
+                      | 'ArrowSmallRightIcon'
+                      | 'ArrowSmallUpIcon'
+                      | 'ArrowTopRightOnSquareIcon'
+                      | 'ArrowTrendingDownIcon'
+                      | 'ArrowTrendingUpIcon'
+                      | 'ArrowUpCircleIcon'
+                      | 'ArrowUpLeftIcon'
+                      | 'ArrowUpOnSquareStackIcon'
+                      | 'ArrowUpOnSquareIcon'
+                      | 'ArrowUpRightIcon'
+                      | 'ArrowUpTrayIcon'
+                      | 'ArrowUpIcon'
+                      | 'ArrowUturnDownIcon'
+                      | 'ArrowUturnLeftIcon'
+                      | 'ArrowUturnRightIcon'
+                      | 'ArrowUturnUpIcon'
+                      | 'ArrowsPointingInIcon'
+                      | 'ArrowsPointingOutIcon'
+                      | 'ArrowsRightLeftIcon'
+                      | 'ArrowsUpDownIcon'
+                      | 'AtSymbolIcon'
+                      | 'BackspaceIcon'
+                      | 'BackwardIcon'
+                      | 'BanknotesIcon'
+                      | 'Bars2Icon'
+                      | 'Bars3BottomLeftIcon'
+                      | 'Bars3BottomRightIcon'
+                      | 'Bars3CenterLeftIcon'
+                      | 'Bars3Icon'
+                      | 'Bars4Icon'
+                      | 'BarsArrowDownIcon'
+                      | 'BarsArrowUpIcon'
+                      | 'Battery0Icon'
+                      | 'Battery100Icon'
+                      | 'Battery50Icon'
+                      | 'BeakerIcon'
+                      | 'BellAlertIcon'
+                      | 'BellSlashIcon'
+                      | 'BellSnoozeIcon'
+                      | 'BellIcon'
+                      | 'BoltSlashIcon'
+                      | 'BoltIcon'
+                      | 'BookOpenIcon'
+                      | 'BookmarkSlashIcon'
+                      | 'BookmarkSquareIcon'
+                      | 'BookmarkIcon'
+                      | 'BriefcaseIcon'
+                      | 'BugAntIcon'
+                      | 'BuildingLibraryIcon'
+                      | 'BuildingOffice2Icon'
+                      | 'BuildingOfficeIcon'
+                      | 'BuildingStorefrontIcon'
+                      | 'CakeIcon'
+                      | 'CalculatorIcon'
+                      | 'CalendarDaysIcon'
+                      | 'CalendarIcon'
+                      | 'CameraIcon'
+                      | 'ChartBarSquareIcon'
+                      | 'ChartBarIcon'
+                      | 'ChartPieIcon'
+                      | 'ChatBubbleBottomCenterTextIcon'
+                      | 'ChatBubbleBottomCenterIcon'
+                      | 'ChatBubbleLeftEllipsisIcon'
+                      | 'ChatBubbleLeftRightIcon'
+                      | 'ChatBubbleLeftIcon'
+                      | 'ChatBubbleOvalLeftEllipsisIcon'
+                      | 'ChatBubbleOvalLeftIcon'
+                      | 'CheckBadgeIcon'
+                      | 'CheckCircleIcon'
+                      | 'CheckIcon'
+                      | 'ChevronDoubleDownIcon'
+                      | 'ChevronDoubleLeftIcon'
+                      | 'ChevronDoubleRightIcon'
+                      | 'ChevronDoubleUpIcon'
+                      | 'ChevronDownIcon'
+                      | 'ChevronLeftIcon'
+                      | 'ChevronRightIcon'
+                      | 'ChevronUpDownIcon'
+                      | 'ChevronUpIcon'
+                      | 'CircleStackIcon'
+                      | 'ClipboardDocumentCheckIcon'
+                      | 'ClipboardDocumentListIcon'
+                      | 'ClipboardDocumentIcon'
+                      | 'ClipboardIcon'
+                      | 'ClockIcon'
+                      | 'CloudArrowDownIcon'
+                      | 'CloudArrowUpIcon'
+                      | 'CloudIcon'
+                      | 'CodeBracketSquareIcon'
+                      | 'CodeBracketIcon'
+                      | 'Cog6ToothIcon'
+                      | 'Cog8ToothIcon'
+                      | 'CogIcon'
+                      | 'CommandLineIcon'
+                      | 'ComputerDesktopIcon'
+                      | 'CpuChipIcon'
+                      | 'CreditCardIcon'
+                      | 'CubeTransparentIcon'
+                      | 'CubeIcon'
+                      | 'CurrencyBangladeshiIcon'
+                      | 'CurrencyDollarIcon'
+                      | 'CurrencyEuroIcon'
+                      | 'CurrencyPoundIcon'
+                      | 'CurrencyRupeeIcon'
+                      | 'CurrencyYenIcon'
+                      | 'CursorArrowRaysIcon'
+                      | 'CursorArrowRippleIcon'
+                      | 'DevicePhoneMobileIcon'
+                      | 'DeviceTabletIcon'
+                      | 'DocumentArrowDownIcon'
+                      | 'DocumentArrowUpIcon'
+                      | 'DocumentChartBarIcon'
+                      | 'DocumentCheckIcon'
+                      | 'DocumentDuplicateIcon'
+                      | 'DocumentMagnifyingGlassIcon'
+                      | 'DocumentMinusIcon'
+                      | 'DocumentPlusIcon'
+                      | 'DocumentTextIcon'
+                      | 'DocumentIcon'
+                      | 'EllipsisHorizontalCircleIcon'
+                      | 'EllipsisHorizontalIcon'
+                      | 'EllipsisVerticalIcon'
+                      | 'EnvelopeOpenIcon'
+                      | 'EnvelopeIcon'
+                      | 'ExclamationCircleIcon'
+                      | 'ExclamationTriangleIcon'
+                      | 'EyeDropperIcon'
+                      | 'EyeSlashIcon'
+                      | 'EyeIcon'
+                      | 'FaceFrownIcon'
+                      | 'FaceSmileIcon'
+                      | 'FilmIcon'
+                      | 'FingerPrintIcon'
+                      | 'FireIcon'
+                      | 'FlagIcon'
+                      | 'FolderArrowDownIcon'
+                      | 'FolderMinusIcon'
+                      | 'FolderOpenIcon'
+                      | 'FolderPlusIcon'
+                      | 'FolderIcon'
+                      | 'ForwardIcon'
+                      | 'FunnelIcon'
+                      | 'GifIcon'
+                      | 'GiftTopIcon'
+                      | 'GiftIcon'
+                      | 'GlobeAltIcon'
+                      | 'GlobeAmericasIcon'
+                      | 'GlobeAsiaAustraliaIcon'
+                      | 'GlobeEuropeAfricaIcon'
+                      | 'HandRaisedIcon'
+                      | 'HandThumbDownIcon'
+                      | 'HandThumbUpIcon'
+                      | 'HashtagIcon'
+                      | 'HeartIcon'
+                      | 'HomeModernIcon'
+                      | 'HomeIcon'
+                      | 'IdentificationIcon'
+                      | 'InboxArrowDownIcon'
+                      | 'InboxStackIcon'
+                      | 'InboxIcon'
+                      | 'InformationCircleIcon'
+                      | 'KeyIcon'
+                      | 'LanguageIcon'
+                      | 'LifebuoyIcon'
+                      | 'LightBulbIcon'
+                      | 'LinkIcon'
+                      | 'ListBulletIcon'
+                      | 'LockClosedIcon'
+                      | 'LockOpenIcon'
+                      | 'MagnifyingGlassCircleIcon'
+                      | 'MagnifyingGlassMinusIcon'
+                      | 'MagnifyingGlassPlusIcon'
+                      | 'MagnifyingGlassIcon'
+                      | 'MapPinIcon'
+                      | 'MapIcon'
+                      | 'MegaphoneIcon'
+                      | 'MicrophoneIcon'
+                      | 'MinusCircleIcon'
+                      | 'MinusSmallIcon'
+                      | 'MinusIcon'
+                      | 'MoonIcon'
+                      | 'MusicalNoteIcon'
+                      | 'NewspaperIcon'
+                      | 'NoSymbolIcon'
+                      | 'PaintBrushIcon'
+                      | 'PaperAirplaneIcon'
+                      | 'PaperClipIcon'
+                      | 'PauseCircleIcon'
+                      | 'PauseIcon'
+                      | 'PencilSquareIcon'
+                      | 'PencilIcon'
+                      | 'PhoneArrowDownLeftIcon'
+                      | 'PhoneArrowUpRightIcon'
+                      | 'PhoneXMarkIcon'
+                      | 'PhoneIcon'
+                      | 'PhotoIcon'
+                      | 'PlayCircleIcon'
+                      | 'PlayPauseIcon'
+                      | 'PlayIcon'
+                      | 'PlusCircleIcon'
+                      | 'PlusSmallIcon'
+                      | 'PlusIcon'
+                      | 'PowerIcon'
+                      | 'PresentationChartBarIcon'
+                      | 'PresentationChartLineIcon'
+                      | 'PrinterIcon'
+                      | 'PuzzlePieceIcon'
+                      | 'QrCodeIcon'
+                      | 'QuestionMarkCircleIcon'
+                      | 'QueueListIcon'
+                      | 'RadioIcon'
+                      | 'ReceiptPercentIcon'
+                      | 'ReceiptRefundIcon'
+                      | 'RectangleGroupIcon'
+                      | 'RectangleStackIcon'
+                      | 'RocketLaunchIcon'
+                      | 'RssIcon'
+                      | 'ScaleIcon'
+                      | 'ScissorsIcon'
+                      | 'ServerStackIcon'
+                      | 'ServerIcon'
+                      | 'ShareIcon'
+                      | 'ShieldCheckIcon'
+                      | 'ShieldExclamationIcon'
+                      | 'ShoppingBagIcon'
+                      | 'ShoppingCartIcon'
+                      | 'SignalSlashIcon'
+                      | 'SignalIcon'
+                      | 'SparklesIcon'
+                      | 'SpeakerWaveIcon'
+                      | 'SpeakerXMarkIcon'
+                      | 'Square2StackIcon'
+                      | 'Square3Stack3DIcon'
+                      | 'Squares2X2Icon'
+                      | 'SquaresPlusIcon'
+                      | 'StarIcon'
+                      | 'StopCircleIcon'
+                      | 'StopIcon'
+                      | 'SunIcon'
+                      | 'SwatchIcon'
+                      | 'TableCellsIcon'
+                      | 'TagIcon'
+                      | 'TicketIcon'
+                      | 'TrashIcon'
+                      | 'TrophyIcon'
+                      | 'TruckIcon'
+                      | 'TvIcon'
+                      | 'UserCircleIcon'
+                      | 'UserGroupIcon'
+                      | 'UserMinusIcon'
+                      | 'UserPlusIcon'
+                      | 'UserIcon'
+                      | 'UsersIcon'
+                      | 'VariableIcon'
+                      | 'VideoCameraSlashIcon'
+                      | 'VideoCameraIcon'
+                      | 'ViewColumnsIcon'
+                      | 'ViewfinderCircleIcon'
+                      | 'WalletIcon'
+                      | 'WifiIcon'
+                      | 'WindowIcon'
+                      | 'WrenchScrewdriverIcon'
+                      | 'WrenchIcon'
+                      | 'XCircleIcon'
+                      | 'XMarkIcon'
+                      | 'default'
+                    )
+                  | null;
+                color?: string | null;
+                services?:
+                  | {
+                      title?: string | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'principles';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        persons: {
+          photo: string | Media;
+          name: string;
+          role?: string | null;
+          highlightHeader?: string | null;
+          highlightDescription?: string | null;
+          description: {
+            [k: string]: unknown;
+          }[];
+          competences: {
+            title?: string | null;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'team';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
+        audienceItems?:
+          | {
+              image?: string | Media | null;
+              title?: string | null;
+              description: {
+                [k: string]: unknown;
+              }[];
+              benefitItems?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'audience';
+      }
+    | {
+        invertBackground?: boolean | null;
+        colorizeBlock?: boolean | null;
+        blockColorFrom?: string | null;
+        blockColorTo?: string | null;
+        blockColorFromDark?: string | null;
+        blockColorToDark?: string | null;
+        header?: string | null;
+        enableColorizing?: boolean | null;
+        textToColorize?: string | null;
+        textColorFrom?: string | null;
+        textColorTo?: string | null;
+        textColorFromDark?: string | null;
+        textColorToDark?: string | null;
+        description: {
+          [k: string]: unknown;
+        }[];
+        servicesGroups: {
+          title: string;
+          color?: string | null;
+          services: {
+            title: string;
+            id?: string | null;
+          }[];
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'services';
       }
   )[];
   relatedProjects?: (string | Project)[] | null;
@@ -716,6 +7141,8 @@ export interface Settings {
  */
 export interface Header {
   id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {
@@ -740,6 +7167,8 @@ export interface Header {
  */
 export interface Footer {
   id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {

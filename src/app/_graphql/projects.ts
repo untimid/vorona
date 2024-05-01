@@ -1,6 +1,18 @@
-import { ARCHIVE_BLOCK, CALL_TO_ACTION, CONTENT, MEDIA_BLOCK } from './blocks'
-import { LINK_FIELDS } from './link'
-import { MEDIA } from './media'
+import {
+  ARCHIVE_BLOCK,
+  AUDIENCE,
+  CALL_TO_ACTION,
+  CARDS,
+  CONTACT_FORM,
+  CONTENT,
+  MEDIA_BLOCK,
+  PRICING,
+  PRINCIPLES,
+  QUOTE,
+  SERVICES,
+  TEAM,
+} from './blocks'
+import { HERO } from './hero'
 import { META } from './meta'
 
 export const PROJECTS = `
@@ -24,12 +36,7 @@ export const PROJECT = `
         }
         createdAt
         hero {
-          type
-          richText
-          links {
-            link ${LINK_FIELDS()}
-          }
-          ${MEDIA}
+          ${HERO}
         }
         layout {
           ${CONTENT}
@@ -37,6 +44,14 @@ export const PROJECT = `
           ${CONTENT}
           ${MEDIA_BLOCK}
           ${ARCHIVE_BLOCK}
+          ${CARDS}
+          ${QUOTE}
+          ${TEAM}
+          ${SERVICES}
+          ${PRINCIPLES}
+          ${PRICING}
+          ${CONTACT_FORM}
+          ${AUDIENCE}
         }
         relatedProjects {
           id

@@ -12,12 +12,12 @@ export default async function ButtonsPage() {
   return (
     <Fragment>
       <Gutter>
-        <p>
+        <p className="vrn-p">
           <Link href="/styleguide">Styleguide</Link>
           {' / '}
           <span>Buttons</span>
         </p>
-        <h1>Buttons</h1>
+        <h1 className="vrn-h1">Buttons</h1>
       </Gutter>
       <Gutter>
         <VerticalPadding bottom="large" top="none">

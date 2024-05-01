@@ -3,9 +3,17 @@ import type { CollectionConfig } from 'payload/types'
 import { admins } from '../../access/admins'
 import { adminsOrPublished } from '../../access/adminsOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock'
+import { Audience } from '../../blocks/Audience'
 import { CallToAction } from '../../blocks/CallToAction'
+import { Cards } from '../../blocks/Cards'
+import { ContactForm } from '../../blocks/ContactForm'
 import { Content } from '../../blocks/Content'
 import { MediaBlock } from '../../blocks/MediaBlock'
+import { Pricing } from '../../blocks/Pricing'
+import { Principles } from '../../blocks/Principles'
+import { Quote } from '../../blocks/Quote'
+import { Services } from '../../blocks/Services'
+import { Team } from '../../blocks/Team'
 import { VoronaHome } from '../../blocks/VoronaHome'
 import { hero } from '../../fields/hero'
 import { slugField } from '../../fields/slug'
@@ -55,17 +63,37 @@ export const Pages: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Hero',
+          label: {
+            en: 'Hero',
+            ru: 'Hero (титульный блок)',
+          },
           fields: [hero],
         },
         {
-          label: 'Content',
+          label: {
+            en: 'Content',
+            ru: 'Контент',
+          },
           fields: [
             {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive, VoronaHome],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                VoronaHome,
+                Quote,
+                Cards,
+                ContactForm,
+                Pricing,
+                Principles,
+                Team,
+                Audience,
+                Services,
+              ],
             },
           ],
         },

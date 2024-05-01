@@ -7,10 +7,9 @@ import Link from 'next/link'
 
 import type { Header } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
-import { Gutter } from '../Gutter'
+import { BlockWrapper } from '../../_components/BlockWrapper'
+import { Logo } from '../Logo'
 import { HeaderNav } from './Nav'
-
-import classes from './index.module.scss'
 
 export async function Header() {
   let header: Header | null = null
@@ -25,10 +24,10 @@ export async function Header() {
   }
 
   return (
-    <>
-      <header className={classes.header}>
-        <Gutter className={classes.wrap}>
-          <Link href="/">
+    <header className="w-full">
+      <BlockWrapper>
+        <div className="flex justify-between">
+          <Link href="/" className="">
             {/* Cannot use the `<picture>` element here with `srcSet`
               This is because the theme is able to be overridden by the user
               And so `@media (prefers-color-scheme: dark)` will not work
@@ -39,13 +38,11 @@ export async function Header() {
               alt="Payload Logo"
               src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
             /> */}
-            <span className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600">
-              {'VORONA :>'}
-            </span>
+            <Logo logoDark={header.logoDark} logoLight={header.logoLight} />
           </Link>
           <HeaderNav header={header} />
-        </Gutter>
-      </header>
-    </>
+        </div>
+      </BlockWrapper>
+    </header>
   )
 }

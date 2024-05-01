@@ -1,11 +1,8 @@
 import React from 'react'
 
 import { Page } from '../../../payload/payload-types'
-import { Gutter } from '../../_components/Gutter'
 import { CMSLink } from '../../_components/Link'
 import RichText from '../../_components/RichText'
-
-import classes from './index.module.scss'
 
 type Props = Extract<Page['layout'][0], { blockType: 'content' }>
 
@@ -17,21 +14,31 @@ export const ContentBlock: React.FC<
   const { columns } = props
 
   return (
-    <Gutter className={classes.content}>
-      <div className={classes.grid}>
+    <>
+      <div className="w-full flex flex-col md:flex-row vrn-gap-l">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
             const { enableLink, richText, link, size } = col
 
             return (
-              <div key={index} className={[classes.column, classes[`column--${size}`]].join(' ')}>
+              <div
+                key={index}
+                className={[
+                  size === 'oneThird' && 'w-full md:w-1/3',
+                  size === 'half' && 'w-full md:w-1/2',
+                  size === 'twoThirds' && 'w-full md:w-2/3',
+                  size === 'full' && 'w-full',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+              >
                 <RichText content={richText} />
-                {enableLink && <CMSLink className={classes.link} {...link} />}
+                {enableLink && <CMSLink {...link} />}
               </div>
             )
           })}
       </div>
-    </Gutter>
+    </>
   )
 }
