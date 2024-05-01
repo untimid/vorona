@@ -11,7 +11,7 @@ export type AudienceCardProps = AudienceProps['audienceItems'][number]
 export type BenefitItemProps = AudienceCardProps['benefitItems'][number]
 
 const BenefitItem: FC<BenefitItemProps> = ({ title, description }) => (
-  <div className="vrn-mb-m">
+  <div className="vrn-mb-m last:mb-0">
     <h5 className="vrn-h5 flex">
       <CheckIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
       {title}
@@ -34,8 +34,8 @@ export const AudienceCard: FC<AudienceCardProps> = ({
       <h4 className="vrn-h4 flex me-auto text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-pink-500">
         Мы вам поможем
       </h4>
-      {benefitItems.map(({ title, description }, i) => (
-        <BenefitItem key={`${title}-${i}`} title={title} description={description} />
+      {benefitItems.map(({ id, title, description }, i) => (
+        <BenefitItem key={id || i} title={title} description={description} />
       ))}
     </Card>
   )

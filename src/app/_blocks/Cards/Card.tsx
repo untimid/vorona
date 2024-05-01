@@ -42,9 +42,7 @@ export const Card: FC<CardProps> = ({
           {icon && <Icon className="h-8 w-8 min-w-8 min-h-8 text-blue-500 vrn-me-s" />}
           <h3 className="vrn-h3">{title}</h3>
         </div>
-        <div
-          className={[icon && 'vrn-ms-l', 'grid grid-cols-1 vrn-gap-s'].filter(Boolean).join(' ')}
-        >
+        <div className={[icon && 'vrn-ms-l'].filter(Boolean).join(' ')}>
           {subtitle && <p className="vrn-italic">{subtitle}</p>}
           {chips?.length && (
             <div>

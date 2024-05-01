@@ -55,20 +55,13 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
           colorizeBlock && Boolean(blockColorTo) && blockColorTo,
           colorizeBlock && Boolean(blockColorFromDark) && `dark:${blockColorFromDark}`,
           colorizeBlock && Boolean(blockColorToDark) && `dark%${blockColorToDark}`,
-          'h-3/4 overflow-hidden',
-          'sm:h-100',
-          'md:h-4/6',
-          'lg:h-4/6',
+          'h-fit w-full',
         ]
           .filter(Boolean)
           .join(' ')}
         noPadding
       >
-        <div
-          className={['absolute w-full h-full start-0 top-0 z-10 bg-foreground']
-            .filter(Boolean)
-            .join(' ')}
-        >
+        <div className={['w-full h-fit relative z-10 bg-foreground'].filter(Boolean).join(' ')}>
           {typeof media === 'object' && (
             <Media
               resource={media}
@@ -79,7 +72,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
             />
           )}
         </div>
-        <div className="z-20 relative flex flex-col w-full h-full bg-gray-200 dark:bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 dark:bg-opacity-50 sm:bg-opacity-40 sm:dark:bg-opacity-30 p-4 py-8 sm:p-8 md:p-12 lg:p-16">
+        <div className="z-20 absolute top-0 start-0 vrn-p-l flex flex-col justify-between w-full h-full bg-gray-200 dark:bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 dark:bg-opacity-50 sm:bg-opacity-40 sm:dark:bg-opacity-30">
           {header && enableColorizing && (
             <h1 className="vrn-h1" dangerouslySetInnerHTML={{ __html: content }} />
           )}

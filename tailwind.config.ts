@@ -48,10 +48,10 @@ export default {
       addComponents({
         // TYPOGRAPHY - includes margins as common style
         '.vrn-h1': {
-          '@apply font-unbounded text-3xl sm:text-5xl md:text-6xl font-extrabold vrn-mb-l': '',
+          '@apply font-unbounded text-3xl sm:text-5xl md:text-6xl font-extrabold vrn-mb-m': '',
         },
         '.vrn-h2': {
-          '@apply font-unbounded text-3xl sm:text-5xl font-extrabold vrn-mb-l': '',
+          '@apply font-unbounded text-3xl sm:text-5xl font-extrabold vrn-mb-m': '',
         },
         '.vrn-h3': {
           '@apply font-unbounded text-2xl font-extrabold leading-6 vrn-mb-m': '',
@@ -60,16 +60,16 @@ export default {
           '@apply font-unbounded text-xl font-extrabold vrn-mb-m': '',
         },
         '.vrn-h5': {
-          '@apply font-unbounded font-extrabold vrn-mb-m': '',
+          '@apply font-unbounded font-extrabold vrn-mb-s': '',
         },
         '.vrn-h6': {
-          '@apply font-serif font-bold vrn-mb-m': '',
+          '@apply font-serif font-bold vrn-mb-s': '',
         },
         '.vrn-p': {
-          '@apply font-ibmPlexSans vrn-mb-m text-lg': '',
+          '@apply font-ibmPlexSans vrn-mb-s text-lg leading-6': '',
         },
         '.vrn-italic': {
-          '@apply font-spectral vrn-mb-m text-lg italic': '',
+          '@apply font-spectral vrn-mb-s text-lg italic leading-6': '',
         },
         // SMALL paddings and margins
         '.vrn-gap-s': {

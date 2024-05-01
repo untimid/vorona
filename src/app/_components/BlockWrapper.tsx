@@ -26,7 +26,8 @@ export const BlockWrapper: FC<BlockWrapperProps> = ({
         getClassForTheme(isInverted),
         'bg-color-white p-4 py-8 sm:p-8 md:p-12 lg:p-16 flex-col',
         className,
-        noPadding && 'py-0 pt-0 pb-0 px-0 sm:py-0 sm:px-0 md:px-0 md:py-0 lg:p-0 xl:p-0 2xl:p-0',
+        noPadding &&
+          'py-0 pt-0 pb-0 px-0 sm:py-0 sm:px-0 md:px-0 md:py-0 lg:p-0 lg:py-0 lg:px-0 xl:p-0 2xl:p-0',
       ]
         .filter(Boolean)
         .join(' ')}

@@ -15,9 +15,10 @@ export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo }) =
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row w-full ">
+      <div className="flex flex-col sm:flex-row w-full vrn-gap-m">
         <RichText
           content={content}
+          noSpacings
           className="flex-grow border-s-4 border-cyan-500 vrn-ps-l flex flex-col justify-center"
         />
         <div className="bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 vrn-p-l flex flex-col items-center sm:items-start">

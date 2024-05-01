@@ -44,7 +44,7 @@ export const PersonCard: FC<PersonCardProps> = ({
           </Chip>
         ))}
       </div>
-      <RichText content={description} />
+      <RichText content={description} noSpacings />
     </Card>
   )
 }
