@@ -1,5 +1,5 @@
 'use client'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Button, Link } from '@nextui-org/react'
 
 import { Page } from '../../../payload/payload-types'
@@ -80,19 +80,18 @@ export const HighImpactHero: React.FC<Page['hero']> = ({
           )}
         </div>
         <div className="z-20 relative flex flex-col w-full h-full bg-gray-200 dark:bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 dark:bg-opacity-50 sm:bg-opacity-40 sm:dark:bg-opacity-30 p-4 py-8 sm:p-8 md:p-12 lg:p-16">
-          {header && (
-            <h1
-              className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+          {header && enableColorizing && (
+            <h1 className="vrn-h1" dangerouslySetInnerHTML={{ __html: content }} />
           )}
+          {header && !enableColorizing && <h1 className="vrn-h1">{header}</h1>}
           {Array.isArray(links) && links.length > 0 && (
-            <ul className="flex gap-8 w-full justify-end">
+            <ul className="flex vrn-gap-m w-full justify-end">
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
                     <Button
                       color="primary"
+                      size="lg"
                       variant={
                         link.appearance === 'primary' || link.appearance === 'default'
                           ? 'solid'

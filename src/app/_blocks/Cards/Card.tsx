@@ -37,28 +37,28 @@ export const Card: FC<CardProps> = ({
           <Media resource={image} />
         </div>
       )}
-      <div
-        className={[gotPaddings && 'p-4 md:p-6 lg:p-8', image && 'pt-6'].filter(Boolean).join(' ')}
-      >
+      <div className={[gotPaddings && 'vrn-p-m', image && 'vrn-pt-m'].filter(Boolean).join(' ')}>
         <div className="flex items-start">
-          {icon && <Icon className="h-6 w-6 min-w-6 min-h-6 text-blue-500 me-2" />}
-          <h3 className="text-2xl font-extrabold leading-6">{title}</h3>
+          {icon && <Icon className="h-8 w-8 min-w-8 min-h-8 text-blue-500 vrn-me-s" />}
+          <h3 className="vrn-h3">{title}</h3>
         </div>
-        <div className={[icon && 'ms-8', 'grid grid-cols-1 gap-2'].filter(Boolean).join(' ')}>
-          {subtitle && <span>{subtitle}</span>}
+        <div
+          className={[icon && 'vrn-ms-l', 'grid grid-cols-1 vrn-gap-s'].filter(Boolean).join(' ')}
+        >
+          {subtitle && <p className="vrn-italic">{subtitle}</p>}
           {chips?.length && (
             <div>
               {chips.map(({ title, id, bgColorSelect }, i) => (
                 <Chip
                   key={id || i}
-                  className={`${bgColorSelect ? bgColorSelect : 'bg-amber-300'} mt-2 me-2`}
+                  className={`${bgColorSelect ? bgColorSelect : 'bg-amber-300'} vrn-me-m vrn-mb-m`}
                 >
                   {title}
                 </Chip>
               ))}
             </div>
           )}
-          <RichText content={content} />
+          <RichText content={content} noSpacings />
         </div>
       </div>
     </UICard>

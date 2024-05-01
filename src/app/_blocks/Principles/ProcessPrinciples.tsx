@@ -32,7 +32,7 @@ export const ProcessPrinciples: FC<ProcessPrinciplesProps> = ({
   const { title, percentage, description } = sortedStepsArray[step]
 
   return (
-    <div className="flex mt-4">
+    <div className="flex">
       <CircularProgress
         className={`bg-gradient-to-br ${
           percentage === 100 ? 'from-amber-500 to-purple-600' : 'from-cyan-500 to-yellow-600'
@@ -51,7 +51,7 @@ export const ProcessPrinciples: FC<ProcessPrinciplesProps> = ({
         aria-label={`Progress ${percentage}`}
       />
       <div>
-        <h4 className="text-2xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-purple-600">
+        <h4 className="vrn-h4 text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-purple-600">
           <TextTyper key={title} text={title} interval={typingDelay / title.length} />
         </h4>
         <Delayer key={title} delay={typingDelay}>

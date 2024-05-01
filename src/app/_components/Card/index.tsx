@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { Post, Project } from '../../../payload/payload-types'
 import { Media } from '../Media'
 
-import classes from './index.module.scss'
-
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
@@ -34,20 +32,14 @@ export const Card: React.FC<{
   const href = `/${relationTo}/${slug}`
 
   return (
-    <div
-      className={[classes.card, className, orientation && classes[orientation]]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <Link href={href} className={classes.mediaWrapper}>
-        {!metaImage && <div className={classes.placeholder}>No image</div>}
-        {metaImage && typeof metaImage !== 'string' && (
-          <Media imgClassName={classes.image} resource={metaImage} fill />
-        )}
+    <div>
+      <Link href={href}>
+        {!metaImage && <div>No image</div>}
+        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} fill />}
       </Link>
-      <div className={classes.content}>
+      <div>
         {showCategories && hasCategories && (
-          <div className={classes.leader}>
+          <div>
             {showCategories && hasCategories && (
               <div>
                 {categories?.map((category, index) => {
@@ -73,17 +65,11 @@ export const Card: React.FC<{
           </div>
         )}
         {titleToUse && (
-          <h4 className={classes.title}>
-            <Link href={href} className={classes.titleLink}>
-              {titleToUse}
-            </Link>
+          <h4 className="vrn-h4">
+            <Link href={href}>{titleToUse}</Link>
           </h4>
         )}
-        {description && (
-          <div className={classes.body}>
-            {description && <p className={classes.description}>{sanitizedDescription}</p>}
-          </div>
-        )}
+        {description && <div>{description && <p>{sanitizedDescription}</p>}</div>}
       </div>
     </div>
   )

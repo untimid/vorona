@@ -10,8 +10,6 @@ import { Gutter } from '../Gutter'
 import { PageRange } from '../PageRange'
 import { Pagination } from '../Pagination'
 
-import classes from './index.module.scss'
-
 type Result = {
   docs: (Post | Project | string)[]
   hasNextPage: boolean
@@ -165,13 +163,13 @@ export const CollectionArchive: React.FC<Props> = props => {
   }, [page, categories, relationTo, onResultChange, sort, limit, populateBy])
 
   return (
-    <div className={[classes.collectionArchive, className].filter(Boolean).join(' ')}>
-      <div className={classes.scrollRef} ref={scrollRef} />
+    <div>
+      <div ref={scrollRef} />
       {!isLoading && error && <Gutter>{error}</Gutter>}
       <Fragment>
         {showPageRange !== false && populateBy !== 'selection' && (
           <Gutter>
-            <div className={classes.pageRange}>
+            <div>
               <PageRange
                 collection={relationTo}
                 currentPage={results.page}
@@ -182,11 +180,11 @@ export const CollectionArchive: React.FC<Props> = props => {
           </Gutter>
         )}
         <Gutter>
-          <div className={classes.grid}>
+          <div>
             {results.docs?.map((result, index) => {
               if (typeof result === 'object' && result !== null) {
                 return (
-                  <div className={classes.column} key={index}>
+                  <div key={index}>
                     <Card doc={result} relationTo={relationTo} showCategories />
                   </div>
                 )
@@ -196,12 +194,7 @@ export const CollectionArchive: React.FC<Props> = props => {
             })}
           </div>
           {results.totalPages > 1 && populateBy !== 'selection' && (
-            <Pagination
-              className={classes.pagination}
-              onClick={setPage}
-              page={results.page}
-              totalPages={results.totalPages}
-            />
+            <Pagination onClick={setPage} page={results.page} totalPages={results.totalPages} />
           )}
         </Gutter>
       </Fragment>

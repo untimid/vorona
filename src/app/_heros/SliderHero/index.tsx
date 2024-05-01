@@ -21,9 +21,7 @@ export const SliderHero: FC<Page['hero'] & { title?: string }> = ({
     <div className="relative">
       {title && (
         <BlockWrapper className="w-full absolute z-20">
-          <h1 className="sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-cyan-600 pb-2">
-            {title}
-          </h1>
+          <h1 className="vrn-h1">{title}</h1>
         </BlockWrapper>
       )}
       <Swiper spaceBetween={0} slidesPerView={1} className="z-10">

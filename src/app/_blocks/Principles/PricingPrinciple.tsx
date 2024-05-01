@@ -11,10 +11,10 @@ export const PricingPrinciple: FC<PricingPrincipleProps> = ({ title, description
   return (
     <div>
       <div className="flex align-baseline">
-        <RenderIcon className="h-6 w-6 text-blue-500 me-1" />
-        <h4 className="font-bold leading-6 mb-2">{title}</h4>
+        <RenderIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
+        <h4 className="vrn-h4 leading-6">{title}</h4>
       </div>
-      <RichText className="ms-7 mb-4" content={description} />
+      <RichText className="vrn-ms-l" content={description} />
     </div>
   )
 }

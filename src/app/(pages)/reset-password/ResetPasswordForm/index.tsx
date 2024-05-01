@@ -9,8 +9,6 @@ import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
 
-import classes from './index.module.scss'
-
 type FormData = {
   password: string
   token: string
@@ -68,8 +66,8 @@ export const ResetPasswordForm: React.FC = () => {
   }, [reset, token])
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <Message error={error} className={classes.message} />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Message error={error} />
       <Input
         name="password"
         type="password"
@@ -79,12 +77,7 @@ export const ResetPasswordForm: React.FC = () => {
         error={errors.password}
       />
       <input type="hidden" {...register('token')} />
-      <Button
-        type="submit"
-        appearance="primary"
-        label="Reset Password"
-        className={classes.submit}
-      />
+      <Button type="submit" appearance="primary" label="Reset Password" />
     </form>
   )
 }

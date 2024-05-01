@@ -20,7 +20,7 @@ export const Cards: FC<CardsProps> = ({
   return (
     <>
       <RichText content={description} />
-      <div className={['grid mt-4', cardsWrapperClassName].filter(Boolean).join(' ')}>
+      <div className={['grid vrn-gap-l', cardsWrapperClassName].filter(Boolean).join(' ')}>
         {cardItems?.map(card => (
           <Card radius={radius} shadow={shadow} imageHeight={imageHeight} key={card.id} {...card} />
         ))}

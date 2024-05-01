@@ -10,9 +10,9 @@ export type AudienceProps = Extract<Page['layout'][0], { blockType: 'audience' }
 
 export const Audience: FC<AudienceProps> = ({ description, audienceItems }) => {
   return (
-    <BlockWrapper>
+    <>
       <RichText content={description} />
-      <div className="grid sm:gap-4 sm:grid-cols-1 md:gap-8 md:grid-cols-2 lg:gap-12 mt-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 vrn-gap-l">
         {audienceItems?.map(({ title, description, benefitItems, image }, i) => (
           <AudienceCard
             key={`${title}-${i}`}
@@ -23,6 +23,6 @@ export const Audience: FC<AudienceProps> = ({ description, audienceItems }) => {
           />
         ))}
       </div>
-    </BlockWrapper>
+    </>
   )
 }

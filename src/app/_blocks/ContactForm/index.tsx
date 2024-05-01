@@ -34,21 +34,21 @@ export const ContactForm: FC<ContactFormProps> = ({
 }) => {
   return (
     <>
-      <div className="grid sm:gap-4 sm:grid-cols-1 md:gap-8 md:grid-cols-2 lg:gap-12">
+      <div className="grid vrn-gap-m sm:grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col">
           <Input
             type="text"
             label={nameInput.label}
             placeholder={nameInput.placeholder}
             labelPlacement="outside"
-            className="mb-4"
+            className="vrn-mb-m font-sans"
           />
           <Input
             type="email"
             label={emailInput.label}
             placeholder={emailInput.placeholder}
             labelPlacement="outside"
-            className="mb-4"
+            className="vrn-mb-m font-sans"
             startContent={
               <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
             }
@@ -59,12 +59,12 @@ export const ContactForm: FC<ContactFormProps> = ({
             placeholder={descriptionInput.placeholder}
             rows={4}
             classNames={{ inputWrapper: 'h-auto' }}
-            className="mb-4"
+            className="vrn-mb-m font-sans"
           />
-          <Checkbox className="mb-4">
-            <RichText content={agreementCheckboxText} />
+          <Checkbox className="vrn-mb-m">
+            <RichText content={agreementCheckboxText} noSpacings />
           </Checkbox>
-          <Button color="primary" variant="solid" className="self-start">
+          <Button color="primary" variant="solid" className="self-start font-sans">
             {submitButtonText}
           </Button>
         </div>

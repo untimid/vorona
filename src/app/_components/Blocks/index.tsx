@@ -189,7 +189,7 @@ export const Blocks: React.FC<{
                     .filter(Boolean)
                     .join(' ')}
                 >
-                  {header && <h2 className="text-5xl font-extrabold mb-4">{renderHeader()}</h2>}
+                  {header && <h2 className="vrn-h2">{renderHeader()}</h2>}
                   <Block id={toKebabCase(blockName)} {...block} />
                 </BlockWrapper>
               )

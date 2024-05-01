@@ -16,21 +16,21 @@ export const CollaborationPrinciple: FC<CollaborationPrincipleProps> = ({
 }) => {
   const RenderIcon = icons[icon]
   return (
-    <div className="mt-8">
+    <div>
       <div className="flex align-baseline">
-        <RenderIcon className="h-6 w-6 text-blue-500 me-1" />
-        <h4 className="font-bold leading-6 mb-2">{title}</h4>
+        <RenderIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
+        <h4 className="font-bold leading-6 vrn-mb-m">{title}</h4>
       </div>
-      <div className="ms-7">
+      <div className="vrn-ms-l">
         {services.map((service, i) => (
           <Chip
-            className={`${color ? color : 'bg-amber-300'} mt-2 me-2`}
+            className={`${color ? color : 'bg-amber-300'} vrn-me-m vrn-mb-m`}
             key={`${title}-${service}-${i}`}
           >
             {service.title}
           </Chip>
         ))}
-        <RichText className="mb-4 mt-4" content={description} />
+        <RichText content={description} />
       </div>
     </div>
   )

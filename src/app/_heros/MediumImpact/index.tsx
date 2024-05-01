@@ -6,30 +6,26 @@ import { CMSLink } from '../../_components/Link'
 import { Media } from '../../_components/Media'
 import RichText from '../../_components/RichText'
 
-import classes from './index.module.scss'
-
 export const MediumImpactHero: React.FC<Page['hero']> = props => {
   const { richText, media, links } = props
 
   return (
-    <Gutter className={classes.hero}>
-      <div className={classes.background}>
-        <RichText className={classes.richText} content={richText} />
+    <Gutter>
+      <div>
+        <RichText content={richText} />
         {Array.isArray(links) && (
-          <ul className={classes.links}>
+          <ul>
             {links.map(({ link }, i) => {
               return (
                 <li key={i}>
-                  <CMSLink className={classes.link} {...link} />
+                  <CMSLink {...link} />
                 </li>
               )
             })}
           </ul>
         )}
       </div>
-      <div className={classes.media}>
-        {typeof media === 'object' && <Media className={classes.media} resource={media} />}
-      </div>
+      <div>{typeof media === 'object' && <Media resource={media} />}</div>
     </Gutter>
   )
 }

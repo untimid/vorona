@@ -12,7 +12,7 @@ export const Collaboration: FC<CollaborationProps> = ({ principles, description,
     <TabWrapper>
       <div>
         <RichText content={description} />
-        <div className="mt-4 flex-col">
+        <div className="flex-col vrn-gap-l">
           {principles?.map(({ title, color, description, icon, services }, i) => (
             <CollaborationPrinciple
               key={`${title}-${i}`}

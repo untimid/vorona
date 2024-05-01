@@ -6,8 +6,6 @@ import NextImage, { StaticImageData } from 'next/image'
 import cssVariables from '../../../cssVariables'
 import { Props as MediaProps } from '../types'
 
-import classes from './index.module.scss'
-
 const { breakpoints } = cssVariables
 
 export const Image: React.FC<MediaProps> = props => {
@@ -53,9 +51,6 @@ export const Image: React.FC<MediaProps> = props => {
 
   return (
     <NextImage
-      className={[isLoading && classes.placeholder, classes.image, imgClassName]
-        .filter(Boolean)
-        .join(' ')}
       src={src}
       alt={alt || ''}
       onClick={onClick}

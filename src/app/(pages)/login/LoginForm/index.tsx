@@ -11,8 +11,6 @@ import { Input } from '../../../_components/Input'
 import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
 
-import classes from './index.module.scss'
-
 type FormData = {
   email: string
   password: string
@@ -46,13 +44,13 @@ const LoginForm: React.FC = () => {
   )
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <p>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <p className="vrn-p">
         {`This is where your users will login to manage their account, view their comment history, and more. To manage all users, `}
         <Link href="/admin/collections/users">login to the admin dashboard</Link>
         {'.'}
       </p>
-      <Message error={error} className={classes.message} />
+      <Message error={error} />
       <Input
         name="email"
         label="Email Address"
@@ -69,7 +67,7 @@ const LoginForm: React.FC = () => {
         register={register}
         error={errors.password}
       />
-      <Button type="submit" color="primary" disabled={isLoading} className={classes.submit}>
+      <Button type="submit" color="primary" disabled={isLoading}>
         {isLoading ? 'Processing' : 'Login'}
       </Button>
       <div>

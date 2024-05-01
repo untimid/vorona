@@ -9,7 +9,7 @@ import { getLinkProps } from '../../_utilities'
 
 export const FooterNav: FC<{ navItems: FooterType['navItems'] }> = ({ navItems = [] }) => {
   return (
-    <nav className="flex flex-col gap-8 sm:flex-row sm:gap-4">
+    <nav className="flex flex-col gap-m sm:flex-row">
       <ThemeSelector />
       {navItems.map(({ link: { type, url, newTab, reference, label } }, i) => {
         return (

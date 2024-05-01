@@ -19,22 +19,27 @@ export const PersonCard: FC<PersonCardProps> = ({
   photo,
 }) => {
   return (
-    <Card radius="sm" className="border-none p-6">
-      <Media resource={photo} />
-      <h3 className="text-2xl font-extrabold mb-1 mt-2">{name}</h3>
+    <Card radius="sm" className="border-none vrn-p-m">
+      <Media resource={photo} className="vrn-mb-m" />
+      <h3 className="vrn-h3">{name}</h3>
       <div className="divide-y-1 divide-solid">
-        <p className="italic  mb-2">{role}</p>
-        <div>
-          <h4 className="flex font-extrabold mt-2">
-            <CheckIcon className="h-6 w-6 text-blue-500" />
+        <p className="vrn-italic">{role}</p>
+        <div className="vrn-pt-m">
+          <h4 className="flex vrn-h4">
+            <CheckIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
             {highlightHeader}
           </h4>
-          <p className="ms-6 mb-2 italic">{highlightDescription}</p>
+          <p className="vrn-italic vrn-ms-l">{highlightDescription}</p>
         </div>
       </div>
       <div>
         {competences?.map((competence, i) => (
-          <Chip key={competence.id || i} className="me-2 mb-2" variant="flat" color="primary">
+          <Chip
+            key={competence.id || i}
+            className="vrn-mb-m vrn-me-m"
+            variant="flat"
+            color="primary"
+          >
             {competence.title}
           </Chip>
         ))}

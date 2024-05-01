@@ -5,8 +5,6 @@ import { Card } from '../../_components/Card'
 import { Gutter } from '../../_components/Gutter'
 import RichText from '../../_components/RichText'
 
-import classes from './index.module.scss'
-
 export type RelatedPostsProps = {
   blockType: 'relatedPosts'
   blockName: string
@@ -19,28 +17,19 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = props => {
   const { introContent, docs, relationTo } = props
 
   return (
-    <div className={classes.relatedPosts}>
+    <div>
       {introContent && (
-        <Gutter className={classes.introContent}>
+        <Gutter>
           <RichText content={introContent} />
         </Gutter>
       )}
       <Gutter>
-        <div className={classes.grid}>
+        <div>
           {docs?.map((doc, index) => {
             if (typeof doc === 'string') return null
 
             return (
-              <div
-                key={index}
-                className={[
-                  classes.column,
-                  docs.length === 2 && classes['cols-half'],
-                  docs.length >= 3 && classes['cols-thirds'],
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-              >
+              <div key={index}>
                 <Card relationTo={relationTo} doc={doc} showCategories />
               </div>
             )

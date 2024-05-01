@@ -38,7 +38,7 @@ export async function Header() {
               alt="Payload Logo"
               src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
             /> */}
-              <span className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600">
+              <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600">
                 {'VORONA :>'}
               </span>
             </Link>

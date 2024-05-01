@@ -18,14 +18,14 @@ export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo }) =
       <div className="flex flex-col sm:flex-row w-full ">
         <RichText
           content={content}
-          className="flex-grow border-s-4 border-cyan-500 sm:ms-8 ps-8 mb-4 sm:mb-0 flex flex-col justify-center"
+          className="flex-grow border-s-4 border-cyan-500 vrn-ps-l flex flex-col justify-center"
         />
-        <div className="bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 p-4 sm:p-6 md:p-8 sm:me-8 lg:p-12 flex flex-col items-center sm:items-start">
-          <Avatar src={url} alt={alt} size="lg" className="mb-4 h-20 w-20 text-large" />
-          <div className="flex flex-col gap-2">
-            {name && <span className="text-center sm:text-start font-bold">{name}</span>}
-            {role && <span className="text-center sm:text-start">{role}</span>}
-            {company && <span className="text-center sm:text-start">{company}</span>}
+        <div className="bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 vrn-p-l flex flex-col items-center sm:items-start">
+          <Avatar src={url} alt={alt} size="lg" className="vrn-mb-m h-20 w-20 text-large" />
+          <div className="flex flex-col">
+            {name && <p className="vrn-p text-center sm:text-start font-bold">{name}</p>}
+            {role && <p className="vrn-italic text-center sm:text-start">{role}</p>}
+            {company && <p className="vrn-italic text-center sm:text-start">{company}</p>}
           </div>
         </div>
       </div>

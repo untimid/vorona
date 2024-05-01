@@ -31,7 +31,7 @@ export const BlockWrapper: FC<BlockWrapperProps> = ({
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="w-full max-w-[1420px] lg:mx-auto h-full">{children}</div>
+      <div className="w-full max-w-[1420px] h-full">{children}</div>
     </div>
   )
 }

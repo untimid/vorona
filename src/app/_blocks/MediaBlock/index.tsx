@@ -39,7 +39,7 @@ export const MediaBlock: FC<MediaBlockProps> = ({
 
   if (position === 'fullscreen') {
     return (
-      <div className="relative w-full mt-8 sm:mt-0">
+      <div className="relative w-full">
         <Media resource={media} src={staticImage} />
         {content && (
           <BlockWrapper className="-mt-12 sm:mt-0 sm:absolute sm:top-0 w-full">

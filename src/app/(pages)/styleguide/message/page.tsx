@@ -11,12 +11,12 @@ export default async function MessageComponentPage() {
   return (
     <Fragment>
       <Gutter>
-        <p>
+        <p className="vrn-p">
           <Link href="/styleguide">Styleguide</Link>
           {' / '}
           <span>Message Component</span>
         </p>
-        <h1>Message Component</h1>
+        <h1 className="vrn-h1">Message Component</h1>
       </Gutter>
       <Gutter>
         <VerticalPadding bottom="large" top="none">

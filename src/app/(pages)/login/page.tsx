@@ -7,17 +7,15 @@ import { getMeUser } from '../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import LoginForm from './LoginForm'
 
-import classes from './index.module.scss'
-
 export default async function Login() {
   await getMeUser({
     validUserRedirect: `/account?warning=${encodeURIComponent('You are already logged in.')}`,
   })
 
   return (
-    <Gutter className={classes.login}>
-      <RenderParams className={classes.params} />
-      <h1>Log in</h1>
+    <Gutter>
+      <RenderParams />
+      <h1 className="vrn-h1">Log in</h1>
       <LoginForm />
     </Gutter>
   )

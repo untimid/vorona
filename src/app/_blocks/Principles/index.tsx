@@ -25,12 +25,12 @@ export const Principles: FC<PrinciplesProps> = ({
       <Accordion
         selectedKeys={selectedKeys}
         onSelectionChange={setSelectedKeys}
-        className="border-t-solid border-t-1 border-b-solid border-b-1 mt-4"
+        className="border-t-solid border-t-1 border-b-solid border-b-1"
       >
         <AccordionItem
           key="1"
           aria-label="Pricing"
-          title={<h3 className="uppercase font-bold">Ценообразование</h3>}
+          title={<h3 className="vrn-h3 uppercase">Ценообразование</h3>}
         >
           <Pricing
             principles={pricingPrinciples.principles}
@@ -40,7 +40,7 @@ export const Principles: FC<PrinciplesProps> = ({
         <AccordionItem
           key="2"
           aria-label="Process"
-          title={<h3 className="uppercase font-bold">Процесс работы</h3>}
+          title={<h3 className="vrn-h3 uppercase">Процесс работы</h3>}
         >
           <Process
             steps={processPrinciples.steps}
@@ -51,7 +51,7 @@ export const Principles: FC<PrinciplesProps> = ({
         <AccordionItem
           key="3"
           aria-label="Collaboration"
-          title={<h3 className="uppercase font-bold">Варианты работы</h3>}
+          title={<h3 className="vrn-h3 uppercase">Варианты работы</h3>}
         >
           <Collaboration
             description={collaborationPrinciples.description}

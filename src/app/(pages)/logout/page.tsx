@@ -7,8 +7,6 @@ import { Gutter } from '../../_components/Gutter'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import { LogoutPage } from './LogoutPage'
 
-import classes from './index.module.scss'
-
 export default async function Logout() {
   let settings: Settings | null = null
 
@@ -22,7 +20,7 @@ export default async function Logout() {
   }
 
   return (
-    <Gutter className={classes.logout}>
+    <Gutter>
       <LogoutPage settings={settings} />
     </Gutter>
   )

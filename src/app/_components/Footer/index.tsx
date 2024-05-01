@@ -23,7 +23,7 @@ export async function Footer() {
   return (
     <footer className="w-full py-8 sm:p-0">
       <BlockWrapper>
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between vrn-gap-m">
           <Link href="/">
             <span className="text-4xl">{'VORONA :>'}</span>
           </Link>

@@ -11,12 +11,12 @@ export default async function CallToActionPage() {
   return (
     <Fragment>
       <Gutter>
-        <p>
+        <p className="vrn-p">
           <Link href="/styleguide">Styleguide</Link>
           {' / '}
           <span>Call To Action Block</span>
         </p>
-        <h1>Call To Action Block</h1>
+        <h1 className="vrn-h1">Call To Action Block</h1>
       </Gutter>
       <VerticalPadding bottom="large" top="none">
         <CallToActionBlock

@@ -14,7 +14,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   return (
     <nav
       className={[
-        'flex items-center flex-wrap opacity-100 transition-all duration-100 ease-linear gap-3',
+        'flex items-center flex-wrap opacity-100 transition-all duration-100 ease-linear vrn-gap-m',
         // fade the nav in on user load to avoid flash of content and layout shift
         // Vercel also does this in their own website header, see https://vercel.com
         user === undefined && 'hidden opacity-0',

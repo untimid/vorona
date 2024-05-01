@@ -67,7 +67,7 @@ export const AdminBar: React.FC<{
           classNames={{
             user: 'me-2',
             logo: 'me-2',
-            controls: 'grid gap-3',
+            controls: 'grid vrn-gap-m',
           }}
           logo={<Title />}
         />

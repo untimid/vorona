@@ -10,8 +10,8 @@ export type TeamProps = Extract<Page['layout'][0], { blockType: 'team' }>
 export const Team: FC<TeamProps> = ({ description, persons }) => {
   return (
     <>
-      <RichText className="mb-4" content={description} />
-      <div className="grid sm:gap-4 sm:grid-cols-1 md:gap-8 md:grid-cols-2 lg:gap-12 lg:grid-cols-3 mt-4">
+      <RichText content={description} />
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 vrn-gap-l">
         {persons &&
           persons.map(
             (
