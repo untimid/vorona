@@ -2453,8 +2453,8 @@ type Principles {
 }
 
 type Principles_PricingPrinciples {
-  principles: [Principles_PricingPrinciples_Principles!]
   videoSrc: String
+  principles: [Principles_PricingPrinciples_Principles!]
 }
 
 type Principles_PricingPrinciples_Principles {
@@ -2780,9 +2780,9 @@ type Principles_ProcessPrinciples_Steps {
 }
 
 type Principles_CollaborationPrinciples {
-  principles: [Principles_CollaborationPrinciples_Principles!]
   description(depth: Int): JSON
   videoSrc: String
+  principles: [Principles_CollaborationPrinciples_Principles!]
 }
 
 type Principles_CollaborationPrinciples_Principles {
@@ -15961,9 +15961,335 @@ type SettingsUpdateDocAccess {
 }
 
 type Header {
+  logoLight(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Header_LogoLight_where): Media
+  logoDark(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Header_LogoDark_where): Media
   navItems: [Header_NavItems!]
   updatedAt: DateTime
   createdAt: DateTime
+}
+
+input Header_LogoLight_where {
+  alt: Header_LogoLight_alt_operator
+  caption: Header_LogoLight_caption_operator
+  updatedAt: Header_LogoLight_updatedAt_operator
+  createdAt: Header_LogoLight_createdAt_operator
+  url: Header_LogoLight_url_operator
+  filename: Header_LogoLight_filename_operator
+  mimeType: Header_LogoLight_mimeType_operator
+  filesize: Header_LogoLight_filesize_operator
+  width: Header_LogoLight_width_operator
+  height: Header_LogoLight_height_operator
+  id: Header_LogoLight_id_operator
+  AND: [Header_LogoLight_where_and]
+  OR: [Header_LogoLight_where_or]
+}
+
+input Header_LogoLight_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Header_LogoLight_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Header_LogoLight_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Header_LogoLight_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Header_LogoLight_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoLight_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoLight_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoLight_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoLight_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoLight_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoLight_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoLight_where_and {
+  alt: Header_LogoLight_alt_operator
+  caption: Header_LogoLight_caption_operator
+  updatedAt: Header_LogoLight_updatedAt_operator
+  createdAt: Header_LogoLight_createdAt_operator
+  url: Header_LogoLight_url_operator
+  filename: Header_LogoLight_filename_operator
+  mimeType: Header_LogoLight_mimeType_operator
+  filesize: Header_LogoLight_filesize_operator
+  width: Header_LogoLight_width_operator
+  height: Header_LogoLight_height_operator
+  id: Header_LogoLight_id_operator
+  AND: [Header_LogoLight_where_and]
+  OR: [Header_LogoLight_where_or]
+}
+
+input Header_LogoLight_where_or {
+  alt: Header_LogoLight_alt_operator
+  caption: Header_LogoLight_caption_operator
+  updatedAt: Header_LogoLight_updatedAt_operator
+  createdAt: Header_LogoLight_createdAt_operator
+  url: Header_LogoLight_url_operator
+  filename: Header_LogoLight_filename_operator
+  mimeType: Header_LogoLight_mimeType_operator
+  filesize: Header_LogoLight_filesize_operator
+  width: Header_LogoLight_width_operator
+  height: Header_LogoLight_height_operator
+  id: Header_LogoLight_id_operator
+  AND: [Header_LogoLight_where_and]
+  OR: [Header_LogoLight_where_or]
+}
+
+input Header_LogoDark_where {
+  alt: Header_LogoDark_alt_operator
+  caption: Header_LogoDark_caption_operator
+  updatedAt: Header_LogoDark_updatedAt_operator
+  createdAt: Header_LogoDark_createdAt_operator
+  url: Header_LogoDark_url_operator
+  filename: Header_LogoDark_filename_operator
+  mimeType: Header_LogoDark_mimeType_operator
+  filesize: Header_LogoDark_filesize_operator
+  width: Header_LogoDark_width_operator
+  height: Header_LogoDark_height_operator
+  id: Header_LogoDark_id_operator
+  AND: [Header_LogoDark_where_and]
+  OR: [Header_LogoDark_where_or]
+}
+
+input Header_LogoDark_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Header_LogoDark_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Header_LogoDark_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Header_LogoDark_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Header_LogoDark_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoDark_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoDark_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoDark_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoDark_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoDark_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Header_LogoDark_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Header_LogoDark_where_and {
+  alt: Header_LogoDark_alt_operator
+  caption: Header_LogoDark_caption_operator
+  updatedAt: Header_LogoDark_updatedAt_operator
+  createdAt: Header_LogoDark_createdAt_operator
+  url: Header_LogoDark_url_operator
+  filename: Header_LogoDark_filename_operator
+  mimeType: Header_LogoDark_mimeType_operator
+  filesize: Header_LogoDark_filesize_operator
+  width: Header_LogoDark_width_operator
+  height: Header_LogoDark_height_operator
+  id: Header_LogoDark_id_operator
+  AND: [Header_LogoDark_where_and]
+  OR: [Header_LogoDark_where_or]
+}
+
+input Header_LogoDark_where_or {
+  alt: Header_LogoDark_alt_operator
+  caption: Header_LogoDark_caption_operator
+  updatedAt: Header_LogoDark_updatedAt_operator
+  createdAt: Header_LogoDark_createdAt_operator
+  url: Header_LogoDark_url_operator
+  filename: Header_LogoDark_filename_operator
+  mimeType: Header_LogoDark_mimeType_operator
+  filesize: Header_LogoDark_filesize_operator
+  width: Header_LogoDark_width_operator
+  height: Header_LogoDark_height_operator
+  id: Header_LogoDark_id_operator
+  AND: [Header_LogoDark_where_and]
+  OR: [Header_LogoDark_where_or]
 }
 
 type Header_NavItems {
@@ -16002,9 +16328,57 @@ type headerDocAccess {
 }
 
 type HeaderDocAccessFields {
+  logoLight: HeaderDocAccessFields_logoLight
+  logoDark: HeaderDocAccessFields_logoDark
   navItems: HeaderDocAccessFields_navItems
   updatedAt: HeaderDocAccessFields_updatedAt
   createdAt: HeaderDocAccessFields_createdAt
+}
+
+type HeaderDocAccessFields_logoLight {
+  create: HeaderDocAccessFields_logoLight_Create
+  read: HeaderDocAccessFields_logoLight_Read
+  update: HeaderDocAccessFields_logoLight_Update
+  delete: HeaderDocAccessFields_logoLight_Delete
+}
+
+type HeaderDocAccessFields_logoLight_Create {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoLight_Read {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoLight_Update {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoLight_Delete {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoDark {
+  create: HeaderDocAccessFields_logoDark_Create
+  read: HeaderDocAccessFields_logoDark_Read
+  update: HeaderDocAccessFields_logoDark_Update
+  delete: HeaderDocAccessFields_logoDark_Delete
+}
+
+type HeaderDocAccessFields_logoDark_Create {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoDark_Read {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoDark_Update {
+  permission: Boolean!
+}
+
+type HeaderDocAccessFields_logoDark_Delete {
+  permission: Boolean!
 }
 
 type HeaderDocAccessFields_navItems {
@@ -16263,9 +16637,335 @@ type HeaderUpdateDocAccess {
 }
 
 type Footer {
+  logoLight(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Footer_LogoLight_where): Media
+  logoDark(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Footer_LogoDark_where): Media
   navItems: [Footer_NavItems!]
   updatedAt: DateTime
   createdAt: DateTime
+}
+
+input Footer_LogoLight_where {
+  alt: Footer_LogoLight_alt_operator
+  caption: Footer_LogoLight_caption_operator
+  updatedAt: Footer_LogoLight_updatedAt_operator
+  createdAt: Footer_LogoLight_createdAt_operator
+  url: Footer_LogoLight_url_operator
+  filename: Footer_LogoLight_filename_operator
+  mimeType: Footer_LogoLight_mimeType_operator
+  filesize: Footer_LogoLight_filesize_operator
+  width: Footer_LogoLight_width_operator
+  height: Footer_LogoLight_height_operator
+  id: Footer_LogoLight_id_operator
+  AND: [Footer_LogoLight_where_and]
+  OR: [Footer_LogoLight_where_or]
+}
+
+input Footer_LogoLight_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Footer_LogoLight_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Footer_LogoLight_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Footer_LogoLight_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Footer_LogoLight_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoLight_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoLight_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoLight_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoLight_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoLight_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoLight_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoLight_where_and {
+  alt: Footer_LogoLight_alt_operator
+  caption: Footer_LogoLight_caption_operator
+  updatedAt: Footer_LogoLight_updatedAt_operator
+  createdAt: Footer_LogoLight_createdAt_operator
+  url: Footer_LogoLight_url_operator
+  filename: Footer_LogoLight_filename_operator
+  mimeType: Footer_LogoLight_mimeType_operator
+  filesize: Footer_LogoLight_filesize_operator
+  width: Footer_LogoLight_width_operator
+  height: Footer_LogoLight_height_operator
+  id: Footer_LogoLight_id_operator
+  AND: [Footer_LogoLight_where_and]
+  OR: [Footer_LogoLight_where_or]
+}
+
+input Footer_LogoLight_where_or {
+  alt: Footer_LogoLight_alt_operator
+  caption: Footer_LogoLight_caption_operator
+  updatedAt: Footer_LogoLight_updatedAt_operator
+  createdAt: Footer_LogoLight_createdAt_operator
+  url: Footer_LogoLight_url_operator
+  filename: Footer_LogoLight_filename_operator
+  mimeType: Footer_LogoLight_mimeType_operator
+  filesize: Footer_LogoLight_filesize_operator
+  width: Footer_LogoLight_width_operator
+  height: Footer_LogoLight_height_operator
+  id: Footer_LogoLight_id_operator
+  AND: [Footer_LogoLight_where_and]
+  OR: [Footer_LogoLight_where_or]
+}
+
+input Footer_LogoDark_where {
+  alt: Footer_LogoDark_alt_operator
+  caption: Footer_LogoDark_caption_operator
+  updatedAt: Footer_LogoDark_updatedAt_operator
+  createdAt: Footer_LogoDark_createdAt_operator
+  url: Footer_LogoDark_url_operator
+  filename: Footer_LogoDark_filename_operator
+  mimeType: Footer_LogoDark_mimeType_operator
+  filesize: Footer_LogoDark_filesize_operator
+  width: Footer_LogoDark_width_operator
+  height: Footer_LogoDark_height_operator
+  id: Footer_LogoDark_id_operator
+  AND: [Footer_LogoDark_where_and]
+  OR: [Footer_LogoDark_where_or]
+}
+
+input Footer_LogoDark_alt_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Footer_LogoDark_caption_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Footer_LogoDark_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Footer_LogoDark_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Footer_LogoDark_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoDark_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoDark_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoDark_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoDark_width_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoDark_height_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Footer_LogoDark_id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Footer_LogoDark_where_and {
+  alt: Footer_LogoDark_alt_operator
+  caption: Footer_LogoDark_caption_operator
+  updatedAt: Footer_LogoDark_updatedAt_operator
+  createdAt: Footer_LogoDark_createdAt_operator
+  url: Footer_LogoDark_url_operator
+  filename: Footer_LogoDark_filename_operator
+  mimeType: Footer_LogoDark_mimeType_operator
+  filesize: Footer_LogoDark_filesize_operator
+  width: Footer_LogoDark_width_operator
+  height: Footer_LogoDark_height_operator
+  id: Footer_LogoDark_id_operator
+  AND: [Footer_LogoDark_where_and]
+  OR: [Footer_LogoDark_where_or]
+}
+
+input Footer_LogoDark_where_or {
+  alt: Footer_LogoDark_alt_operator
+  caption: Footer_LogoDark_caption_operator
+  updatedAt: Footer_LogoDark_updatedAt_operator
+  createdAt: Footer_LogoDark_createdAt_operator
+  url: Footer_LogoDark_url_operator
+  filename: Footer_LogoDark_filename_operator
+  mimeType: Footer_LogoDark_mimeType_operator
+  filesize: Footer_LogoDark_filesize_operator
+  width: Footer_LogoDark_width_operator
+  height: Footer_LogoDark_height_operator
+  id: Footer_LogoDark_id_operator
+  AND: [Footer_LogoDark_where_and]
+  OR: [Footer_LogoDark_where_or]
 }
 
 type Footer_NavItems {
@@ -16304,9 +17004,57 @@ type footerDocAccess {
 }
 
 type FooterDocAccessFields {
+  logoLight: FooterDocAccessFields_logoLight
+  logoDark: FooterDocAccessFields_logoDark
   navItems: FooterDocAccessFields_navItems
   updatedAt: FooterDocAccessFields_updatedAt
   createdAt: FooterDocAccessFields_createdAt
+}
+
+type FooterDocAccessFields_logoLight {
+  create: FooterDocAccessFields_logoLight_Create
+  read: FooterDocAccessFields_logoLight_Read
+  update: FooterDocAccessFields_logoLight_Update
+  delete: FooterDocAccessFields_logoLight_Delete
+}
+
+type FooterDocAccessFields_logoLight_Create {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoLight_Read {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoLight_Update {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoLight_Delete {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoDark {
+  create: FooterDocAccessFields_logoDark_Create
+  read: FooterDocAccessFields_logoDark_Read
+  update: FooterDocAccessFields_logoDark_Update
+  delete: FooterDocAccessFields_logoDark_Delete
+}
+
+type FooterDocAccessFields_logoDark_Create {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoDark_Read {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoDark_Update {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_logoDark_Delete {
+  permission: Boolean!
 }
 
 type FooterDocAccessFields_navItems {
@@ -21539,9 +22287,57 @@ type headerAccess {
 }
 
 type HeaderFields {
+  logoLight: HeaderFields_logoLight
+  logoDark: HeaderFields_logoDark
   navItems: HeaderFields_navItems
   updatedAt: HeaderFields_updatedAt
   createdAt: HeaderFields_createdAt
+}
+
+type HeaderFields_logoLight {
+  create: HeaderFields_logoLight_Create
+  read: HeaderFields_logoLight_Read
+  update: HeaderFields_logoLight_Update
+  delete: HeaderFields_logoLight_Delete
+}
+
+type HeaderFields_logoLight_Create {
+  permission: Boolean!
+}
+
+type HeaderFields_logoLight_Read {
+  permission: Boolean!
+}
+
+type HeaderFields_logoLight_Update {
+  permission: Boolean!
+}
+
+type HeaderFields_logoLight_Delete {
+  permission: Boolean!
+}
+
+type HeaderFields_logoDark {
+  create: HeaderFields_logoDark_Create
+  read: HeaderFields_logoDark_Read
+  update: HeaderFields_logoDark_Update
+  delete: HeaderFields_logoDark_Delete
+}
+
+type HeaderFields_logoDark_Create {
+  permission: Boolean!
+}
+
+type HeaderFields_logoDark_Read {
+  permission: Boolean!
+}
+
+type HeaderFields_logoDark_Update {
+  permission: Boolean!
+}
+
+type HeaderFields_logoDark_Delete {
+  permission: Boolean!
 }
 
 type HeaderFields_navItems {
@@ -21806,9 +22602,57 @@ type footerAccess {
 }
 
 type FooterFields {
+  logoLight: FooterFields_logoLight
+  logoDark: FooterFields_logoDark
   navItems: FooterFields_navItems
   updatedAt: FooterFields_updatedAt
   createdAt: FooterFields_createdAt
+}
+
+type FooterFields_logoLight {
+  create: FooterFields_logoLight_Create
+  read: FooterFields_logoLight_Read
+  update: FooterFields_logoLight_Update
+  delete: FooterFields_logoLight_Delete
+}
+
+type FooterFields_logoLight_Create {
+  permission: Boolean!
+}
+
+type FooterFields_logoLight_Read {
+  permission: Boolean!
+}
+
+type FooterFields_logoLight_Update {
+  permission: Boolean!
+}
+
+type FooterFields_logoLight_Delete {
+  permission: Boolean!
+}
+
+type FooterFields_logoDark {
+  create: FooterFields_logoDark_Create
+  read: FooterFields_logoDark_Read
+  update: FooterFields_logoDark_Update
+  delete: FooterFields_logoDark_Delete
+}
+
+type FooterFields_logoDark_Create {
+  permission: Boolean!
+}
+
+type FooterFields_logoDark_Read {
+  permission: Boolean!
+}
+
+type FooterFields_logoDark_Update {
+  permission: Boolean!
+}
+
+type FooterFields_logoDark_Delete {
+  permission: Boolean!
 }
 
 type FooterFields_navItems {
@@ -22934,6 +23778,8 @@ input mutationSettingsInput {
 }
 
 input mutationHeaderInput {
+  logoLight: String
+  logoDark: String
   navItems: [mutationHeader_NavItemsInput]
   updatedAt: String
   createdAt: String
@@ -22962,6 +23808,8 @@ enum Header_NavItems_Link_ReferenceRelationshipInputRelationTo {
 }
 
 input mutationFooterInput {
+  logoLight: String
+  logoDark: String
   navItems: [mutationFooter_NavItemsInput]
   updatedAt: String
   createdAt: String

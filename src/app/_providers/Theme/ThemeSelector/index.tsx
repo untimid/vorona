@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Switch } from '@nextui-org/react'
 import { useTheme } from 'next-themes'
 
@@ -9,6 +9,11 @@ import { SunIcon } from './SunIcon'
 
 export const ThemeSelector: FC = () => {
   const { theme, setTheme } = useTheme()
+  const [isLight, setIsLight] = useState(true)
+
+  useEffect(() => {
+    theme === 'light' ? setIsLight(true) : setIsLight(false)
+  }, [theme])
 
   const handleChange = (isChecked: Boolean) => {
     isChecked ? setTheme('light') : setTheme('dark')
@@ -16,7 +21,7 @@ export const ThemeSelector: FC = () => {
 
   return (
     <Switch
-      value={theme}
+      isSelected={isLight}
       onValueChange={val => handleChange(val)}
       size="lg"
       color="secondary"

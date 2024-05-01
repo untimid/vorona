@@ -8,6 +8,7 @@ import Link from 'next/link'
 import type { Header } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
 import { BlockWrapper } from '../../_components/BlockWrapper'
+import { Logo } from '../Logo'
 import { HeaderNav } from './Nav'
 
 export async function Header() {
@@ -23,29 +24,25 @@ export async function Header() {
   }
 
   return (
-    <>
-      <header className="w-full">
-        <BlockWrapper>
-          <div className="flex justify-between">
-            <Link href="/" className="">
-              {/* Cannot use the `<picture>` element here with `srcSet`
+    <header className="w-full">
+      <BlockWrapper>
+        <div className="flex justify-between">
+          <Link href="/" className="">
+            {/* Cannot use the `<picture>` element here with `srcSet`
               This is because the theme is able to be overridden by the user
               And so `@media (prefers-color-scheme: dark)` will not work
               Instead, we just use CSS to invert the color via `filter: invert(1)` based on `[data-theme="dark"]`
             */}
-              {/* <img
+            {/* <img
               className={classes.logo}
               alt="Payload Logo"
               src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
             /> */}
-              <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-purple-600">
-                {'VORONA :>'}
-              </span>
-            </Link>
-            <HeaderNav header={header} />
-          </div>
-        </BlockWrapper>
-      </header>
-    </>
+            <Logo logoDark={header.logoDark} logoLight={header.logoLight} />
+          </Link>
+          <HeaderNav header={header} />
+        </div>
+      </BlockWrapper>
+    </header>
   )
 }

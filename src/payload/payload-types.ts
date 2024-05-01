@@ -1019,6 +1019,7 @@ export interface Page {
             }[]
           | null;
         pricingPrinciples?: {
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -1329,7 +1330,6 @@ export interface Page {
                 id?: string | null;
               }[]
             | null;
-          videoSrc?: string | null;
         };
         processPrinciples: {
           description: {
@@ -1350,6 +1350,10 @@ export interface Page {
             | null;
         };
         collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -1667,10 +1671,6 @@ export interface Page {
                 id?: string | null;
               }[]
             | null;
-          description: {
-            [k: string]: unknown;
-          }[];
-          videoSrc?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
@@ -2817,6 +2817,7 @@ export interface Post {
             }[]
           | null;
         pricingPrinciples?: {
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -3127,7 +3128,6 @@ export interface Post {
                 id?: string | null;
               }[]
             | null;
-          videoSrc?: string | null;
         };
         processPrinciples: {
           description: {
@@ -3148,6 +3148,10 @@ export interface Post {
             | null;
         };
         collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -3465,10 +3469,6 @@ export interface Post {
                 id?: string | null;
               }[]
             | null;
-          description: {
-            [k: string]: unknown;
-          }[];
-          videoSrc?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
@@ -4501,6 +4501,7 @@ export interface Post {
                 }[]
               | null;
             pricingPrinciples?: {
+              videoSrc?: string | null;
               principles?:
                 | {
                     title?: string | null;
@@ -4811,7 +4812,6 @@ export interface Post {
                     id?: string | null;
                   }[]
                 | null;
-              videoSrc?: string | null;
             };
             processPrinciples: {
               description: {
@@ -4832,6 +4832,10 @@ export interface Post {
                 | null;
             };
             collaborationPrinciples: {
+              description: {
+                [k: string]: unknown;
+              }[];
+              videoSrc?: string | null;
               principles?:
                 | {
                     title?: string | null;
@@ -5149,10 +5153,6 @@ export interface Post {
                     id?: string | null;
                   }[]
                 | null;
-              description: {
-                [k: string]: unknown;
-              }[];
-              videoSrc?: string | null;
             };
             id?: string | null;
             blockName?: string | null;
@@ -6273,6 +6273,7 @@ export interface Project {
             }[]
           | null;
         pricingPrinciples?: {
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -6583,7 +6584,6 @@ export interface Project {
                 id?: string | null;
               }[]
             | null;
-          videoSrc?: string | null;
         };
         processPrinciples: {
           description: {
@@ -6604,6 +6604,10 @@ export interface Project {
             | null;
         };
         collaborationPrinciples: {
+          description: {
+            [k: string]: unknown;
+          }[];
+          videoSrc?: string | null;
           principles?:
             | {
                 title?: string | null;
@@ -6921,10 +6925,6 @@ export interface Project {
                 id?: string | null;
               }[]
             | null;
-          description: {
-            [k: string]: unknown;
-          }[];
-          videoSrc?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
@@ -7141,6 +7141,8 @@ export interface Settings {
  */
 export interface Header {
   id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {
@@ -7165,6 +7167,8 @@ export interface Header {
  */
 export interface Footer {
   id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {

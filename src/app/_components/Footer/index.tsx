@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Footer as FooterType } from '../../../payload/payload-types'
 import { fetchFooter, fetchGlobals } from '../../_api/fetchGlobals'
 import { BlockWrapper } from '../../_components/BlockWrapper'
+import { Logo } from '../Logo'
 import { FooterNav } from './FooterNav'
 
 export async function Footer() {
@@ -25,7 +26,7 @@ export async function Footer() {
       <BlockWrapper>
         <div className="flex flex-col sm:flex-row sm:justify-between vrn-gap-m">
           <Link href="/">
-            <span className="text-4xl">{'VORONA :>'}</span>
+            {footer && <Logo logoDark={footer.logoDark} logoLight={footer.logoLight} />}
           </Link>
           <FooterNav navItems={navItems} />
         </div>

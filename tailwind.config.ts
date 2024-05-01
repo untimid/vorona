@@ -51,7 +51,7 @@ export default {
           '@apply font-unbounded text-3xl sm:text-5xl md:text-6xl font-extrabold vrn-mb-l': '',
         },
         '.vrn-h2': {
-          '@apply font-unbounded text-3xl sm:text-5xl font-extrabold vrn-mb-m': '',
+          '@apply font-unbounded text-3xl sm:text-5xl font-extrabold vrn-mb-l': '',
         },
         '.vrn-h3': {
           '@apply font-unbounded text-2xl font-extrabold leading-6 vrn-mb-m': '',
