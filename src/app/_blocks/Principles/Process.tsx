@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
 import RichText from '../../_components/RichText'
+import { YouTubePlayer } from '../../_components/YouTubePlayer'
 import type { PrinciplesProps } from './'
 import { ProcessPrinciples } from './ProcessPrinciples'
 import { TabWrapper } from './TabWrapper'
@@ -20,17 +21,7 @@ export const Process: FC<ProcessProps> = ({
         <RichText content={description} />
         <ProcessPrinciples steps={steps} typingDelay={typingDelay} stepDelay={stepDelay} />
       </div>
-      {videoSrc && (
-        <iframe
-          width="560"
-          height="315"
-          src={videoSrc}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      )}
+      {videoSrc && <YouTubePlayer videoSrc={videoSrc} />}
     </TabWrapper>
   )
 }

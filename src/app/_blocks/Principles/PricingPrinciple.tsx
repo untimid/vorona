@@ -9,12 +9,12 @@ type PricingPrincipleProps = PrinciplesProps['pricingPrinciples']['principles'][
 export const PricingPrinciple: FC<PricingPrincipleProps> = ({ title, description, icon }) => {
   const RenderIcon = icons[icon]
   return (
-    <div>
+    <div className="vrn-mb-l last:mb-0">
       <div className="flex align-baseline">
         <RenderIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
         <h4 className="vrn-h4 leading-6">{title}</h4>
       </div>
-      <RichText className="vrn-ms-l" content={description} />
+      <RichText className="vrn-ms-l" noSpacings content={description} />
     </div>
   )
 }

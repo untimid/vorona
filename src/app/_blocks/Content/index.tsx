@@ -15,7 +15,7 @@ export const ContentBlock: React.FC<
 
   return (
     <>
-      <div className="w-full flex flex-col md:flex-row vrn-gap-m">
+      <div className="w-full flex flex-col md:flex-row vrn-gap-l">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {

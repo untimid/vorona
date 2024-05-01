@@ -12,7 +12,7 @@ export type BenefitItemProps = AudienceCardProps['benefitItems'][number]
 
 const BenefitItem: FC<BenefitItemProps> = ({ title, description }) => (
   <div className="vrn-mb-m last:mb-0">
-    <h5 className="vrn-h5 flex">
+    <h5 className="vrn-h5 flex mb-0">
       <CheckIcon className="h-8 w-8 text-blue-500 vrn-me-s" />
       {title}
     </h5>

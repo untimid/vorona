@@ -18,12 +18,12 @@ const Tip: FC<PricingProps['tips'][number]> = ({ title, description, icon }) => 
   let Icon = null
   if (icon) Icon = icons[icon]
   return (
-    <div className="vrn-mb-m">
-      <h3 className="flex vrn-h3">
+    <div className="vrn-mb-l last:mb-0">
+      <h3 className="flex vrn-h3 mb-0">
         {Icon && <Icon className="h-8 w-8 text-blue-500 vrn-me-s" />}
         {title}
       </h3>
-      <RichText className="vrn-ms-l" content={description} />
+      <RichText className="vrn-ms-l vrn-mt-m" noSpacings content={description} />
     </div>
   )
 }
