@@ -56,7 +56,7 @@ const AccountForm: React.FC = () => {
           setChangePassword(false)
           reset({
             email: json.doc.email,
-            name: json.doc.name,
+            name: json.doc?.name,
             password: '',
             passwordConfirm: '',
           })
@@ -108,7 +108,7 @@ const AccountForm: React.FC = () => {
             error={errors.email}
             type="email"
           />
-          <Input name="name" label="Name" register={register} error={errors.name} />
+          <Input name="name" label="Name" register={register} error={errors?.name} />
         </Fragment>
       ) : (
         <Fragment>
