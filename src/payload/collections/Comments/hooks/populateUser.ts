@@ -14,7 +14,7 @@ export const populateUser: AfterReadHook = async ({ doc, req: { payload } }) => 
 
     doc.populatedUser = {
       id: userDoc.id,
-      name: userDoc.name,
+      name: userDoc?.name,
     }
   }
 
