@@ -4,23 +4,26 @@ import { Accordion, AccordionItem, Selection } from '@nextui-org/react'
 
 import type { Page } from '../../../payload/payload-types'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 import { Collaboration } from './Collaboration'
 import { Pricing } from './Pricing'
 import { Process } from './Process'
 
-export type PrinciplesProps = Extract<Page['layout'][0], { blockType: 'principles' }>
+export type PrinciplesProps = Extract<Page['layout'][0], { blockType: 'principles' }> &
+  CommonBlockProps
 
 export const Principles: FC<PrinciplesProps> = ({
   description,
   pricingPrinciples,
   processPrinciples,
   collaborationPrinciples,
+  id,
 }) => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['1']))
 
   //TODO: open accordion items while sroll automatically
   return (
-    <>
+    <div id={`block-${id}`}>
       {description && <RichText content={description} />}
       <Accordion
         selectedKeys={selectedKeys}
@@ -60,6 +63,6 @@ export const Principles: FC<PrinciplesProps> = ({
           />
         </AccordionItem>
       </Accordion>
-    </>
+    </div>
   )
 }

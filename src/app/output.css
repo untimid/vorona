@@ -1195,14 +1195,6 @@ video {
   height: var(--vorona-spacing-unit-8) !important;
 }
 
-.h-\[60px\] {
-  height: 60px !important;
-}
-
-.h-\[40px\] {
-  height: 40px !important;
-}
-
 .max-h-64 {
   max-height: 16rem !important;
 }
@@ -84335,16 +84327,6 @@ video {
   line-height: 2.25rem !important;
 }
 
-.text-4xl {
-  font-size: 2.25rem !important;
-  line-height: 2.5rem !important;
-}
-
-.text-5xl {
-  font-size: 3rem !important;
-  line-height: 1 !important;
-}
-
 .text-\[0\.55rem\] {
   font-size: 0.55rem !important;
 }
@@ -84384,10 +84366,6 @@ video {
 
 .font-bold {
   font-weight: 700 !important;
-}
-
-.font-extrabold {
-  font-weight: 800 !important;
 }
 
 .font-normal {

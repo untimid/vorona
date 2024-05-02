@@ -4,6 +4,7 @@ import { Button, Checkbox, Input, Textarea } from '@nextui-org/react'
 
 import type { Page } from '../../../payload/payload-types'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 
 export const MailIcon = ({ className }: { className: string }) => (
   <svg
@@ -23,7 +24,8 @@ export const MailIcon = ({ className }: { className: string }) => (
   </svg>
 )
 
-export type ContactFormProps = Extract<Page['layout'][0], { blockType: 'contactForm' }>
+export type ContactFormProps = Extract<Page['layout'][0], { blockType: 'contactForm' }> &
+  CommonBlockProps
 
 export const ContactForm: FC<ContactFormProps> = ({
   nameInput,
@@ -31,44 +33,43 @@ export const ContactForm: FC<ContactFormProps> = ({
   descriptionInput,
   agreementCheckboxText,
   submitButtonText,
+  id,
 }) => {
   return (
-    <>
-      <div className="grid vrn-gap-m sm:grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col">
-          <Input
-            type="text"
-            label={nameInput.label}
-            placeholder={nameInput.placeholder}
-            labelPlacement="outside"
-            className="vrn-mb-m font-sans"
-          />
-          <Input
-            type="email"
-            label={emailInput.label}
-            placeholder={emailInput.placeholder}
-            labelPlacement="outside"
-            className="vrn-mb-m font-sans"
-            startContent={
-              <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-            }
-          />
-          <Textarea
-            label={descriptionInput.label}
-            labelPlacement="outside"
-            placeholder={descriptionInput.placeholder}
-            rows={4}
-            classNames={{ inputWrapper: 'h-auto' }}
-            className="vrn-mb-m font-sans"
-          />
-          <Checkbox className="vrn-mb-m">
-            <RichText content={agreementCheckboxText} noSpacings />
-          </Checkbox>
-          <Button color="primary" variant="solid" className="self-start font-sans">
-            {submitButtonText}
-          </Button>
-        </div>
+    <div id={`block-${id}`} className="grid vrn-gap-m sm:grid-cols-1 md:grid-cols-2">
+      <div className="flex flex-col">
+        <Input
+          type="text"
+          label={nameInput.label}
+          placeholder={nameInput.placeholder}
+          labelPlacement="outside"
+          className="vrn-mb-m"
+        />
+        <Input
+          type="email"
+          label={emailInput.label}
+          placeholder={emailInput.placeholder}
+          labelPlacement="outside"
+          className="vrn-mb-m"
+          startContent={
+            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+          }
+        />
+        <Textarea
+          label={descriptionInput.label}
+          labelPlacement="outside"
+          placeholder={descriptionInput.placeholder}
+          rows={4}
+          classNames={{ inputWrapper: 'h-auto' }}
+          className="vrn-mb-m"
+        />
+        <Checkbox className="vrn-mb-m">
+          <RichText content={agreementCheckboxText} noSpacings />
+        </Checkbox>
+        <Button color="primary" variant="solid" className="self-start">
+          {submitButtonText}
+        </Button>
       </div>
-    </>
+    </div>
   )
 }

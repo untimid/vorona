@@ -3,13 +3,10 @@ import React from 'react'
 import { CollectionArchive } from '../../_components/CollectionArchive'
 import { Gutter } from '../../_components/Gutter'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 import { ArchiveBlockProps } from './types'
 
-export const ArchiveBlock: React.FC<
-  ArchiveBlockProps & {
-    id?: string
-  }
-> = props => {
+export const ArchiveBlock: React.FC<ArchiveBlockProps & CommonBlockProps> = props => {
   const {
     introContent,
     id,
@@ -23,9 +20,9 @@ export const ArchiveBlock: React.FC<
   } = props
 
   return (
-    <div id={`block-${id}`} className={classes.archiveBlock}>
+    <div id={`block-${id}`}>
       {introContent && (
-        <Gutter className={classes.introContent}>
+        <Gutter>
           <RichText content={introContent} />
         </Gutter>
       )}

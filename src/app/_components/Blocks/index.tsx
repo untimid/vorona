@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Page } from '../../../payload/payload-types'
 import { ArchiveBlock } from '../../_blocks/ArchiveBlock'
 import { Audience } from '../../_blocks/Audience'
-import { CallToActionBlock } from '../../_blocks/CallToAction'
+// import { CallToActionBlock } from '../../_blocks/CallToAction'
 import { Cards } from '../../_blocks/Cards'
 import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments'
 import { ContactForm } from '../../_blocks/ContactForm'
@@ -15,18 +15,16 @@ import { Quote } from '../../_blocks/Quote'
 import { RelatedPosts, type RelatedPostsProps } from '../../_blocks/RelatedPosts'
 import { Services } from '../../_blocks/Services'
 import { Team } from '../../_blocks/Team'
-import { VoronaHome } from '../../_blocks/VoronaHome'
 import { toKebabCase } from '../../_utilities/toKebabCase'
 import { BlockWrapper } from '../BlockWrapper'
 
 const blockComponents = {
-  cta: CallToActionBlock,
+  // cta: CallToActionBlock, - TODO: due to types bug commented, remove or fix
   content: ContentBlock,
   mediaBlock: MediaBlock,
   archive: ArchiveBlock,
   relatedPosts: RelatedPosts,
   comments: CommentsBlock,
-  voronaHome: VoronaHome,
   cards: Cards,
   quote: Quote,
   contactForm: ContactForm,

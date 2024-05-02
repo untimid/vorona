@@ -9,6 +9,7 @@ import { HR } from '../../_components/HR'
 import { Message } from '../../_components/Message'
 import RichText from '../../_components/RichText'
 import { formatDateTime } from '../../_utilities/formatDateTime'
+import { CommonBlockProps } from '../commonTypes'
 import { CommentForm } from './CommentForm'
 
 export type CommentsBlockProps = {
@@ -18,13 +19,13 @@ export type CommentsBlockProps = {
   doc: Post | Project
   relationTo: 'posts' | 'projects'
   comments: Comment[]
-}
+} & CommonBlockProps
 
 export const CommentsBlock: React.FC<CommentsBlockProps> = props => {
-  const { introContent, doc, comments } = props
+  const { introContent, doc, comments, id } = props
 
   return (
-    <div>
+    <div id={`block-${id}`}>
       {introContent && (
         <Gutter>
           <RichText content={introContent} />

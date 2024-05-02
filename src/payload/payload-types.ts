@@ -176,9 +176,11 @@ export interface Page {
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
-        content: {
-          [k: string]: unknown;
-        }[];
+        content?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
@@ -232,26 +234,6 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'archive';
-      }
-    | {
-        invertBackground?: boolean | null;
-        colorizeBlock?: boolean | null;
-        blockColorFrom?: string | null;
-        blockColorTo?: string | null;
-        blockColorFromDark?: string | null;
-        blockColorToDark?: string | null;
-        header?: string | null;
-        enableColorizing?: boolean | null;
-        textToColorize?: string | null;
-        textColorFrom?: string | null;
-        textColorTo?: string | null;
-        textColorFromDark?: string | null;
-        textColorToDark?: string | null;
-        media?: string | Media | null;
-        testProp?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'voronaHome';
       }
     | {
         invertBackground?: boolean | null;
@@ -1994,9 +1976,11 @@ export interface Post {
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
-        content: {
-          [k: string]: unknown;
-        }[];
+        content?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
@@ -3678,9 +3662,11 @@ export interface Post {
             textColorToDark?: string | null;
             position?: ('default' | 'fullscreen') | null;
             media: string | Media;
-            content: {
-              [k: string]: unknown;
-            }[];
+            content?:
+              | {
+                  [k: string]: unknown;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'mediaBlock';
@@ -5450,9 +5436,11 @@ export interface Project {
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
         media: string | Media;
-        content: {
-          [k: string]: unknown;
-        }[];
+        content?:
+          | {
+              [k: string]: unknown;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaBlock';
