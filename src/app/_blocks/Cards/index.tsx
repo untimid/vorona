@@ -15,16 +15,17 @@ export const Cards: FC<CardsProps> = ({
   radius,
   shadow,
   imageHeight,
+  id,
 }) => {
   const cardsWrapperClassName = getCardsClassNames(columnsSm, columnsMd, columnsLg)
   return (
-    <>
+    <div id={`block-${id}`}>
       <RichText content={description} />
       <div className={['grid vrn-gap-l', cardsWrapperClassName].filter(Boolean).join(' ')}>
         {cardItems?.map(card => (
           <Card radius={radius} shadow={shadow} imageHeight={imageHeight} key={card.id} {...card} />
         ))}
       </div>
-    </>
+    </div>
   )
 }

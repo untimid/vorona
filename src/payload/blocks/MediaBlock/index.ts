@@ -41,6 +41,7 @@ export const MediaBlock: Block = {
         ru: 'Содержание',
       },
       localized: true,
+      required: false,
     }),
   ],
 }

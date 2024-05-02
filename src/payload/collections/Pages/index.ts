@@ -14,7 +14,6 @@ import { Principles } from '../../blocks/Principles'
 import { Quote } from '../../blocks/Quote'
 import { Services } from '../../blocks/Services'
 import { Team } from '../../blocks/Team'
-import { VoronaHome } from '../../blocks/VoronaHome'
 import { hero } from '../../fields/hero'
 import { slugField } from '../../fields/slug'
 import { populateArchiveBlock } from '../../hooks/populateArchiveBlock'
@@ -84,7 +83,6 @@ export const Pages: CollectionConfig = {
                 Content,
                 MediaBlock,
                 Archive,
-                VoronaHome,
                 Quote,
                 Cards,
                 ContactForm,

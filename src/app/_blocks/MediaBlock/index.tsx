@@ -5,10 +5,12 @@ import { Page } from '../../../payload/payload-types'
 import { BlockWrapper } from '../../_components/BlockWrapper'
 import { Media } from '../../_components/Media'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 
-interface MediaBlockProps extends Extract<Page['layout'][0], { blockType: 'mediaBlock' }> {
+interface MediaBlockProps
+  extends CommonBlockProps,
+    Extract<Page['layout'][0], { blockType: 'mediaBlock' }> {
   staticImage?: StaticImageData
-  id?: string
 }
 
 interface RichContentProps {
@@ -33,13 +35,14 @@ export const MediaBlock: FC<MediaBlockProps> = ({
   position = 'default',
   staticImage,
   content,
+  id,
 }) => {
   let caption
   if (media && typeof media === 'object') caption = media.caption
 
   if (position === 'fullscreen') {
     return (
-      <div className="relative w-full">
+      <div id={`block-${id}`} className="relative w-full">
         <Media resource={media} src={staticImage} />
         {content && (
           <BlockWrapper className="-mt-12 sm:mt-0 sm:absolute sm:top-0 w-full">

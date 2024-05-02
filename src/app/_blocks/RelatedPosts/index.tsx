@@ -4,6 +4,7 @@ import { Post, Project } from '../../../payload/payload-types'
 import { Card } from '../../_components/Card'
 import { Gutter } from '../../_components/Gutter'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 
 export type RelatedPostsProps = {
   blockType: 'relatedPosts'
@@ -11,13 +12,13 @@ export type RelatedPostsProps = {
   introContent?: any
   docs?: (string | Post | Project)[]
   relationTo: 'posts' | 'projects'
-}
+} & CommonBlockProps
 
 export const RelatedPosts: React.FC<RelatedPostsProps> = props => {
-  const { introContent, docs, relationTo } = props
+  const { introContent, docs, relationTo, id } = props
 
   return (
-    <div>
+    <div id={`block-${id}`}>
       {introContent && (
         <Gutter>
           <RichText content={introContent} />

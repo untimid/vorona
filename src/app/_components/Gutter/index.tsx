@@ -6,12 +6,17 @@ type Props = {
   className?: string
   children: React.ReactNode
   ref?: Ref<HTMLDivElement>
+  id?: string
 }
 
 export const Gutter: React.FC<Props> = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { left = true, right = true, className, children } = props
+  const { left = true, right = true, className, children, id } = props
 
-  return <div ref={ref}>{children}</div>
+  return (
+    <div {...(id ? { id } : {})} ref={ref}>
+      {children}
+    </div>
+  )
 })
 
 Gutter.displayName = 'Gutter'

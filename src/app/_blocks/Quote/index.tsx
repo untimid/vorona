@@ -4,17 +4,18 @@ import { Avatar } from '@nextui-org/react'
 
 import type { Page } from '../../../payload/payload-types'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 
-export type QuoteProps = Extract<Page['layout'][0], { blockType: 'quote' }>
+export type QuoteProps = Extract<Page['layout'][0], { blockType: 'quote' }> & CommonBlockProps
 
-export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo }) => {
+export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo, id }) => {
   const { alt, url } =
     typeof photo !== 'string'
       ? { alt: photo.alt, url: `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${photo.filename}` }
       : { url: photo, alt: name }
 
   return (
-    <>
+    <div id={`block-${id}`}>
       <div className="flex flex-col sm:flex-row w-full vrn-gap-m">
         <RichText
           content={content}
@@ -30,6 +31,6 @@ export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo }) =
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

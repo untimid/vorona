@@ -493,7 +493,7 @@ input Page_Hero_Slider_SlideImage_where_or {
   OR: [Page_Hero_Slider_SlideImage_where_or]
 }
 
-union Page_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
+union Page_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type Cta {
   invertBackground: Boolean
@@ -4305,189 +4305,6 @@ enum Archive_PopulatedDocs_RelationTo {
 
 union Archive_PopulatedDocs = Post | Project
 
-type VoronaHome {
-  invertBackground: Boolean
-  colorizeBlock: Boolean
-  blockColorFrom: String
-  blockColorTo: String
-  blockColorFromDark: String
-  blockColorToDark: String
-  header: String
-  enableColorizing: Boolean
-  textToColorize: String
-  textColorFrom: String
-  textColorTo: String
-  textColorFromDark: String
-  textColorToDark: String
-  media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: VoronaHome_Media_where): Media
-  testProp: String
-  id: String
-  blockName: String
-  blockType: String
-}
-
-input VoronaHome_Media_where {
-  alt: VoronaHome_Media_alt_operator
-  caption: VoronaHome_Media_caption_operator
-  updatedAt: VoronaHome_Media_updatedAt_operator
-  createdAt: VoronaHome_Media_createdAt_operator
-  url: VoronaHome_Media_url_operator
-  filename: VoronaHome_Media_filename_operator
-  mimeType: VoronaHome_Media_mimeType_operator
-  filesize: VoronaHome_Media_filesize_operator
-  width: VoronaHome_Media_width_operator
-  height: VoronaHome_Media_height_operator
-  id: VoronaHome_Media_id_operator
-  AND: [VoronaHome_Media_where_and]
-  OR: [VoronaHome_Media_where_or]
-}
-
-input VoronaHome_Media_alt_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-}
-
-input VoronaHome_Media_caption_operator {
-  equals: JSON
-  not_equals: JSON
-  like: JSON
-  contains: JSON
-  exists: Boolean
-}
-
-input VoronaHome_Media_updatedAt_operator {
-  equals: DateTime
-  not_equals: DateTime
-  greater_than_equal: DateTime
-  greater_than: DateTime
-  less_than_equal: DateTime
-  less_than: DateTime
-  like: DateTime
-  exists: Boolean
-}
-
-input VoronaHome_Media_createdAt_operator {
-  equals: DateTime
-  not_equals: DateTime
-  greater_than_equal: DateTime
-  greater_than: DateTime
-  less_than_equal: DateTime
-  less_than: DateTime
-  like: DateTime
-  exists: Boolean
-}
-
-input VoronaHome_Media_url_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input VoronaHome_Media_filename_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input VoronaHome_Media_mimeType_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input VoronaHome_Media_filesize_operator {
-  equals: Float
-  not_equals: Float
-  greater_than_equal: Float
-  greater_than: Float
-  less_than_equal: Float
-  less_than: Float
-  exists: Boolean
-}
-
-input VoronaHome_Media_width_operator {
-  equals: Float
-  not_equals: Float
-  greater_than_equal: Float
-  greater_than: Float
-  less_than_equal: Float
-  less_than: Float
-  exists: Boolean
-}
-
-input VoronaHome_Media_height_operator {
-  equals: Float
-  not_equals: Float
-  greater_than_equal: Float
-  greater_than: Float
-  less_than_equal: Float
-  less_than: Float
-  exists: Boolean
-}
-
-input VoronaHome_Media_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input VoronaHome_Media_where_and {
-  alt: VoronaHome_Media_alt_operator
-  caption: VoronaHome_Media_caption_operator
-  updatedAt: VoronaHome_Media_updatedAt_operator
-  createdAt: VoronaHome_Media_createdAt_operator
-  url: VoronaHome_Media_url_operator
-  filename: VoronaHome_Media_filename_operator
-  mimeType: VoronaHome_Media_mimeType_operator
-  filesize: VoronaHome_Media_filesize_operator
-  width: VoronaHome_Media_width_operator
-  height: VoronaHome_Media_height_operator
-  id: VoronaHome_Media_id_operator
-  AND: [VoronaHome_Media_where_and]
-  OR: [VoronaHome_Media_where_or]
-}
-
-input VoronaHome_Media_where_or {
-  alt: VoronaHome_Media_alt_operator
-  caption: VoronaHome_Media_caption_operator
-  updatedAt: VoronaHome_Media_updatedAt_operator
-  createdAt: VoronaHome_Media_createdAt_operator
-  url: VoronaHome_Media_url_operator
-  filename: VoronaHome_Media_filename_operator
-  mimeType: VoronaHome_Media_mimeType_operator
-  filesize: VoronaHome_Media_filesize_operator
-  width: VoronaHome_Media_width_operator
-  height: VoronaHome_Media_height_operator
-  id: VoronaHome_Media_id_operator
-  AND: [VoronaHome_Media_where_and]
-  OR: [VoronaHome_Media_where_or]
-}
-
 type Page_Meta {
   title: String
   description: String
@@ -6689,7 +6506,7 @@ input PageVersion_Version_Hero_Slider_SlideImage_where_or {
   OR: [PageVersion_Version_Hero_Slider_SlideImage_where_or]
 }
 
-union PageVersion_Version_Layout = Cta | Content | MediaBlock | Archive | VoronaHome | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
+union PageVersion_Version_Layout = Cta | Content | MediaBlock | Archive | Quote | Cards | ContactForm | Pricing | Principles | Team | Audience | Services
 
 type PageVersion_Version_Meta {
   title: String

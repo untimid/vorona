@@ -53,13 +53,6 @@ export const MEDIA_BLOCK = `
 }
 `
 
-export const VORONA_HOME = `
-...on VoronaHome {
-  blockType
-  ${COMMON_BLOCK_FIELDS}
-}
-`
-
 export const ARCHIVE_BLOCK = `
 ...on Archive {
   blockType

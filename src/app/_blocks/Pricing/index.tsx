@@ -4,8 +4,9 @@ import * as icons from '@heroicons/react/24/outline'
 
 import type { Page } from '../../../payload/payload-types'
 import RichText from '../../_components/RichText'
+import { CommonBlockProps } from '../commonTypes'
 
-export type PricingProps = Extract<Page['layout'][0], { blockType: 'pricing' }>
+export type PricingProps = Extract<Page['layout'][0], { blockType: 'pricing' }> & CommonBlockProps
 
 const PriceItem: FC<PricingProps['highlightedPrices'][number]> = ({ rate, description }) => (
   <div className="flex flex-col justify-items-center content-center p-8">
@@ -28,8 +29,8 @@ const Tip: FC<PricingProps['tips'][number]> = ({ title, description, icon }) => 
   )
 }
 
-export const Pricing: FC<PricingProps> = ({ description, highlightedPrices, tips }) => (
-  <>
+export const Pricing: FC<PricingProps> = ({ description, highlightedPrices, tips, id }) => (
+  <div id={`block-${id}`}>
     <RichText content={description} />
     <div className="grid sm:grid-cols-1 md:grid-cols-2 vrn-gap-l">
       <div className="flex flex-row  bg-gradient-to-br from-cyan-300 to-yellow-300 items-center">
@@ -45,5 +46,5 @@ export const Pricing: FC<PricingProps> = ({ description, highlightedPrices, tips
           ))}
       </div>
     </div>
-  </>
+  </div>
 )

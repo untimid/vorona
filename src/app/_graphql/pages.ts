@@ -11,7 +11,6 @@ import {
   QUOTE,
   SERVICES,
   TEAM,
-  VORONA_HOME,
 } from './blocks'
 import { HERO } from './hero'
 import { META } from './meta'
@@ -41,7 +40,6 @@ export const PAGE = `
           ${CONTENT}
           ${MEDIA_BLOCK}
           ${ARCHIVE_BLOCK}
-          ${VORONA_HOME}
           ${QUOTE}
           ${CARDS}
           ${TEAM}
