@@ -14,9 +14,9 @@ export type PrinciplesProps = Extract<Page['layout'][0], { blockType: 'principle
 
 export const Principles: FC<PrinciplesProps> = ({
   description,
-  pricingPrinciples,
+  pricing,
   processPrinciples,
-  collaborationPrinciples,
+  collab,
   id,
 }) => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['1']))
@@ -35,10 +35,7 @@ export const Principles: FC<PrinciplesProps> = ({
           aria-label="Pricing"
           title={<h3 className="vrn-h3 uppercase">Ценообразование</h3>}
         >
-          <Pricing
-            principles={pricingPrinciples.principles}
-            videoSrc={pricingPrinciples.videoSrc}
-          />
+          <Pricing principles={pricing.principles} videoSrc={pricing.videoSrc} />
         </AccordionItem>
         <AccordionItem
           key="2"
@@ -57,9 +54,9 @@ export const Principles: FC<PrinciplesProps> = ({
           title={<h3 className="vrn-h3 uppercase">Варианты работы</h3>}
         >
           <Collaboration
-            description={collaborationPrinciples.description}
-            principles={collaborationPrinciples.principles}
-            videoSrc={collaborationPrinciples.videoSrc}
+            description={collab.description}
+            principles={collab.principles}
+            videoSrc={collab.videoSrc}
           />
         </AccordionItem>
       </Accordion>

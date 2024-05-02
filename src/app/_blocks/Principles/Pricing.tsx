@@ -4,7 +4,7 @@ import { YouTubePlayer } from '../../_components/YouTubePlayer'
 import type { PrinciplesProps } from './'
 import { PricingPrinciple } from './PricingPrinciple'
 import { TabWrapper } from './TabWrapper'
-type PricingProps = PrinciplesProps['pricingPrinciples']
+type PricingProps = PrinciplesProps['pricing']
 
 export const Pricing: FC<PricingProps> = ({ principles, videoSrc }) => {
   return (

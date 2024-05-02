@@ -4,7 +4,7 @@ import * as icons from '@heroicons/react/24/outline'
 import RichText from '../../_components/RichText'
 import type { PrinciplesProps } from './'
 
-type PricingPrincipleProps = PrinciplesProps['pricingPrinciples']['principles'][number]
+type PricingPrincipleProps = PrinciplesProps['pricing']['principles'][number]
 
 export const PricingPrinciple: FC<PricingPrincipleProps> = ({ title, description, icon }) => {
   const RenderIcon = icons[icon]

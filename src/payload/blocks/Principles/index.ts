@@ -87,24 +87,13 @@ const collaborationPrincipleFields: Block['fields'] = [
     },
   },
   {
-    name: 'services',
-    type: 'array',
+    name: 'jobs',
+    type: 'text',
     label: {
       en: 'Services',
       ru: 'Услуги',
     },
     localized: true,
-    fields: [
-      {
-        name: 'title',
-        type: 'text',
-        label: {
-          en: 'Title',
-          ru: 'Название',
-        },
-        localized: true,
-      },
-    ],
   },
 ]
 
@@ -163,7 +152,7 @@ export const Principles: Block = {
     }),
     {
       type: 'group',
-      name: 'pricingPrinciples',
+      name: 'pricing',
       label: {
         en: 'Pricing principles',
         ru: 'Принципы ценообразования',
@@ -245,7 +234,7 @@ export const Principles: Block = {
     },
     {
       type: 'group',
-      name: 'collaborationPrinciples',
+      name: 'collab',
       label: {
         en: 'Collaboration principles',
         ru: 'Принципы сотрудничества',

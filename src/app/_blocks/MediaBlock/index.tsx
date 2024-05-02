@@ -5,11 +5,8 @@ import { Page } from '../../../payload/payload-types'
 import { BlockWrapper } from '../../_components/BlockWrapper'
 import { Media } from '../../_components/Media'
 import RichText from '../../_components/RichText'
-import { CommonBlockProps } from '../commonTypes'
 
-interface MediaBlockProps
-  extends CommonBlockProps,
-    Extract<Page['layout'][0], { blockType: 'mediaBlock' }> {
+interface MediaBlockProps extends Extract<Page['layout'][0], { blockType: 'mediaBlock' }> {
   staticImage?: StaticImageData
 }
 

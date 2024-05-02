@@ -59,32 +59,6 @@ export const Audience: Block = {
           },
           localized: true,
         }),
-        {
-          name: 'benefitItems',
-          type: 'array',
-          label: {
-            en: 'Benefits to work with us',
-            ru: 'Выгоды от работы с нами',
-          },
-          fields: [
-            {
-              name: 'title',
-              type: 'text',
-              label: {
-                en: 'Title',
-                ru: 'Заголовок',
-              },
-            },
-            richText({
-              name: 'description',
-              label: {
-                en: 'Description',
-                ru: 'Описание',
-              },
-              localized: true,
-            }),
-          ],
-        },
       ],
     },
   ],

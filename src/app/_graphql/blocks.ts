@@ -155,10 +155,6 @@ export const AUDIENCE = `
     }
     title
     description
-    benefitItems {
-      title
-      description
-    }
   }
 }
 `
@@ -206,7 +202,7 @@ export const PRINCIPLES = `
   blockType
   ${COMMON_BLOCK_FIELDS}
   description
-  pricingPrinciples {
+  pricing {
     principles {
       title
       description
@@ -225,7 +221,7 @@ export const PRINCIPLES = `
       percentage
     }
   }
-  collaborationPrinciples {
+  collab {
     description
     videoSrc
     principles {
@@ -233,7 +229,7 @@ export const PRINCIPLES = `
       description
       icon
       color
-      services {
+      jobs {
         title
       }
     }

@@ -86,9 +86,9 @@ export const PostHero: React.FC<{
         <div>
           <div>
             {!metaImage && <div>No image</div>}
-            {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} fill />}
+            {metaImage && typeof metaImage !== 'number' && <Media resource={metaImage} fill />}
           </div>
-          {metaImage && typeof metaImage !== 'string' && metaImage?.caption && (
+          {metaImage && typeof metaImage !== 'number' && metaImage?.caption && (
             <RichText content={metaImage.caption} />
           )}
         </div>

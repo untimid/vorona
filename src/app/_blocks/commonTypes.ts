@@ -1,3 +1,3 @@
 export interface CommonBlockProps {
-  id?: string
+  id?: number
 }

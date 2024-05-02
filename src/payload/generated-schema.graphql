@@ -1,41 +1,41 @@
 type Query {
-  Page(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Page
+  Page(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Page
   Pages(draft: Boolean, where: Page_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Pages
-  docAccessPage(id: String!): pagesDocAccess
-  versionPage(id: String, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PageVersion
+  docAccessPage(id: Int!): pagesDocAccess
+  versionPage(id: Int, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PageVersion
   versionsPages(where: versionsPage_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): versionsPages
-  Post(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Post
+  Post(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Post
   Posts(draft: Boolean, where: Post_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Posts
-  docAccessPost(id: String!): postsDocAccess
-  versionPost(id: String, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PostVersion
+  docAccessPost(id: Int!): postsDocAccess
+  versionPost(id: Int, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PostVersion
   versionsPosts(where: versionsPost_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): versionsPosts
-  Project(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Project
+  Project(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Project
   Projects(draft: Boolean, where: Project_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Projects
-  docAccessProject(id: String!): projectsDocAccess
-  versionProject(id: String, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): ProjectVersion
+  docAccessProject(id: Int!): projectsDocAccess
+  versionProject(id: Int, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): ProjectVersion
   versionsProjects(where: versionsProject_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): versionsProjects
-  Media(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Media
+  Media(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Media
   allMedia(draft: Boolean, where: Media_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): allMedia
-  docAccessMedia(id: String!): mediaDocAccess
-  Category(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Category
+  docAccessMedia(id: Int!): mediaDocAccess
+  Category(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Category
   Categories(draft: Boolean, where: Category_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Categories
-  docAccessCategory(id: String!): categoriesDocAccess
-  User(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): User
+  docAccessCategory(id: Int!): categoriesDocAccess
+  User(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): User
   Users(draft: Boolean, where: User_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Users
-  docAccessUser(id: String!): usersDocAccess
+  docAccessUser(id: Int!): usersDocAccess
   meUser: usersMe
   initializedUser: Boolean
-  Comment(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Comment
+  Comment(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Comment
   Comments(draft: Boolean, where: Comment_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Comments
-  docAccessComment(id: String!): commentsDocAccess
-  versionComment(id: String, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): CommentVersion
+  docAccessComment(id: Int!): commentsDocAccess
+  versionComment(id: Int, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): CommentVersion
   versionsComments(where: versionsComment_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): versionsComments
-  Redirect(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Redirect
+  Redirect(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Redirect
   Redirects(draft: Boolean, where: Redirect_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): Redirects
-  docAccessRedirect(id: String!): redirectsDocAccess
-  PayloadPreference(id: String!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PayloadPreference
+  docAccessRedirect(id: Int!): redirectsDocAccess
+  PayloadPreference(id: Int!, draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PayloadPreference
   PayloadPreferences(draft: Boolean, where: PayloadPreference_where, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, limit: Int, page: Int, sort: String): PayloadPreferences
-  docAccessPayloadPreference(id: String!): payload_preferencesDocAccess
+  docAccessPayloadPreference(id: Int!): payload_preferencesDocAccess
   Settings(draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Settings
   docAccessSettings: settingsDocAccess
   Header(draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Header
@@ -46,7 +46,7 @@ type Query {
 }
 
 type Page {
-  id: String
+  id: Int
   title: String
   publishedAt: DateTime
   hero: Page_Hero
@@ -150,7 +150,7 @@ enum Page_Hero_Links_Link_appearance {
 }
 
 type Media {
-  id: String
+  id: Int
   alt: String!
   caption(depth: Int): JSON
   updatedAt: DateTime
@@ -844,7 +844,7 @@ enum Archive_relationTo {
 }
 
 type Category {
-  id: String
+  id: Int
   title: String
   parent(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): Category
   breadcrumbs: [Category_Breadcrumbs!]
@@ -872,7 +872,7 @@ enum Archive_SelectedDocs_RelationTo {
 union Archive_SelectedDocs = Post | Project
 
 type Post {
-  id: String
+  id: Int
   title: String
   categories(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): [Category!]
   publishedAt: DateTime
@@ -891,7 +891,7 @@ type Post {
 }
 
 type User {
-  id: String
+  id: Int
   name: String
   roles: [User_roles!]
   updatedAt: DateTime
@@ -2444,27 +2444,27 @@ type Principles {
   textColorFromDark: String
   textColorToDark: String
   description(depth: Int): JSON
-  pricingPrinciples: Principles_PricingPrinciples
+  pricing: Principles_Pricing
   processPrinciples: Principles_ProcessPrinciples
-  collaborationPrinciples: Principles_CollaborationPrinciples
+  collab: Principles_Collab
   id: String
   blockName: String
   blockType: String
 }
 
-type Principles_PricingPrinciples {
+type Principles_Pricing {
   videoSrc: String
-  principles: [Principles_PricingPrinciples_Principles!]
+  principles: [Principles_Pricing_Principles!]
 }
 
-type Principles_PricingPrinciples_Principles {
+type Principles_Pricing_Principles {
   title: String
   description(depth: Int): JSON
-  icon: Principles_PricingPrinciples_Principles_icon
+  icon: Principles_Pricing_Principles_icon
   id: String
 }
 
-enum Principles_PricingPrinciples_Principles_icon {
+enum Principles_Pricing_Principles_icon {
   AcademicCapIcon
   AdjustmentsHorizontalIcon
   AdjustmentsVerticalIcon
@@ -2779,22 +2779,22 @@ type Principles_ProcessPrinciples_Steps {
   id: String
 }
 
-type Principles_CollaborationPrinciples {
+type Principles_Collab {
   description(depth: Int): JSON
   videoSrc: String
-  principles: [Principles_CollaborationPrinciples_Principles!]
+  principles: [Principles_Collab_Principles!]
 }
 
-type Principles_CollaborationPrinciples_Principles {
+type Principles_Collab_Principles {
   title: String
   description(depth: Int): JSON
-  icon: Principles_CollaborationPrinciples_Principles_icon
+  icon: Principles_Collab_Principles_icon
   color: String
-  services: [Principles_CollaborationPrinciples_Principles_Services!]
+  jobs: String
   id: String
 }
 
-enum Principles_CollaborationPrinciples_Principles_icon {
+enum Principles_Collab_Principles_icon {
   AcademicCapIcon
   AdjustmentsHorizontalIcon
   AdjustmentsVerticalIcon
@@ -3094,11 +3094,6 @@ enum Principles_CollaborationPrinciples_Principles_icon {
   default
 }
 
-type Principles_CollaborationPrinciples_Principles_Services {
-  title: String
-  id: String
-}
-
 type Team {
   invertBackground: Boolean
   colorizeBlock: Boolean
@@ -3323,7 +3318,6 @@ type Audience_AudienceItems {
   image(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Audience_AudienceItems_Image_where): Media
   title: String
   description(depth: Int): JSON
-  benefitItems: [Audience_AudienceItems_BenefitItems!]
   id: String
 }
 
@@ -3487,12 +3481,6 @@ input Audience_AudienceItems_Image_where_or {
   id: Audience_AudienceItems_Image_id_operator
   AND: [Audience_AudienceItems_Image_where_and]
   OR: [Audience_AudienceItems_Image_where_or]
-}
-
-type Audience_AudienceItems_BenefitItems {
-  title: String
-  description(depth: Int): JSON
-  id: String
 }
 
 type Services {
@@ -3704,7 +3692,7 @@ enum Post__status {
 }
 
 type Project {
-  id: String
+  id: Int
   title: String
   categories(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): [Category!]
   publishedAt: DateTime
@@ -4893,13 +4881,12 @@ enum Page__status_Input {
 }
 
 input Page_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -6091,7 +6078,7 @@ type PageVersion {
   createdAt: DateTime
   updatedAt: DateTime
   latest: Boolean
-  id: String
+  id: Int
 }
 
 type PageVersion_Version {
@@ -7137,13 +7124,12 @@ input versionsPage_latest_operator {
 }
 
 input versionsPage_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -7715,13 +7701,12 @@ enum Post__status_Input {
 }
 
 input Post_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -9116,7 +9101,7 @@ type PostVersion {
   createdAt: DateTime
   updatedAt: DateTime
   latest: Boolean
-  id: String
+  id: Int
 }
 
 type PostVersion_Version {
@@ -10236,13 +10221,12 @@ input versionsPost_latest_operator {
 }
 
 input versionsPost_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -10785,13 +10769,12 @@ enum Project__status_Input {
 }
 
 input Project_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -12030,7 +12013,7 @@ type ProjectVersion {
   createdAt: DateTime
   updatedAt: DateTime
   latest: Boolean
-  id: String
+  id: Int
 }
 
 type ProjectVersion_Version {
@@ -13098,13 +13081,12 @@ input versionsProject_latest_operator {
 }
 
 input versionsProject_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -13338,13 +13320,12 @@ input Media_height_operator {
 }
 
 input Media_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -13764,13 +13745,12 @@ input Category_createdAt_operator {
 }
 
 input Category_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -14136,13 +14116,12 @@ input User_email_operator {
 }
 
 input User_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -14357,7 +14336,7 @@ type usersMe {
 }
 
 type Comment {
-  id: String
+  id: Int
   user(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): User
   populatedUser: Comment_PopulatedUser
   doc(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): Post
@@ -14490,13 +14469,12 @@ enum Comment__status_Input {
 }
 
 input Comment_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -14791,7 +14769,7 @@ type CommentVersion {
   createdAt: DateTime
   updatedAt: DateTime
   latest: Boolean
-  id: String
+  id: Int
 }
 
 type CommentVersion_Version {
@@ -14968,13 +14946,12 @@ input versionsComment_latest_operator {
 }
 
 input versionsComment_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -15015,7 +14992,7 @@ input versionsComment_where_or {
 }
 
 type Redirect {
-  id: String
+  id: Int
   from: String!
   to: Redirect_To
   updatedAt: DateTime
@@ -15137,13 +15114,12 @@ input Redirect_createdAt_operator {
 }
 
 input Redirect_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -15375,7 +15351,7 @@ type RedirectsDeleteDocAccess {
 }
 
 type PayloadPreference {
-  id: String
+  id: Int
   user(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType): PayloadPreference_User_Relationship!
   key: String
   value: JSON
@@ -15472,13 +15448,12 @@ input PayloadPreference_createdAt_operator {
 }
 
 input PayloadPreference_id_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
+  equals: Int
+  not_equals: Int
+  greater_than_equal: Int
+  greater_than: Int
+  less_than_equal: Int
+  less_than: Int
   exists: Boolean
 }
 
@@ -22729,26 +22704,26 @@ type FooterUpdateAccess {
 
 type Mutation {
   createPage(data: mutationPageInput!, draft: Boolean, locale: LocaleInputType): Page
-  updatePage(id: String!, autosave: Boolean, data: mutationPageUpdateInput!, draft: Boolean, locale: LocaleInputType): Page
-  deletePage(id: String!): Page
-  restoreVersionPage(id: String): Page
+  updatePage(id: Int!, autosave: Boolean, data: mutationPageUpdateInput!, draft: Boolean, locale: LocaleInputType): Page
+  deletePage(id: Int!): Page
+  restoreVersionPage(id: Int): Page
   createPost(data: mutationPostInput!, draft: Boolean, locale: LocaleInputType): Post
-  updatePost(id: String!, autosave: Boolean, data: mutationPostUpdateInput!, draft: Boolean, locale: LocaleInputType): Post
-  deletePost(id: String!): Post
-  restoreVersionPost(id: String): Post
+  updatePost(id: Int!, autosave: Boolean, data: mutationPostUpdateInput!, draft: Boolean, locale: LocaleInputType): Post
+  deletePost(id: Int!): Post
+  restoreVersionPost(id: Int): Post
   createProject(data: mutationProjectInput!, draft: Boolean, locale: LocaleInputType): Project
-  updateProject(id: String!, autosave: Boolean, data: mutationProjectUpdateInput!, draft: Boolean, locale: LocaleInputType): Project
-  deleteProject(id: String!): Project
-  restoreVersionProject(id: String): Project
+  updateProject(id: Int!, autosave: Boolean, data: mutationProjectUpdateInput!, draft: Boolean, locale: LocaleInputType): Project
+  deleteProject(id: Int!): Project
+  restoreVersionProject(id: Int): Project
   createMedia(data: mutationMediaInput!, draft: Boolean, locale: LocaleInputType): Media
-  updateMedia(id: String!, autosave: Boolean, data: mutationMediaUpdateInput!, draft: Boolean, locale: LocaleInputType): Media
-  deleteMedia(id: String!): Media
+  updateMedia(id: Int!, autosave: Boolean, data: mutationMediaUpdateInput!, draft: Boolean, locale: LocaleInputType): Media
+  deleteMedia(id: Int!): Media
   createCategory(data: mutationCategoryInput!, draft: Boolean, locale: LocaleInputType): Category
-  updateCategory(id: String!, autosave: Boolean, data: mutationCategoryUpdateInput!, draft: Boolean, locale: LocaleInputType): Category
-  deleteCategory(id: String!): Category
+  updateCategory(id: Int!, autosave: Boolean, data: mutationCategoryUpdateInput!, draft: Boolean, locale: LocaleInputType): Category
+  deleteCategory(id: Int!): Category
   createUser(data: mutationUserInput!, draft: Boolean, locale: LocaleInputType): User
-  updateUser(id: String!, autosave: Boolean, data: mutationUserUpdateInput!, draft: Boolean, locale: LocaleInputType): User
-  deleteUser(id: String!): User
+  updateUser(id: Int!, autosave: Boolean, data: mutationUserUpdateInput!, draft: Boolean, locale: LocaleInputType): User
+  deleteUser(id: Int!): User
   refreshTokenUser(token: String): usersRefreshedUser
   logoutUser: String
   unlockUser(email: String!): Boolean!
@@ -22757,15 +22732,15 @@ type Mutation {
   resetPasswordUser(password: String, token: String): usersResetPassword
   verifyEmailUser(token: String): Boolean
   createComment(data: mutationCommentInput!, draft: Boolean, locale: LocaleInputType): Comment
-  updateComment(id: String!, autosave: Boolean, data: mutationCommentUpdateInput!, draft: Boolean, locale: LocaleInputType): Comment
-  deleteComment(id: String!): Comment
-  restoreVersionComment(id: String): Comment
+  updateComment(id: Int!, autosave: Boolean, data: mutationCommentUpdateInput!, draft: Boolean, locale: LocaleInputType): Comment
+  deleteComment(id: Int!): Comment
+  restoreVersionComment(id: Int): Comment
   createRedirect(data: mutationRedirectInput!, draft: Boolean, locale: LocaleInputType): Redirect
-  updateRedirect(id: String!, autosave: Boolean, data: mutationRedirectUpdateInput!, draft: Boolean, locale: LocaleInputType): Redirect
-  deleteRedirect(id: String!): Redirect
+  updateRedirect(id: Int!, autosave: Boolean, data: mutationRedirectUpdateInput!, draft: Boolean, locale: LocaleInputType): Redirect
+  deleteRedirect(id: Int!): Redirect
   createPayloadPreference(data: mutationPayloadPreferenceInput!, draft: Boolean, locale: LocaleInputType): PayloadPreference
-  updatePayloadPreference(id: String!, autosave: Boolean, data: mutationPayloadPreferenceUpdateInput!, draft: Boolean, locale: LocaleInputType): PayloadPreference
-  deletePayloadPreference(id: String!): PayloadPreference
+  updatePayloadPreference(id: Int!, autosave: Boolean, data: mutationPayloadPreferenceUpdateInput!, draft: Boolean, locale: LocaleInputType): PayloadPreference
+  deletePayloadPreference(id: Int!): PayloadPreference
   updateSettings(data: mutationSettingsInput!, draft: Boolean, locale: LocaleInputType): Settings
   updateHeader(data: mutationHeaderInput!, draft: Boolean, locale: LocaleInputType): Header
   updateFooter(data: mutationFooterInput!, draft: Boolean, locale: LocaleInputType): Footer
@@ -22957,15 +22932,15 @@ enum PageUpdate__status_MutationInput {
 
 input mutationPostInput {
   title: String!
-  categories: [String]
+  categories: [Int]
   publishedAt: String
-  authors: [String]
+  authors: [Int]
   populatedAuthors: [mutationPost_PopulatedAuthorsInput]
   hero: mutationPost_HeroInput!
   layout: JSON
   enablePremiumContent: Boolean
   premiumContent: JSON
-  relatedPosts: [String]
+  relatedPosts: [Int]
   slug: String
   meta: mutationPost_MetaInput
   updatedAt: String
@@ -23060,15 +23035,15 @@ enum Post__status_MutationInput {
 
 input mutationPostUpdateInput {
   title: String
-  categories: [String]
+  categories: [Int]
   publishedAt: String
-  authors: [String]
+  authors: [Int]
   populatedAuthors: [mutationPostUpdate_PopulatedAuthorsInput]
   hero: mutationPostUpdate_HeroInput!
   layout: JSON
   enablePremiumContent: Boolean
   premiumContent: JSON
-  relatedPosts: [String]
+  relatedPosts: [Int]
   slug: String
   meta: mutationPostUpdate_MetaInput
   updatedAt: String
@@ -23163,11 +23138,11 @@ enum PostUpdate__status_MutationInput {
 
 input mutationProjectInput {
   title: String!
-  categories: [String]
+  categories: [Int]
   publishedAt: String
   hero: mutationProject_HeroInput!
   layout: JSON
-  relatedProjects: [String]
+  relatedProjects: [Int]
   slug: String
   meta: mutationProject_MetaInput
   updatedAt: String
@@ -23257,11 +23232,11 @@ enum Project__status_MutationInput {
 
 input mutationProjectUpdateInput {
   title: String
-  categories: [String]
+  categories: [Int]
   publishedAt: String
   hero: mutationProjectUpdate_HeroInput!
   layout: JSON
-  relatedProjects: [String]
+  relatedProjects: [Int]
   slug: String
   meta: mutationProjectUpdate_MetaInput
   updatedAt: String
@@ -23377,14 +23352,14 @@ input mutationMediaUpdateInput {
 
 input mutationCategoryInput {
   title: String
-  parent: String
+  parent: Int
   breadcrumbs: [mutationCategory_BreadcrumbsInput]
   updatedAt: String
   createdAt: String
 }
 
 input mutationCategory_BreadcrumbsInput {
-  doc: String
+  doc: Int
   url: String
   label: String
   id: String
@@ -23392,14 +23367,14 @@ input mutationCategory_BreadcrumbsInput {
 
 input mutationCategoryUpdateInput {
   title: String
-  parent: String
+  parent: Int
   breadcrumbs: [mutationCategoryUpdate_BreadcrumbsInput]
   updatedAt: String
   createdAt: String
 }
 
 input mutationCategoryUpdate_BreadcrumbsInput {
-  doc: String
+  doc: Int
   url: String
   label: String
   id: String
@@ -23468,9 +23443,9 @@ type usersResetPassword {
 }
 
 input mutationCommentInput {
-  user: String
+  user: Int
   populatedUser: mutationComment_PopulatedUserInput
-  doc: String
+  doc: Int
   comment: String
   updatedAt: String
   createdAt: String
@@ -23488,9 +23463,9 @@ enum Comment__status_MutationInput {
 }
 
 input mutationCommentUpdateInput {
-  user: String
+  user: Int
   populatedUser: mutationCommentUpdate_PopulatedUserInput
-  doc: String
+  doc: Int
   comment: String
   updatedAt: String
   createdAt: String
@@ -23588,8 +23563,8 @@ enum PayloadPreferenceUpdate_UserRelationshipInputRelationTo {
 }
 
 input mutationSettingsInput {
-  postsPage: String
-  projectsPage: String
+  postsPage: Int
+  projectsPage: Int
   updatedAt: String
   createdAt: String
 }
