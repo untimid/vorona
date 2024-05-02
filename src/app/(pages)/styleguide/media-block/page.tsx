@@ -20,13 +20,18 @@ export default async function MediaBlockPage() {
         <h1 className="vrn-h1">Media Block</h1>
       </Gutter>
       <VerticalPadding bottom="large" top="none">
-        <MediaBlock position="default" blockType="mediaBlock" media="" staticImage={staticImage} />
+        <MediaBlock
+          position="default"
+          blockType="mediaBlock"
+          media={null}
+          staticImage={staticImage}
+        />
         <br />
         <br />
         <MediaBlock
           position="fullscreen"
           blockType="mediaBlock"
-          media=""
+          media={null}
           staticImage={staticImage}
         />
       </VerticalPadding>

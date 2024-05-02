@@ -16,7 +16,7 @@ type FormData = {
 }
 
 export const CommentForm: React.FC<{
-  docID: string
+  docID: number
 }> = ({ docID }) => {
   const pathname = usePathname()
   const [error, setError] = React.useState<string | null>(null)

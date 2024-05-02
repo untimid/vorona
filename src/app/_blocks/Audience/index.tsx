@@ -13,12 +13,11 @@ export const Audience: FC<AudienceProps> = ({ description, audienceItems, id }) 
     <div id={`block-${id}`}>
       <RichText content={description} />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 vrn-gap-l">
-        {audienceItems?.map(({ title, description, benefitItems, image }, i) => (
+        {audienceItems?.map(({ title, description, image }, i) => (
           <AudienceCard
             key={`${title}-${i}`}
             title={title}
             description={description}
-            benefitItems={benefitItems}
             image={image}
           />
         ))}

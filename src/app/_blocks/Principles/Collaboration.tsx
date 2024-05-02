@@ -6,7 +6,7 @@ import type { PrinciplesProps } from './'
 import { CollaborationPrinciple } from './CollaborationPrinciple'
 import { TabWrapper } from './TabWrapper'
 
-export type CollaborationProps = PrinciplesProps['collaborationPrinciples']
+export type CollaborationProps = PrinciplesProps['collab']
 
 export const Collaboration: FC<CollaborationProps> = ({ principles, description, videoSrc }) => {
   return (
@@ -14,13 +14,13 @@ export const Collaboration: FC<CollaborationProps> = ({ principles, description,
       <div>
         <RichText content={description} />
         <div className="flex-col vrn-gap-l">
-          {principles?.map(({ title, color, description, icon, services }, i) => (
+          {principles?.map(({ title, color, description, icon, jobs }, i) => (
             <CollaborationPrinciple
               key={`${title}-${i}`}
               title={title}
               description={description}
               icon={icon}
-              services={services}
+              jobs={jobs}
               color={color}
             />
           ))}

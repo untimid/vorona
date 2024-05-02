@@ -10,9 +10,9 @@ export type QuoteProps = Extract<Page['layout'][0], { blockType: 'quote' }> & Co
 
 export const Quote: FC<QuoteProps> = ({ content, name, role, company, photo, id }) => {
   const { alt, url } =
-    typeof photo !== 'string'
+    typeof photo !== 'number'
       ? { alt: photo.alt, url: `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${photo.filename}` }
-      : { url: photo, alt: name }
+      : { url: String(photo), alt: name } // TODO: check why here is number in url
 
   return (
     <div id={`block-${id}`}>

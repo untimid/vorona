@@ -30,7 +30,7 @@ export interface Config {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: string;
+  id: number;
   title: string;
   publishedAt?: string | null;
   hero: {
@@ -63,7 +63,7 @@ export interface Page {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: string | Page;
+              value: number | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -72,13 +72,13 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
-    media?: string | Media | null;
+    media?: number | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: string | Media | null;
+          slideImage?: number | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -108,7 +108,7 @@ export interface Page {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -147,7 +147,7 @@ export interface Page {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -175,7 +175,7 @@ export interface Page {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: string | Media;
+        media: number | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -204,17 +204,17 @@ export interface Page {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (string | Category)[] | null;
+        categories?: (number | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -222,11 +222,11 @@ export interface Page {
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -255,7 +255,7 @@ export interface Page {
         name: string;
         role: string;
         company?: string | null;
-        photo?: string | Media | null;
+        photo?: number | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -284,7 +284,7 @@ export interface Page {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: string | Media | null;
+          image?: number | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -1000,7 +1000,7 @@ export interface Page {
               [k: string]: unknown;
             }[]
           | null;
-        pricingPrinciples?: {
+        pricing?: {
           videoSrc?: string | null;
           principles?:
             | {
@@ -1331,7 +1331,7 @@ export interface Page {
               }[]
             | null;
         };
-        collaborationPrinciples: {
+        collab: {
           description: {
             [k: string]: unknown;
           }[];
@@ -1644,12 +1644,7 @@ export interface Page {
                     )
                   | null;
                 color?: string | null;
-                services?:
-                  | {
-                      title?: string | null;
-                      id?: string | null;
-                    }[]
-                  | null;
+                jobs?: string | null;
                 id?: string | null;
               }[]
             | null;
@@ -1676,7 +1671,7 @@ export interface Page {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: string | Media;
+          photo: number | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -1715,20 +1710,11 @@ export interface Page {
           | null;
         audienceItems?:
           | {
-              image?: string | Media | null;
+              image?: number | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
               }[];
-              benefitItems?:
-                | {
-                    title?: string | null;
-                    description: {
-                      [k: string]: unknown;
-                    }[];
-                    id?: string | null;
-                  }[]
-                | null;
               id?: string | null;
             }[]
           | null;
@@ -1771,7 +1757,7 @@ export interface Page {
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: string | Media | null;
+    image?: number | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -1782,7 +1768,7 @@ export interface Page {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
+  id: number;
   alt: string;
   caption?:
     | {
@@ -1803,12 +1789,12 @@ export interface Media {
  * via the `definition` "categories".
  */
 export interface Category {
-  id: string;
+  id: number;
   title?: string | null;
-  parent?: (string | null) | Category;
+  parent?: (number | null) | Category;
   breadcrumbs?:
     | {
-        doc?: (string | null) | Category;
+        doc?: (number | null) | Category;
         url?: string | null;
         label?: string | null;
         id?: string | null;
@@ -1822,11 +1808,11 @@ export interface Category {
  * via the `definition` "posts".
  */
 export interface Post {
-  id: string;
+  id: number;
   title: string;
-  categories?: (string | Category)[] | null;
+  categories?: (number | Category)[] | null;
   publishedAt?: string | null;
-  authors?: (string | User)[] | null;
+  authors?: (number | User)[] | null;
   populatedAuthors?:
     | {
         id?: string | null;
@@ -1863,7 +1849,7 @@ export interface Post {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: string | Page;
+              value: number | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -1872,13 +1858,13 @@ export interface Post {
           id?: string | null;
         }[]
       | null;
-    media?: string | Media | null;
+    media?: number | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: string | Media | null;
+          slideImage?: number | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -1908,7 +1894,7 @@ export interface Post {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -1947,7 +1933,7 @@ export interface Post {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -1975,7 +1961,7 @@ export interface Post {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: string | Media;
+        media: number | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -2004,17 +1990,17 @@ export interface Post {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (string | Category)[] | null;
+        categories?: (number | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -2022,11 +2008,11 @@ export interface Post {
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -2055,7 +2041,7 @@ export interface Post {
         name: string;
         role: string;
         company?: string | null;
-        photo?: string | Media | null;
+        photo?: number | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -2084,7 +2070,7 @@ export interface Post {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: string | Media | null;
+          image?: number | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -2800,7 +2786,7 @@ export interface Post {
               [k: string]: unknown;
             }[]
           | null;
-        pricingPrinciples?: {
+        pricing?: {
           videoSrc?: string | null;
           principles?:
             | {
@@ -3131,7 +3117,7 @@ export interface Post {
               }[]
             | null;
         };
-        collaborationPrinciples: {
+        collab: {
           description: {
             [k: string]: unknown;
           }[];
@@ -3444,12 +3430,7 @@ export interface Post {
                     )
                   | null;
                 color?: string | null;
-                services?:
-                  | {
-                      title?: string | null;
-                      id?: string | null;
-                    }[]
-                  | null;
+                jobs?: string | null;
                 id?: string | null;
               }[]
             | null;
@@ -3476,7 +3457,7 @@ export interface Post {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: string | Media;
+          photo: number | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -3515,20 +3496,11 @@ export interface Post {
           | null;
         audienceItems?:
           | {
-              image?: string | Media | null;
+              image?: number | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
               }[];
-              benefitItems?:
-                | {
-                    title?: string | null;
-                    description: {
-                      [k: string]: unknown;
-                    }[];
-                    id?: string | null;
-                  }[]
-                | null;
               id?: string | null;
             }[]
           | null;
@@ -3594,7 +3566,7 @@ export interface Post {
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
-                      value: string | Page;
+                      value: number | Page;
                     } | null;
                     url?: string | null;
                     label: string;
@@ -3633,7 +3605,7 @@ export interface Post {
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
-                      value: string | Page;
+                      value: number | Page;
                     } | null;
                     url?: string | null;
                     label: string;
@@ -3661,7 +3633,7 @@ export interface Post {
             textColorFromDark?: string | null;
             textColorToDark?: string | null;
             position?: ('default' | 'fullscreen') | null;
-            media: string | Media;
+            media: number | Media;
             content?:
               | {
                   [k: string]: unknown;
@@ -3690,17 +3662,17 @@ export interface Post {
             }[];
             populateBy?: ('collection' | 'selection') | null;
             relationTo?: ('posts' | 'projects') | null;
-            categories?: (string | Category)[] | null;
+            categories?: (number | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
                   | {
                       relationTo: 'posts';
-                      value: string | Post;
+                      value: number | Post;
                     }
                   | {
                       relationTo: 'projects';
-                      value: string | Project;
+                      value: number | Project;
                     }
                 )[]
               | null;
@@ -3708,11 +3680,11 @@ export interface Post {
               | (
                   | {
                       relationTo: 'posts';
-                      value: string | Post;
+                      value: number | Post;
                     }
                   | {
                       relationTo: 'projects';
-                      value: string | Project;
+                      value: number | Project;
                     }
                 )[]
               | null;
@@ -3741,7 +3713,7 @@ export interface Post {
             name: string;
             role: string;
             company?: string | null;
-            photo?: string | Media | null;
+            photo?: number | Media | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'quote';
@@ -3770,7 +3742,7 @@ export interface Post {
             shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
             imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
             cardItems: {
-              image?: string | Media | null;
+              image?: number | Media | null;
               icon?:
                 | (
                     | 'AcademicCapIcon'
@@ -4486,7 +4458,7 @@ export interface Post {
                   [k: string]: unknown;
                 }[]
               | null;
-            pricingPrinciples?: {
+            pricing?: {
               videoSrc?: string | null;
               principles?:
                 | {
@@ -4817,7 +4789,7 @@ export interface Post {
                   }[]
                 | null;
             };
-            collaborationPrinciples: {
+            collab: {
               description: {
                 [k: string]: unknown;
               }[];
@@ -5130,12 +5102,7 @@ export interface Post {
                         )
                       | null;
                     color?: string | null;
-                    services?:
-                      | {
-                          title?: string | null;
-                          id?: string | null;
-                        }[]
-                      | null;
+                    jobs?: string | null;
                     id?: string | null;
                   }[]
                 | null;
@@ -5162,7 +5129,7 @@ export interface Post {
               [k: string]: unknown;
             }[];
             persons: {
-              photo: string | Media;
+              photo: number | Media;
               name: string;
               role?: string | null;
               highlightHeader?: string | null;
@@ -5201,20 +5168,11 @@ export interface Post {
               | null;
             audienceItems?:
               | {
-                  image?: string | Media | null;
+                  image?: number | Media | null;
                   title?: string | null;
                   description: {
                     [k: string]: unknown;
                   }[];
-                  benefitItems?:
-                    | {
-                        title?: string | null;
-                        description: {
-                          [k: string]: unknown;
-                        }[];
-                        id?: string | null;
-                      }[]
-                    | null;
                   id?: string | null;
                 }[]
               | null;
@@ -5254,12 +5212,12 @@ export interface Post {
           }
       )[]
     | null;
-  relatedPosts?: (string | Post)[] | null;
+  relatedPosts?: (number | Post)[] | null;
   slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: string | Media | null;
+    image?: number | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -5270,7 +5228,7 @@ export interface Post {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   name?: string | null;
   roles?: ('admin' | 'user')[] | null;
   updatedAt: string;
@@ -5289,9 +5247,9 @@ export interface User {
  * via the `definition` "projects".
  */
 export interface Project {
-  id: string;
+  id: number;
   title: string;
-  categories?: (string | Category)[] | null;
+  categories?: (number | Category)[] | null;
   publishedAt?: string | null;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
@@ -5323,7 +5281,7 @@ export interface Project {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: string | Page;
+              value: number | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -5332,13 +5290,13 @@ export interface Project {
           id?: string | null;
         }[]
       | null;
-    media?: string | Media | null;
+    media?: number | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: string | Media | null;
+          slideImage?: number | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -5368,7 +5326,7 @@ export interface Project {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -5407,7 +5365,7 @@ export interface Project {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -5435,7 +5393,7 @@ export interface Project {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: string | Media;
+        media: number | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -5464,17 +5422,17 @@ export interface Project {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (string | Category)[] | null;
+        categories?: (number | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -5482,11 +5440,11 @@ export interface Project {
           | (
               | {
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: string | Project;
+                  value: number | Project;
                 }
             )[]
           | null;
@@ -5515,7 +5473,7 @@ export interface Project {
         name: string;
         role: string;
         company?: string | null;
-        photo?: string | Media | null;
+        photo?: number | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -5544,7 +5502,7 @@ export interface Project {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: string | Media | null;
+          image?: number | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -6260,7 +6218,7 @@ export interface Project {
               [k: string]: unknown;
             }[]
           | null;
-        pricingPrinciples?: {
+        pricing?: {
           videoSrc?: string | null;
           principles?:
             | {
@@ -6591,7 +6549,7 @@ export interface Project {
               }[]
             | null;
         };
-        collaborationPrinciples: {
+        collab: {
           description: {
             [k: string]: unknown;
           }[];
@@ -6904,12 +6862,7 @@ export interface Project {
                     )
                   | null;
                 color?: string | null;
-                services?:
-                  | {
-                      title?: string | null;
-                      id?: string | null;
-                    }[]
-                  | null;
+                jobs?: string | null;
                 id?: string | null;
               }[]
             | null;
@@ -6936,7 +6889,7 @@ export interface Project {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: string | Media;
+          photo: number | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -6975,20 +6928,11 @@ export interface Project {
           | null;
         audienceItems?:
           | {
-              image?: string | Media | null;
+              image?: number | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
               }[];
-              benefitItems?:
-                | {
-                    title?: string | null;
-                    description: {
-                      [k: string]: unknown;
-                    }[];
-                    id?: string | null;
-                  }[]
-                | null;
               id?: string | null;
             }[]
           | null;
@@ -7027,12 +6971,12 @@ export interface Project {
         blockType: 'services';
       }
   )[];
-  relatedProjects?: (string | Project)[] | null;
+  relatedProjects?: (number | Project)[] | null;
   slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: string | Media | null;
+    image?: number | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -7043,13 +6987,13 @@ export interface Project {
  * via the `definition` "comments".
  */
 export interface Comment {
-  id: string;
-  user?: (string | null) | User;
+  id: number;
+  user?: (number | null) | User;
   populatedUser?: {
     id?: string | null;
     name?: string | null;
   };
-  doc?: (string | null) | Post;
+  doc?: (number | null) | Post;
   comment?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -7060,18 +7004,18 @@ export interface Comment {
  * via the `definition` "redirects".
  */
 export interface Redirect {
-  id: string;
+  id: number;
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
     reference?:
       | ({
           relationTo: 'pages';
-          value: string | Page;
+          value: number | Page;
         } | null)
       | ({
           relationTo: 'posts';
-          value: string | Post;
+          value: number | Post;
         } | null);
     url?: string | null;
   };
@@ -7083,10 +7027,10 @@ export interface Redirect {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -7106,7 +7050,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -7117,9 +7061,9 @@ export interface PayloadMigration {
  * via the `definition` "settings".
  */
 export interface Settings {
-  id: string;
-  postsPage?: (string | null) | Page;
-  projectsPage?: (string | null) | Page;
+  id: number;
+  postsPage?: (number | null) | Page;
+  projectsPage?: (number | null) | Page;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -7128,9 +7072,9 @@ export interface Settings {
  * via the `definition` "header".
  */
 export interface Header {
-  id: string;
-  logoLight?: string | Media | null;
-  logoDark?: string | Media | null;
+  id: number;
+  logoLight?: number | Media | null;
+  logoDark?: number | Media | null;
   navItems?:
     | {
         link: {
@@ -7138,7 +7082,7 @@ export interface Header {
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
-            value: string | Page;
+            value: number | Page;
           } | null;
           url?: string | null;
           label: string;
@@ -7154,9 +7098,9 @@ export interface Header {
  * via the `definition` "footer".
  */
 export interface Footer {
-  id: string;
-  logoLight?: string | Media | null;
-  logoDark?: string | Media | null;
+  id: number;
+  logoLight?: number | Media | null;
+  logoDark?: number | Media | null;
   navItems?:
     | {
         link: {
@@ -7164,7 +7108,7 @@ export interface Footer {
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
-            value: string | Page;
+            value: number | Page;
           } | null;
           url?: string | null;
           label: string;

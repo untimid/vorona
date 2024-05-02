@@ -10,7 +10,7 @@ export type RelatedPostsProps = {
   blockType: 'relatedPosts'
   blockName: string
   introContent?: any
-  docs?: (string | Post | Project)[]
+  docs?: (number | Post | Project)[]
   relationTo: 'posts' | 'projects'
 } & CommonBlockProps
 
@@ -27,7 +27,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = props => {
       <Gutter>
         <div>
           {docs?.map((doc, index) => {
-            if (typeof doc === 'string') return null
+            if (typeof doc === 'number') return null
 
             return (
               <div key={index}>
