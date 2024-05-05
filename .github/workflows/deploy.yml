@@ -18,5 +18,5 @@ jobs:
           script: |
             mkdir test
             cd test
-            git clone git@github.com:untimid/vorona.git
+            git clone ssh://git@github.com:untimid/vorona.git
             echo 'Deployment successful to DO'
