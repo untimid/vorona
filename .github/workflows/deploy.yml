@@ -7,16 +7,35 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node: [ 18.17 ]
     steps:
-      - name: Deploy NodeJS app
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Build for production
+        run: yarn build
+      - name: Prepare the file system
         uses: appleboy/ssh-action@v0.1.2
         with:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
-
           script: |
-            mkdir test
-            cd test
-            git clone git@github.com:untimid/vorona.git
-            echo 'Deployment successful to DO'
+            mkdir -p vorona_site
+            rm -rf vorona_site/build
+            rm -rf vorona_site/dist
+      - name: Copy dist to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "./build, ./dist"
+          target: "~/vorona_site/"
