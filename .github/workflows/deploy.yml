@@ -21,6 +21,16 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Build for production
         run: yarn build
+        env:
+          PORT: ${{ vars.PORT }}
+          DATABASE_URI: ${{ vars.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ vars.PAYLOAD_SECRET }}
+          PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
+          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+          PAYLOAD_PUBLIC_DRAFT_SECRET: ${{ vars.PAYLOAD_PUBLIC_DRAFT_SECRET }}
+          NEXT_PRIVATE_DRAFT_SECRET: ${{ vars.NEXT_PRIVATE_DRAFT_SECRET }}
+          REVALIDATION_KEY: ${{ vars.REVALIDATION_KEY }}
+          NEXT_PRIVATE_REVALIDATION_KEY: ${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }}
       - name: Prepare the file system
         uses: appleboy/ssh-action@v0.1.2
         with:
