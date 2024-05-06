@@ -11,41 +11,36 @@ jobs:
       matrix:
         node: [ 18.17 ]
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Build for production
-        run: yarn build
-        env:
-          PORT: ${{ vars.PORT }}
-          DATABASE_URI: ${{ vars.DATABASE_URI }}
-          PAYLOAD_SECRET: ${{ vars.PAYLOAD_SECRET }}
-          PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
-          NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
-          PAYLOAD_PUBLIC_DRAFT_SECRET: ${{ vars.PAYLOAD_PUBLIC_DRAFT_SECRET }}
-          NEXT_PRIVATE_DRAFT_SECRET: ${{ vars.NEXT_PRIVATE_DRAFT_SECRET }}
-          REVALIDATION_KEY: ${{ vars.REVALIDATION_KEY }}
-          NEXT_PRIVATE_REVALIDATION_KEY: ${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }}
-      - name: Prepare the file system
+      # - uses: actions/checkout@v4 # skip for now until need to setup tests
+      # - name: Setup node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: ${{ matrix.node }}
+      #     cache: 'yarn'
+      # - name: Install dependencies
+      #   run: yarn --frozen-lockfile
+      # - name: Build for production
+      #   run: yarn build
+      #   env:
+      #     PORT: ${{ vars.PORT }}
+      #     DATABASE_URI: ${{ vars.DATABASE_URI }}
+      #     PAYLOAD_SECRET: ${{ vars.PAYLOAD_SECRET }}
+      #     PAYLOAD_PUBLIC_SERVER_URL: ${{ vars.PAYLOAD_PUBLIC_SERVER_URL }}
+      #     NEXT_PUBLIC_SERVER_URL: ${{ vars.NEXT_PUBLIC_SERVER_URL }}
+      #     PAYLOAD_PUBLIC_DRAFT_SECRET: ${{ vars.PAYLOAD_PUBLIC_DRAFT_SECRET }}
+      #     NEXT_PRIVATE_DRAFT_SECRET: ${{ vars.NEXT_PRIVATE_DRAFT_SECRET }}
+      #     REVALIDATION_KEY: ${{ vars.REVALIDATION_KEY }}
+      #     NEXT_PRIVATE_REVALIDATION_KEY: ${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }}
+      - name: Pull fresh version to server and update
         uses: appleboy/ssh-action@v0.1.2
         with:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
           script: |
-            mkdir -p vorona_site
-            rm -rf vorona_site/build
-            rm -rf vorona_site/dist
-      - name: Copy dist to VPS
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "./build, ./dist"
-          target: "~/vorona_site/"
+            cd vorona
+            git pull
+            yarn
+            yarn build
+            yarn pm2:serve
+            pm2 reload
