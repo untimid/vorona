@@ -42,6 +42,4 @@ jobs:
             git pull
             yarn
             yarn build
-            yarn pm2:serve
-            pm2 save
             pm2 reload
