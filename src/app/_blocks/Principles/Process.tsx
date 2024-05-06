@@ -6,7 +6,9 @@ import type { PrinciplesProps } from './'
 import { ProcessPrinciples } from './ProcessPrinciples'
 import { TabWrapper } from './TabWrapper'
 
-export type ProcessProps = PrinciplesProps['processPrinciples']
+export type ProcessProps = PrinciplesProps['processPrinciples'] & {
+  steps?: any
+}
 
 export const Process: FC<ProcessProps> = ({
   steps,
@@ -19,7 +21,9 @@ export const Process: FC<ProcessProps> = ({
     <TabWrapper>
       <div>
         <RichText content={description} />
-        <ProcessPrinciples steps={steps} typingDelay={typingDelay} stepDelay={stepDelay} />
+        {steps && (
+          <ProcessPrinciples steps={steps} typingDelay={typingDelay} stepDelay={stepDelay} />
+        )}
       </div>
       {videoSrc && <YouTubePlayer videoSrc={videoSrc} />}
     </TabWrapper>

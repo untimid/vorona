@@ -43,7 +43,8 @@ export const Principles: FC<PrinciplesProps> = ({
           title={<h3 className="vrn-h3 uppercase">Процесс работы</h3>}
         >
           <Process
-            steps={processPrinciples.steps}
+            // steps={processPrinciples.steps}
+            steps={null}
             description={processPrinciples.description}
             videoSrc={processPrinciples.videoSrc}
           />

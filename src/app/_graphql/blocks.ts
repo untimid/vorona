@@ -215,11 +215,6 @@ export const PRINCIPLES = `
     videoSrc
     stepDelay
     typingDelay
-    steps {
-      title
-      description
-      percentage
-    }
   }
   collab {
     description

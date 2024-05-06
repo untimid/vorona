@@ -2769,14 +2769,6 @@ type Principles_ProcessPrinciples {
   videoSrc: String
   stepDelay: Float
   typingDelay: Float
-  steps: [Principles_ProcessPrinciples_Steps!]
-}
-
-type Principles_ProcessPrinciples_Steps {
-  title: String
-  description(depth: Int): JSON
-  percentage: Float
-  id: String
 }
 
 type Principles_Collab {
