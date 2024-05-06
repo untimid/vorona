@@ -42,4 +42,4 @@ jobs:
             git pull
             yarn
             yarn build
-            pm2 reload
+            pm2 reload all
