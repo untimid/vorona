@@ -1320,16 +1320,6 @@ export interface Page {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
-          steps?:
-            | {
-                title?: string | null;
-                description: {
-                  [k: string]: unknown;
-                }[];
-                percentage?: number | null;
-                id?: string | null;
-              }[]
-            | null;
         };
         collab: {
           description: {
@@ -3106,16 +3096,6 @@ export interface Post {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
-          steps?:
-            | {
-                title?: string | null;
-                description: {
-                  [k: string]: unknown;
-                }[];
-                percentage?: number | null;
-                id?: string | null;
-              }[]
-            | null;
         };
         collab: {
           description: {
@@ -4778,16 +4758,6 @@ export interface Post {
               videoSrc?: string | null;
               stepDelay?: number | null;
               typingDelay?: number | null;
-              steps?:
-                | {
-                    title?: string | null;
-                    description: {
-                      [k: string]: unknown;
-                    }[];
-                    percentage?: number | null;
-                    id?: string | null;
-                  }[]
-                | null;
             };
             collab: {
               description: {
@@ -6538,16 +6508,6 @@ export interface Project {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
-          steps?:
-            | {
-                title?: string | null;
-                description: {
-                  [k: string]: unknown;
-                }[];
-                percentage?: number | null;
-                id?: string | null;
-              }[]
-            | null;
         };
         collab: {
           description: {
