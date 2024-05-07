@@ -11,16 +11,16 @@ jobs:
       matrix:
         node: [ 18.17 ]
     steps:
-      # - uses: actions/checkout@v4 # skip for now until need to setup tests
-      # - name: Setup node
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: ${{ matrix.node }}
-      #     cache: 'yarn'
-      # - name: Install dependencies
-      #   run: yarn --frozen-lockfile
-      # - name: Build for production
-      #   run: yarn build
+      - uses: actions/checkout@v4 # skip for now until need to setup tests
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Build for production
+        run: yarn build:ci
       #   env:
       #     PORT: ${{ vars.PORT }}
       #     DATABASE_URI: ${{ vars.DATABASE_URI }}
@@ -31,15 +31,16 @@ jobs:
       #     NEXT_PRIVATE_DRAFT_SECRET: ${{ vars.NEXT_PRIVATE_DRAFT_SECRET }}
       #     REVALIDATION_KEY: ${{ vars.REVALIDATION_KEY }}
       #     NEXT_PRIVATE_REVALIDATION_KEY: ${{ vars.NEXT_PRIVATE_REVALIDATION_KEY }}
-      - name: Pull fresh version to server and update
-        uses: appleboy/ssh-action@v0.1.2
+      - name: Copy dist to VPS
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
-          script: |
-            cd vorona
-            git pull
-            yarn
-            yarn build
-            pm2 reload all
+          source: ".,!node_modules"
+          # The path is based on the directory where the user logged into the server starts
+          target: "~/vorona"
+      - name: Restart node
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
