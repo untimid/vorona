@@ -11,7 +11,7 @@ import { PageRange } from '../PageRange'
 import { Pagination } from '../Pagination'
 
 type Result = {
-  docs: (Post | Project | number)[]
+  docs: (Post | Project | string)[]
   hasNextPage: boolean
   hasPrevPage: boolean
   nextPage: number

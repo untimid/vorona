@@ -20,7 +20,7 @@ export const Video: React.FC<MediaProps> = props => {
     }
   }, [])
 
-  if (resource && typeof resource !== 'number') {
+  if (resource && typeof resource !== 'string') {
     const { filename } = resource
 
     return (

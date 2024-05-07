@@ -11,7 +11,7 @@ type CMSLinkType = {
   url?: string
   newTab?: boolean
   reference?: {
-    value: number | Page
+    value: string | Page
     relationTo: 'pages'
   }
   label?: string

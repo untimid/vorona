@@ -107,7 +107,7 @@ export const Projects: CollectionConfig = {
       ],
     },
     {
-      name: 'relatedProjects',
+      name: 'relatedPosts',
       type: 'relationship',
       relationTo: 'projects',
       hasMany: true,
