@@ -97,35 +97,35 @@ const collaborationPrincipleFields: Block['fields'] = [
   },
 ]
 
-// const processPrincipleFields: Block['fields'] = [
-//   {
-//     name: 'title',
-//     type: 'text',
-//     label: {
-//       en: 'Principle title',
-//       ru: 'Заголовок принципа',
-//     },
-//     localized: true,
-//   },
-//   richText({
-//     name: 'description',
-//     label: {
-//       en: 'Description',
-//       ru: 'Описание',
-//     },
-//     localized: true,
-//   }),
-//   {
-//     name: 'percentage',
-//     type: 'number',
-//     min: 0,
-//     max: 100,
-//     label: {
-//       en: 'Percentage of success',
-//       ru: 'Прогресс в процентах (будут показаны по возрастанию)',
-//     },
-//   },
-// ]
+const processPrincipleFields: Block['fields'] = [
+  {
+    name: 'title',
+    type: 'text',
+    label: {
+      en: 'Principle title',
+      ru: 'Заголовок принципа',
+    },
+    localized: true,
+  },
+  richText({
+    name: 'description',
+    label: {
+      en: 'Description',
+      ru: 'Описание',
+    },
+    localized: true,
+  }),
+  {
+    name: 'percentage',
+    type: 'number',
+    min: 0,
+    max: 100,
+    label: {
+      en: 'Percentage of success',
+      ru: 'Прогресс в процентах (будут показаны по возрастанию)',
+    },
+  },
+]
 
 export const Principles: Block = {
   slug: 'principles',
@@ -221,15 +221,15 @@ export const Principles: Block = {
             ru: 'Задержка анимации "печать"',
           },
         },
-        // {
-        //   name: 'steps',
-        //   type: 'array',
-        //   label: {
-        //     en: 'Process step',
-        //     ru: 'Этап процесса',
-        //   },
-        //   fields: processPrincipleFields,
-        // },
+        {
+          name: 'steps',
+          type: 'array',
+          label: {
+            en: 'Process step',
+            ru: 'Этап процесса',
+          },
+          fields: processPrincipleFields,
+        },
       ],
     },
     {

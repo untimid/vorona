@@ -27,7 +27,7 @@ export const Image: React.FC<MediaProps> = props => {
   let alt = altFromProps
   let src: StaticImageData | string = srcFromProps || ''
 
-  if (!src && resource && typeof resource !== 'number') {
+  if (!src && resource && typeof resource !== 'string') {
     const {
       width: fullWidth,
       height: fullHeight,

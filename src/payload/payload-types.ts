@@ -30,7 +30,7 @@ export interface Config {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: number;
+  id: string;
   title: string;
   publishedAt?: string | null;
   hero: {
@@ -63,7 +63,7 @@ export interface Page {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: number | Page;
+              value: string | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -72,13 +72,13 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
-    media?: number | Media | null;
+    media?: string | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: number | Media | null;
+          slideImage?: string | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -108,7 +108,7 @@ export interface Page {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -147,7 +147,7 @@ export interface Page {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -175,7 +175,7 @@ export interface Page {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: number | Media;
+        media: string | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -204,17 +204,17 @@ export interface Page {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (number | Category)[] | null;
+        categories?: (string | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -222,11 +222,11 @@ export interface Page {
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -255,7 +255,7 @@ export interface Page {
         name: string;
         role: string;
         company?: string | null;
-        photo?: number | Media | null;
+        photo?: string | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -284,7 +284,7 @@ export interface Page {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: number | Media | null;
+          image?: string | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -1320,6 +1320,16 @@ export interface Page {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
         };
         collab: {
           description: {
@@ -1661,7 +1671,7 @@ export interface Page {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: number | Media;
+          photo: string | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -1700,7 +1710,7 @@ export interface Page {
           | null;
         audienceItems?:
           | {
-              image?: number | Media | null;
+              image?: string | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
@@ -1747,7 +1757,7 @@ export interface Page {
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: number | Media | null;
+    image?: string | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -1758,7 +1768,7 @@ export interface Page {
  * via the `definition` "media".
  */
 export interface Media {
-  id: number;
+  id: string;
   alt: string;
   caption?:
     | {
@@ -1779,12 +1789,12 @@ export interface Media {
  * via the `definition` "categories".
  */
 export interface Category {
-  id: number;
+  id: string;
   title?: string | null;
-  parent?: (number | null) | Category;
+  parent?: (string | null) | Category;
   breadcrumbs?:
     | {
-        doc?: (number | null) | Category;
+        doc?: (string | null) | Category;
         url?: string | null;
         label?: string | null;
         id?: string | null;
@@ -1798,11 +1808,11 @@ export interface Category {
  * via the `definition` "posts".
  */
 export interface Post {
-  id: number;
+  id: string;
   title: string;
-  categories?: (number | Category)[] | null;
+  categories?: (string | Category)[] | null;
   publishedAt?: string | null;
-  authors?: (number | User)[] | null;
+  authors?: (string | User)[] | null;
   populatedAuthors?:
     | {
         id?: string | null;
@@ -1839,7 +1849,7 @@ export interface Post {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: number | Page;
+              value: string | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -1848,13 +1858,13 @@ export interface Post {
           id?: string | null;
         }[]
       | null;
-    media?: number | Media | null;
+    media?: string | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: number | Media | null;
+          slideImage?: string | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -1884,7 +1894,7 @@ export interface Post {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -1923,7 +1933,7 @@ export interface Post {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -1951,7 +1961,7 @@ export interface Post {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: number | Media;
+        media: string | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -1980,17 +1990,17 @@ export interface Post {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (number | Category)[] | null;
+        categories?: (string | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -1998,11 +2008,11 @@ export interface Post {
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -2031,7 +2041,7 @@ export interface Post {
         name: string;
         role: string;
         company?: string | null;
-        photo?: number | Media | null;
+        photo?: string | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -2060,7 +2070,7 @@ export interface Post {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: number | Media | null;
+          image?: string | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -3096,6 +3106,16 @@ export interface Post {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
         };
         collab: {
           description: {
@@ -3437,7 +3457,7 @@ export interface Post {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: number | Media;
+          photo: string | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -3476,7 +3496,7 @@ export interface Post {
           | null;
         audienceItems?:
           | {
-              image?: number | Media | null;
+              image?: string | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
@@ -3546,7 +3566,7 @@ export interface Post {
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
-                      value: number | Page;
+                      value: string | Page;
                     } | null;
                     url?: string | null;
                     label: string;
@@ -3585,7 +3605,7 @@ export interface Post {
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
-                      value: number | Page;
+                      value: string | Page;
                     } | null;
                     url?: string | null;
                     label: string;
@@ -3613,7 +3633,7 @@ export interface Post {
             textColorFromDark?: string | null;
             textColorToDark?: string | null;
             position?: ('default' | 'fullscreen') | null;
-            media: number | Media;
+            media: string | Media;
             content?:
               | {
                   [k: string]: unknown;
@@ -3642,17 +3662,17 @@ export interface Post {
             }[];
             populateBy?: ('collection' | 'selection') | null;
             relationTo?: ('posts' | 'projects') | null;
-            categories?: (number | Category)[] | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
                   | {
                       relationTo: 'posts';
-                      value: number | Post;
+                      value: string | Post;
                     }
                   | {
                       relationTo: 'projects';
-                      value: number | Project;
+                      value: string | Project;
                     }
                 )[]
               | null;
@@ -3660,11 +3680,11 @@ export interface Post {
               | (
                   | {
                       relationTo: 'posts';
-                      value: number | Post;
+                      value: string | Post;
                     }
                   | {
                       relationTo: 'projects';
-                      value: number | Project;
+                      value: string | Project;
                     }
                 )[]
               | null;
@@ -3693,7 +3713,7 @@ export interface Post {
             name: string;
             role: string;
             company?: string | null;
-            photo?: number | Media | null;
+            photo?: string | Media | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'quote';
@@ -3722,7 +3742,7 @@ export interface Post {
             shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
             imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
             cardItems: {
-              image?: number | Media | null;
+              image?: string | Media | null;
               icon?:
                 | (
                     | 'AcademicCapIcon'
@@ -4758,6 +4778,16 @@ export interface Post {
               videoSrc?: string | null;
               stepDelay?: number | null;
               typingDelay?: number | null;
+              steps?:
+                | {
+                    title?: string | null;
+                    description: {
+                      [k: string]: unknown;
+                    }[];
+                    percentage?: number | null;
+                    id?: string | null;
+                  }[]
+                | null;
             };
             collab: {
               description: {
@@ -5099,7 +5129,7 @@ export interface Post {
               [k: string]: unknown;
             }[];
             persons: {
-              photo: number | Media;
+              photo: string | Media;
               name: string;
               role?: string | null;
               highlightHeader?: string | null;
@@ -5138,7 +5168,7 @@ export interface Post {
               | null;
             audienceItems?:
               | {
-                  image?: number | Media | null;
+                  image?: string | Media | null;
                   title?: string | null;
                   description: {
                     [k: string]: unknown;
@@ -5182,12 +5212,12 @@ export interface Post {
           }
       )[]
     | null;
-  relatedPosts?: (number | Post)[] | null;
+  relatedPosts?: (string | Post)[] | null;
   slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: number | Media | null;
+    image?: string | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -5198,7 +5228,7 @@ export interface Post {
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
   name?: string | null;
   roles?: ('admin' | 'user')[] | null;
   updatedAt: string;
@@ -5217,9 +5247,9 @@ export interface User {
  * via the `definition` "projects".
  */
 export interface Project {
-  id: number;
+  id: string;
   title: string;
-  categories?: (number | Category)[] | null;
+  categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'slider';
@@ -5251,7 +5281,7 @@ export interface Project {
             newTab?: boolean | null;
             reference?: {
               relationTo: 'pages';
-              value: number | Page;
+              value: string | Page;
             } | null;
             url?: string | null;
             label: string;
@@ -5260,13 +5290,13 @@ export interface Project {
           id?: string | null;
         }[]
       | null;
-    media?: number | Media | null;
+    media?: string | Media | null;
     slider?:
       | {
           slideContent: {
             [k: string]: unknown;
           }[];
-          slideImage?: number | Media | null;
+          slideImage?: string | Media | null;
           id?: string | null;
         }[]
       | null;
@@ -5296,7 +5326,7 @@ export interface Project {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -5335,7 +5365,7 @@ export interface Project {
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
-                  value: number | Page;
+                  value: string | Page;
                 } | null;
                 url?: string | null;
                 label: string;
@@ -5363,7 +5393,7 @@ export interface Project {
         textColorFromDark?: string | null;
         textColorToDark?: string | null;
         position?: ('default' | 'fullscreen') | null;
-        media: number | Media;
+        media: string | Media;
         content?:
           | {
               [k: string]: unknown;
@@ -5392,17 +5422,17 @@ export interface Project {
         }[];
         populateBy?: ('collection' | 'selection') | null;
         relationTo?: ('posts' | 'projects') | null;
-        categories?: (number | Category)[] | null;
+        categories?: (string | Category)[] | null;
         limit?: number | null;
         selectedDocs?:
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -5410,11 +5440,11 @@ export interface Project {
           | (
               | {
                   relationTo: 'posts';
-                  value: number | Post;
+                  value: string | Post;
                 }
               | {
                   relationTo: 'projects';
-                  value: number | Project;
+                  value: string | Project;
                 }
             )[]
           | null;
@@ -5443,7 +5473,7 @@ export interface Project {
         name: string;
         role: string;
         company?: string | null;
-        photo?: number | Media | null;
+        photo?: string | Media | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'quote';
@@ -5472,7 +5502,7 @@ export interface Project {
         shadow?: ('none' | 'sm' | 'md' | 'lg') | null;
         imageHeight?: ('h-40' | 'h-60' | 'h-80') | null;
         cardItems: {
-          image?: number | Media | null;
+          image?: string | Media | null;
           icon?:
             | (
                 | 'AcademicCapIcon'
@@ -6508,6 +6538,16 @@ export interface Project {
           videoSrc?: string | null;
           stepDelay?: number | null;
           typingDelay?: number | null;
+          steps?:
+            | {
+                title?: string | null;
+                description: {
+                  [k: string]: unknown;
+                }[];
+                percentage?: number | null;
+                id?: string | null;
+              }[]
+            | null;
         };
         collab: {
           description: {
@@ -6849,7 +6889,7 @@ export interface Project {
           [k: string]: unknown;
         }[];
         persons: {
-          photo: number | Media;
+          photo: string | Media;
           name: string;
           role?: string | null;
           highlightHeader?: string | null;
@@ -6888,7 +6928,7 @@ export interface Project {
           | null;
         audienceItems?:
           | {
-              image?: number | Media | null;
+              image?: string | Media | null;
               title?: string | null;
               description: {
                 [k: string]: unknown;
@@ -6931,12 +6971,12 @@ export interface Project {
         blockType: 'services';
       }
   )[];
-  relatedProjects?: (number | Project)[] | null;
+  relatedPosts?: (string | Project)[] | null;
   slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: number | Media | null;
+    image?: string | Media | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -6947,13 +6987,13 @@ export interface Project {
  * via the `definition` "comments".
  */
 export interface Comment {
-  id: number;
-  user?: (number | null) | User;
+  id: string;
+  user?: (string | null) | User;
   populatedUser?: {
     id?: string | null;
     name?: string | null;
   };
-  doc?: (number | null) | Post;
+  doc?: (string | null) | Post;
   comment?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -6964,18 +7004,18 @@ export interface Comment {
  * via the `definition` "redirects".
  */
 export interface Redirect {
-  id: number;
+  id: string;
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
     reference?:
       | ({
           relationTo: 'pages';
-          value: number | Page;
+          value: string | Page;
         } | null)
       | ({
           relationTo: 'posts';
-          value: number | Post;
+          value: string | Post;
         } | null);
     url?: string | null;
   };
@@ -6987,10 +7027,10 @@ export interface Redirect {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -7010,7 +7050,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -7021,9 +7061,9 @@ export interface PayloadMigration {
  * via the `definition` "settings".
  */
 export interface Settings {
-  id: number;
-  postsPage?: (number | null) | Page;
-  projectsPage?: (number | null) | Page;
+  id: string;
+  postsPage?: (string | null) | Page;
+  projectsPage?: (string | null) | Page;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -7032,9 +7072,9 @@ export interface Settings {
  * via the `definition` "header".
  */
 export interface Header {
-  id: number;
-  logoLight?: number | Media | null;
-  logoDark?: number | Media | null;
+  id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {
@@ -7042,7 +7082,7 @@ export interface Header {
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
-            value: number | Page;
+            value: string | Page;
           } | null;
           url?: string | null;
           label: string;
@@ -7058,9 +7098,9 @@ export interface Header {
  * via the `definition` "footer".
  */
 export interface Footer {
-  id: number;
-  logoLight?: number | Media | null;
-  logoDark?: number | Media | null;
+  id: string;
+  logoLight?: string | Media | null;
+  logoDark?: string | Media | null;
   navItems?:
     | {
         link: {
@@ -7068,7 +7108,7 @@ export interface Footer {
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
-            value: number | Page;
+            value: string | Page;
           } | null;
           url?: string | null;
           label: string;

@@ -33,7 +33,7 @@ export default async function Project({ params: { slug } }) {
     notFound()
   }
 
-  const { title, layout, relatedProjects, hero } = project
+  const { title, layout, relatedPosts, hero } = project
 
   return (
     <React.Fragment>
@@ -43,6 +43,7 @@ export default async function Project({ params: { slug } }) {
           ...layout,
           {
             blockType: 'relatedPosts',
+            id: 'related',
             blockName: 'Related Projects',
             relationTo: 'projects',
             introContent: [
@@ -75,7 +76,7 @@ export default async function Project({ params: { slug } }) {
                 ],
               },
             ],
-            docs: relatedProjects,
+            docs: relatedPosts,
           },
         ]}
       />

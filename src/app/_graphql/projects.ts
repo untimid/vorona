@@ -53,7 +53,7 @@ export const PROJECT = `
           ${CONTACT_FORM}
           ${AUDIENCE}
         }
-        relatedProjects {
+        relatedPosts {
           id
           slug
           title
