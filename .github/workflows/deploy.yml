@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Build for production
-        run: yarn build:ci
+        run: yarn build
       #   env:
       #     PORT: ${{ vars.PORT }}
       #     DATABASE_URI: ${{ vars.DATABASE_URI }}
